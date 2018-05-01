@@ -1,0 +1,40 @@
+/*
+Theme Name: Divi Child
+Theme URI: http://www.elegantthemes.com/gallery/divi/
+Template: Divi
+Author: Elegant Themes
+Author URI: http://www.elegantthemes.com
+Description: Smart. Flexible. Beautiful. Divi is the most powerful theme in our collection.
+Tags: responsive-layout,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar,custom-background,custom-colors,featured-images,full-width-template,post-formats,rtl-language-support,theme-options,threaded-comments,translation-ready
+Version: 3.0.101.1518546696
+Updated: 2018-02-13 18:31:36
+
+*/
+
+.container, .et_pb_row, .et_pb_slider .et_pb_container, .et_pb_fullwidth_section .et_pb_title_container, .et_pb_fullwidth_section .et_pb_title_featured_container, .et_pb_fullwidth_header:not(.et_pb_fullscreen) .et_pb_fullwidth_header_container{
+	max-width: 1170px !important;
+}
+#list-of-certification{
+	max-width: 920px;
+	margin: 25px auto;
+	-webkit-column-count: 2 !important;
+    -moz-column-count: 2 !important;
+    column-count: 2 !important;
+}
+	#list-of-certification li{
+		display: block;
+	}
+
+.plus-price{
+	font-size: 45px;
+    margin-top: -15px;
+}
+
+.home-testimonials .et_pb_testimonial:before{
+	top: 35% !important;
+	left: 0% !important;
+}
+
+.home-testimonials .et_pb_testimonial_description_inner{
+	padding: 0px 50px !important;
+}

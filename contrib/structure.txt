@@ -1,0 +1,123 @@
+MAIN TABLES
+
+	Workout_Param_tbl
+
+		- Workout_Param_ID
+		- Workout_Param_Date
+		- Workout_Param_workout_ID
+		- Workout_Param_day_ID
+		- Workout_Param_Trainer_ID
+		- Workout_Param_Gym_ID
+		- Workout_Param_Client_ID
+		- Workout_Param_body_part
+		- Workout_Param_type
+		- Workout_Param_exercise
+		- Workout_Param_Sq
+		- Workout_Param_sets
+		- Workout_Param_reps
+		- Workout_Param_tempo
+		- Workout_Param_rest
+		- Workout_Param_impl
+
+
+	Workout_tbl
+
+		- workout_ID
+		- workout_Name
+		- workout_Description
+		- workout_Gym_ID
+		- workout_Trainer_ID
+		- workout_Client_ID
+		- workout_date
+		- workout_time
+
+
+	Exercise_tbl
+
+		- exer_ID
+		- exer_workout_ID
+		- exer_Client_ID
+		- exer_date
+		- exer_Name
+		- exer_video_url
+		- exer_body_part
+		- exer_cat
+		- exer_description
+
+
+
+	client_tbl
+
+		- client_Id
+		- client_Trainer_ID
+		- client_Gym_ID
+		- client_status
+		- client_Name
+		- client_purpose
+		- client_goal
+
+	notes_category_tbl
+
+		-notes_category_ID
+		-notes_category_name
+		-notes_category_desciption
+
+
+	notes_tbl
+
+		-notes_ID
+		-notes_Client_ID
+		-notes_description
+		-notes_notes_category_ID
+		-notes_assigned_to_workout_ID
+		-notes_Trainer_ID
+
+
+	logs_tbl
+
+		-logs_ID
+		-logs_activity
+		-logs_user_ID
+		-logs_date
+		-logs_time
+
+
+	current_goal_tbl
+
+		- goal_ID
+		- goal_user_ID
+		- goal_assign_by_trainer_ID
+		- goal_weight
+		- goal_body_fat
+		- goal_waist
+		- goal_chest
+		- goal_arms
+		- goal_forearms
+		- goal_shoulders
+		- goal_hips
+		- goal_thighs
+		- goal_calves
+		- goal_neck
+		- goal_height
+
+
+
+	goal_target_tbl
+
+		- goal_ID
+		- goal_user_ID
+		- goal_assign_by_trainer_ID
+		- goal_weight
+		- goal_body_fat
+		- goal_waist
+		- goal_chest
+		- goal_arms
+		- goal_forearms
+		- goal_shoulders
+		- goal_hips
+		- goal_thighs
+		- goal_calves
+		- goal_neck
+		- goal_height
+
+
