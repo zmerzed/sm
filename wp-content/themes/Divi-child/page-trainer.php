@@ -17,7 +17,6 @@ if( is_user_logged_in() ){
 	require_once( get_stylesheet_directory() . '/accounts/inc/header-account.php' );
 ?>
 
-
 <div class="title-welcome-section">
 	<div class="container">
 		<div class="row">

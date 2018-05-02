@@ -1,44 +1,58 @@
 MAIN TABLES
 
-	Workout_Param_tbl
+	workout_param_tbl
 
-		- Workout_Param_ID
-		- Workout_Param_Date
-		- Workout_Param_workout_ID
-		- Workout_Param_day_ID
-		- Workout_Param_Trainer_ID
-		- Workout_Param_Gym_ID
-		- Workout_Param_Client_ID
-		- Workout_Param_body_part
-		- Workout_Param_type
-		- Workout_Param_exercise
-		- Workout_Param_Sq
-		- Workout_Param_sets
-		- Workout_Param_reps
-		- Workout_Param_tempo
-		- Workout_Param_rest
-		- Workout_Param_impl
+		- workout_param_ID
+		- workout_param_date
+		- workout_param_workout_ID
+		- workout_param_day_ID
+		- workout_param_trainer_ID
+		- workout_param_gym_ID
+		- workout_param_client_ID
+		- workout_param_body_part
+		- workout_param_type
+		- workout_param_exercise
+		- workout_param_Sq
+		- workout_param_sets
+		- workout_param_reps
+		- workout_param_tempo
+		- workout_param_rest
+		- workout_param_impl
 
 
-	Workout_tbl
+	workout_tbl
 
 		- workout_ID
-		- workout_Name
-		- workout_Description
-		- workout_Gym_ID
-		- workout_Trainer_ID
-		- workout_Client_ID
+		- workout_dame
+		- workout_description
+		- workout_gym_ID
+		- workout_trainer_ID
+		                                    - workout_Client_ID
 		- workout_date
 		- workout_time
 
 
-	Exercise_tbl
+    workout_days_tbl
+        - wday_ID
+        - wday_workout_id
+        - wday_name
+
+
+    workout_day_clients_tbl
+
+        - wday_ID
+        - wday_day_ID
+        - wday_client_ID
+
+
+	workout_exercises_tbl
 
 		- exer_ID
+		- exer_day_ID
 		- exer_workout_ID
-		- exer_Client_ID
+		- exer_client_ID
 		- exer_date
-		- exer_Name
+		- exer_name
 		- exer_video_url
 		- exer_body_part
 		- exer_cat

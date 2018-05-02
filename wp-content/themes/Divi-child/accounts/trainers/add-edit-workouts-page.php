@@ -1,546 +1,475 @@
-<div class="main-content padding20 matchHeight">
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script>
+	var clients = <?php echo json_encode(workOutGetClients()) ?>;
+	console.log(clients);
+	var app = angular.module('app', []);
+
+	app.controller('Controller', function($scope) {
+
+		$scope.clients = clients;
+		$scope.workout = {
+			days: [{order:1, exercises:[{}]}],
+			clients:[]
+		};
+
+		init();
+
+		function init()
+		{
+
+		}
+
+		$scope.newWorkOutDay = function ()
+		{
+			var count = $scope.workout.days.length + 1;
+			$scope.workout.days.push({order:count, exercises:[{}]});
+		};
+
+		$scope.newExercise = function() {
+			$scope.workout.selectedDay.exercises.push({})
+		};
+
+		$scope.selectDay = function(day)
+		{
+			console.log(day);
+			$scope.workout.selectedDay = day;
+		};
+
+		$scope.selectClient = function(client) {
+			$scope.workout.selectedClient = client;
+		};
+
+		$scope.$watch('selectedClient', function(val)
+		{
+			var found = false;
+			for(var i in $scope.clients)
+			{
+				var client = $scope.clients[i];
+
+				if(client.ID == val)
+				{
+					for(var x in $scope.workout.clients)
+					{
+						var xClient = $scope.workout.clients[x];
+
+						if(xClient.ID == val)
+						{
+							found = true;
+						}
+					}
+
+					if(!found) {
+						$scope.workout.clients.push(client);
+					}
+
+					break;
+				}
+			}
+			console.log(val);
+		})
+	});
+</script>
+
+<div class="main-content padding20 matchHeight" ng-app="app" ng-controller="Controller" ng-cloak>
 
 	<div class="container trainer-header-section">
 		<div class="row">
 			<div class="col-lg-6 col-md-6">
 				<span class="workout-day-name">
 					<label>Workout Name: </label>
-					<input type="text" value="Workout Name #1">
+					<input type="text" ng-model="workout.name">
 				</span>
 			</div>
 			<div class="col-lg-6 col-md-6">
 				<div class="btn-add-workout">
-					<button>+ new workout day</button>
+					<button ng-click="newWorkOutDay()">+ new workout day</button>
 				</div>
 			</div>
 		</div>
 	</div>
 
 	<nav>
-	  <div class="nav nav-tabs" id="message-nav-tab" role="tablist">
-	    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#workout-1" role="tab" aria-controls="nav-home" aria-selected="true">Day 1 - Name #1</a>
-	    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#workout-2" role="tab" aria-controls="nav-profile" aria-selected="false">Day 2 - Name #2</a>
-	  </div>
+		<div class="nav nav-tabs" id="message-nav-tab" role="tablist">
+			<a class="nav-item nav-link"
+			   id="nav-home-tab"
+			   data-toggle="tab"
+			   href="#workout-1"
+			   role="tab"
+			   aria-controls="nav-home"
+			   aria-selected="true"
+			   ng-repeat="day in workout.days"
+			   ng-click="selectDay(day)"
+			>Day {{day.order}} - {{day.name}}</a>
+		</div>
 	</nav>
-	<div class="tab-content" id="nav-tabContent">
-	  <div class="tab-pane fade show active" id="workout-1" role="tabpanel" aria-labelledby="nav-home-tab">
-	  	<div class="workout-tab-pane-wrapper">
+	<div class="tab-content" id="nav-tabContent" ng-if="workout.selectedDay">
+		<div class="tab-pane fade show active" id="workout-1" role="tabpanel" aria-labelledby="nav-home-tab">
+			<div class="workout-tab-pane-wrapper">
 
-	  		<div class="container">
-	  			<div class="row">
-	  				<div class="col-lg-6 col-md-6">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-6 col-md-6">
+	  					<span class="workout-day-name">
+	  						<label>Day Name: </label>
+	  						<input type="text" ng-model="workout.selectedDay.name">
+	  					</span>
+						</div>
+						<div class="col-lg-6 col-md-6">
+							<ul class="workout-btn-actions">
+								<li><a href="#">Duplicate</a></li>
+								<li><a href="#">Delete</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<ul class="workout-exercise-lists">
+					<li class="workout-exercise-item" ng-repeat="exercise in workout.selectedDay.exercises track by $index">
+						<table class="workout-exercise-options">
+							<td><span class="exercise-number"><label>{{$index + 1}}</label></span></td>
+							<td>
+								<select>
+									<option>Body Part</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>Type</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>Exercise 1</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>SQ</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>Sets</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>Reps</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>Tempo</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>Rest</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>IMPL 1</option>
+								</select>
+							</td>
+							<td>
+	  						<span class="exercise-btn-action"><a href="#">Duplicate</a><span>
+							</td>
+							<td>
+	  						<span class="exercise-btn-action"><a href="#">Delete</a><span>
+							</td>
+						</table>
+					</li>
+				</ul>
+				<div class="col-lg-12">
+					<div class="row">
+						<div class="workout-btn-wrapper">
+							<a href="#" class="add-workout-btn" ng-click="newExercise()">+ Add Exercise</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="tab-pane fade" id="workout-2" role="tabpanel" aria-labelledby="nav-profile-tab">
+			<div class="workout-tab-pane-wrapper">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-6 col-md-6">
 	  					<span class="workout-day-name">
 	  						<label>Day Name: </label>
 	  						<input type="text" value="Name #1">
 	  					</span>
-	  				</div>
-	  				<div class="col-lg-6 col-md-6">
-	  					<ul class="workout-btn-actions">
-	  						<li><a href="#">Duplicate</a></li>
-	  						<li><a href="#">Delete</a></li>
-	  					</ul>
-	  				</div>
-	  			</div>
-	  		</div>
+						</div>
+						<div class="col-lg-6 col-md-6">
+							<ul class="workout-btn-actions">
+								<li><a href="#">Duplicate</a></li>
+								<li><a href="#">Delete</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
 
-	  		<ul class="workout-exercise-lists">
-	  			<li class="workout-exercise-item">
-	  				<table class="workout-exercise-options">
-	  					<td><span class="exercise-number"><label>1</label></span></td>
-	  					<td>
-	  						<select>
-	  							<option>Body Part</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Type</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Exercise 1</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>SQ</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Sets</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Reps</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Tempo</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Rest</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>IMPL 1</option>
-	  						</select>
-	  					</td>
-	  					<td>
+				<ul class="workout-exercise-lists">
+					<li class="workout-exercise-item">
+						<table class="workout-exercise-options">
+							<td><span class="exercise-number"><label>1</label></span></td>
+							<td>
+								<select>
+									<option>Body Part</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>Type</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>Exercise 1</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>SQ</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>Sets</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>Reps</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>Tempo</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>Rest</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>IMPL 1</option>
+								</select>
+							</td>
+							<td>
 	  						<span class="exercise-btn-action"><a href="#">Duplicate</a><span>
-	  					</td>
-	  					<td>
+							</td>
+							<td>
 	  						<span class="exercise-btn-action"><a href="#">Delete</a><span>
-	  					</td>
-	  				</table>
-	  			</li>
-	  			<li class="workout-exercise-item">
-	  				<table class="workout-exercise-options">
-	  					<td><span class="exercise-number"><label>2</label></span></td>
-	  					<td>
-	  						<select>
-	  							<option>Body Part</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Type</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Exercise 2</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>SQ</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Sets</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Reps</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Tempo</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Rest</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>IMPL 1</option>
-	  						</select>
-	  					</td>
-	  					<td>
+							</td>
+						</table>
+					</li>
+					<li class="workout-exercise-item">
+						<table class="workout-exercise-options">
+							<td><span class="exercise-number"><label>2</label></span></td>
+							<td>
+								<select>
+									<option>Body Part</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>Type</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>Exercise 2</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>SQ</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>Sets</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>Reps</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>Tempo</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>Rest</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>IMPL 1</option>
+								</select>
+							</td>
+							<td>
 	  						<span class="exercise-btn-action"><a href="#">Duplicate</a><span>
-	  					</td>
-	  					<td>
+							</td>
+							<td>
 	  						<span class="exercise-btn-action"><a href="#">Delete</a><span>
-	  					</td>
-	  				</table>
-	  			</li>
-	  			<li class="workout-exercise-item">
-	  				<table class="workout-exercise-options">
-	  					<td><span class="exercise-number"><label>3</label></span></td>
-	  					<td>
-	  						<select>
-	  							<option>Body Part</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Type</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Exercise 3</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>SQ</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Sets</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Reps</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Tempo</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Rest</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>IMPL 1</option>
-	  						</select>
-	  					</td>
-	  					<td>
+							</td>
+						</table>
+					</li>
+					<li class="workout-exercise-item">
+						<table class="workout-exercise-options">
+							<td><span class="exercise-number"><label>3</label></span></td>
+							<td>
+								<select>
+									<option>Body Part</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>Type</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>Exercise 3</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>SQ</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>Sets</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>Reps</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>Tempo</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>Rest</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>IMPL 1</option>
+								</select>
+							</td>
+							<td>
 	  						<span class="exercise-btn-action"><a href="#">Duplicate</a><span>
-	  					</td>
-	  					<td>
+							</td>
+							<td>
 	  						<span class="exercise-btn-action"><a href="#">Delete</a><span>
-	  					</td>
-	  				</table>
-	  			</li>
-	  			<li class="workout-exercise-item">
-	  				<table class="workout-exercise-options">
-	  					<td><span class="exercise-number"><label>4</label></span></td>
-	  					<td>
-	  						<select>
-	  							<option>Body Part</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Type</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Exercise 4</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>SQ</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Sets</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Reps</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Tempo</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Rest</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>IMPL 1</option>
-	  						</select>
-	  					</td>
-	  					<td>
+							</td>
+						</table>
+					</li>
+					<li class="workout-exercise-item">
+						<table class="workout-exercise-options">
+							<td><span class="exercise-number"><label>4</label></span></td>
+							<td>
+								<select>
+									<option>Body Part</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>Type</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>Exercise 4</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>SQ</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>Sets</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>Reps</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>Tempo</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>Rest</option>
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>IMPL 1</option>
+								</select>
+							</td>
+							<td>
 	  						<span class="exercise-btn-action"><a href="#">Duplicate</a><span>
-	  					</td>
-	  					<td>
+							</td>
+							<td>
 	  						<span class="exercise-btn-action"><a href="#">Delete</a><span>
-	  					</td>
-	  				</table>
-	  			</li>
-	  		</ul>
-	  	</div>
-	  </div>
-	  <div class="tab-pane fade" id="workout-2" role="tabpanel" aria-labelledby="nav-profile-tab">
-	  	<div class="workout-tab-pane-wrapper">
-	  		<div class="container">
-	  			<div class="row">
-	  				<div class="col-lg-6 col-md-6">
-	  					<span class="workout-day-name">
-	  						<label>Day Name: </label>
-	  						<input type="text" value="Name #1">
-	  					</span>
-	  				</div>
-	  				<div class="col-lg-6 col-md-6">
-	  					<ul class="workout-btn-actions">
-	  						<li><a href="#">Duplicate</a></li>
-	  						<li><a href="#">Delete</a></li>
-	  					</ul>
-	  				</div>
-	  			</div>
-	  		</div>
+							</td>
+						</table>
+					</li>
+				</ul>
 
-	  		<ul class="workout-exercise-lists">
-	  			<li class="workout-exercise-item">
-	  				<table class="workout-exercise-options">
-	  					<td><span class="exercise-number"><label>1</label></span></td>
-	  					<td>
-	  						<select>
-	  							<option>Body Part</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Type</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Exercise 1</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>SQ</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Sets</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Reps</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Tempo</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Rest</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>IMPL 1</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<span class="exercise-btn-action"><a href="#">Duplicate</a><span>
-	  					</td>
-	  					<td>
-	  						<span class="exercise-btn-action"><a href="#">Delete</a><span>
-	  					</td>
-	  				</table>
-	  			</li>
-	  			<li class="workout-exercise-item">
-	  				<table class="workout-exercise-options">
-	  					<td><span class="exercise-number"><label>2</label></span></td>
-	  					<td>
-	  						<select>
-	  							<option>Body Part</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Type</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Exercise 2</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>SQ</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Sets</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Reps</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Tempo</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Rest</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>IMPL 1</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<span class="exercise-btn-action"><a href="#">Duplicate</a><span>
-	  					</td>
-	  					<td>
-	  						<span class="exercise-btn-action"><a href="#">Delete</a><span>
-	  					</td>
-	  				</table>
-	  			</li>
-	  			<li class="workout-exercise-item">
-	  				<table class="workout-exercise-options">
-	  					<td><span class="exercise-number"><label>3</label></span></td>
-	  					<td>
-	  						<select>
-	  							<option>Body Part</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Type</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Exercise 3</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>SQ</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Sets</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Reps</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Tempo</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Rest</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>IMPL 1</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<span class="exercise-btn-action"><a href="#">Duplicate</a><span>
-	  					</td>
-	  					<td>
-	  						<span class="exercise-btn-action"><a href="#">Delete</a><span>
-	  					</td>
-	  				</table>
-	  			</li>
-	  			<li class="workout-exercise-item">
-	  				<table class="workout-exercise-options">
-	  					<td><span class="exercise-number"><label>4</label></span></td>
-	  					<td>
-	  						<select>
-	  							<option>Body Part</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Type</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Exercise 4</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>SQ</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Sets</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Reps</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Tempo</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>Rest</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<select>
-	  							<option>IMPL 1</option>
-	  						</select>
-	  					</td>
-	  					<td>
-	  						<span class="exercise-btn-action"><a href="#">Duplicate</a><span>
-	  					</td>
-	  					<td>
-	  						<span class="exercise-btn-action"><a href="#">Delete</a><span>
-	  					</td>
-	  				</table>
-	  			</li>
-	  		</ul>
-	  	</div>
-	  </div>
+				<div class="col-lg-12">
+					<div class="row">
+						<div class="workout-btn-wrapper">
+							<a href="#" class="add-workout-btn">+ Add Exercise</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
 	</div>
 
-
-	<div class="container">
+	<div class="container assign-client-to-workout">
 		<div class="row">
 			<div class="col-lg-12 col-md-12">
+				<h3>Assign Clients to Workout</h3>
 				<div class="d-flex flex-row mt-2">
 
 					<div class="col-lg-2 col-md-2">
 						<ul class="nav nav-tabs nav-tabs--vertical nav-tabs--left assign-clients-workout" role="navigation">
-							<li class="nav-item">
-								<a href="#lorem" class="nav-link active" data-toggle="tab" role="tab" aria-controls="lorem">Client 1</a>
-							</li>
-							<li class="nav-item">
-								<a href="#ipsum" class="nav-link" data-toggle="tab" role="tab" aria-controls="ipsum">Client 2</a>
-							</li>
-							<li class="nav-item">
-								<a href="#dolor" class="nav-link" data-toggle="tab" role="tab" aria-controls="dolor">Client 3</a>
+							<li class="nav-item" ng-repeat="client in workout.clients">
+								<a href="#lorem" class="nav-link" data-toggle="tab" role="tab" ng-click="selectClient(client)">{{ client.user_nicename }}</a>
 							</li>
 						</ul>
+						<div class="browse-client-workout">
+							<select ng-model="selectedClient">
+								<option disabled selected>Add Client</option>
+								<option ng-repeat="client in clients" ng-value="client.ID">{{ client.user_nicename}} </option>
+							</select>
+						</div>
 					</div>
 
-					<div class="col-lg-10 col-md-10">
+					<div class="col-lg-10 col-md-10" ng-if="workout.selectedClient">
 
 						<div class="tab-content">
 							<div class="tab-pane fade show active" id="lorem" role="tabpanel">
@@ -549,67 +478,67 @@
 										<div class="col-lg-4 col-md-4 assign-workout">
 											<p>Client Focus: <span>Fat Loss</span></p>
 											<ul class="workout-exercise-lists">
-									  			<li class="workout-exercise-item">
-									  				<table class="workout-exercise-options">
-									  					<td><span class="exercise-number"><label>1</label></span></td>
-									  					<td>
-									  						<select>
-									  							<option>Body Part</option>
-									  						</select>
-									  					</td>
-									  					<td>
-									  						<select>
-									  							<option>IMPL 1</option>
-									  						</select>
-									  					</td>
-									  				</table>
-									  			</li>
-									  			<li class="workout-exercise-item">
-									  				<table class="workout-exercise-options">
-									  					<td><span class="exercise-number"><label>2</label></span></td>
-									  					<td>
-									  						<select>
-									  							<option>Body Part</option>
-									  						</select>
-									  					</td>
-									  					<td>
-									  						<select>
-									  							<option>IMPL 1</option>
-									  						</select>
-									  					</td>
-									  				</table>
-									  			</li>
-									  			<li class="workout-exercise-item">
-									  				<table class="workout-exercise-options">
-									  					<td><span class="exercise-number"><label>3</label></span></td>
-									  					<td>
-									  						<select>
-									  							<option>Body Part</option>
-									  						</select>
-									  					</td>
-									  					<td>
-									  						<select>
-									  							<option>IMPL 1</option>
-									  						</select>
-									  					</td>
-									  				</table>
-									  			</li>
-									  			<li class="workout-exercise-item">
-									  				<table class="workout-exercise-options">
-									  					<td><span class="exercise-number"><label>4</label></span></td>
-									  					<td>
-									  						<select>
-									  							<option>Body Part</option>
-									  						</select>
-									  					</td>
-									  					<td>
-									  						<select>
-									  							<option>IMPL 1</option>
-									  						</select>
-									  					</td>
-									  				</table>
-									  			</li>
-									  		</ul>
+												<li class="workout-exercise-item">
+													<table class="workout-exercise-options">
+														<td><span class="exercise-number"><label>1</label></span></td>
+														<td>
+															<select>
+																<option>Body Part</option>
+															</select>
+														</td>
+														<td>
+															<select>
+																<option>IMPL 1</option>
+															</select>
+														</td>
+													</table>
+												</li>
+												<li class="workout-exercise-item">
+													<table class="workout-exercise-options">
+														<td><span class="exercise-number"><label>2</label></span></td>
+														<td>
+															<select>
+																<option>Body Part</option>
+															</select>
+														</td>
+														<td>
+															<select>
+																<option>IMPL 1</option>
+															</select>
+														</td>
+													</table>
+												</li>
+												<li class="workout-exercise-item">
+													<table class="workout-exercise-options">
+														<td><span class="exercise-number"><label>3</label></span></td>
+														<td>
+															<select>
+																<option>Body Part</option>
+															</select>
+														</td>
+														<td>
+															<select>
+																<option>IMPL 1</option>
+															</select>
+														</td>
+													</table>
+												</li>
+												<li class="workout-exercise-item">
+													<table class="workout-exercise-options">
+														<td><span class="exercise-number"><label>4</label></span></td>
+														<td>
+															<select>
+																<option>Body Part</option>
+															</select>
+														</td>
+														<td>
+															<select>
+																<option>IMPL 1</option>
+															</select>
+														</td>
+													</table>
+												</li>
+											</ul>
 										</div>
 										<div class="col-lg-4 col-md-4 assign-workout">
 											<p>Last 2 completed sets</p>
@@ -786,67 +715,67 @@
 										<div class="col-lg-4 col-md-4 assign-workout">
 											<p>Client Focus: <span>Fat Loss</span></p>
 											<ul class="workout-exercise-lists">
-									  			<li class="workout-exercise-item">
-									  				<table class="workout-exercise-options">
-									  					<td><span class="exercise-number"><label>1</label></span></td>
-									  					<td>
-									  						<select>
-									  							<option>Body Part</option>
-									  						</select>
-									  					</td>
-									  					<td>
-									  						<select>
-									  							<option>IMPL 2</option>
-									  						</select>
-									  					</td>
-									  				</table>
-									  			</li>
-									  			<li class="workout-exercise-item">
-									  				<table class="workout-exercise-options">
-									  					<td><span class="exercise-number"><label>2</label></span></td>
-									  					<td>
-									  						<select>
-									  							<option>Body Part</option>
-									  						</select>
-									  					</td>
-									  					<td>
-									  						<select>
-									  							<option>IMPL 2</option>
-									  						</select>
-									  					</td>
-									  				</table>
-									  			</li>
-									  			<li class="workout-exercise-item">
-									  				<table class="workout-exercise-options">
-									  					<td><span class="exercise-number"><label>3</label></span></td>
-									  					<td>
-									  						<select>
-									  							<option>Body Part</option>
-									  						</select>
-									  					</td>
-									  					<td>
-									  						<select>
-									  							<option>IMPL 2</option>
-									  						</select>
-									  					</td>
-									  				</table>
-									  			</li>
-									  			<li class="workout-exercise-item">
-									  				<table class="workout-exercise-options">
-									  					<td><span class="exercise-number"><label>4</label></span></td>
-									  					<td>
-									  						<select>
-									  							<option>Body Part</option>
-									  						</select>
-									  					</td>
-									  					<td>
-									  						<select>
-									  							<option>IMPL 2</option>
-									  						</select>
-									  					</td>
-									  				</table>
-									  			</li>
-									  		</ul>
+												<li class="workout-exercise-item">
+													<table class="workout-exercise-options">
+														<td><span class="exercise-number"><label>1</label></span></td>
+														<td>
+															<select>
+																<option>Body Part</option>
+															</select>
+														</td>
+														<td>
+															<select>
+																<option>IMPL 2</option>
+															</select>
+														</td>
+													</table>
+												</li>
+												<li class="workout-exercise-item">
+													<table class="workout-exercise-options">
+														<td><span class="exercise-number"><label>2</label></span></td>
+														<td>
+															<select>
+																<option>Body Part</option>
+															</select>
+														</td>
+														<td>
+															<select>
+																<option>IMPL 2</option>
+															</select>
+														</td>
+													</table>
+												</li>
+												<li class="workout-exercise-item">
+													<table class="workout-exercise-options">
+														<td><span class="exercise-number"><label>3</label></span></td>
+														<td>
+															<select>
+																<option>Body Part</option>
+															</select>
+														</td>
+														<td>
+															<select>
+																<option>IMPL 2</option>
+															</select>
+														</td>
+													</table>
+												</li>
+												<li class="workout-exercise-item">
+													<table class="workout-exercise-options">
+														<td><span class="exercise-number"><label>4</label></span></td>
+														<td>
+															<select>
+																<option>Body Part</option>
+															</select>
+														</td>
+														<td>
+															<select>
+																<option>IMPL 2</option>
+															</select>
+														</td>
+													</table>
+												</li>
+											</ul>
 										</div>
 										<div class="col-lg-4 col-md-4 assign-workout">
 											<p>Last 2 completed sets</p>
@@ -1023,67 +952,67 @@
 										<div class="col-lg-4 col-md-4 assign-workout">
 											<p>Client Focus: <span>Fat Loss</span></p>
 											<ul class="workout-exercise-lists">
-									  			<li class="workout-exercise-item">
-									  				<table class="workout-exercise-options">
-									  					<td><span class="exercise-number"><label>1</label></span></td>
-									  					<td>
-									  						<select>
-									  							<option>Body Part</option>
-									  						</select>
-									  					</td>
-									  					<td>
-									  						<select>
-									  							<option>IMPL 3</option>
-									  						</select>
-									  					</td>
-									  				</table>
-									  			</li>
-									  			<li class="workout-exercise-item">
-									  				<table class="workout-exercise-options">
-									  					<td><span class="exercise-number"><label>2</label></span></td>
-									  					<td>
-									  						<select>
-									  							<option>Body Part</option>
-									  						</select>
-									  					</td>
-									  					<td>
-									  						<select>
-									  							<option>IMPL 3</option>
-									  						</select>
-									  					</td>
-									  				</table>
-									  			</li>
-									  			<li class="workout-exercise-item">
-									  				<table class="workout-exercise-options">
-									  					<td><span class="exercise-number"><label>3</label></span></td>
-									  					<td>
-									  						<select>
-									  							<option>Body Part</option>
-									  						</select>
-									  					</td>
-									  					<td>
-									  						<select>
-									  							<option>IMPL 3</option>
-									  						</select>
-									  					</td>
-									  				</table>
-									  			</li>
-									  			<li class="workout-exercise-item">
-									  				<table class="workout-exercise-options">
-									  					<td><span class="exercise-number"><label>4</label></span></td>
-									  					<td>
-									  						<select>
-									  							<option>Body Part</option>
-									  						</select>
-									  					</td>
-									  					<td>
-									  						<select>
-									  							<option>IMPL 3</option>
-									  						</select>
-									  					</td>
-									  				</table>
-									  			</li>
-									  		</ul>
+												<li class="workout-exercise-item">
+													<table class="workout-exercise-options">
+														<td><span class="exercise-number"><label>1</label></span></td>
+														<td>
+															<select>
+																<option>Body Part</option>
+															</select>
+														</td>
+														<td>
+															<select>
+																<option>IMPL 3</option>
+															</select>
+														</td>
+													</table>
+												</li>
+												<li class="workout-exercise-item">
+													<table class="workout-exercise-options">
+														<td><span class="exercise-number"><label>2</label></span></td>
+														<td>
+															<select>
+																<option>Body Part</option>
+															</select>
+														</td>
+														<td>
+															<select>
+																<option>IMPL 3</option>
+															</select>
+														</td>
+													</table>
+												</li>
+												<li class="workout-exercise-item">
+													<table class="workout-exercise-options">
+														<td><span class="exercise-number"><label>3</label></span></td>
+														<td>
+															<select>
+																<option>Body Part</option>
+															</select>
+														</td>
+														<td>
+															<select>
+																<option>IMPL 3</option>
+															</select>
+														</td>
+													</table>
+												</li>
+												<li class="workout-exercise-item">
+													<table class="workout-exercise-options">
+														<td><span class="exercise-number"><label>4</label></span></td>
+														<td>
+															<select>
+																<option>Body Part</option>
+															</select>
+														</td>
+														<td>
+															<select>
+																<option>IMPL 3</option>
+															</select>
+														</td>
+													</table>
+												</li>
+											</ul>
 										</div>
 										<div class="col-lg-4 col-md-4 assign-workout">
 											<p>Last 2 completed sets</p>
@@ -1256,12 +1185,24 @@
 						</div>
 
 					</div>
-					
+
 				</div>
 			</div>
 
 		</div>
 	</div>
 
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-md-12">
+				<div class="btn-add-workout">
+					<button ng-click="newWorkOutDay()">+ SUBMIT</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
+	<pre>
+		{{ workout }}
+	</pre>
 </div>
