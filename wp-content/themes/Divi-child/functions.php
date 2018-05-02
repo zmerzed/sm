@@ -94,9 +94,70 @@ function workOutCreate()
 	
 }
 
-function workOutGet($id)
+function workOutAdd($data)
 {
-	
+	global $wpdb;
+
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+	$workout = json_decode(preg_replace('/\\\"/',"\"", $data['workoutForm']), true);
+
+	$wpdb->insert('workout_tbl',
+		array(
+			'workout_name' => $workout['name'],
+			'workout_trainer_ID' => $data['workout_trainer_ID']
+		),
+		array(
+			'%s',
+			'%d'
+		)
+
+	);
+
+	$workOutId = (int) $wpdb->insert_id;
+
+	if($workout['days'])
+	{
+		foreach($workout['days'] as $d)
+		{
+			$wpdb->insert('workout_days_tbl',
+				array(
+					'wday_workout_ID' => $workOutId,
+					'wday_name' => $d['name'],
+					'wday_order' => (int) $d['order']
+				)
+			);
+
+			$dayId = $wpdb->insert_id;
+
+			if($d['exercises']) {
+
+				foreach($d['exercises'] as $ex)
+				{
+					$wpdb->insert('workout_exercises_tbl',
+						array(
+							'exer_day_ID' => $dayId,
+							'exer_workout_ID' => $workOutId
+						)
+					);
+				}
+			}
+
+			if($d['clients']) {
+
+				foreach($d['clients'] as $client)
+				{
+					$wpdb->insert('workout_clients_tbl',
+						array(
+							'workout_client_dayID' => $dayId,
+							'workout_client_workout_ID' => $workOutId,
+							'workout_clientID' => $client['ID']
+						)
+					);
+				}
+			}
+		}
+	}
+
 }
 
 function workOutGetClients()
@@ -115,5 +176,13 @@ function workOutGetClients()
 	return $outputList;
 }
 
+
+function workOutUserList($userId)
+{
+	global $wpdb;
+	$querystr = "SELECT * FROM workout_tbl WHERE workout_trainer_ID =".$userId;
+	$workouts = $wpdb->get_results($querystr, OBJECT);
+	return $workouts;
+}
 
 // END ENQUEUE PARENT ACTION

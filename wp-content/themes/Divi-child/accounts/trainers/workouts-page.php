@@ -1,3 +1,11 @@
+<?php
+	global $current_user;
+	$userdata = get_currentuserinfo();
+	if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['workoutForm'])) {
+		workOutAdd(array_merge($_POST, ['workout_trainer_ID' => $current_user->ID]));
+	}
+?>
+
 <div class="main-content matchHeight">
 
 	<div class="trainer-add-workout">
@@ -5,11 +13,11 @@
 	</div>
 
 	<ul class="workout-lists trainer-workouts-lists">
-
+		<?php foreach(workOutUserList($current_user->ID) as $workout) {?>
 		<li>
 			<div class="workout-wrapper">
 				<span><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/workout.png'; ?>"></span>
-				<label>Workout NAME #1</label>
+				<label><?php echo $workout->workout_name ?></label>
 				<div class="workout-controls">
 					<span><a href="#"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/members-icon.png'; ?>"></a></span>
 					<span><a href="#"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/record-icon.png'; ?>"></a></span>
@@ -18,78 +26,6 @@
 				</div>
 			</div>
 		</li>
-		<li>
-			<div class="workout-wrapper">
-				<span><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/workout.png'; ?>"></span>
-				<label>Workout NAME #2</label>
-				<div class="workout-controls">
-					<span><a href="#"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/members-icon.png'; ?>"></a></span>
-					<span><a href="#"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/record-icon.png'; ?>"></a></span>
-					<span><a href="#"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/edit-icon.png'; ?>"></a></span>
-					<span><a href="#"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/delete-icon.png'; ?>"></a></span>
-				</div>
-			</div>
-		</li>
-		<li>
-			<div class="workout-wrapper">
-				<span><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/workout.png'; ?>"></span>
-				<label>Workout NAME #3</label>
-				<div class="workout-controls">
-					<span><a href="#"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/members-icon.png'; ?>"></a></span>
-					<span><a href="#"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/record-icon.png'; ?>"></a></span>
-					<span><a href="#"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/edit-icon.png'; ?>"></a></span>
-					<span><a href="#"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/delete-icon.png'; ?>"></a></span>
-				</div>
-			</div>
-		</li>
-		<li>
-			<div class="workout-wrapper">
-				<span><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/workout.png'; ?>"></span>
-				<label>Workout NAME #4</label>
-				<div class="workout-controls">
-					<span><a href="#"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/members-icon.png'; ?>"></a></span>
-					<span><a href="#"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/record-icon.png'; ?>"></a></span>
-					<span><a href="#"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/edit-icon.png'; ?>"></a></span>
-					<span><a href="#"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/delete-icon.png'; ?>"></a></span>
-				</div>
-			</div>
-		</li>
-		<li>
-			<div class="workout-wrapper">
-				<span><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/workout.png'; ?>"></span>
-				<label>Workout NAME #5</label>
-				<div class="workout-controls">
-					<span><a href="#"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/members-icon.png'; ?>"></a></span>
-					<span><a href="#"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/record-icon.png'; ?>"></a></span>
-					<span><a href="#"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/edit-icon.png'; ?>"></a></span>
-					<span><a href="#"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/delete-icon.png'; ?>"></a></span>
-				</div>
-			</div>
-		</li>
-		<li>
-			<div class="workout-wrapper">
-				<span><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/workout.png'; ?>"></span>
-				<label>Workout NAME #6</label>
-				<div class="workout-controls">
-					<span><a href="#"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/members-icon.png'; ?>"></a></span>
-					<span><a href="#"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/record-icon.png'; ?>"></a></span>
-					<span><a href="#"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/edit-icon.png'; ?>"></a></span>
-					<span><a href="#"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/delete-icon.png'; ?>"></a></span>
-				</div>
-			</div>
-		</li>
-		<li>
-			<div class="workout-wrapper">
-				<span><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/workout.png'; ?>"></span>
-				<label>Workout NAME #7</label>
-				<div class="workout-controls">
-					<span><a href="#"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/members-icon.png'; ?>"></a></span>
-					<span><a href="#"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/record-icon.png'; ?>"></a></span>
-					<span><a href="#"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/edit-icon.png'; ?>"></a></span>
-					<span><a href="#"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/delete-icon.png'; ?>"></a></span>
-				</div>
-			</div>
-		</li>
-
+		<?php } ?>
 	</ul>
 </div>
