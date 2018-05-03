@@ -83,17 +83,6 @@ function test2()
 	print_r($get_user_ids);
 }
 
-function workOutUpdate($data)
-{
-	global $wpdb;
-	$wpdb->insert('workout_tbl', $data);
-}
-
-function workOutCreate()
-{
-	
-}
-
 function workOutAdd($data)
 {
 	global $wpdb;
@@ -146,7 +135,7 @@ function workOutAdd($data)
 
 				foreach($d['clients'] as $client)
 				{
-					$wpdb->insert('workout_clients_tbl',
+					$wpdb->insert('workout_day_clients_tbl',
 						array(
 							'workout_client_dayID' => $dayId,
 							'workout_client_workout_ID' => $workOutId,
@@ -157,6 +146,70 @@ function workOutAdd($data)
 			}
 		}
 	}
+
+}
+
+function workOutUpdate($data)
+{
+	global $wpdb;
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+	$workout = json_decode(preg_replace('/\\\"/',"\"", $data['updateWorkoutForm']), true);
+//	dd($workout);
+
+	$wpdb->update(
+		'workout_tbl',
+		array(
+			'workout_name' => $workout['workout_name']
+		),
+		array( 'workout_ID' => $workout['workout_ID'] )
+	);
+
+	/* update days */
+
+	foreach($workout['days'] as $d) {
+
+		if (isset($d['wday_ID']) && $d['isDelete']) {
+
+			/* delete exercises and clients */
+
+			$wpdb->delete(
+				'workout_day_clients_tbl',
+				array( 'workout_client_dayID' => $d['wday_ID'] )
+			);
+
+			$wpdb->delete(
+				'workout_exercises_tbl',
+				array( 'exer_day_ID' => $d['wday_ID'] )
+			);
+
+			$wpdb->delete(
+				'workout_days_tbl',
+				array( 'wday_ID' => $d['wday_ID'] )
+			);
+
+		} else if (isset($d['wday_ID'])) {
+
+			$wpdb->update(
+				'workout_days_tbl',
+				array(
+					'wday_name' => $d['wday_name'],
+					'wday_order' => $d['wday_order']
+				),
+				array( 'wday_ID' => $d['wday_ID'] )
+			);
+
+		} else { /* insert if there is no existing day */
+
+			$wpdb->insert('workout_days_tbl',
+				array(
+					'wday_workout_ID' => $workout['workout_ID'],
+					'wday_name' => $d['wday_name'],
+					'wday_order' => (int) $d['wday_order']
+				)
+			);
+		}
+	}
+
 
 }
 
@@ -183,6 +236,51 @@ function workOutUserList($userId)
 	$querystr = "SELECT * FROM workout_tbl WHERE workout_trainer_ID =".$userId;
 	$workouts = $wpdb->get_results($querystr, OBJECT);
 	return $workouts;
+}
+
+function workOutGet($workoutId)
+{
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+
+	global $wpdb;
+	$querystr = "SELECT * FROM workout_tbl WHERE workout_ID=".$workoutId." LIMIT 1";
+	$result = $wpdb->get_results($querystr, ARRAY_A);
+
+	if(count($result) >= 1) {
+		$workout = $result[0];
+
+		$querystr = "SELECT * FROM workout_days_tbl WHERE wday_workout_ID=".$workout['workout_ID'];
+		$days = $wpdb->get_results($querystr, ARRAY_A);
+
+		foreach($days as $key => $d)
+		{
+			$exercisesQuery = "SELECT * FROM workout_exercises_tbl WHERE exer_day_ID=".$d['wday_ID'];
+			$exercises = $wpdb->get_results($exercisesQuery, ARRAY_A);
+
+			$clientsQuery = "SELECT * FROM workout_day_clients_tbl WHERE workout_client_dayID=".$d['wday_ID'];
+			$clients = $wpdb->get_results($clientsQuery, ARRAY_A);
+
+			$userClients = [];
+
+			foreach($clients as $c)
+			{
+				$userQuery = "SELECT * FROM wp_users WHERE ID=".$c['workout_clientID'] . " LIMIT 1";
+				$userResult = $wpdb->get_results($userQuery, ARRAY_A);
+
+				if(count($userResult) >= 1) {
+					$userClients[] = $userResult[0];
+				}
+			}
+
+			$days[$key]['clients'] = $userClients;
+			$days[$key]['exercises'] = $exercises;
+		}
+
+		$workout['days'] = $days;
+		return $workout;
+	}
+
+	return null;
 }
 
 // END ENQUEUE PARENT ACTION

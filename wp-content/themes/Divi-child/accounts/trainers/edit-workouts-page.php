@@ -1,31 +1,28 @@
-
+<?php $workout = workOutGet($_GET['workout']); ?>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script>
 	var clients = <?php echo json_encode(workOutGetClients()) ?>;
+	var workout = <?php echo json_encode(workOutGet($_GET['workout'])) ?>;
 	var app = angular.module('app', []);
 
 	app.controller('Controller', function($scope) {
 
 		$scope.clients = clients;
-		$scope.workout = {
-			days: [{name:'', order:1, exercises:[{}], clients:[]}],
-		};
+		$scope.workout = workout;
 
 		init();
 
 		function init()
 		{
-
+			console.log('hhhhhhhhhhhhhhhhhhhh');
+			console.log($scope.workout);
+			optimizeDays();
 		}
 
 		$scope.newWorkOutDay = function ()
 		{
-			var count = $scope.workout.days.length + 1;
-			$scope.workout.days.push({order:count, exercises:[{}], clients:[]});
-		};
-
-		$scope.newExercise = function() {
-			$scope.workout.selectedDay.exercises.push({})
+			$scope.workout.days.push({exercises:[{}], clients:[]});
+			optimizeDays();
 		};
 
 		$scope.selectDay = function(day)
@@ -33,6 +30,11 @@
 			console.log(day);
 			$scope.workout.selectedDay = day;
 		};
+
+		$scope.newExercise = function() {
+			$scope.workout.selectedDay.exercises.push({})
+		};
+
 
 		$scope.selectClient = function(client) {
 			$scope.workout.selectedDay.selectedClient = client;
@@ -68,22 +70,51 @@
 
 		});
 
-		$scope.remove = function(exercise)
+		$scope.removeDay = function(day)
 		{
-			var idx = $scope.workout.selectedDay.exercises.indexOf(exercise);
-
-			$scope.workout.selectedDay.exercises.splice(idx,1);
-			console.log(exercise);
-			console.log(idx);
-
+			day.isDelete = true;
+			optimizeDays();
+			console.log(day);
 		};
 
 		$("#idForm").submit(function (e) {
-			//	e.preventDefault();
+			//e.preventDefault();
+			console.log($scope.workout);
 			$('#idWorkoutForm').val(JSON.stringify($scope.workout));
 			return true;
 
 		});
+
+		function optimizeDays()
+		{
+
+//			for(var i in $scope.workout.days)
+//			{
+//				var day = $scope.workout.days[i];
+//
+//				if(day.isDelete)
+//				{
+//					var idx = $scope.workout.days.indexOf(day);
+//					$scope.workout.days.splice(idx, 1);
+//				}
+//			}
+
+			var count = 1;
+
+			for(var i in $scope.workout.days)
+			{
+				var day = $scope.workout.days[i];
+				
+				if(day.isDelete)
+				{
+					continue;
+				}
+
+				$scope.workout.days[i].wday_order = count;
+				count++;
+			}
+
+		}
 	});
 </script>
 
@@ -96,7 +127,7 @@
 				<div class="col-lg-6 col-md-6">
 					<span class="workout-day-name">
 						<label>Workout Name: </label>
-						<input type="text" ng-model="workout.name">
+						<input type="text" ng-model="workout.workout_name">
 					</span>
 				</div>
 				<div class="col-lg-6 col-md-6">
@@ -118,10 +149,11 @@
 				   aria-selected="true"
 				   ng-repeat="day in workout.days"
 				   ng-click="selectDay(day)"
-				>Day {{day.order}} - {{day.name}}</a>
+				   ng-if="!day.isDelete"
+				>Day {{day.wday_order}} - {{day.wday_name}}</a>
 			</div>
 		</nav>
-		
+
 		<div class="tab-content" id="nav-tabContent" ng-if="workout.selectedDay">
 			<div class="tab-pane fade show active" id="workout-1" role="tabpanel" aria-labelledby="nav-home-tab">
 				<div class="workout-tab-pane-wrapper">
@@ -131,13 +163,13 @@
 							<div class="col-lg-6 col-md-6">
 							<span class="workout-day-name">
 								<label>Day Name: </label>
-								<input type="text" ng-model="workout.selectedDay.name">
+								<input type="text" ng-model="workout.selectedDay.wday_name">
 							</span>
 							</div>
 							<div class="col-lg-6 col-md-6">
 								<ul class="workout-btn-actions">
 									<li><a href="#">Duplicate</a></li>
-									<li><a href="javascript:void(0)">Delete</a></li>
+									<li ng-click="removeDay(workout.selectedDay)"><a href="javascript:void(0)">Delete</a></li>
 								</ul>
 							</div>
 						</div>
@@ -1215,12 +1247,12 @@
 			<div class="row">
 				<div class="col-lg-12 col-md-12">
 					<div class="btn-add-workout">
-						<button type="submit">+ SUBMIT</button>
+						<button type="submit">> UPDATE</button>
 					</div>
 				</div>
 			</div>
 		</div>
-		
-		<input type="hidden" name="workoutForm" value="test" id="idWorkoutForm" />
+
+		<input type="hidden" name="updateWorkoutForm" value="test" id="idWorkoutForm" />
 	</form>
 </div>

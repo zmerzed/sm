@@ -51,7 +51,14 @@ if( is_user_logged_in() ){
 							break;
 
 						case 'add-workouts':
-							echo 'New/edit workout';
+							
+							if(isset($_GET['workout'])) {
+								$workout = workOutGet($_GET['workout']);
+								echo 'Edit ' . $workout['workout_name'];
+							} else {
+								echo 'New/edit workout';
+							}
+
 							break;
 
 						case 'exercises':
@@ -148,7 +155,13 @@ if( is_user_logged_in() ){
 							break;
 
 						case 'add-workouts':
-							get_template_part( 'accounts/trainers/add-edit-workouts', 'page' );
+
+							if(isset($_GET['workout'])) {
+								get_template_part( 'accounts/trainers/edit-workouts', 'page' );
+							} else {
+								get_template_part( 'accounts/trainers/add-edit-workouts', 'page' );
+							}
+
 							break;
 
 						case 'exercises':
