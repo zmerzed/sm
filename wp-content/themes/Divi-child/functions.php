@@ -51,6 +51,10 @@ function sm_login_redirect( $redirect_to, $request, $user ) {
 
 			return home_url() . '/trainer';
 
+		} else if( $member_type == 'gym' ){
+
+			return home_url() . '/gym';
+
 		}
 
 
