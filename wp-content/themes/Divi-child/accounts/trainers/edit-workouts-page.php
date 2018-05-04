@@ -27,12 +27,13 @@
 
 		$scope.selectDay = function(day)
 		{
-			console.log(day);
 			$scope.workout.selectedDay = day;
+			optimizeSelectedDay();
 		};
 
 		$scope.newExercise = function() {
 			$scope.workout.selectedDay.exercises.push({})
+			optimizeSelectedDay();
 		};
 
 
@@ -77,6 +78,12 @@
 			console.log(day);
 		};
 
+		$scope.removeExercise = function(exercise)
+		{
+			exercise.isDelete = true;
+			optimizeSelectedDay();
+		};
+
 		$("#idForm").submit(function (e) {
 			//e.preventDefault();
 			console.log($scope.workout);
@@ -85,20 +92,25 @@
 
 		});
 
+		function optimizeSelectedDay()
+		{
+			var count = 1;
+
+			for(var i in $scope.workout.selectedDay.exercises)
+			{
+				var exercise = $scope.workout.selectedDay.exercises[i];
+
+				if(exercise.isDelete) {
+					continue;
+				}
+
+				$scope.workout.selectedDay.exercises[i]['order'] = count;
+				count++;
+			}
+		}
+
 		function optimizeDays()
 		{
-
-//			for(var i in $scope.workout.days)
-//			{
-//				var day = $scope.workout.days[i];
-//
-//				if(day.isDelete)
-//				{
-//					var idx = $scope.workout.days.indexOf(day);
-//					$scope.workout.days.splice(idx, 1);
-//				}
-//			}
-
 			var count = 1;
 
 			for(var i in $scope.workout.days)
@@ -176,9 +188,9 @@
 					</div>
 
 					<ul class="workout-exercise-lists">
-						<li class="workout-exercise-item" ng-repeat="exercise in workout.selectedDay.exercises track by $index">
+						<li class="workout-exercise-item" ng-repeat="exercise in workout.selectedDay.exercises track by $index" ng-if="!exercise.isDelete">
 							<table class="workout-exercise-options">
-								<td><span class="exercise-number"><label>{{$index + 1}}</label></span></td>
+								<td><span class="exercise-number"><label>{{exercise.order}}</label></span></td>
 								<td>
 									<select>
 										<option>Body Part</option>
@@ -228,7 +240,7 @@
 								<span class="exercise-btn-action"><a href="#">Duplicate</a><span>
 								</td>
 								<td>
-								<span class="exercise-btn-action"><a href="javascript:void(0)" ng-click="remove(exercise)">Delete</a><span>
+								<span class="exercise-btn-action"><a href="javascript:void(0)" ng-click="removeExercise(exercise)">Delete</a><span>
 								</td>
 							</table>
 						</li>
