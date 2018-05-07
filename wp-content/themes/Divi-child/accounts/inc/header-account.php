@@ -47,7 +47,7 @@
 			<?php if($member_type == "gym"): ?>
 				<a href="#"><img id="logo" src="<?php echo get_stylesheet_directory_uri(); ?>/accounts/images/gym-plus-logo.png"></a>
 			<?php else: ?>
-				<a href="#"><img id="logo" src="http://sm.ampluswebsites.com/wp-content/uploads/2018/02/sm-logov2-wht.svg"></a>
+				<a href="#"><img id="logo" src="<?php echo home_url(); ?>/wp-content/uploads/2018/02/sm-logov2-wht.svg"></a>
 			<?php endif; ?>
         </div>
         <div class="col-lg-6 col-md-6">
