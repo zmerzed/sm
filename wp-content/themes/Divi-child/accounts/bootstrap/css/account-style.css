@@ -631,11 +631,30 @@ table.dataTable thead .sorting_asc:after{
 
 /*** Message ***/
 
-.message-wrapper, .workout-tab-pane-wrapper{
+.message-wrapper{
 	text-align: left;
 	background: #ae1f23;
 	padding: 20px;
 	border-radius: 0px 10px 10px;
+}
+
+.assign-client-to-workout{
+    background: #ae1f23;
+    padding: 0px 20px 20px !important;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.assign-client-to-workout h3{
+	font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #fff;
+}
+
+.workout-tab-pane-wrapper{
+	text-align: left;
+	background: #ae1f23;
+    padding: 20px 20px 0px;
 }
 
 .message-wrapper ul{
@@ -950,6 +969,11 @@ ul.workout-exercise-lists li.workout-exercise-item{
     font-size: 10px;
     color: #fff;
     text-transform: uppercase;
+    font-weight: 600;
+}
+
+.exercise-btn-action a:hover{
+	text-decoration: none;
 }
 
 .workout-day-name label{
@@ -994,7 +1018,7 @@ ul.workout-exercise-lists li.workout-exercise-item{
 
 .assign-clients-workout{
 	border-bottom: 0px;
-	margin-top: 25px;
+	margin-top: 17px;
 }
 
 .assign-clients-workout li{
@@ -1052,6 +1076,7 @@ ul.workout-exercise-lists li.workout-exercise-item{
 	font-size: 14px;
 	text-align: center;
 	text-transform: uppercase;
+	font-weight: 600;
 }
 
 .assign-workout .workout-exercise-lists .workout-exercise-item{
@@ -1093,12 +1118,13 @@ ul.workout-exercise-lists li.workout-exercise-item{
 .last-sets tr td .set-prev-val, .last-sets tr td .set-val{
     width: 100%;
     display: block;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: bold;
     text-align: center;
     border: 0;
     border-radius: 100px;
     padding: 1px 5px !important;
+    outline: 0;
 }
 
 .last-sets tr th{
@@ -1120,3 +1146,82 @@ ul.workout-exercise-lists li.workout-exercise-item{
     margin-bottom: 0px;
     margin-right: 0px !important;
 }
+
+
+.add-workout-btn{
+	background: #595a5a;
+	color: #fff;
+	font-size: 12px;
+	padding: 3px 10px;
+	display: inline-block;
+	border-radius: 10px;
+	text-transform: uppercase;
+	font-weight: 600;
+}
+
+.add-workout-btn:hover{
+	text-decoration: none;
+	color: #fff;
+}
+
+.workout-btn-wrapper{
+    text-align: right;
+    width: 100%;
+}
+
+.browse-client-workout{
+	margin-top: 5px;
+}
+
+.browse-client-workout select{
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+    border: 0;
+    padding: 3px;
+    border-radius: 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    outline: 0;
+}
+/*2018-05-02*/
+.workout-ico.wi-red{background-color:#ae1f23}
+.workout-ico{
+	height:45px;
+	width:45px;	
+	display:inline-block;
+	float:left;
+	border-radius:50%;
+}
+.wi-lifeter{background:url(../../images/lifter.png) center center no-repeat;}
+/*---------------*/
+/*------GYM------*/
+/*---------------*/
+.workout-wrapper:after{
+	content:"";
+	display:block;
+	clear:both;
+}
+.gym-page .workout-tab-pane-wrapper{padding-bottom:20px;}
+.gym-page #message-nav-tab .nav-item.active{background-color:#6db6e5;border-color:#6db6e5;}
+.gym-page .trainer-additional-box-info a,
+.gym-page .trainer-profile a{color:#595a5a;font-size:14px;text-transform:uppercase;text-decoration:underline;}
+.gym-page .progress-bar,
+.gym-page .exercise-number,
+.gym-page .workout-tab-pane-wrapper,
+.gym-page .wi-blu,
+.gym-page .compose-message button, .gym-page .btn-add-workout button,
+.gym-page .message-wrapper,
+.gym-page .trainer-add-workout a,
+.gym-page .workoutclass,
+.gym-page #table-sorter_wrapper, .gym-page #table-sorter-logs_wrapper{background-color:#6db6e5;}
+.gym-page .trainer-profile-name,
+.gym-page .trainer-day-label,
+.gym-page .main-navigation ul li a.active,
+.gym-page .main-navigation h3{color:#6db6e5;}
+.gym-page .header-section{padding:12px 0 8px;}
+.gym-page .trainer-dashboard tr td:nth-child(1){border-color:#6db6e5!important;}
+.gym-page .container-title h3,
+.gym-page .title-welcome-section .container{border-color:#6db6e5;}
+.gym-page #logout_btn{margin-top:0;}

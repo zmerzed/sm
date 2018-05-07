@@ -19,6 +19,8 @@
   <?php
     global $current_user;
     $userdata = get_currentuserinfo();
+	
+	$member_type = bp_get_member_type($userdata->data->ID);
 
     $data_request = $_GET['data'];
 
@@ -36,13 +38,17 @@
 
   </head>
 
-  <body>
+  <body class="<?php echo ($member_type == 'gym') ? 'gym-page' : ''; ?>">
 
   <div class="header-section">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 col-md-6">
-          <a href="#"><img id="logo" src="http://sm.ampluswebsites.com/wp-content/uploads/2018/02/sm-logov2-wht.svg"></a>
+			<?php if($member_type == "gym"): ?>
+				<a href="#"><img id="logo" src="<?php echo get_stylesheet_directory_uri(); ?>/accounts/images/gym-plus-logo.png"></a>
+			<?php else: ?>
+				<a href="#"><img id="logo" src="http://sm.ampluswebsites.com/wp-content/uploads/2018/02/sm-logov2-wht.svg"></a>
+			<?php endif; ?>
         </div>
         <div class="col-lg-6 col-md-6">
           <a id="logout_btn" href="<?php echo wp_logout_url(); ?>">Logout</a>
