@@ -1,0 +1,28 @@
+Set Options,Rep Options ,Tempo ,Rest ,Repetition Pattern,,Tempo Explained
+1,6,2011,15 sec,*rest-pause,,"The First Number – Using the squat as an example, the 3 will represent the amount of time (in seconds) it takes you to descend to the bottom position. "
+2,7,3011,30 sec,**drop set,,"The Second Number – The second number refers to the time spent in the bottom/transition between eccentric(lowering) and the concentric(ascending) portion of the exercise. The 0 means the trainee immediately begins their ascent after they reach the bottom postion. If the prescription were 32X0, the trainee would pause for 2 seconds at the bottom position."
+3,8,4011,45 sec,Cluster,,"The Third Number – The third number refers to ascending (concentric) phase of the lift. The X  indicates that the trainee must EXPLODE at the initiation of the concentric action and try to accelerate the load throughout the entire range of motion. Intent is vital; the load may move slowly but you must try to move as fast as possible. If number is 2, it should take 2 seconds to complete the lift even if they are capable of moving it faster."
+4,9,5011,60 sec,Ascending Load,,"The Fourth Number – The fourth number indicates the pause at the moment before the start of the next repetition of the lift. For a 45 degree back extension with a tempo of 2012, the trainee will hold an isometric contraction in the extended position for two seconds before lowering."
+5,10,2110,75 sec,Constant Load,,
+6,12,3110,90 sec,Descending Load*,,
+7,15,4110,120 sec,Pyramid Load,,
+8,20,5110,150 sec,Wave Load,,
+9,6-8,,3 min,Step Load,,
+10,7-9,,4 min,AMRAP(as many reps as possible),,
+,8-10,,5 min,,,
+,10-12,,custom,,,
+,12-15,,,,,
+,15-20,,,,,
+,"(6,x,x)*",,,,,
+,"(8,x,x)*",,,,,
+,"(6,6,6)**",,,,,
+,"(8,8,8)**",,,,,
+,"(10,6,4)**",,,,,
+,"12,10,8",,,,,
+,"15,12,10",,,,,
+,"20,15,12",,,,,
+,"8,6,4,4,6,8",,,,,
+,"8,6,4,20",,,,,
+,"7,5,3,7,5,3",,,,,
+,AMRAP,,,,,
+,Custom,,,,,

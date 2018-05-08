@@ -1,4 +1,4 @@
-Body Part,Exercise Type,Exercise Style 1,Exercise Style 2,Implementation Options ,Implementation Options 2
+Body Part,Exercise Type,Exercise Style 1,Exercise Style 2,Implementation Options 
 Abs/Hip Flexors,Abs Wheel Rollout,,,"Low Pulley
 Mid Pulley
 High Pulley
@@ -9,7 +9,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,Plank,"Bent-Knee
 4 point
 3 point
@@ -24,7 +24,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,Side Bridge,"Bent-Knee
 Side        
 Rotate and reach",,"Low Pulley
@@ -37,7 +37,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,Core Row,,,"Low Pulley
 Mid Pulley
 High Pulley
@@ -48,7 +48,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,Kneeling Cable Crunch,,,"Low Pulley
 Mid Pulley
 High Pulley
@@ -59,7 +59,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,AbMat Crunch,,,"Low Pulley
 Mid Pulley
 High Pulley
@@ -70,7 +70,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,Crunch,,,"Low Pulley
 Mid Pulley
 High Pulley
@@ -81,7 +81,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,Swiss Ball Crunch,,,"Low Pulley
 Mid Pulley
 High Pulley
@@ -92,7 +92,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,Supine Crossover Crunch,,,"Low Pulley
 Mid Pulley
 High Pulley
@@ -103,7 +103,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,Low Cable Pull-in,"Bilateral            
 Unilateral",,"Low Pulley
 Mid Pulley
@@ -115,7 +115,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,"Garhammer Leg Raise, Hanging",,,"Low Pulley
 Mid Pulley
 High Pulley
@@ -126,7 +126,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,Situp,"Bent-Knee, Flat
 Bent-Knee, decline",,"Low Pulley
 Mid Pulley
@@ -138,7 +138,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,GH Situp,,,"Low Pulley
 Mid Pulley
 High Pulley
@@ -149,7 +149,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,Supine Hip Flexion,,,"Low Pulley
 Mid Pulley
 High Pulley
@@ -160,7 +160,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,Standing Cable Hip Flexion,,,"Low Pulley
 Mid Pulley
 High Pulley
@@ -171,7 +171,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,Prone Swiss Ball Pike,Unilateral,,"Low Pulley
 Mid Pulley
 High Pulley
@@ -182,7 +182,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,Seated Knee Pull-in,Bench,,"Low Pulley
 Mid Pulley
 High Pulley
@@ -193,7 +193,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,Prone TRX Knee Pull-In,Swiss Ball,,"Low Pulley
 Mid Pulley
 High Pulley
@@ -204,7 +204,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,Land Mine ,Rotation,,"Low Pulley
 Mid Pulley
 High Pulley
@@ -215,7 +215,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,Standing Side Flexion,,,"Low Pulley
 Mid Pulley
 High Pulley
@@ -226,7 +226,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,45 Degree Side Flexion,Swiss Ball,,"Low Pulley
 Mid Pulley
 High Pulley
@@ -237,7 +237,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,Upright Leg Raise,,,"Low Pulley
 Mid Pulley
 High Pulley
@@ -248,7 +248,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,Hanging Leg Raise,"Twisting
 Straight Leg
 Bent-Knee",,"Low Pulley
@@ -261,7 +261,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,Leg Lowering,"Bilateral            
 Alternating",,"Low Pulley
 Mid Pulley
@@ -273,7 +273,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,Reverse Crunch,"Incline
 Flat
 AbMat",,"Low Pulley
@@ -286,7 +286,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,Toes to Bar,,,"Low Pulley
 Mid Pulley
 High Pulley
@@ -297,7 +297,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,Supine Windsheild Wipers,,,"Low Pulley
 Mid Pulley
 High Pulley
@@ -308,7 +308,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,Cable Woodchop,Standing,Horizontal,"Low Pulley
 Mid Pulley
 High Pulley
@@ -319,7 +319,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,Seated Cable Woodchop,Kneeling,,"Low Pulley
 Mid Pulley
 High Pulley
@@ -330,7 +330,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,Kneeling Cable Woodchop,Seated,,"Low Pulley
 Mid Pulley
 High Pulley
@@ -341,7 +341,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,Cable Reverse Woodchop,,,"Low Pulley
 Mid Pulley
 High Pulley
@@ -352,7 +352,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,Russian Twist,,,"Low Pulley
 Mid Pulley
 High Pulley
@@ -363,7 +363,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,Forward Ball Rollout,,,"Low Pulley
 Mid Pulley
 High Pulley
@@ -374,7 +374,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,TRX  Kneeling Rollout,,,"Low Pulley
 Mid Pulley
 High Pulley
@@ -385,7 +385,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,TRX Crunch,,,"Low Pulley
 Mid Pulley
 High Pulley
@@ -396,7 +396,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 ,Stir The Pot,,,"Low Pulley
 Mid Pulley
 High Pulley
@@ -407,7 +407,7 @@ Kettlebell
 Swiss Ball
 AbMat
 Slant Bench
-Ab Bench",
+Ab Bench"
 Back,Bent-Over Row - Pronated Grip,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -436,7 +436,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Bent-Over Row - Elbows Out,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -465,7 +465,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Bent-Over Row - Supinated Grip,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -494,7 +494,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Bent-Over Row - Neutral grip,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -523,7 +523,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Bent-Over DB Row - Neutral,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -552,7 +552,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Bent-Over DB Row - Supinating,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -581,7 +581,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Bent-Over DB Row - Elbows Out,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -610,7 +610,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Chin-up - Close Grip,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -639,7 +639,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Chin-up - Mid Grip,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -668,7 +668,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Chin-up - Wide Grip,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -697,7 +697,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Chin-up - Neutral - Mid Grip,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -726,7 +726,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Chin-up - Sternum - Neutral Grip,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -755,7 +755,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Chin-up - Side to Side - Wide Neutral,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -784,7 +784,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Front Lever,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -813,7 +813,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Row - Torso Trainer,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -842,7 +842,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Row - Machine,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -871,7 +871,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,One Arm DB Row - Split Stance,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -900,7 +900,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,One Arm DB Row - Feet Squared,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -929,7 +929,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,One Arm DB Row - Ipsilateral Split Stance,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -958,7 +958,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,One Arm DB Arc Row,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -987,7 +987,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Row - Prone,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -1016,7 +1016,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Pull-up -  mid Grip,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -1045,7 +1045,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Pull-up - close grip,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -1074,7 +1074,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Pull-up - Wide Grip,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -1103,7 +1103,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Pull-up - Behind the Neck,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -1132,7 +1132,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Pull-up - Subcapularis,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -1161,7 +1161,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Lat Pulldown - to Chest,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -1190,7 +1190,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Lat Pulldown - to Sternum,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -1219,7 +1219,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Lat Pulldown - close-grip - to Chest,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -1248,7 +1248,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Lat Pulldown - Behind the Neck,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -1277,7 +1277,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Lat Pulldown - Uni-Lateral - wide grip,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -1306,7 +1306,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Lat Pulldown - One-Arm,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -1335,7 +1335,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Lat Pulldown - Machine,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -1364,7 +1364,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Lat Pulldown - Straight Arm,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -1393,7 +1393,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Pullover - Side Lying,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -1422,7 +1422,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Pullovers - Supine,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -1451,7 +1451,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Pullovers - Machine,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -1480,7 +1480,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Seated Scapulae Retraction,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -1509,7 +1509,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Seated Scapulae Retraction - One-Arm,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -1538,7 +1538,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Seated Cable Row,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -1567,7 +1567,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Seated Cable Row - One-Arm,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -1596,7 +1596,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Seated Cable Row - Face Pull,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -1625,7 +1625,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Seated Cable Row - Telle,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -1654,7 +1654,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,T-Bar Row,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -1683,7 +1683,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Trap 3 Raise - Standing,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -1712,7 +1712,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 ,Trap 3 Raise - Incline - Supported,"Pronated Grip
 Semi-Pronated Grip
 Neutral Grip
@@ -1741,7 +1741,7 @@ Cambered Bar
 Fat Gripz
 Stirrup Handles
 Rope Attachment
-add Custom",
+add Custom"
 Biceps,Incline DB Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -1761,7 +1761,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Incline DB Hammer Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -1781,7 +1781,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Incline DB Supinating Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -1801,7 +1801,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Incline DB Zottman Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -1821,7 +1821,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Machine Biceps Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -1841,7 +1841,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Prone Barbell Curl ,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -1861,7 +1861,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Prone DB Hammer Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -1881,7 +1881,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Prone DB Supinating Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -1901,7 +1901,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Prone DB Zottman Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -1921,7 +1921,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Prone EZ Bar Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -1941,7 +1941,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Prone EZ Bar Reverse Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -1961,7 +1961,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Scott Bench Barbell Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -1981,7 +1981,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Scott Bench EZ Bar Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -2001,7 +2001,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Scott EZ Bar Reverse-Grip Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -2021,7 +2021,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Scott DB Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -2041,7 +2041,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Scott 1-Arm DB Zottman Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -2061,7 +2061,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Seated Machine Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -2081,7 +2081,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Seated DB Biceps Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -2101,7 +2101,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Seated Offset-Grip DB Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -2121,7 +2121,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Seated DB Zottman Curls,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -2141,7 +2141,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Seated DB Hammer Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -2161,7 +2161,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Seated DB Concentration Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -2181,7 +2181,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Standing Barbell Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -2201,7 +2201,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Standing Barbell Spider Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -2221,7 +2221,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Standing DB Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -2241,7 +2241,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Standing Offset-Grip DB Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -2261,7 +2261,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Standing DB Zottman Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -2281,7 +2281,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Standing DB Midline Hammer Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -2301,7 +2301,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Standing EZ Bar Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -2321,7 +2321,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Standing EZ Bar Reverse-Grip Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -2341,7 +2341,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Standing Cable Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -2361,7 +2361,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Standing Cable EZ Bar Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -2381,7 +2381,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Standing Cable EZ Bar Reverse-Grip Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -2401,7 +2401,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Supine Cable Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -2421,7 +2421,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 ,Supine EZ Bar Reverse-Grip  Cable Curl,"30°  Incline
 45°  Incline
 60°  Incline        
@@ -2441,7 +2441,7 @@ Thick Barbell
 Thick Dumbbell
 Triceps Bar
 T-Grip Barbell
-Rope",
+Rope"
 Calves,Tibialis Anterior Flexion - Standing,"Uni-Lateral
 Narrow Stance
 Hip Width Stance
@@ -2455,7 +2455,7 @@ Low Pulley
 Mid Pulley
 High Pulley
 Chains
-Weighted Vest",
+Weighted Vest"
 ,Tibialis Anterior Flexion - Standing - Machine,"Uni-Lateral
 Narrow Stance
 Hip Width Stance
@@ -2469,7 +2469,7 @@ Low Pulley
 Mid Pulley
 High Pulley
 Chains
-Weighted Vest",
+Weighted Vest"
 ,Tibialis Anterior Flexion - Seated - Uni-lateral w/band,"Uni-Lateral
 Narrow Stance
 Hip Width Stance
@@ -2483,7 +2483,7 @@ Low Pulley
 Mid Pulley
 High Pulley
 Chains
-Weighted Vest",
+Weighted Vest"
 ,Tibialis Anterior Flexion - Donkey Calf ,"Uni-Lateral
 Narrow Stance
 Hip Width Stance
@@ -2497,7 +2497,7 @@ Low Pulley
 Mid Pulley
 High Pulley
 Chains
-Weighted Vest",
+Weighted Vest"
 ,Tibialis Anterior Flexion - Seated - Machine,"Uni-Lateral
 Narrow Stance
 Hip Width Stance
@@ -2511,7 +2511,7 @@ Low Pulley
 Mid Pulley
 High Pulley
 Chains
-Weighted Vest",
+Weighted Vest"
 ,Calf Press,"Uni-Lateral
 Narrow Stance
 Hip Width Stance
@@ -2525,7 +2525,7 @@ Low Pulley
 Mid Pulley
 High Pulley
 Chains
-Weighted Vest",
+Weighted Vest"
 ,Donkey Calf Raise,"Uni-Lateral
 Narrow Stance
 Hip Width Stance
@@ -2539,7 +2539,7 @@ Low Pulley
 Mid Pulley
 High Pulley
 Chains
-Weighted Vest",
+Weighted Vest"
 ,Donkey Calf Raise - Machine,"Uni-Lateral
 Narrow Stance
 Hip Width Stance
@@ -2553,7 +2553,7 @@ Low Pulley
 Mid Pulley
 High Pulley
 Chains
-Weighted Vest",
+Weighted Vest"
 ,Standing Calf Raise - Machine,"Uni-Lateral
 Narrow Stance
 Hip Width Stance
@@ -2567,7 +2567,7 @@ Low Pulley
 Mid Pulley
 High Pulley
 Chains
-Weighted Vest",
+Weighted Vest"
 ,Standing Calf Raise - Unilateral,"Uni-Lateral
 Narrow Stance
 Hip Width Stance
@@ -2581,7 +2581,7 @@ Low Pulley
 Mid Pulley
 High Pulley
 Chains
-Weighted Vest",
+Weighted Vest"
 ,Seated Calf Raise - Machine,"Uni-Lateral
 Narrow Stance
 Hip Width Stance
@@ -2595,7 +2595,7 @@ Low Pulley
 Mid Pulley
 High Pulley
 Chains
-Weighted Vest",
+Weighted Vest"
 ,Seated Calf Raise - DB - Unilateral,"Uni-Lateral
 Narrow Stance
 Hip Width Stance
@@ -2609,7 +2609,7 @@ Low Pulley
 Mid Pulley
 High Pulley
 Chains
-Weighted Vest",
+Weighted Vest"
 Forearms,Gripper Machine,"One-Arm
 Close Grip
 Medium Grip
@@ -2625,7 +2625,7 @@ Fat Grip Barbell
 Low Pulley
 Mid Pulley
 High Pulley
-Zenith Gripper",
+Zenith Gripper"
 ,Spring Gripper,"One-Arm
 Close Grip
 Medium Grip
@@ -2641,7 +2641,7 @@ Fat Grip Barbell
 Low Pulley
 Mid Pulley
 High Pulley
-Zenith Gripper",
+Zenith Gripper"
 ,Radial Flexion,"One-Arm
 Close Grip
 Medium Grip
@@ -2657,7 +2657,7 @@ Fat Grip Barbell
 Low Pulley
 Mid Pulley
 High Pulley
-Zenith Gripper",
+Zenith Gripper"
 ,Ulnar Flexion,"One-Arm
 Close Grip
 Medium Grip
@@ -2673,7 +2673,7 @@ Fat Grip Barbell
 Low Pulley
 Mid Pulley
 High Pulley
-Zenith Gripper",
+Zenith Gripper"
 ,Wrist Curl - Forearm bench - Barbell,"One-Arm
 Close Grip
 Medium Grip
@@ -2689,7 +2689,7 @@ Fat Grip Barbell
 Low Pulley
 Mid Pulley
 High Pulley
-Zenith Gripper",
+Zenith Gripper"
 ,Wrist Curl - Forearm Bench- DB,"One-Arm
 Close Grip
 Medium Grip
@@ -2705,7 +2705,7 @@ Fat Grip Barbell
 Low Pulley
 Mid Pulley
 High Pulley
-Zenith Gripper",
+Zenith Gripper"
 ,Wrist Curl - Flat Bench - Cable,"One-Arm
 Close Grip
 Medium Grip
@@ -2721,7 +2721,7 @@ Fat Grip Barbell
 Low Pulley
 Mid Pulley
 High Pulley
-Zenith Gripper",
+Zenith Gripper"
 ,Wrist Curl - Standing - Behind the Back,"One-Arm
 Close Grip
 Medium Grip
@@ -2737,7 +2737,7 @@ Fat Grip Barbell
 Low Pulley
 Mid Pulley
 High Pulley
-Zenith Gripper",
+Zenith Gripper"
 ,Wrist Extension - Forearm Bench - Barbell,"One-Arm
 Close Grip
 Medium Grip
@@ -2753,7 +2753,7 @@ Fat Grip Barbell
 Low Pulley
 Mid Pulley
 High Pulley
-Zenith Gripper",
+Zenith Gripper"
 ,Wrist Extension - Forearm Bench - DB,"One-Arm
 Close Grip
 Medium Grip
@@ -2769,7 +2769,7 @@ Fat Grip Barbell
 Low Pulley
 Mid Pulley
 High Pulley
-Zenith Gripper",
+Zenith Gripper"
 ,Wrist Extension - Incline Bench - One-Arm Cable,"One-Arm
 Close Grip
 Medium Grip
@@ -2785,7 +2785,7 @@ Fat Grip Barbell
 Low Pulley
 Mid Pulley
 High Pulley
-Zenith Gripper",
+Zenith Gripper"
 ,Wrist Pronation - Hammer Rope - Cable,"One-Arm
 Close Grip
 Medium Grip
@@ -2801,7 +2801,7 @@ Fat Grip Barbell
 Low Pulley
 Mid Pulley
 High Pulley
-Zenith Gripper",
+Zenith Gripper"
 ,Wrist Supination - Hammer Rope - Cable,"One-Arm
 Close Grip
 Medium Grip
@@ -2817,7 +2817,7 @@ Fat Grip Barbell
 Low Pulley
 Mid Pulley
 High Pulley
-Zenith Gripper",
+Zenith Gripper"
 ,Wrist Supination - DB,"One-Arm
 Close Grip
 Medium Grip
@@ -2833,7 +2833,7 @@ Fat Grip Barbell
 Low Pulley
 Mid Pulley
 High Pulley
-Zenith Gripper",
+Zenith Gripper"
 ,Wrist Roller,"One-Arm
 Close Grip
 Medium Grip
@@ -2849,7 +2849,7 @@ Fat Grip Barbell
 Low Pulley
 Mid Pulley
 High Pulley
-Zenith Gripper",
+Zenith Gripper"
 ,Wrist Extension - Squatting Low Pulley,"One-Arm
 Close Grip
 Medium Grip
@@ -2865,7 +2865,7 @@ Fat Grip Barbell
 Low Pulley
 Mid Pulley
 High Pulley
-Zenith Gripper",
+Zenith Gripper"
 ,Wrist Supination - Kneeling Low Pulley,"One-Arm
 Close Grip
 Medium Grip
@@ -2881,7 +2881,7 @@ Fat Grip Barbell
 Low Pulley
 Mid Pulley
 High Pulley
-Zenith Gripper",
+Zenith Gripper"
 Hamstrings,TRX Leg Curl - Bilateral,"Uni-Lateral
 Heels Together
 Hip Width Stance
@@ -2900,7 +2900,7 @@ weight vest
 Chains
 Low Pulley
 Mid Pulley
-High Pulley",
+High Pulley"
 ,TRX Leg Curl - Alternating,"Uni-Lateral
 Heels Together
 Hip Width Stance
@@ -2919,7 +2919,7 @@ weight vest
 Chains
 Low Pulley
 Mid Pulley
-High Pulley",
+High Pulley"
 ,Swiss Ball Leg Curl,"Uni-Lateral
 Heels Together
 Hip Width Stance
@@ -2938,7 +2938,7 @@ weight vest
 Chains
 Low Pulley
 Mid Pulley
-High Pulley",
+High Pulley"
 ,Swiss Ball Leg Curl - 2 up 1 down,"Uni-Lateral
 Heels Together
 Hip Width Stance
@@ -2957,7 +2957,7 @@ weight vest
 Chains
 Low Pulley
 Mid Pulley
-High Pulley",
+High Pulley"
 ,Kneeling Leg Curl - Dorsiflexed,"Uni-Lateral
 Heels Together
 Hip Width Stance
@@ -2976,7 +2976,7 @@ weight vest
 Chains
 Low Pulley
 Mid Pulley
-High Pulley",
+High Pulley"
 ,Kneeling Leg Curl - Plantarflexed,"Uni-Lateral
 Heels Together
 Hip Width Stance
@@ -2995,7 +2995,7 @@ weight vest
 Chains
 Low Pulley
 Mid Pulley
-High Pulley",
+High Pulley"
 ,Kneeling Leg Curl - Poliquin,"Uni-Lateral
 Heels Together
 Hip Width Stance
@@ -3014,7 +3014,7 @@ weight vest
 Chains
 Low Pulley
 Mid Pulley
-High Pulley",
+High Pulley"
 ,Prone Leg Curl - Dorsiflexed,"Uni-Lateral
 Heels Together
 Hip Width Stance
@@ -3033,7 +3033,7 @@ weight vest
 Chains
 Low Pulley
 Mid Pulley
-High Pulley",
+High Pulley"
 ,Prone Leg Curl - Plantarflexed,"Uni-Lateral
 Heels Together
 Hip Width Stance
@@ -3052,7 +3052,7 @@ weight vest
 Chains
 Low Pulley
 Mid Pulley
-High Pulley",
+High Pulley"
 ,Prone Leg Curl - Poliquin,"Uni-Lateral
 Heels Together
 Hip Width Stance
@@ -3071,7 +3071,7 @@ weight vest
 Chains
 Low Pulley
 Mid Pulley
-High Pulley",
+High Pulley"
 ,Prone Leg Curl - 2 up 1 down,"Uni-Lateral
 Heels Together
 Hip Width Stance
@@ -3090,7 +3090,7 @@ weight vest
 Chains
 Low Pulley
 Mid Pulley
-High Pulley",
+High Pulley"
 ,Glute-Hamstrings Raise,"Uni-Lateral
 Heels Together
 Hip Width Stance
@@ -3109,7 +3109,7 @@ weight vest
 Chains
 Low Pulley
 Mid Pulley
-High Pulley",
+High Pulley"
 ,Nordic Eccentric Hamstrings Curl,"Uni-Lateral
 Heels Together
 Hip Width Stance
@@ -3128,7 +3128,7 @@ weight vest
 Chains
 Low Pulley
 Mid Pulley
-High Pulley",
+High Pulley"
 ,Seated Leg Curl ,"Uni-Lateral
 Heels Together
 Hip Width Stance
@@ -3147,7 +3147,7 @@ weight vest
 Chains
 Low Pulley
 Mid Pulley
-High Pulley",
+High Pulley"
 ,Standing Leg Curl,"Uni-Lateral
 Heels Together
 Hip Width Stance
@@ -3166,7 +3166,7 @@ weight vest
 Chains
 Low Pulley
 Mid Pulley
-High Pulley",
+High Pulley"
 Neck,"Neck Extension, Prone","Harness            
 Machine            
 Standing  Swiss Ball          
@@ -3179,7 +3179,7 @@ High Pulley
 Bands
 Dumbbell
 weight plate
-Band ",
+Band "
 ,"Neck Extension, Machine","Harness            
 Machine            
 Standing  Swiss Ball          
@@ -3192,7 +3192,7 @@ High Pulley
 Bands
 Dumbbell
 weight plate
-Band ",
+Band "
 ,Neck Extension - Standing - Swiss Ball,"Harness            
 Machine            
 Standing  Swiss Ball          
@@ -3205,7 +3205,7 @@ High Pulley
 Bands
 Dumbbell
 weight plate
-Band ",
+Band "
 ,Neck Extension - Supine - Swiss Ball,"Harness            
 Machine            
 Standing  Swiss Ball          
@@ -3218,7 +3218,7 @@ High Pulley
 Bands
 Dumbbell
 weight plate
-Band ",
+Band "
 ,Neck Extension - Harness,"Harness            
 Machine            
 Standing  Swiss Ball          
@@ -3231,7 +3231,7 @@ High Pulley
 Bands
 Dumbbell
 weight plate
-Band ",
+Band "
 ,Neck Flexion - Supine,"Harness            
 Machine            
 Standing  Swiss Ball          
@@ -3244,7 +3244,7 @@ High Pulley
 Bands
 Dumbbell
 weight plate
-Band ",
+Band "
 ,Neck Flexion - Machine,"Harness            
 Machine            
 Standing  Swiss Ball          
@@ -3257,7 +3257,7 @@ High Pulley
 Bands
 Dumbbell
 weight plate
-Band ",
+Band "
 ,Neck Flexion - Standing - Swiss Ball,"Harness            
 Machine            
 Standing  Swiss Ball          
@@ -3270,7 +3270,7 @@ High Pulley
 Bands
 Dumbbell
 weight plate
-Band ",
+Band "
 ,Neck Flexion - Kneeling - Swiss Ball,"Harness            
 Machine            
 Standing  Swiss Ball          
@@ -3283,7 +3283,7 @@ High Pulley
 Bands
 Dumbbell
 weight plate
-Band ",
+Band "
 ,Neck Lateral Flexion - Swiss Ball,"Harness            
 Machine            
 Standing  Swiss Ball          
@@ -3296,7 +3296,7 @@ High Pulley
 Bands
 Dumbbell
 weight plate
-Band ",
+Band "
 ,Neck Lateral Flexion - Machine,"Harness            
 Machine            
 Standing  Swiss Ball          
@@ -3309,7 +3309,7 @@ High Pulley
 Bands
 Dumbbell
 weight plate
-Band ",
+Band "
 ,Neck Lateral Flexion - Harness,"Harness            
 Machine            
 Standing  Swiss Ball          
@@ -3322,7 +3322,7 @@ High Pulley
 Bands
 Dumbbell
 weight plate
-Band ",
+Band "
 Pectorals,Incline Bench Press,"10° Incline      
 15° Incline
 30° Incline      
@@ -3352,7 +3352,7 @@ Thick Dumbbell
 Cambered Bar
 Fat Gripz
 Multi-Grip Bar
-add Custom",
+add Custom"
 ,Incline Bench Press - Mid Grip,"10° Incline      
 15° Incline
 30° Incline      
@@ -3382,7 +3382,7 @@ Thick Dumbbell
 Cambered Bar
 Fat Gripz
 Multi-Grip Bar
-add Custom",
+add Custom"
 ,Incline Bench Press - Wide Grip,"10° Incline      
 15° Incline
 30° Incline      
@@ -3412,7 +3412,7 @@ Thick Dumbbell
 Cambered Bar
 Fat Gripz
 Multi-Grip Bar
-add Custom",
+add Custom"
 ,Incline Bench Press - Neutral Grip,"10° Incline      
 15° Incline
 30° Incline      
@@ -3442,7 +3442,7 @@ Thick Dumbbell
 Cambered Bar
 Fat Gripz
 Multi-Grip Bar
-add Custom",
+add Custom"
 ,Incline DB Bench Press - Neutral Grip,"10° Incline      
 15° Incline
 30° Incline      
@@ -3468,7 +3468,7 @@ Thick Dumbbell
 Cambered Bar
 Fat Gripz
 Multi-Grip Bar
-add Custom",
+add Custom"
 ,Incline DB Bench Press - Pronated Grip,"10° Incline      
 15° Incline
 30° Incline      
@@ -3494,7 +3494,7 @@ Thick Dumbbell
 Cambered Bar
 Fat Gripz
 Multi-Grip Bar
-add Custom",
+add Custom"
 ,Incline DB Bench Press - Rotating Grip,"10° Incline      
 15° Incline
 30° Incline      
@@ -3520,7 +3520,7 @@ Thick Dumbbell
 Cambered Bar
 Fat Gripz
 Multi-Grip Bar
-add Custom",
+add Custom"
 ,Incline DB Bench Press - Semi-Pronated Grip,"10° Incline      
 15° Incline
 30° Incline      
@@ -3546,7 +3546,7 @@ Thick Dumbbell
 Cambered Bar
 Fat Gripz
 Multi-Grip Bar
-add Custom",
+add Custom"
 ,Incline DB Bench Press - Semi-Supinated Grip,"10° Incline      
 15° Incline
 30° Incline      
@@ -3572,7 +3572,7 @@ Thick Dumbbell
 Cambered Bar
 Fat Gripz
 Multi-Grip Bar
-add Custom",
+add Custom"
 ,Bench Press,"Close Grip
 Medium Grip
 Wide Grip","Neutral
@@ -3594,7 +3594,7 @@ Thick Dumbbell
 Cambered Bar
 Fat Gripz
 Multi-Grip Bar
-add Custom",
+add Custom"
 ,Bench Press to the Neck,"Medium Grip
 Wide Grip",,"Barbell
 Dumbbell
@@ -3612,7 +3612,7 @@ Thick Dumbbell
 Cambered Bar
 Fat Gripz
 Multi-Grip Bar
-add Custom",
+add Custom"
 ,DB Bench Press,"Neutral Grip
 Pronated Grip
 Semi-Pronated Grip
@@ -3637,7 +3637,7 @@ Thick Dumbbell
 Cambered Bar
 Fat Gripz
 Multi-Grip Bar
-add Custom",
+add Custom"
 ,Decline Bench Press,"Close Grip
 Medium Grip
 Wide Grip","Neutral
@@ -3660,7 +3660,7 @@ Thick Dumbbell
 Cambered Bar
 Fat Gripz
 Multi-Grip Bar
-add Custom",
+add Custom"
 ,Rack Bench Press,"Close Grip
 Medium Grip
 Wide grip","top 1/4 lockout
@@ -3681,7 +3681,7 @@ Thick Dumbbell
 Cambered Bar
 Fat Gripz
 Multi-Grip Bar
-add Custom",
+add Custom"
 ,Chest Dip,"Gironda            
 Parallel Bar            
 Roman Rings            
@@ -3703,7 +3703,7 @@ Thick Dumbbell
 Cambered Bar
 Fat Gripz
 Multi-Grip Bar
-add Custom",
+add Custom"
 ,Cable Chest Fly,"Flat
 Incline
 Decline
@@ -3728,7 +3728,7 @@ Thick Dumbbell
 Cambered Bar
 Fat Gripz
 Multi-Grip Bar
-add Custom",
+add Custom"
 ,DB Chest Fly,"Flat
 10° Incline      
 15° Incline
@@ -3756,7 +3756,7 @@ Thick Dumbbell
 Cambered Bar
 Fat Gripz
 Multi-Grip Bar
-add Custom",
+add Custom"
 ,Machine Chest Fly,"Neutral
 Pronated",,"Barbell
 Dumbbell
@@ -3774,7 +3774,7 @@ Thick Dumbbell
 Cambered Bar
 Fat Gripz
 Multi-Grip Bar
-add Custom",
+add Custom"
 ,Machine Chest Press,"Flat
 10° Incline      
 15° Incline
@@ -3803,7 +3803,7 @@ Thick Dumbbell
 Cambered Bar
 Fat Gripz
 Multi-Grip Bar
-add Custom",
+add Custom"
 ,Push-up,"Decline
 clapping            
 Feet on Ball            
@@ -3828,7 +3828,7 @@ Thick Dumbbell
 Cambered Bar
 Fat Gripz
 Multi-Grip Bar
-add Custom",
+add Custom"
 Posterior Chain/Glutes,"Back Extension, 45° Incline            ","Offset
 Uni-Lateral",,"Swiss Ball
 Barbell
@@ -3840,7 +3840,7 @@ Safety Bar
 Band
 High Pulley
 Low pulley
-Mid Pulley",
+Mid Pulley"
 ,"Back Extension, Horizontal",,,"Swiss Ball
 Barbell
 Dumbbells 
@@ -3851,7 +3851,7 @@ Safety Bar
 Band
 High Pulley
 Low pulley
-Mid Pulley",
+Mid Pulley"
 ,"Seated Back Extension, Machine",,,"Swiss Ball
 Barbell
 Dumbbells 
@@ -3862,7 +3862,7 @@ Safety Bar
 Band
 High Pulley
 Low pulley
-Mid Pulley",
+Mid Pulley"
 ,Deadlift,"Clean Grip            
 Snatch Grip","Podium
 Rack Above Knee
@@ -3877,7 +3877,7 @@ Safety Bar
 Band
 High Pulley
 Low pulley
-Mid Pulley",
+Mid Pulley"
 ,Romanian Deadlift,"Clean Grip            
 Snatch Grip
 1-Leg","Podium
@@ -3893,7 +3893,7 @@ Safety Bar
 Band
 High Pulley
 Low pulley
-Mid Pulley",
+Mid Pulley"
 ,Sumo Deadlift,"Clean Grip
 Over-Under grip
 Straps","Podium
@@ -3908,7 +3908,7 @@ Safety Bar
 Band
 High Pulley
 Low pulley
-Mid Pulley",
+Mid Pulley"
 ,Glute-ham Raise,"close stance
 medium stance
 wide stance",,"Swiss Ball
@@ -3921,7 +3921,7 @@ Safety Bar
 Band
 High Pulley
 Low pulley
-Mid Pulley",
+Mid Pulley"
 ,Goodmorning,"Seated  Medium Stance          
 Seated  Wide Stance          
 Standing  Medium Stance          
@@ -3935,7 +3935,7 @@ Safety Bar
 Band
 High Pulley
 Low pulley
-Mid Pulley",
+Mid Pulley"
 ,Hip Bridge,"Supine            
 Supine  Unilateral          
 Swiss Ball            
@@ -3949,7 +3949,7 @@ Safety Bar
 Band
 High Pulley
 Low pulley
-Mid Pulley",
+Mid Pulley"
 ,Hip Bridge + Knee Flexion Combo,"Swiss Ball            
 Swiss Ball  Unilateral          ",,"Swiss Ball
 Barbell
@@ -3961,7 +3961,7 @@ Safety Bar
 Band
 High Pulley
 Low pulley
-Mid Pulley",
+Mid Pulley"
 ,Kettlebell Swings,,,"Swiss Ball
 Barbell
 Dumbbells 
@@ -3972,7 +3972,7 @@ Safety Bar
 Band
 High Pulley
 Low pulley
-Mid Pulley",
+Mid Pulley"
 ,Cable Pull-Through,"Medium Stance            
 Wide Stance            ",,"Swiss Ball
 Barbell
@@ -3984,7 +3984,7 @@ Safety Bar
 Band
 High Pulley
 Low pulley
-Mid Pulley",
+Mid Pulley"
 ,Reverse Hip Extension,"Feet Medium            
 Feet Narrow            
 Feet Wide            
@@ -3998,7 +3998,7 @@ Safety Bar
 Band
 High Pulley
 Low pulley
-Mid Pulley",
+Mid Pulley"
 ,Monster Walk,"Seated
 Standing","Machine
 Band","Swiss Ball
@@ -4011,7 +4011,7 @@ Safety Bar
 Band
 High Pulley
 Low pulley
-Mid Pulley",
+Mid Pulley"
 ,"Side Lying Hip Abduction, Bent Knee",Side Lying,Cable,"Swiss Ball
 Barbell
 Dumbbells 
@@ -4022,7 +4022,7 @@ Safety Bar
 Band
 High Pulley
 Low pulley
-Mid Pulley",
+Mid Pulley"
 ,Cable Hip Abduction,"Seated
 Standing
 Side Lying","Machine
@@ -4037,7 +4037,7 @@ Safety Bar
 Band
 High Pulley
 Low pulley
-Mid Pulley",
+Mid Pulley"
 ,Supine Hip Bridge,Dynamic,,"Swiss Ball
 Barbell
 Dumbbells 
@@ -4048,7 +4048,7 @@ Safety Bar
 Band
 High Pulley
 Low pulley
-Mid Pulley",
+Mid Pulley"
 ,Hip Hinge,"Standing
 Kneeling",Banded,"Swiss Ball
 Barbell
@@ -4060,7 +4060,7 @@ Safety Bar
 Band
 High Pulley
 Low pulley
-Mid Pulley",
+Mid Pulley"
 ,McKenzie Press-up,,,"Swiss Ball
 Barbell
 Dumbbells 
@@ -4071,7 +4071,7 @@ Safety Bar
 Band
 High Pulley
 Low pulley
-Mid Pulley",
+Mid Pulley"
 ,Prone Cobra,,,"Swiss Ball
 Barbell
 Dumbbells 
@@ -4082,9 +4082,9 @@ Safety Bar
 Band
 High Pulley
 Low pulley
-Mid Pulley",
-Quadriceps,Cossack Squat,,,Buffalo Bar,
-,Goblet Squat,,,Safety Bar,
+Mid Pulley"
+Quadriceps,Cossack Squat,,,Buffalo Bar
+,Goblet Squat,,,Safety Bar
 ,Machine Hack Squat,"Feet High
 Feet Low 
 Feet Middle","Narrow Stance
@@ -4099,7 +4099,7 @@ Axle
 Cambered Bar
 Rocker Board            
 Sitfit            
-Wobble Board            ",
+Wobble Board            "
 ,Barbell Hack Squat,Heels Elevated,,"Barbell
 Dumbbell
 Trap Bar
@@ -4108,7 +4108,7 @@ Axle
 Cambered Bar
 Rocker Board            
 Sitfit            
-Wobble Board            ",
+Wobble Board            "
 ,Leg Extension,,,"Barbell
 Dumbbell
 Trap Bar
@@ -4117,7 +4117,7 @@ Axle
 Cambered Bar
 Rocker Board            
 Sitfit            
-Wobble Board            ",
+Wobble Board            "
 ,Leg Extension,Unilateral            ,,"Barbell
 Dumbbell
 Trap Bar
@@ -4126,7 +4126,7 @@ Axle
 Cambered Bar
 Rocker Board            
 Sitfit            
-Wobble Board            ",
+Wobble Board            "
 ,Horizontal Leg Press,"Feet High
 Feet Low 
 Feet Middle
@@ -4142,7 +4142,7 @@ Axle
 Cambered Bar
 Rocker Board            
 Sitfit            
-Wobble Board            ",
+Wobble Board            "
 ,Incline Leg Press,"Feet High
 Feet Low 
 Feet Middle
@@ -4158,7 +4158,7 @@ Axle
 Cambered Bar
 Rocker Board            
 Sitfit            
-Wobble Board            ",
+Wobble Board            "
 ,Lunge,"Forward
 Drop
 Reverse
@@ -4171,7 +4171,7 @@ Axle
 Cambered Bar
 Rocker Board            
 Sitfit            
-Wobble Board            ",
+Wobble Board            "
 ,Pendulum Squat,"Duck Stance
 Narrow Stance
 Medium Stance
@@ -4183,7 +4183,7 @@ Axle
 Cambered Bar
 Rocker Board            
 Sitfit            
-Wobble Board            ",
+Wobble Board            "
 ,Power Squat Machine,"Facing In
 Facing Out","Narrow Stance
 Medium Stance
@@ -4196,7 +4196,7 @@ Axle
 Cambered Bar
 Rocker Board            
 Sitfit            
-Wobble Board            ",
+Wobble Board            "
 ,Split Squat,"Front Foot Elevated            
 Rear Leg Elevated",1.25 reps,"Barbell
 Dumbbell
@@ -4206,7 +4206,7 @@ Axle
 Cambered Bar
 Rocker Board            
 Sitfit            
-Wobble Board            ",
+Wobble Board            "
 ,Low Bar Squat,"Narrow Stance
 Medium Stance
 Wide Stance","Top 1/3 range
@@ -4219,7 +4219,7 @@ Axle
 Cambered Bar
 Rocker Board            
 Sitfit            
-Wobble Board            ",
+Wobble Board            "
 ,Squat,"Narrow Stance
 Medium Stance
 Wide Stance
@@ -4233,7 +4233,7 @@ Axle
 Cambered Bar
 Rocker Board            
 Sitfit            
-Wobble Board            ",
+Wobble Board            "
 ,Inertia Squat,"Narrow Stance
 Medium Stance
 Wide Stance
@@ -4254,7 +4254,7 @@ Axle
 Cambered Bar
 Rocker Board            
 Sitfit            
-Wobble Board            ",
+Wobble Board            "
 ,Front Squat,"Narrow Stance
 Medium Stance
 Wide Stance
@@ -4268,7 +4268,7 @@ Axle
 Cambered Bar
 Rocker Board            
 Sitfit            
-Wobble Board            ",
+Wobble Board            "
 ,Single Leg Squat,"Crouching
 Bench Get up",,"Barbell
 Dumbbell
@@ -4278,7 +4278,7 @@ Axle
 Cambered Bar
 Rocker Board            
 Sitfit            
-Wobble Board            ",
+Wobble Board            "
 ,Pistol Squat,heel elevated,,"Barbell
 Dumbbell
 Trap Bar
@@ -4287,7 +4287,7 @@ Axle
 Cambered Bar
 Rocker Board            
 Sitfit            
-Wobble Board            ",
+Wobble Board            "
 ,Jump Squat,,,"Barbell
 Dumbbell
 Trap Bar
@@ -4296,7 +4296,7 @@ Axle
 Cambered Bar
 Rocker Board            
 Sitfit            
-Wobble Board            ",
+Wobble Board            "
 ,Machine Squat,"Feet High
 Feet Low 
 Feet Middle
@@ -4312,7 +4312,7 @@ Axle
 Cambered Bar
 Rocker Board            
 Sitfit            
-Wobble Board            ",
+Wobble Board            "
 ,Trap Bar Squat,"Narrow Stance
 Medium Stance
 Wide Stance
@@ -4326,7 +4326,7 @@ Axle
 Cambered Bar
 Rocker Board            
 Sitfit            
-Wobble Board            ",
+Wobble Board            "
 ,Overhead Squat,,,"Barbell
 Dumbbell
 Trap Bar
@@ -4335,7 +4335,7 @@ Axle
 Cambered Bar
 Rocker Board            
 Sitfit            
-Wobble Board            ",
+Wobble Board            "
 ,Telemark Squat,,,"Barbell
 Dumbbell
 Trap Bar
@@ -4344,7 +4344,7 @@ Axle
 Cambered Bar
 Rocker Board            
 Sitfit            
-Wobble Board            ",
+Wobble Board            "
 ,Step-up,"Front            
 Front  Low Box          
 Petersen            
@@ -4360,12 +4360,12 @@ Axle
 Cambered Bar
 Rocker Board            
 Sitfit            
-Wobble Board            ",
+Wobble Board            "
 Shoulders,Arnold Press,"Seated            
-Standing            ",,,
-,Band Pull Aparts,,,,
+Standing            ",,
+,Band Pull Aparts,,,
 ,Behind the Neck Press,"Seated            
-Standing            ",,,
+Standing            ",,
 ,External Rotation,"Arm Extended and Abducted in Front            
 Arm Extended and Abducted Overhead            
 Arm Extended and Abducted to Side            
@@ -4380,7 +4380,7 @@ Cuban Press
 Elbow on Knee            
 Muscle Snatch          ","Seated
 Standing
-Kneeling",,
+Kneeling",
 ,Front Raise,"15° Incline  Narrow Grip
 15° Incline  Medium Grip      
 15° Incline  Wide Grip
@@ -4411,7 +4411,7 @@ Pronating
 Supinated
 Supinating
 Semi-Pronated
-Semi-Supinated",,
+Semi-Supinated",
 ,Horizontal Abduction,"Seated 
 Standing
 Kneeling","Neutral
@@ -4419,9 +4419,9 @@ Pronated
 Semi-Pronated
 Supinated
 Supinating
-Semi-Supinated",,
+Semi-Supinated",
 ,Landmine Press,"Neutral
-Pronated",,,
+Pronated",,
 ,Lateral Raise,"Bent-over            
 Machine            
 Prone  15° Incline          
@@ -4433,7 +4433,7 @@ Prone  Flat
 Seated            
 Seated  L-Lateral          
 Standing
-Standing L-Lateral",One-Arm,,
+Standing L-Lateral",One-Arm,
 ,Sidelying Lateral Raise,"on Forearm     
 15° Incline       
 30° Incline       
@@ -4442,8 +4442,8 @@ Pronated
 Semi-Pronated
 Supinated
 Supinating
-Semi-Supinated",,
-,One-arm Land Mine Press,,,,
+Semi-Supinated",
+,One-arm Land Mine Press,,,
 ,Powell Raise,"15° Incline            
 30° Incline            
 45° Incline            
@@ -4454,11 +4454,11 @@ Pronated
 Semi-Pronated
 Supinated
 Supinating
-Semi-Supinated",,
+Semi-Supinated",
 ,Reverse Flye,"Machine  Seated  Neutral        
-Machine  Seated  Pronated        ",,,
+Machine  Seated  Pronated        ",,
 ,Scott Press,"Seated            
-Standing            ",,,
+Standing            ",,
 ,Shoulder Press,"Machine  Seated  Neutral        
 Machine Seated
 Seated
@@ -4472,7 +4472,7 @@ Supinating
 Semi-Supinated
 One-Arm Neutral
 One-Arm Pronated
-One-Arm Rotating",,
+One-Arm Rotating",
 ,Shrug,"Prone  45° Incline        
 Prone  60° Incline        
 Prone  75° Incline        
@@ -4489,9 +4489,9 @@ Supinating
 Semi-Supinated
 One-Arm Neutral
 One-Arm Pronated
-One-Arm Rotating",,
-,Sots Press,,,,
-,Turkish Getup,,,,
+One-Arm Rotating",
+,Sots Press,,,
+,Turkish Getup,,,
 ,Upright Row,"Close grip
 Medium Grip
 Wide Grip","Neutral
@@ -4502,7 +4502,7 @@ Supinating
 Semi-Supinated
 One-Arm Neutral
 One-Arm Pronated
-One-Arm Rotating",,
+One-Arm Rotating",
 Triceps,Close Grip Bench Press,"15° Incline 
 30° Incline 
 45° Incline 
@@ -4520,7 +4520,7 @@ Thick Bar
 EZ Bar
 Triceps Bar
 Triceps Rope
-Multi-Grip Bar",
+Multi-Grip Bar"
 ,California Press,Flat            ,"Neutral   
 Pronated   
 Semi-Pronated
@@ -4533,7 +4533,7 @@ Thick Bar
 EZ Bar
 Triceps Bar
 Triceps Rope
-Multi-Grip Bar",
+Multi-Grip Bar"
 ,Triceps Dips,"Machine
 V-Bar
 Parallel Bar
@@ -4545,7 +4545,7 @@ Thick Bar
 EZ Bar
 Triceps Bar
 Triceps Rope
-Multi-Grip Bar",
+Multi-Grip Bar"
 ,Floor Press,"Close grip
 Medium Grip
 Wide Grip","Neutral   
@@ -4560,7 +4560,7 @@ Thick Bar
 EZ Bar
 Triceps Bar
 Triceps Rope
-Multi-Grip Bar",
+Multi-Grip Bar"
 ,Machine French Press,"Close Grip
 Medium Grip
 One-Arm","Neutral   
@@ -4575,7 +4575,7 @@ Thick Bar
 EZ Bar
 Triceps Bar
 Triceps Rope
-Multi-Grip Bar",
+Multi-Grip Bar"
 ,Seated French Press,"Close Grip
 Medium Grip
 One-Arm","Neutral   
@@ -4590,7 +4590,7 @@ Thick Bar
 EZ Bar
 Triceps Bar
 Triceps Rope
-Multi-Grip Bar",
+Multi-Grip Bar"
 ,Standing French Press,"Close Grip
 Medium Grip
 One-Arm","Neutral   
@@ -4605,7 +4605,7 @@ Thick Bar
 EZ Bar
 Triceps Bar
 Triceps Rope
-Multi-Grip Bar",
+Multi-Grip Bar"
 ,Seated Half Press in rack,Seated  Medium Grip  Pronated        ,,"Barbell
 Dumbbell
 T-Grip Barbell
@@ -4614,7 +4614,7 @@ Thick Bar
 EZ Bar
 Triceps Bar
 Triceps Rope
-Multi-Grip Bar",
+Multi-Grip Bar"
 ,Kneeling Triceps Pressdown,"Close Grip      
 Medium Grip
 Wide Grip
@@ -4630,7 +4630,7 @@ Thick Bar
 EZ Bar
 Triceps Bar
 Triceps Rope
-Multi-Grip Bar",
+Multi-Grip Bar"
 ,Prone Triceps Pressdown,"45° Incline  Close Grip        
 45° Incline  Medium Grip        
 45° Incline  Wide Grip","Neutral   
@@ -4645,7 +4645,7 @@ Thick Bar
 EZ Bar
 Triceps Bar
 Triceps Rope
-Multi-Grip Bar",
+Multi-Grip Bar"
 ,Standing Triceps Pressdown,"Close Grip
 Medium Grip
 Wide Grip
@@ -4661,7 +4661,7 @@ Thick Bar
 EZ Bar
 Triceps Bar
 Triceps Rope
-Multi-Grip Bar",
+Multi-Grip Bar"
 ,Triceps Extension,"Flat Close Grip
 Flat Medium Grip
 15° Incline 
@@ -4687,44 +4687,44 @@ Thick Bar
 EZ Bar
 Triceps Bar
 Triceps Rope
-Multi-Grip Bar",
+Multi-Grip Bar"
 Olympic Lifts,Clean,"Floor
 Blocks
 Podium",,"Barbell
 15 Kg Barbell
-20 Kg Barbell",
+20 Kg Barbell"
 ,Clean and Jerk,"Mid Thigh
 Above Knee
 Below Knee",,"Barbell
 15 Kg Barbell
-20 Kg Barbell",
+20 Kg Barbell"
 ,Clean and Press,,,"Barbell
 15 Kg Barbell
-20 Kg Barbell",
+20 Kg Barbell"
 ,Hang Clean,"Mid Thigh
 Above Knee
 Knee
 Below the Knee            ",,"Barbell
 15 Kg Barbell
-20 Kg Barbell",
+20 Kg Barbell"
 ,Power Clean,"Floor
 Mid Thigh            
 Knee
 Below Knee",,"Barbell
 15 Kg Barbell
-20 Kg Barbell",
+20 Kg Barbell"
 ,Power Clean + Front Squat + Push Press,,,"Barbell
 15 Kg Barbell
-20 Kg Barbell",
+20 Kg Barbell"
 ,Power Clean + Front Squat  ,,,"Barbell
 15 Kg Barbell
-20 Kg Barbell",
+20 Kg Barbell"
 ,Power Clean + Push Press,,,"Barbell
 15 Kg Barbell
-20 Kg Barbell",
+20 Kg Barbell"
 ,Power Clean + Clean Pull,,,"Barbell
 15 Kg Barbell
-20 Kg Barbell",
+20 Kg Barbell"
 ,Clean Pull,"Floor
 Mid Thigh
 Above Knee
@@ -4734,7 +4734,7 @@ Blocks
 Hang
 Podium","Barbell
 15 Kg Barbell
-20 Kg Barbell",
+20 Kg Barbell"
 ,Snatch,"Floor
 Mid Thigh
 Above Knee
@@ -4742,84 +4742,84 @@ Knee
 Below Knee","Blocks
 Podium","Barbell
 15 Kg Barbell
-20 Kg Barbell",
+20 Kg Barbell"
 ,Power Snatch,"blocks
 Above the Knee            
 Below the Knee            
 Mid Thigh            
 Podium            ",,"Barbell
 15 Kg Barbell
-20 Kg Barbell",
+20 Kg Barbell"
 ,Hang Snatch,"Mid Thigh
 Above Knee
 Knee
 Below the Knee            ",,"Barbell
 15 Kg Barbell
-20 Kg Barbell",
+20 Kg Barbell"
 ,Power Snatch + Overhead Squat,,,"Barbell
 15 Kg Barbell
-20 Kg Barbell",
+20 Kg Barbell"
 ,Push Jerk behind the Neck,"Clean Grip
 Snatch Grip",,"Barbell
 15 Kg Barbell
-20 Kg Barbell",
+20 Kg Barbell"
 ,Overhead Squat,"Clean grip
 Snatch Grip",,"Barbell
 15 Kg Barbell
-20 Kg Barbell",
+20 Kg Barbell"
 ,Sots Press,,,"Barbell
 15 Kg Barbell
-20 Kg Barbell",
+20 Kg Barbell"
 ,Split Jerk,,,"Barbell
 15 Kg Barbell
-20 Kg Barbell",
-Plyometrics,Box Jump,,,,
-,Squat Jump,,,,
-,Tuck Jump,,,,
-,Split Jump,,,,
-,Ankle Jumps,,,,
-,Standing Broad Jump,,,,
-,Jump Rope,,,,
-,Depth Jump,,,,
-,Hurdle Jump,,,,
-,Lateral Jump,,,,
-,Penta Jump,,,,
-,Broad Jump,Forward and Lateral            ,,,
+20 Kg Barbell"
+Plyometrics,Box Jump,,,
+,Squat Jump,,,
+,Tuck Jump,,,
+,Split Jump,,,
+,Ankle Jumps,,,
+,Standing Broad Jump,,,
+,Jump Rope,,,
+,Depth Jump,,,
+,Hurdle Jump,,,
+,Lateral Jump,,,
+,Penta Jump,,,
+,Broad Jump,Forward and Lateral            ,,
 ,Med Ball,"Chest Pass            
 Overhead Toss            
 Pullover Pass
 Side Toss with Rotation            
 Slam            
-Supine Chest Pass            ",,,
-Strongman,Axle Clean + Press,,,,
-,Axle Clean & Press,,,,
-,Axle Deadlift,,,,
-,Axle Press,,,,
-,Car Deadlift,,,,
-,Circus Dumbbell Clean & Press ,,,,
-,Circus Dumbbell Press,,,,
-,Conan's Wheel,,,,
-,Farmer's Handle Deadlift,,,,
+Supine Chest Pass            ",,
+Strongman,Axle Clean + Press,,,
+,Axle Clean & Press,,,
+,Axle Deadlift,,,
+,Axle Press,,,
+,Car Deadlift,,,
+,Circus Dumbbell Clean & Press ,,,
+,Circus Dumbbell Press,,,
+,Conan's Wheel,,,
+,Farmer's Handle Deadlift,,,
 ,Farmer's Walk,"Forward Start and Stops            
 Forward with Turn
 Reverse Start and Stops            
-Side Bend            ",,,
-,Frame Carry,,,,
-,Frame Deadlift,,,,
-,Husafel Carry,,,,
-,Keg Carry,,,,
-,Keg Clean & Press Away,,,,
-,Keg Clean & Press Every Rep,,,,
-,Keg Over Bar,,,,
-,Log Press,,,,
-,Log Inertia press,,,,
-,Log Incline Press,,,,
-,Log Clean + Press,,,,
-,Log Clean & Press ,,,,
-,Log Push Press,,,,
-,Prowler Push,Shoulder Harness,,,
-,Sandbag Carry,,,,
-,Sandbag Over Bar,,,,
+Side Bend            ",,
+,Frame Carry,,,
+,Frame Deadlift,,,
+,Husafel Carry,,,
+,Keg Carry,,,
+,Keg Clean & Press Away,,,
+,Keg Clean & Press Every Rep,,,
+,Keg Over Bar,,,
+,Log Press,,,
+,Log Inertia press,,,
+,Log Incline Press,,,
+,Log Clean + Press,,,
+,Log Clean & Press ,,,
+,Log Push Press,,,
+,Prowler Push,Shoulder Harness,,
+,Sandbag Carry,,,
+,Sandbag Over Bar,,,
 ,Sled Drag,"Backwards            
 Backwards Walk            
 Bear Crawl
@@ -4840,311 +4840,119 @@ Sideways  Hand Hold
 Single-Arm Backwards            
 Single-Arm Hamstring            
 Thick Rope Pull            
-Tow with Harness            ",,,
-,Sledge Hammer,,,,
-,Atlas Stone,,,,
-,Atlas Stone Carry,,,,
-,Atlas Stone Over Bar,,,,
-,Atlas Stone Series,,,,
-,Atlas Stone to Platform,,,,
-,Tire Flip,,,,
-,Viking Press,,,,
+Tow with Harness            ",,
+,Sledge Hammer,,,
+,Atlas Stone,,,
+,Atlas Stone Carry,,,
+,Atlas Stone Over Bar,,,
+,Atlas Stone Series,,,
+,Atlas Stone to Platform,,,
+,Tire Flip,,,
+,Viking Press,,,
 ,Super Yolk,"Bottom Position Squat            
 Forward Start and Stops            
 Reverse Start and Stops            
 Walk            
-Zercher Carry            ",,,
+Zercher Carry            ",,
 Conditioning/Calisthenics,Airdyne,,,"Weight Vest
 Med Ball
 Battle Ropes
 Sandbag
 Shoulder Harness
-Sled Harness",
+Sled Harness"
 ,Pushups,,,"Weight Vest
 Med Ball
 Battle Ropes
 Sandbag
 Shoulder Harness
-Sled Harness",
+Sled Harness"
 ,Burpees,,,"Weight Vest
 Med Ball
 Battle Ropes
 Sandbag
 Shoulder Harness
-Sled Harness",
+Sled Harness"
 ,Jumping Jacks,,,"Weight Vest
 Med Ball
 Battle Ropes
 Sandbag
 Shoulder Harness
-Sled Harness",
+Sled Harness"
 ,Bear Crawl,,,"Weight Vest
 Med Ball
 Battle Ropes
 Sandbag
 Shoulder Harness
-Sled Harness",
+Sled Harness"
 ,Lizard Crawl,,,"Weight Vest
 Med Ball
 Battle Ropes
 Sandbag
 Shoulder Harness
-Sled Harness",
+Sled Harness"
 ,Jump Rope,,,"Weight Vest
 Med Ball
 Battle Ropes
 Sandbag
 Shoulder Harness
-Sled Harness",
+Sled Harness"
 ,Sprints,,,"Weight Vest
 Med Ball
 Battle Ropes
 Sandbag
 Shoulder Harness
-Sled Harness",
+Sled Harness"
 ,Hill Run,,,"Weight Vest
 Med Ball
 Battle Ropes
 Sandbag
 Shoulder Harness
-Sled Harness",
+Sled Harness"
 ,Backpedal Run,,,"Weight Vest
 Med Ball
 Battle Ropes
 Sandbag
 Shoulder Harness
-Sled Harness",
+Sled Harness"
 ,Double Unders,,,"Weight Vest
 Med Ball
 Battle Ropes
 Sandbag
 Shoulder Harness
-Sled Harness",
+Sled Harness"
 ,Sled Drag,,,"Weight Vest
 Med Ball
 Battle Ropes
 Sandbag
 Shoulder Harness
-Sled Harness",
+Sled Harness"
 ,Battling Ropes,,,"Weight Vest
 Med Ball
 Battle Ropes
 Sandbag
 Shoulder Harness
-Sled Harness",
+Sled Harness"
 ,Weighted Run,,,"Weight Vest
 Med Ball
 Battle Ropes
 Sandbag
 Shoulder Harness
-Sled Harness",
+Sled Harness"
 ,Rowing Machine,,,"Weight Vest
 Med Ball
 Battle Ropes
 Sandbag
 Shoulder Harness
-Sled Harness",
+Sled Harness"
 ,Sledge Hammer,,,"Weight Vest
 Med Ball
 Battle Ropes
 Sandbag
 Shoulder Harness
-Sled Harness",
+Sled Harness"
 ,Prowler Push,,,"Weight Vest
 Med Ball
 Battle Ropes
 Sandbag
 Shoulder Harness
-Sled Harness",
-Mobility,Neck - Side Flexion,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Neck - Suboccipital stretch,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Neck - Upper Trap Stretch,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Neck - Sternocleidomastoid stretch,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Neck - Neck CAR,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Thoracic/Lumbar/Abs - Cat/Camel,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Thoracic/Lumbar/Abs - Abdominal stretch on Swiss Ball,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Thoracic/Lumbar/Abs - Oblique Stretch on Swiss Ball,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Thoracic/Lumbar/Abs - McKenzie Press-up,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Thoracic/Lumbar/Abs - Seated Quadratus Lumborum,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Thoracic/Lumbar/Abs - Thoracic CAR,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Shoulder/Chest - Standing Chest Stretch,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Shoulder/Chest - Supine Trunk Rotation,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Shoulder/Chest - Side Lying Shoulder External Rotation,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Shoulder/Chest - Side Lying Shoulder Internal Rotation,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Shoulder/Chest - Shoulder CAR,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Arms - Standing biceps,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Arms - Overhead Triceps,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Arms - Elbow CAR,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Arms - Wrist CAR,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Arms - Wrist Flexion,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Arms - Wrist Extension,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Upper Back/Lats - Rhomboid Stretch,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Upper Back/Lats - Lat stretch/Table Top,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Upper Back/Lats - Posterior Shoulder ,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Upper Back/Lats - Scapulae CAR,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Hips - 90/90 hip external rotation,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Hips - 90/90 hip internal rotation,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Hips - 90/90 QL/Latissimus Dorsi,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Hips - Kneeling Hip Flexor ,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Hips - Kneeling Short Adductor ,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Hips - Standing HIp Abductor/TFL stretch,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Hips - Prone Groin stretch,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Hips - Passive Full Squat,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Hips - Hip CAR,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Legs - Kneeling Quadriceps Stretch,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Legs - Supine Hamstrings,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Legs - Knee CAR,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Legs - Kneecap CAR,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Legs - Sidelying Quadriceps,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Ankle - Ankle Circles,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,"Ankle - Tibialis Anterior, Kneeling",,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Ankle - Soleus Stretch,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,"Ankle - Gastrocnemius Stretch, Standing",,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Ankle - Ankle CAR,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Foot - Toe CAR,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Foot - Toe Dorsiflexion,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
-,Foot - Toe Plantarflexion,,,"Active Isolated
-Static
-PNF","TRX
-Swiss Ball"
+Sled Harness"

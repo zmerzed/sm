@@ -1,0 +1,28 @@
+Set Options,Rep Options ,Tempo ,Rest 
+1,5 sec,maximal,15 sec
+2,10 sec,submaximal,30 sec
+3,15 sec,fast ,45 sec
+4,20 sec,slow,60 sec
+5,30 sec,Moderate,75 sec
+6,45 sec,,90 sec
+7,60 sec,,120 sec
+8,75 sec,,150 sec
+9,90 sec,,3 min
+10,5 meter,,4 min
+,10 meters,,5 min
+,15 meters,,
+,20 meters,,
+,25 meters,,
+,30 meters,,
+,40 meters,,
+,50 meters ,,
+,60 meters,,
+,100 meters,,
+,200 meters,,
+,300 meters,,
+,400 meters,,
+,800 meters,,
+,25 feet,,
+,50 feet,,
+,75 feet,,
+,100 feet,,

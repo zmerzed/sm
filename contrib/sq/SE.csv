@@ -1,0 +1,13 @@
+Set Options,Rep Options ,Tempo ,Rest ,Repetition Pattern
+1,20-25,1010,15 sec,rest-pause
+2,25-30,2010,30 sec,drop set
+3,35-40,3010,45 sec,Cluster
+4,45-50,2011,60 sec,Ascending Load
+5,50,2110,75 sec,Constant Load
+6,75,3011,90 sec,Descending Load
+7,100,3110,120 sec,Pyramid Load
+8,AMRAP,Custom,150 sec,Wave Load
+9,Custom,,3 min,Step Load
+10,,,4 min,
+,,,5 min,
+,,,custom,
