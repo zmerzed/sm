@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5e412890-ab99-4512-85c6-c60ef310a911" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/edit-workouts-page.php" afterPath="$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/edit-workouts-page.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/add-edit-workouts-page.php" afterPath="$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/add-edit-workouts-page.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/Divi-child/functions.php" afterPath="$PROJECT_DIR$/wp-content/themes/Divi-child/functions.php" />
     </list>
     <ignored path="sm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,16 +26,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="wp-config.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-config.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="50" column="95" selection-start-line="50" selection-start-column="95" selection-end-line="50" selection-end-column="95" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="structure.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/contrib/structure.txt">
           <provider selected="true" editor-type-id="text-editor">
@@ -70,24 +61,80 @@
       <file leaf-file-name="functions.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="263" column="0" selection-start-line="263" selection-start-column="0" selection-end-line="263" selection-end-column="0" />
+            <state relative-caret-position="361">
+              <caret line="97" column="6" selection-start-line="97" selection-start-column="6" selection-end-line="97" selection-end-column="6" />
               <folding>
-                <element signature="e#1047#1595#0#PHP" expanded="false" />
-                <marker date="1525334119257" expanded="true" signature="1707:1721" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
-                <marker date="1525334119257" expanded="true" signature="1707:1732" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
-                <marker date="1525334119257" expanded="true" signature="1884:2039" placeholder="SELECT u.ID $" />
-                <marker date="1525334119257" expanded="true" signature="4609:4631" placeholder="SELECT * FRO... wp_users" />
-                <marker date="1525334119257" expanded="true" signature="4905:4957" placeholder="SELECT * FRO... workout_tbl" />
-                <marker date="1525334119257" expanded="true" signature="5172:5215" placeholder="SELECT * FRO... workout_tbl" />
-                <marker date="1525334119257" expanded="true" signature="5172:5237" placeholder="SELECT * FRO... workout_tbl" />
-                <marker date="1525334119257" expanded="true" signature="5172:5238" placeholder="SELECT * FRO... workout_tbl" />
-                <marker date="1525334119257" expanded="true" signature="5360:5413" placeholder="SELECT * FRO... workout_days_tbl" />
-                <marker date="1525334119257" expanded="true" signature="5360:5437" placeholder="SELECT * FRO... workout_days_tbl" />
-                <marker date="1525334119257" expanded="true" signature="5547:5601" placeholder="SELECT * FRO... workout_exercises_tbl" />
-                <marker date="1525334119257" expanded="true" signature="5701:5766" placeholder="SELECT * FRO... workout_exercises_tbl" />
-                <marker date="1525334119257" expanded="true" signature="5915:5947" placeholder="SELECT * FRO... wp_users" />
-                <marker date="1525334119257" expanded="true" signature="5915:5983" placeholder="SELECT * FRO... wp_users" />
+                <element signature="e#1047#1666#0#PHP" expanded="false" />
+                <marker date="1525839775689" expanded="true" signature="1778:1792" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
+                <marker date="1525839775689" expanded="true" signature="1778:1803" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
+                <marker date="1525839775689" expanded="true" signature="1955:2110" placeholder="SELECT u.ID $" />
+                <marker date="1525839775689" expanded="true" signature="5560:5582" placeholder="SELECT * FRO... wp_users" />
+                <marker date="1525839775689" expanded="true" signature="5856:5908" placeholder="SELECT * FRO... workout_tbl" />
+                <marker date="1525839775689" expanded="true" signature="6123:6166" placeholder="SELECT * FRO... workout_tbl" />
+                <marker date="1525839775689" expanded="true" signature="6123:6188" placeholder="SELECT * FRO... workout_tbl" />
+                <marker date="1525839775689" expanded="true" signature="6123:6189" placeholder="SELECT * FRO... workout_tbl" />
+                <marker date="1525839775689" expanded="true" signature="6311:6364" placeholder="SELECT * FRO... workout_days_tbl" />
+                <marker date="1525839775689" expanded="true" signature="6311:6388" placeholder="SELECT * FRO... workout_days_tbl" />
+                <marker date="1525839775689" expanded="true" signature="6498:6552" placeholder="SELECT * FRO... workout_exercises_tbl" />
+                <marker date="1525839775689" expanded="true" signature="6652:6717" placeholder="SELECT * FRO... workout_exercises_tbl" />
+                <marker date="1525839775689" expanded="true" signature="6866:6898" placeholder="SELECT * FRO... wp_users" />
+                <marker date="1525839775689" expanded="true" signature="6866:6934" placeholder="SELECT * FRO... wp_users" />
+                <marker date="1525839775689" expanded="true" signature="7370:7412" placeholder="SELECT * FRO... workout_exercise_options_tbl" />
+                <marker date="1525839775689" expanded="true" signature="7763:7816" placeholder="SELECT * FRO... workout_exercise_strength_qualities_tbl" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add-edit-workouts-page.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/add-edit-workouts-page.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="168" column="106" selection-start-line="168" selection-start-column="89" selection-end-line="168" selection-end-column="106" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="uploadExercises.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/contrib/scripts/uploadExercises.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1802">
+              <caret line="106" column="5" selection-start-line="98" selection-start-column="4" selection-end-line="106" selection-end-column="5" />
+              <folding>
+                <marker date="1525760347255" expanded="true" signature="2429:2491" placeholder="INSERT INTO `workout_exercise_options_tbl`... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="uploadStrengthQuality.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/contrib/scripts/uploadStrengthQuality.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4505">
+              <caret line="265" column="1" selection-start-line="265" selection-start-column="1" selection-end-line="265" selection-end-column="1" />
+              <folding>
+                <marker date="1525774680060" expanded="true" signature="6568:6641" placeholder="INSERT INTO `workout_exercise_strength_qualities_tbl`... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-includes/user.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1506998688000" expanded="true" signature="11425:11459" placeholder="SELECT COUNT... ${$wpdb-&gt;posts}" />
+                <marker date="1506998688000" expanded="true" signature="12872:12977" placeholder="SELECT post_... ${$wpdb-&gt;posts}" />
+                <marker date="1506998688000" expanded="true" signature="27558:27710" placeholder="SELECT ${{$s... " />
+                <marker date="1506998688000" expanded="true" signature="28314:28451" placeholder="SELECT meta_... $" />
+                <marker date="1506998688000" expanded="true" signature="55410:55491" placeholder="SELECT ID FR... ${$wpdb-&gt;users}" />
+                <marker date="1506998688000" expanded="true" signature="55887:55968" placeholder="SELECT ID FR... ${$wpdb-&gt;users}" />
+                <marker date="1506998688000" expanded="true" signature="76892:76962" placeholder="SELECT ID, u... ${$wpdb-&gt;users}" />
+                <marker date="1506998688000" expanded="true" signature="86952:87063" placeholder="SELECT user_... ${$wpdb-&gt;usermeta}" />
+                <marker date="1506998688000" expanded="true" signature="89826:89883" placeholder="SELECT user_... $" />
               </folding>
             </state>
           </provider>
@@ -96,18 +143,8 @@
       <file leaf-file-name="edit-workouts-page.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/edit-workouts-page.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
+            <state relative-caret-position="595">
               <caret line="35" column="34" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -124,11 +161,14 @@
         <option value="$PROJECT_DIR$/contrib/structure.txt" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/add-edit-workouts-page.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/Divi-child/page-trainer.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/workouts-page.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/Divi-child/functions.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/edit-workouts-page.php" />
+        <option value="$PROJECT_DIR$/contrib/scripts/db.php" />
+        <option value="$PROJECT_DIR$/contrib/scripts/uploadExercises.php" />
+        <option value="$PROJECT_DIR$/contrib/scripts/uploadStrengthQuality.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/add-edit-workouts-page.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/Divi-child/functions.php" />
       </list>
     </option>
   </component>
@@ -298,6 +338,56 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sm" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contrib" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sm" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contrib" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sq" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sm" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contrib" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -306,10 +396,11 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../skyrockit_leavetracker/leave-tracker" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../potentPages_wpMain" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\remz\Desktop\sm\contrib\scripts" />
       <recent name="C:\Users\remz\Desktop\sm\wp-content\themes\Divi-child\accounts\trainers" />
     </key>
   </component>
@@ -360,29 +451,34 @@
       <workItem from="1525237337075" duration="20266000" />
       <workItem from="1525314122148" duration="15780000" />
       <workItem from="1525393399043" duration="1175000" />
-      <workItem from="1525422576071" duration="3072000" />
+      <workItem from="1525422576071" duration="4650000" />
+      <workItem from="1525672977040" duration="8889000" />
+      <workItem from="1525745464114" duration="11324000" />
+      <workItem from="1525766935506" duration="7868000" />
+      <workItem from="1525831561764" duration="3023000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53986000" />
+    <option name="totallyTimeSpent" value="86668000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16927083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17803837" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14935064" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13424948" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -394,15 +490,75 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/page-trainer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="53" column="28" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="28" />
+          <folding>
+            <element signature="e#6#36#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/workouts-page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="80" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1047#1666#0#PHP" expanded="false" />
+            <marker date="1525839775689" expanded="true" signature="1778:1792" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
+            <marker date="1525839775689" expanded="true" signature="1778:1803" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
+            <marker date="1525839775689" expanded="true" signature="1955:2110" placeholder="SELECT u.ID $" />
+            <marker date="1525839775689" expanded="true" signature="5560:5582" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1525839775689" expanded="true" signature="5856:5908" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6123:6166" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6123:6188" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6123:6189" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6311:6364" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6311:6388" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6498:6552" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6652:6717" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6866:6898" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1525839775689" expanded="true" signature="6866:6934" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1525839775689" expanded="true" signature="7370:7412" placeholder="SELECT * FRO... workout_exercise_options_tbl" />
+            <marker date="1525839775689" expanded="true" signature="7763:7816" placeholder="SELECT * FRO... workout_exercise_strength_qualities_tbl" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/edit-workouts-page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="34" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wp-config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="50" column="95" selection-start-line="50" selection-start-column="95" selection-end-line="50" selection-end-column="95" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -437,21 +593,23 @@
         <state relative-caret-position="2227">
           <caret line="156" column="2" selection-start-line="156" selection-start-column="2" selection-end-line="156" selection-end-column="2" />
           <folding>
-            <element signature="e#1047#1595#0#PHP" expanded="false" />
-            <marker date="1525334119257" expanded="true" signature="1707:1721" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
-            <marker date="1525334119257" expanded="true" signature="1707:1732" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
-            <marker date="1525334119257" expanded="true" signature="1884:2039" placeholder="SELECT u.ID $" />
-            <marker date="1525334119257" expanded="true" signature="4609:4631" placeholder="SELECT * FRO... wp_users" />
-            <marker date="1525334119257" expanded="true" signature="4905:4957" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5172:5215" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5172:5237" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5172:5238" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5360:5413" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5360:5437" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5547:5601" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5701:5766" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5915:5947" placeholder="SELECT * FRO... wp_users" />
-            <marker date="1525334119257" expanded="true" signature="5915:5983" placeholder="SELECT * FRO... wp_users" />
+            <element signature="e#1047#1666#0#PHP" expanded="false" />
+            <marker date="1525839775689" expanded="true" signature="1778:1792" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
+            <marker date="1525839775689" expanded="true" signature="1778:1803" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
+            <marker date="1525839775689" expanded="true" signature="1955:2110" placeholder="SELECT u.ID $" />
+            <marker date="1525839775689" expanded="true" signature="5560:5582" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1525839775689" expanded="true" signature="5856:5908" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6123:6166" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6123:6188" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6123:6189" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6311:6364" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6311:6388" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6498:6552" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6652:6717" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6866:6898" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1525839775689" expanded="true" signature="6866:6934" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1525839775689" expanded="true" signature="7370:7412" placeholder="SELECT * FRO... workout_exercise_options_tbl" />
+            <marker date="1525839775689" expanded="true" signature="7763:7816" placeholder="SELECT * FRO... workout_exercise_strength_qualities_tbl" />
           </folding>
         </state>
       </provider>
@@ -468,7 +626,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -476,7 +633,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="50" column="95" selection-start-line="50" selection-start-column="95" selection-end-line="50" selection-end-column="95" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -511,21 +667,23 @@
         <state relative-caret-position="2227">
           <caret line="156" column="2" selection-start-line="156" selection-start-column="2" selection-end-line="156" selection-end-column="2" />
           <folding>
-            <element signature="e#1047#1595#0#PHP" expanded="false" />
-            <marker date="1525334119257" expanded="true" signature="1707:1721" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
-            <marker date="1525334119257" expanded="true" signature="1707:1732" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
-            <marker date="1525334119257" expanded="true" signature="1884:2039" placeholder="SELECT u.ID $" />
-            <marker date="1525334119257" expanded="true" signature="4609:4631" placeholder="SELECT * FRO... wp_users" />
-            <marker date="1525334119257" expanded="true" signature="4905:4957" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5172:5215" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5172:5237" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5172:5238" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5360:5413" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5360:5437" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5547:5601" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5701:5766" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5915:5947" placeholder="SELECT * FRO... wp_users" />
-            <marker date="1525334119257" expanded="true" signature="5915:5983" placeholder="SELECT * FRO... wp_users" />
+            <element signature="e#1047#1666#0#PHP" expanded="false" />
+            <marker date="1525839775689" expanded="true" signature="1778:1792" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
+            <marker date="1525839775689" expanded="true" signature="1778:1803" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
+            <marker date="1525839775689" expanded="true" signature="1955:2110" placeholder="SELECT u.ID $" />
+            <marker date="1525839775689" expanded="true" signature="5560:5582" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1525839775689" expanded="true" signature="5856:5908" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6123:6166" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6123:6188" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6123:6189" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6311:6364" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6311:6388" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6498:6552" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6652:6717" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6866:6898" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1525839775689" expanded="true" signature="6866:6934" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1525839775689" expanded="true" signature="7370:7412" placeholder="SELECT * FRO... workout_exercise_options_tbl" />
+            <marker date="1525839775689" expanded="true" signature="7763:7816" placeholder="SELECT * FRO... workout_exercise_strength_qualities_tbl" />
           </folding>
         </state>
       </provider>
@@ -542,7 +700,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -550,7 +707,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="50" column="95" selection-start-line="50" selection-start-column="95" selection-end-line="50" selection-end-column="95" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -585,21 +741,23 @@
         <state relative-caret-position="1207">
           <caret line="96" column="19" selection-start-line="96" selection-start-column="9" selection-end-line="96" selection-end-column="19" />
           <folding>
-            <element signature="e#1047#1595#0#PHP" expanded="false" />
-            <marker date="1525334119257" expanded="true" signature="1707:1721" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
-            <marker date="1525334119257" expanded="true" signature="1707:1732" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
-            <marker date="1525334119257" expanded="true" signature="1884:2039" placeholder="SELECT u.ID $" />
-            <marker date="1525334119257" expanded="true" signature="4609:4631" placeholder="SELECT * FRO... wp_users" />
-            <marker date="1525334119257" expanded="true" signature="4905:4957" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5172:5215" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5172:5237" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5172:5238" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5360:5413" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5360:5437" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5547:5601" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5701:5766" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5915:5947" placeholder="SELECT * FRO... wp_users" />
-            <marker date="1525334119257" expanded="true" signature="5915:5983" placeholder="SELECT * FRO... wp_users" />
+            <element signature="e#1047#1666#0#PHP" expanded="false" />
+            <marker date="1525839775689" expanded="true" signature="1778:1792" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
+            <marker date="1525839775689" expanded="true" signature="1778:1803" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
+            <marker date="1525839775689" expanded="true" signature="1955:2110" placeholder="SELECT u.ID $" />
+            <marker date="1525839775689" expanded="true" signature="5560:5582" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1525839775689" expanded="true" signature="5856:5908" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6123:6166" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6123:6188" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6123:6189" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6311:6364" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6311:6388" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6498:6552" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6652:6717" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6866:6898" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1525839775689" expanded="true" signature="6866:6934" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1525839775689" expanded="true" signature="7370:7412" placeholder="SELECT * FRO... workout_exercise_options_tbl" />
+            <marker date="1525839775689" expanded="true" signature="7763:7816" placeholder="SELECT * FRO... workout_exercise_strength_qualities_tbl" />
           </folding>
         </state>
       </provider>
@@ -615,7 +773,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -623,7 +780,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="50" column="95" selection-start-line="50" selection-start-column="95" selection-end-line="50" selection-end-column="95" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -657,21 +813,23 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1047#1595#0#PHP" expanded="false" />
-            <marker date="1525334119257" expanded="true" signature="1707:1721" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
-            <marker date="1525334119257" expanded="true" signature="1707:1732" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
-            <marker date="1525334119257" expanded="true" signature="1884:2039" placeholder="SELECT u.ID $" />
-            <marker date="1525334119257" expanded="true" signature="4609:4631" placeholder="SELECT * FRO... wp_users" />
-            <marker date="1525334119257" expanded="true" signature="4905:4957" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5172:5215" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5172:5237" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5172:5238" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5360:5413" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5360:5437" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5547:5601" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5701:5766" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5915:5947" placeholder="SELECT * FRO... wp_users" />
-            <marker date="1525334119257" expanded="true" signature="5915:5983" placeholder="SELECT * FRO... wp_users" />
+            <element signature="e#1047#1666#0#PHP" expanded="false" />
+            <marker date="1525839775689" expanded="true" signature="1778:1792" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
+            <marker date="1525839775689" expanded="true" signature="1778:1803" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
+            <marker date="1525839775689" expanded="true" signature="1955:2110" placeholder="SELECT u.ID $" />
+            <marker date="1525839775689" expanded="true" signature="5560:5582" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1525839775689" expanded="true" signature="5856:5908" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6123:6166" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6123:6188" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6123:6189" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6311:6364" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6311:6388" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6498:6552" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6652:6717" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6866:6898" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1525839775689" expanded="true" signature="6866:6934" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1525839775689" expanded="true" signature="7370:7412" placeholder="SELECT * FRO... workout_exercise_options_tbl" />
+            <marker date="1525839775689" expanded="true" signature="7763:7816" placeholder="SELECT * FRO... workout_exercise_strength_qualities_tbl" />
           </folding>
         </state>
       </provider>
@@ -687,7 +845,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="50" column="95" selection-start-line="50" selection-start-column="95" selection-end-line="50" selection-end-column="95" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -724,7 +881,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="50" column="95" selection-start-line="50" selection-start-column="95" selection-end-line="50" selection-end-column="95" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -739,22 +895,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/contrib/structure.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="58" column="26" selection-start-line="58" selection-start-column="10" selection-end-line="58" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/add-edit-workouts-page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="300" column="37" selection-start-line="300" selection-start-column="37" selection-end-line="300" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -768,6 +908,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/user.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1506998688000" expanded="true" signature="11425:11459" placeholder="SELECT COUNT... ${$wpdb-&gt;posts}" />
+            <marker date="1506998688000" expanded="true" signature="12872:12977" placeholder="SELECT post_... ${$wpdb-&gt;posts}" />
+            <marker date="1506998688000" expanded="true" signature="27558:27710" placeholder="SELECT ${{$s... " />
+            <marker date="1506998688000" expanded="true" signature="28314:28451" placeholder="SELECT meta_... $" />
+            <marker date="1506998688000" expanded="true" signature="55410:55491" placeholder="SELECT ID FR... ${$wpdb-&gt;users}" />
+            <marker date="1506998688000" expanded="true" signature="55887:55968" placeholder="SELECT ID FR... ${$wpdb-&gt;users}" />
+            <marker date="1506998688000" expanded="true" signature="76892:76962" placeholder="SELECT ID, u... ${$wpdb-&gt;users}" />
+            <marker date="1506998688000" expanded="true" signature="86952:87063" placeholder="SELECT user_... ${$wpdb-&gt;usermeta}" />
+            <marker date="1506998688000" expanded="true" signature="89826:89883" placeholder="SELECT user_... $" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contrib/scripts/db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contrib/sq/ES.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contrib/scripts/uploadExercises.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1802">
+          <caret line="106" column="5" selection-start-line="98" selection-start-column="4" selection-end-line="106" selection-end-column="5" />
+          <folding>
+            <marker date="1525760347255" expanded="true" signature="2429:2491" placeholder="INSERT INTO `workout_exercise_options_tbl`... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contrib/scripts/uploadStrengthQuality.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4505">
+          <caret line="265" column="1" selection-start-line="265" selection-start-column="1" selection-end-line="265" selection-end-column="1" />
+          <folding>
+            <marker date="1525774680060" expanded="true" signature="6568:6641" placeholder="INSERT INTO `workout_exercise_strength_qualities_tbl`... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contrib/structure.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="58" column="26" selection-start-line="58" selection-start-column="10" selection-end-line="58" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/edit-workouts-page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="34" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/workouts-page.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -776,34 +984,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/edit-workouts-page.php">
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/add-edit-workouts-page.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="35" column="34" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
+        <state relative-caret-position="102">
+          <caret line="168" column="106" selection-start-line="168" selection-start-column="89" selection-end-line="168" selection-end-column="106" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="263" column="0" selection-start-line="263" selection-start-column="0" selection-end-line="263" selection-end-column="0" />
+        <state relative-caret-position="361">
+          <caret line="97" column="6" selection-start-line="97" selection-start-column="6" selection-end-line="97" selection-end-column="6" />
           <folding>
-            <element signature="e#1047#1595#0#PHP" expanded="false" />
-            <marker date="1525334119257" expanded="true" signature="1707:1721" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
-            <marker date="1525334119257" expanded="true" signature="1707:1732" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
-            <marker date="1525334119257" expanded="true" signature="1884:2039" placeholder="SELECT u.ID $" />
-            <marker date="1525334119257" expanded="true" signature="4609:4631" placeholder="SELECT * FRO... wp_users" />
-            <marker date="1525334119257" expanded="true" signature="4905:4957" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5172:5215" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5172:5237" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5172:5238" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5360:5413" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5360:5437" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5547:5601" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5701:5766" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1525334119257" expanded="true" signature="5915:5947" placeholder="SELECT * FRO... wp_users" />
-            <marker date="1525334119257" expanded="true" signature="5915:5983" placeholder="SELECT * FRO... wp_users" />
+            <element signature="e#1047#1666#0#PHP" expanded="false" />
+            <marker date="1525839775689" expanded="true" signature="1778:1792" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
+            <marker date="1525839775689" expanded="true" signature="1778:1803" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
+            <marker date="1525839775689" expanded="true" signature="1955:2110" placeholder="SELECT u.ID $" />
+            <marker date="1525839775689" expanded="true" signature="5560:5582" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1525839775689" expanded="true" signature="5856:5908" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6123:6166" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6123:6188" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6123:6189" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6311:6364" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6311:6388" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6498:6552" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6652:6717" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1525839775689" expanded="true" signature="6866:6898" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1525839775689" expanded="true" signature="6866:6934" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1525839775689" expanded="true" signature="7370:7412" placeholder="SELECT * FRO... workout_exercise_options_tbl" />
+            <marker date="1525839775689" expanded="true" signature="7763:7816" placeholder="SELECT * FRO... workout_exercise_strength_qualities_tbl" />
           </folding>
         </state>
       </provider>

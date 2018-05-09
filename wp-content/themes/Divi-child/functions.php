@@ -92,8 +92,10 @@ function workOutAdd($data)
 	global $wpdb;
 
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+
 	$workout = json_decode(preg_replace('/\\\"/',"\"", $data['workoutForm']), true);
 
+	//dd($workout);
 	$wpdb->insert('workout_tbl',
 		array(
 			'workout_name' => $workout['name'],
@@ -108,7 +110,7 @@ function workOutAdd($data)
 
 	$workOutId = (int) $wpdb->insert_id;
 
-	if($workout['days'])
+	if ($workout['days'])
 	{
 		foreach($workout['days'] as $d)
 		{
@@ -122,16 +124,47 @@ function workOutAdd($data)
 
 			$dayId = $wpdb->insert_id;
 
-			if($d['exercises']) {
+			if ($d['exercises'])
+			{
 
 				foreach($d['exercises'] as $ex)
 				{
+					$exercise = [];
+
+					if (isset($ex['selectedPart']))
+					{
+						$exercise['exer_body_part'] = $ex['part'];
+
+						if (isset($ex['selectedPart']['selectedType']))
+						{
+							$exercise['exer_type'] = $ex['selectedPart']['selectedType']['type'];
+
+							if (isset($ex['selectedPart']['selectedType']['selectedExercise1']))
+							{
+								$exercise['exer_exercise_1'] = $ex['selectedPart']['selectedType']['selectedExercise1'];
+							}
+
+							if (isset($ex['selectedPart']['selectedType']['selectedExercise2']))
+							{
+								$exercise['exer_exercise_2'] = $ex['selectedPart']['selectedType']['selectedExercise2'];
+							}
+
+							if (isset($ex['selectedPart']['selectedType']['selectedImplementation1']))
+							{
+								$exercise['exer_impl1'] = $ex['selectedPart']['selectedType']['selectedImplementation1'];
+							}
+						}
+
+					}
+
 					$wpdb->insert('workout_exercises_tbl',
 						array(
 							'exer_day_ID' => $dayId,
 							'exer_workout_ID' => $workOutId
 						)
 					);
+
+
 				}
 			}
 
@@ -285,6 +318,39 @@ function workOutGet($workoutId)
 	}
 
 	return null;
+}
+
+function workOutExerciseOptions()
+{
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+
+	global $wpdb;
+	$querystr = "SELECT * FROM workout_exercise_options_tbl";
+	$options = $wpdb->get_results($querystr, ARRAY_A);
+
+	foreach($options as $key => $option)
+	{
+		$options[$key]['options'] = json_decode($option['options']);
+	}
+	//dd($options);
+	return $options;
+
+}
+
+function workOutExerciseStrengthQualitiesOptions()
+{
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+
+	global $wpdb;
+	$querystr = "SELECT * FROM workout_exercise_strength_qualities_tbl";
+	$options = $wpdb->get_results($querystr, ARRAY_A);
+
+	foreach($options as $key => $option)
+	{
+		$options[$key]['options'] = json_decode($option['options']);
+	}
+	//dd($options);
+	return $options;
 }
 
 // END ENQUEUE PARENT ACTION

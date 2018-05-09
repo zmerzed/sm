@@ -1,12 +1,19 @@
-
+<?php workOutExerciseOptions(); ?>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script>
 	var clients = <?php echo json_encode(workOutGetClients()) ?>;
+	var exerciseOptions = <?php echo json_encode(workOutExerciseOptions()) ?>;
+	var exerciseSQoptions = <?php echo json_encode(workOutExerciseStrengthQualitiesOptions()) ?>;
+
 	var app = angular.module('app', []);
 
 	app.controller('Controller', function($scope) {
 
 		$scope.clients = clients;
+		$scope.exerciseOptions = exerciseOptions;
+		$scope.exerciseSQoptions = exerciseSQoptions;
+
+		console.log($scope.exerciseOptions);
 		$scope.workout = {
 			days: [{name:'', order:1, exercises:[{}], clients:[]}],
 		};
@@ -79,7 +86,8 @@
 		};
 
 		$("#idForm").submit(function (e) {
-			//	e.preventDefault();
+			//e.preventDefault();
+			//console.log($scope.workout);
 			$('#idWorkoutForm').val(JSON.stringify($scope.workout));
 			return true;
 
@@ -148,48 +156,53 @@
 							<table class="workout-exercise-options">
 								<td><span class="exercise-number"><label>{{$index + 1}}</label></span></td>
 								<td>
-									<select>
-										<option>Body Part</option>
+									<select ng-model="exercise.selectedPart" ng-options="opt.part for opt in exerciseOptions">
+										<option value="">Body Part</option>
 									</select>
 								</td>
 								<td>
-									<select>
-										<option>Type</option>
+									<select ng-model="exercise.selectedPart.selectedType" ng-options="type.type for type in exercise.selectedPart.options">
+										<option value="">Type</option>
 									</select>
 								</td>
 								<td>
-									<select>
-										<option>Exercise 1</option>
+									<select ng-model="exercise.selectedPart.selectedType.selectedExercise1" ng-options="ex as ex for ex in exercise.selectedPart.selectedType.exercise_1">
+										<option value="">Exercise 1</option>
 									</select>
 								</td>
 								<td>
-									<select>
-										<option>SQ</option>
+									<select ng-model="exercise.selectedPart.selectedType.selectedExercise2" ng-options="ex as ex for ex in exercise.selectedPart.selectedType.exercise_2">
+										<option value="">Exercise 2</option>
 									</select>
 								</td>
 								<td>
-									<select>
-										<option>Sets</option>
+									<select ng-model="exercise.selectedSQ" ng-options="sqOption.name for sqOption in exerciseSQoptions">
+										<option value="">SQ</option>
 									</select>
 								</td>
 								<td>
-									<select>
-										<option>Reps</option>
+									<select ng-model="exercise.selectedSQ.selectedSet" ng-options="set as set for set in exercise.selectedSQ.options.set_options">
+										<option value="">Sets</option>
 									</select>
 								</td>
 								<td>
-									<select>
-										<option>Tempo</option>
+									<select ng-model="exercise.selectedSQ.selectedRep" ng-options="rep as rep for rep in exercise.selectedSQ.options.repetition_pattern">
+										<option value="">Reps</option>
 									</select>
 								</td>
 								<td>
-									<select>
-										<option>Rest</option>
+									<select ng-model="exercise.selectedSQ.selectedTempo" ng-options="tempo as tempo for tempo in exercise.selectedSQ.options.tempo">
+										<option value="">Tempo</option>
 									</select>
 								</td>
 								<td>
-									<select>
-										<option>IMPL 1</option>
+									<select ng-model="exercise.selectedSQ.selectedRest" ng-options="rest as rest for rest in exercise.selectedSQ.options.rest">
+										<option value="">Rest</option>
+									</select>
+								</td>
+								<td>
+									<select ng-model="exercise.selectedPart.selectedType.selectedImplementation1" ng-options="imp1 as imp1 for imp1 in exercise.selectedPart.selectedType.implementation_options">
+										<option value="">IMPL 1</option>
 									</select>
 								</td>
 								<td>
