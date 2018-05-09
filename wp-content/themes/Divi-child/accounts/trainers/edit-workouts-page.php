@@ -3,25 +3,157 @@
 <script>
 	var clients = <?php echo json_encode(workOutGetClients()) ?>;
 	var workout = <?php echo json_encode(workOutGet($_GET['workout'])) ?>;
+	var exerciseOptions = <?php echo json_encode(workOutExerciseOptions()) ?>;
+	var exerciseSQoptions = <?php echo json_encode(workOutExerciseStrengthQualitiesOptions()) ?>;
 	var app = angular.module('app', []);
 
 	app.controller('Controller', function($scope) {
 
 		$scope.clients = clients;
 		$scope.workout = workout;
+		$scope.exerciseOptions = exerciseOptions;
+		$scope.exerciseSQoptions = exerciseSQoptions;
 
 		init();
 
 		function init()
 		{
 			console.log('hhhhhhhhhhhhhhhhhhhh');
+
+
+			for(var i in $scope.workout.days)
+			{
+				var day = $scope.workout.days[i];
+
+				for(var x in day.exercises)
+				{
+					var exercise = day.exercises[x];
+					exercise.exerciseOptions = angular.copy($scope.exerciseOptions);
+					exercise.exerciseSQoptions = angular.copy($scope.exerciseSQoptions);
+
+					for(var y in exercise.exerciseOptions)
+					{
+						var part = exercise.exerciseOptions[y];
+
+						if (part.part == exercise.exer_body_part)
+						{
+							exercise.selectedPart = part;
+
+							for(var t in part.options)
+							{
+								var option = part.options[t];
+
+								if (option['type'] == exercise.exer_type)
+								{
+									exercise.selectedPart.selectedType = option;
+
+									for (var o in option['exercise_1'])
+									{
+										var ex1 = option['exercise_1'][o];
+
+										if(exercise.exer_exercise_1 == ex1)
+										{
+											exercise.selectedPart.selectedType.selectedExercise1 = ex1;
+											break;
+										}
+									}
+
+									for (var o in option['exercise_2'])
+									{
+										var ex2 = option['exercise_2'][o];
+
+										if(exercise.exer_exercise_2 == ex2)
+										{
+											exercise.selectedPart.selectedType.selectedExercise2 = ex2;
+											break;
+										}
+									}
+
+									for (var o in option['implementation_options'])
+									{
+										var imp1 = option['implementation_options'][o];
+
+										if(exercise.exer_impl1 == imp1)
+										{
+											exercise.selectedPart.selectedType.selectedImplementation1 = imp1;
+											break;
+										}
+									}
+
+									break;
+								}
+							}
+							break;
+						}
+					}
+
+					for(var z in exercise.exerciseSQoptions)
+					{
+						var sq = exercise.exerciseSQoptions[z];
+
+						if(exercise.exer_sq == sq.name)
+						{
+							exercise.selectedSQ = sq;
+
+							for(var o in sq.options.set_options)
+							{
+								var set = sq.options.set_options[o];
+								//console.log('xxxxxxxxxxx-----' + set);
+								if(exercise.exer_sets == set)
+								{
+									exercise.selectedSQ.selectedSet = set;
+									break;
+								}
+							}
+
+							for(var o in sq.options.rep_options)
+							{
+								var rep = sq.options.rep_options[o];
+
+								if(exercise.exer_rep == rep)
+								{
+									exercise.selectedSQ.selectedRep = rep;
+									break;
+								}
+							}
+
+							for(var o in sq.options.tempo)
+							{
+								var tempo = sq.options.tempo[o];
+
+								if(exercise.exer_tempo == tempo)
+								{
+									exercise.selectedSQ.selectedTempo = tempo;
+									break;
+								}
+							}
+
+							for(var o in sq.options.rest)
+							{
+								var rest = sq.options.rest[o];
+
+								if(exercise.exer_rest == rest)
+								{
+									exercise.selectedSQ.selectedRest = rest;
+									break;
+								}
+							}
+
+							break;
+						}
+					}
+
+
+				}
+			}
 			console.log($scope.workout);
+			console.log($scope.exerciseSQoptions);
 			optimizeDays();
 		}
 
 		$scope.newWorkOutDay = function ()
 		{
-			$scope.workout.days.push({exercises:[{}], clients:[]});
+			$scope.workout.days.push({exercises:[generateNewExercise()], clients:[]});
 			optimizeDays();
 		};
 
@@ -32,7 +164,8 @@
 		};
 
 		$scope.newExercise = function() {
-			$scope.workout.selectedDay.exercises.push({})
+			var newEx = generateNewExercise();
+			$scope.workout.selectedDay.exercises.push(newEx);
 			optimizeSelectedDay();
 		};
 
@@ -87,10 +220,26 @@
 		$("#idForm").submit(function (e) {
 			//e.preventDefault();
 			console.log($scope.workout);
+
+			for(var i in $scope.workout.days) {
+				var day = $scope.workout.days[i];
+				for(var e in day.exercises)
+				{
+					var ex = day.exercises[e];
+					delete ex.exerciseOptions;
+					delete ex.exerciseSQoptions;
+				}
+			}
+
 			$('#idWorkoutForm').val(JSON.stringify($scope.workout));
 			return true;
 
 		});
+
+		function generateNewExercise()
+		{
+			return {exerciseOptions: angular.copy($scope.exerciseOptions), exerciseSQoptions: angular.copy($scope.exerciseSQoptions)};
+		}
 
 		function optimizeSelectedDay()
 		{
@@ -190,57 +339,62 @@
 					<ul class="workout-exercise-lists">
 						<li class="workout-exercise-item" ng-repeat="exercise in workout.selectedDay.exercises track by $index" ng-if="!exercise.isDelete">
 							<table class="workout-exercise-options">
-								<td><span class="exercise-number"><label>{{exercise.order}}</label></span></td>
+								<td><span class="exercise-number"><label>{{$index + 1}}</label></span></td>
 								<td>
-									<select>
-										<option>Body Part</option>
+									<select ng-model="exercise.selectedPart" ng-options="opt.part for opt in exercise.exerciseOptions">
+										<option value="{{exercise.exer_body_part}}">{{exercise.exer_body_part}}</option>
 									</select>
 								</td>
 								<td>
-									<select>
-										<option>Type</option>
+									<select ng-model="exercise.selectedPart.selectedType" ng-options="type.type for type in exercise.selectedPart.options">
+										<option value="">Type</option>
 									</select>
 								</td>
 								<td>
-									<select>
-										<option>Exercise 1</option>
+									<select ng-model="exercise.selectedPart.selectedType.selectedExercise1" ng-options="ex as ex for ex in exercise.selectedPart.selectedType.exercise_1">
+										<option value="">Exercise 1</option>
 									</select>
 								</td>
 								<td>
-									<select>
-										<option>SQ</option>
+									<select ng-model="exercise.selectedPart.selectedType.selectedExercise2" ng-options="ex as ex for ex in exercise.selectedPart.selectedType.exercise_2">
+										<option value="">Exercise 2</option>
 									</select>
 								</td>
 								<td>
-									<select>
-										<option>Sets</option>
+									<select ng-model="exercise.selectedSQ" ng-options="sqOption.name for sqOption in exercise.exerciseSQoptions">
+										<option value="">SQ</option>
 									</select>
 								</td>
 								<td>
-									<select>
-										<option>Reps</option>
+									<select ng-model="exercise.selectedSQ.selectedSet" ng-options="set as set for set in exercise.selectedSQ.options.set_options">
+										<option value="">Sets</option>
 									</select>
 								</td>
 								<td>
-									<select>
-										<option>Tempo</option>
+									<select ng-model="exercise.selectedSQ.selectedRep" ng-options="rep as rep for rep in exercise.selectedSQ.options.rep_options">
+										<option value="">Reps</option>
 									</select>
 								</td>
 								<td>
-									<select>
-										<option>Rest</option>
+									<select ng-model="exercise.selectedSQ.selectedTempo" ng-options="tempo as tempo for tempo in exercise.selectedSQ.options.tempo">
+										<option value="">Tempo</option>
 									</select>
 								</td>
 								<td>
-									<select>
-										<option>IMPL 1</option>
+									<select ng-model="exercise.selectedSQ.selectedRest" ng-options="rest as rest for rest in exercise.selectedSQ.options.rest">
+										<option value="">Rest</option>
+									</select>
+								</td>
+								<td>
+									<select ng-model="exercise.selectedPart.selectedType.selectedImplementation1" ng-options="imp1 as imp1 for imp1 in exercise.selectedPart.selectedType.implementation_options">
+										<option value="">IMPL 1</option>
 									</select>
 								</td>
 								<td>
 								<span class="exercise-btn-action"><a href="#">Duplicate</a><span>
 								</td>
 								<td>
-								<span class="exercise-btn-action"><a href="javascript:void(0)" ng-click="removeExercise(exercise)">Delete</a><span>
+								<span class="exercise-btn-action"><a href="javascript:void(0)" ng-click="remove(exercise)">Delete</a><span>
 								</td>
 							</table>
 						</li>

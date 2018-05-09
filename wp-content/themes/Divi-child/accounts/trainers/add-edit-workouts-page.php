@@ -15,7 +15,7 @@
 
 		console.log($scope.exerciseOptions);
 		$scope.workout = {
-			days: [{name:'', order:1, exercises:[{}], clients:[]}],
+			days: [{name:'', order:1, exercises:[generateNewExercise()], clients:[]}],
 		};
 
 		init();
@@ -28,16 +28,15 @@
 		$scope.newWorkOutDay = function ()
 		{
 			var count = $scope.workout.days.length + 1;
-			$scope.workout.days.push({order:count, exercises:[{}], clients:[]});
+			$scope.workout.days.push({order:count, exercises:[generateNewExercise()], clients:[]});
 		};
 
 		$scope.newExercise = function() {
-			$scope.workout.selectedDay.exercises.push({})
+			$scope.workout.selectedDay.exercises.push(generateNewExercise());
 		};
 
 		$scope.selectDay = function(day)
 		{
-			console.log(day);
 			$scope.workout.selectedDay = day;
 		};
 
@@ -85,9 +84,23 @@
 
 		};
 
+		function generateNewExercise()
+		{
+			return {exerciseOptions: angular.copy($scope.exerciseOptions), exerciseSQoptions: angular.copy($scope.exerciseSQoptions)};
+		}
+
 		$("#idForm").submit(function (e) {
 			//e.preventDefault();
 			//console.log($scope.workout);
+			for(var i in $scope.workout.days) {
+				var day = $scope.workout.days[i];
+				for(var e in day.exercises)
+				{
+					var ex = day.exercises[e];
+					delete ex.exerciseOptions;
+					delete ex.exerciseSQoptions;
+				}
+			}
 			$('#idWorkoutForm').val(JSON.stringify($scope.workout));
 			return true;
 
@@ -156,7 +169,7 @@
 							<table class="workout-exercise-options">
 								<td><span class="exercise-number"><label>{{$index + 1}}</label></span></td>
 								<td>
-									<select ng-model="exercise.selectedPart" ng-options="opt.part for opt in exerciseOptions">
+									<select ng-model="exercise.selectedPart" ng-options="opt.part for opt in exercise.exerciseOptions">
 										<option value="">Body Part</option>
 									</select>
 								</td>
@@ -176,7 +189,7 @@
 									</select>
 								</td>
 								<td>
-									<select ng-model="exercise.selectedSQ" ng-options="sqOption.name for sqOption in exerciseSQoptions">
+									<select ng-model="exercise.selectedSQ" ng-options="sqOption.name for sqOption in exercise.exerciseSQoptions">
 										<option value="">SQ</option>
 									</select>
 								</td>
@@ -186,7 +199,7 @@
 									</select>
 								</td>
 								<td>
-									<select ng-model="exercise.selectedSQ.selectedRep" ng-options="rep as rep for rep in exercise.selectedSQ.options.repetition_pattern">
+									<select ng-model="exercise.selectedSQ.selectedRep" ng-options="rep as rep for rep in exercise.selectedSQ.options.rep_options">
 										<option value="">Reps</option>
 									</select>
 								</td>

@@ -95,7 +95,6 @@ function workOutAdd($data)
 
 	$workout = json_decode(preg_replace('/\\\"/',"\"", $data['workoutForm']), true);
 
-	//dd($workout);
 	$wpdb->insert('workout_tbl',
 		array(
 			'workout_name' => $workout['name'],
@@ -129,11 +128,14 @@ function workOutAdd($data)
 
 				foreach($d['exercises'] as $ex)
 				{
-					$exercise = [];
+					$exercise = [
+						'exer_day_ID' => $dayId,
+						'exer_workout_ID' => $workOutId
+					];
 
 					if (isset($ex['selectedPart']))
 					{
-						$exercise['exer_body_part'] = $ex['part'];
+						$exercise['exer_body_part'] = $ex['selectedPart']['part'];
 
 						if (isset($ex['selectedPart']['selectedType']))
 						{
@@ -154,16 +156,27 @@ function workOutAdd($data)
 								$exercise['exer_impl1'] = $ex['selectedPart']['selectedType']['selectedImplementation1'];
 							}
 						}
-
 					}
 
-					$wpdb->insert('workout_exercises_tbl',
-						array(
-							'exer_day_ID' => $dayId,
-							'exer_workout_ID' => $workOutId
-						)
-					);
 
+					if (isset($ex['selectedSQ']))
+					{
+						$exercise['exer_sq'] = $ex['selectedSQ']['name'];
+
+						if (isset($ex['selectedSQ']['selectedRep']))  {
+							$exercise['exer_rep'] = $ex['selectedSQ']['selectedRep'];
+						}
+
+						if (isset($ex['selectedSQ']['selectedTempo']))  {
+							$exercise['exer_tempo'] = $ex['selectedSQ']['selectedTempo'];
+						}
+
+						if (isset($ex['selectedSQ']['selectedRest']))  {
+							$exercise['exer_rest'] = $ex['selectedSQ']['selectedRest'];
+						}
+					}
+
+					$wpdb->insert('workout_exercises_tbl', $exercise);
 
 				}
 			}
@@ -174,14 +187,15 @@ function workOutAdd($data)
 				{
 					$wpdb->insert('workout_day_clients_tbl',
 						array(
-							'workout_client_dayID' => $dayId,
-							'workout_client_workout_ID' => $workOutId,
-							'workout_clientID' => $client['ID']
+							'workout_client_dayID' => (int) $dayId,
+							'workout_client_workout_ID' => (int) $workOutId,
+							'workout_clientID' => (int) $client['ID']
 						)
 					);
 				}
 			}
 		}
+		dd($workout);
 	}
 
 }
@@ -191,7 +205,7 @@ function workOutUpdate($data)
 	global $wpdb;
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 	$workout = json_decode(preg_replace('/\\\"/',"\"", $data['updateWorkoutForm']), true);
-//	dd($workout);
+	//dd($workout);
 
 	$wpdb->update(
 		'workout_tbl',
@@ -201,49 +215,274 @@ function workOutUpdate($data)
 		array( 'workout_ID' => $workout['workout_ID'] )
 	);
 
-	/* update days */
+	if (isset($workout['days']))
+	{
+		/* update days */
 
-	foreach($workout['days'] as $d) {
+		foreach($workout['days'] as $d)
+		{
 
-		if (isset($d['wday_ID']) && $d['isDelete']) {
+			if (isset($d['wday_ID']) && $d['isDelete']) {
 
-			/* delete exercises and clients */
+				/* delete exercises and clients */
 
-			$wpdb->delete(
-				'workout_day_clients_tbl',
-				array( 'workout_client_dayID' => $d['wday_ID'] )
-			);
+				$wpdb->delete(
+					'workout_day_clients_tbl',
+					array( 'workout_client_dayID' => $d['wday_ID'] )
+				);
 
-			$wpdb->delete(
-				'workout_exercises_tbl',
-				array( 'exer_day_ID' => $d['wday_ID'] )
-			);
+				$wpdb->delete(
+					'workout_exercises_tbl',
+					array( 'exer_day_ID' => $d['wday_ID'] )
+				);
 
-			$wpdb->delete(
-				'workout_days_tbl',
-				array( 'wday_ID' => $d['wday_ID'] )
-			);
+				$wpdb->delete(
+					'workout_days_tbl',
+					array( 'wday_ID' => $d['wday_ID'] )
+				);
 
-		} else if (isset($d['wday_ID'])) {
+			} else if (isset($d['wday_ID'])) {
 
-			$wpdb->update(
-				'workout_days_tbl',
-				array(
-					'wday_name' => $d['wday_name'],
-					'wday_order' => $d['wday_order']
-				),
-				array( 'wday_ID' => $d['wday_ID'] )
-			);
+				$wpdb->update(
+					'workout_days_tbl',
+					array(
+						'wday_name' => $d['wday_name'],
+						'wday_order' => $d['wday_order']
+					),
+					array( 'wday_ID' => $d['wday_ID'] )
+				);
 
-		} else { /* insert if there is no existing day */
+				if (isset($d['clients']))
+				{
+					foreach($d['clients'] as $client)
+					{
+						$clientQuery = "SELECT * FROM workout_day_clients_tbl WHERE workout_client_dayID={$d['wday_ID']} AND workout_client_workout_ID={$workout['workout_ID']} AND workout_clientID={$client['ID']}";
+						$result = $wpdb->get_results($clientQuery, OBJECT);
 
-			$wpdb->insert('workout_days_tbl',
-				array(
-					'wday_workout_ID' => $workout['workout_ID'],
-					'wday_name' => $d['wday_name'],
-					'wday_order' => (int) $d['wday_order']
-				)
-			);
+						if(count($result) <= 0)
+						{
+							// insert the new client id
+							$wpdb->insert('workout_day_clients_tbl',
+								array(
+									'workout_client_dayID' => (int) $d['wday_ID'],
+									'workout_client_workout_ID' => (int) $workout['workout_ID'],
+									'workout_clientID' => (int) $client['ID']
+								)
+							);
+						}
+					}
+				}
+
+				if ($d['exercises'])
+				{
+
+					foreach($d['exercises'] as $ex)
+					{
+
+						// check if the exercise exist
+
+						if (isset($ex['exer_ID']))
+						{
+
+							$exerciseQuery = "SELECT * FROM workout_exercises_tbl WHERE exer_day_ID={$d['wday_ID']} AND exer_workout_ID={$workout['workout_ID']} AND exer_ID={$ex['exer_ID']} LIMIT 1";
+							$result = $wpdb->get_results($exerciseQuery, ARRAY_A);
+
+
+							if(count($result) > 0)
+							{
+								$exercise = $result[0];
+
+								if (isset($ex['selectedPart']))
+								{
+									$exercise['exer_body_part'] = $ex['selectedPart']['part'];
+
+									if (isset($ex['selectedPart']['selectedType']))
+									{
+										$exercise['exer_type'] = $ex['selectedPart']['selectedType']['type'];
+
+										if (isset($ex['selectedPart']['selectedType']['selectedExercise1']))
+										{
+											$exercise['exer_exercise_1'] = $ex['selectedPart']['selectedType']['selectedExercise1'];
+										}
+
+										if (isset($ex['selectedPart']['selectedType']['selectedExercise2']))
+										{
+											$exercise['exer_exercise_2'] = $ex['selectedPart']['selectedType']['selectedExercise2'];
+										}
+
+										if (isset($ex['selectedPart']['selectedType']['selectedImplementation1']))
+										{
+											$exercise['exer_impl1'] = $ex['selectedPart']['selectedType']['selectedImplementation1'];
+										}
+									}
+								}
+
+
+								if (isset($ex['selectedSQ']))
+								{
+									$exercise['exer_sq'] = $ex['selectedSQ']['name'];
+
+									if (isset($ex['selectedSQ']['selectedRep']))  {
+										$exercise['exer_rep'] = $ex['selectedSQ']['selectedRep'];
+									}
+
+									if (isset($ex['selectedSQ']['selectedTempo']))  {
+										$exercise['exer_tempo'] = $ex['selectedSQ']['selectedTempo'];
+									}
+
+									if (isset($ex['selectedSQ']['selectedRest']))  {
+										$exercise['exer_rest'] = $ex['selectedSQ']['selectedRest'];
+									}
+								}
+
+								$wpdb->update('workout_exercises_tbl', $exercise, array('exer_ID' => $ex['exer_ID']));
+
+							}
+
+						} else {
+
+							$exercise = [
+								'exer_day_ID' => $d['wday_ID'],
+								'exer_workout_ID' => $workout['workout_ID']
+							];
+
+							if (isset($ex['selectedPart']))
+							{
+								$exercise['exer_body_part'] = $ex['selectedPart']['part'];
+
+								if (isset($ex['selectedPart']['selectedType']))
+								{
+									$exercise['exer_type'] = $ex['selectedPart']['selectedType']['type'];
+
+									if (isset($ex['selectedPart']['selectedType']['selectedExercise1']))
+									{
+										$exercise['exer_exercise_1'] = $ex['selectedPart']['selectedType']['selectedExercise1'];
+									}
+
+									if (isset($ex['selectedPart']['selectedType']['selectedExercise2']))
+									{
+										$exercise['exer_exercise_2'] = $ex['selectedPart']['selectedType']['selectedExercise2'];
+									}
+
+									if (isset($ex['selectedPart']['selectedType']['selectedImplementation1']))
+									{
+										$exercise['exer_impl1'] = $ex['selectedPart']['selectedType']['selectedImplementation1'];
+									}
+								}
+							}
+
+
+							if (isset($ex['selectedSQ']))
+							{
+								$exercise['exer_sq'] = $ex['selectedSQ']['name'];
+
+								if (isset($ex['selectedSQ']['selectedRep']))  {
+									$exercise['exer_rep'] = $ex['selectedSQ']['selectedRep'];
+								}
+
+								if (isset($ex['selectedSQ']['selectedTempo']))  {
+									$exercise['exer_tempo'] = $ex['selectedSQ']['selectedTempo'];
+								}
+
+								if (isset($ex['selectedSQ']['selectedRest']))  {
+									$exercise['exer_rest'] = $ex['selectedSQ']['selectedRest'];
+								}
+							}
+
+							$wpdb->insert('workout_exercises_tbl', $exercise);
+						}
+
+					}
+				}
+
+			} else { /* insert if there is no existing day */
+
+				$wpdb->insert('workout_days_tbl',
+					array(
+						'wday_workout_ID' => $workout['workout_ID'],
+						'wday_name' => $d['wday_name'],
+						'wday_order' => (int) $d['wday_order']
+					)
+				);
+				$dayId = $wpdb->insert_id;
+
+				if (isset($d['clients']))
+				{
+					foreach($d['clients'] as $client)
+					{
+						// insert the new client id
+						$wpdb->insert('workout_day_clients_tbl',
+							array(
+								'workout_client_dayID' => $dayId,
+								'workout_client_workout_ID' => (int) $workout['workout_ID'],
+								'workout_clientID' => (int) $client['ID']
+							)
+						);
+					}
+
+				}
+
+				if ($d['exercises'])
+				{
+
+					foreach($d['exercises'] as $ex)
+					{
+
+						// check if the exercise exist
+
+						$exercise = [
+							'exer_day_ID' => $dayId,
+							'exer_workout_ID' => $workout['workout_ID']
+						];
+
+						if (isset($ex['selectedPart']))
+						{
+							$exercise['exer_body_part'] = $ex['selectedPart']['part'];
+
+							if (isset($ex['selectedPart']['selectedType']))
+							{
+								$exercise['exer_type'] = $ex['selectedPart']['selectedType']['type'];
+
+								if (isset($ex['selectedPart']['selectedType']['selectedExercise1']))
+								{
+									$exercise['exer_exercise_1'] = $ex['selectedPart']['selectedType']['selectedExercise1'];
+								}
+
+								if (isset($ex['selectedPart']['selectedType']['selectedExercise2']))
+								{
+									$exercise['exer_exercise_2'] = $ex['selectedPart']['selectedType']['selectedExercise2'];
+								}
+
+								if (isset($ex['selectedPart']['selectedType']['selectedImplementation1']))
+								{
+									$exercise['exer_impl1'] = $ex['selectedPart']['selectedType']['selectedImplementation1'];
+								}
+							}
+						}
+
+
+						if (isset($ex['selectedSQ']))
+						{
+							$exercise['exer_sq'] = $ex['selectedSQ']['name'];
+
+							if (isset($ex['selectedSQ']['selectedRep']))  {
+								$exercise['exer_rep'] = $ex['selectedSQ']['selectedRep'];
+							}
+
+							if (isset($ex['selectedSQ']['selectedTempo']))  {
+								$exercise['exer_tempo'] = $ex['selectedSQ']['selectedTempo'];
+							}
+
+							if (isset($ex['selectedSQ']['selectedRest']))  {
+								$exercise['exer_rest'] = $ex['selectedSQ']['selectedRest'];
+							}
+						}
+
+						$wpdb->insert('workout_exercises_tbl', $exercise);
+
+					}
+				}
+			}
 		}
 	}
 
