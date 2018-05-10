@@ -1225,3 +1225,8 @@ ul.workout-exercise-lists li.workout-exercise-item{
 .gym-page .container-title h3,
 .gym-page .title-welcome-section .container{border-color:#6db6e5;}
 .gym-page #logout_btn{margin-top:0;}
+
+/*******************/
+/*ADD EDIT Workout*/
+/*******************/
+.workout-exercise-options tr td select {max-width:70px;}
