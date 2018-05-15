@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e412890-ab99-4512-85c6-c60ef310a911" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wp-content/cache/et/2/et-core-unified-15254303211149.min.css" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/contrib/sm2018-05-15.sql" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/contrib/sm-2018-05-10.sql" afterPath="$PROJECT_DIR$/contrib/sm2018-05-10.sql" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/wp-content/cache/et/2/et-core-unified-15254303211149.min.css" afterPath="$PROJECT_DIR$/wp-content/cache/et/2/et-core-unified-15263499036276.min.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/add-edit-workouts-page.php" afterPath="$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/add-edit-workouts-page.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/edit-workouts-page.php" afterPath="$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/edit-workouts-page.php" />
@@ -63,8 +65,8 @@
       <file leaf-file-name="functions.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="534">
-              <caret line="277" column="38" selection-start-line="277" selection-start-column="38" selection-end-line="277" selection-end-column="38" />
+            <state relative-caret-position="874">
+              <caret line="247" column="55" selection-start-line="247" selection-start-column="55" selection-end-line="247" selection-end-column="55" />
               <folding>
                 <element signature="e#1047#1666#0#PHP" expanded="false" />
                 <element signature="e#7202#10856#0#PHP" expanded="false" />
@@ -351,12 +353,12 @@
       <workItem from="1525831561764" duration="18088000" />
       <workItem from="1526084847121" duration="930000" />
       <workItem from="1526339471240" duration="178000" />
-      <workItem from="1526340716669" duration="11385000" />
+      <workItem from="1526340716669" duration="11821000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114226000" />
+    <option name="totallyTimeSpent" value="114662000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -980,8 +982,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="277" column="38" selection-start-line="277" selection-start-column="38" selection-end-line="277" selection-end-column="38" />
+        <state relative-caret-position="874">
+          <caret line="247" column="55" selection-start-line="247" selection-start-column="55" selection-end-line="247" selection-end-column="55" />
           <folding>
             <element signature="e#1047#1666#0#PHP" expanded="false" />
             <element signature="e#7202#10856#0#PHP" expanded="false" />
