@@ -694,63 +694,27 @@
 										<div class="row">
 											<div class="col-lg-4 col-md-4 assign-workout">
 												<p>Client Focus: <span>Fat Loss</span></p>
+												<select ng-model="workout.selectedDay.selectedClient.day_availability">
+													<option value="1">Monday</option>
+													<option value="2">Tuesday</option>
+													<option value="3">Wednesday</option>
+													<option value="4">Thursday</option>
+													<option value="5">Friday</option>
+													<option value="6">Saturday</option>
+													<option value="7">Sunday</option>
+												</select>
 												<ul class="workout-exercise-lists">
-													<li class="workout-exercise-item">
+													<li class="workout-exercise-item" ng-repeat="log in workout.selectedDay.selectedClient.logs">
 														<table class="workout-exercise-options">
 															<td><span class="exercise-number"><label>1</label></span></td>
 															<td>
 																<select>
-																	<option>Body Part</option>
+																	<option>{{ log.exercise.exer_body_part }}</option>
 																</select>
 															</td>
 															<td>
 																<select>
-																	<option>IMPL 1</option>
-																</select>
-															</td>
-														</table>
-													</li>
-													<li class="workout-exercise-item">
-														<table class="workout-exercise-options">
-															<td><span class="exercise-number"><label>2</label></span></td>
-															<td>
-																<select>
-																	<option>Body Part</option>
-																</select>
-															</td>
-															<td>
-																<select>
-																	<option>IMPL 1</option>
-																</select>
-															</td>
-														</table>
-													</li>
-													<li class="workout-exercise-item">
-														<table class="workout-exercise-options">
-															<td><span class="exercise-number"><label>3</label></span></td>
-															<td>
-																<select>
-																	<option>Body Part</option>
-																</select>
-															</td>
-															<td>
-																<select>
-																	<option>IMPL 1</option>
-																</select>
-															</td>
-														</table>
-													</li>
-													<li class="workout-exercise-item">
-														<table class="workout-exercise-options">
-															<td><span class="exercise-number"><label>4</label></span></td>
-															<td>
-																<select>
-																	<option>Body Part</option>
-																</select>
-															</td>
-															<td>
-																<select>
-																	<option>IMPL 1</option>
+																	<option>{{ log.exercise.exer_impl1 }}</option>
 																</select>
 															</td>
 														</table>
@@ -758,42 +722,10 @@
 												</ul>
 											</div>
 											<div class="col-lg-4 col-md-4 assign-workout">
-												<p>Last 2 completed sets</p>
+												<p>Completed Sets</p>
 
 												<div class="container">
 													<div class="row">
-														<div class="col-lg-6 col-md-6">
-															<div class="last-completed-sets">
-																<table class="last-sets" style="width: 100% !important;">
-																	<tr>
-																		<th>Sets</th>
-																		<th>Reps</th>
-																		<th>Weight</th>
-																	</tr>
-																	<tr>
-																		<td><input class="set-prev-val" type="text" value="3"></td>
-																		<td><input class="set-prev-val" type="text" value="10"></td>
-																		<td><input class="set-prev-val" type="text" value="75LBS"></td>
-																	</tr>
-																	<tr>
-																		<td><input class="set-prev-val" type="text" value="2"></td>
-																		<td><input class="set-prev-val" type="text" value="8"></td>
-																		<td><input class="set-prev-val" type="text" value="115LBS"></td>
-																	</tr>
-																	<tr>
-																		<td><input class="set-prev-val" type="text" value="4"></td>
-																		<td><input class="set-prev-val" type="text" value="12"></td>
-																		<td><input class="set-prev-val" type="text" value="95LBS"></td>
-																	</tr>
-																	<tr>
-																		<td><input class="set-prev-val" type="text" value="3"></td>
-																		<td><input class="set-prev-val" type="text" value="9"></td>
-																		<td><input class="set-prev-val" type="text" value="210LBS"></td>
-																	</tr>
-
-																</table>
-															</div>
-														</div>
 														<div class="col-lg-6 col-md-6">
 															<div class="last-completed-sets">
 																<table class="last-sets" style="width: 100% !important;">
