@@ -94,7 +94,7 @@ function workOutAdd($data)
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
 	$workout = json_decode(preg_replace('/\\\"/',"\"", $data['workoutForm']), true);
-
+	//dd($workout);
 	$wpdb->insert('workout_tbl',
 		array(
 			'workout_name' => $workout['name'],
@@ -180,7 +180,8 @@ function workOutAdd($data)
 				}
 			}
 
-			if($d['clients']) {
+			if($d['clients'])
+			{
 
 				foreach($d['clients'] as $client)
 				{
@@ -192,6 +193,31 @@ function workOutAdd($data)
 							'workout_day_availability' => (int) $client['day_availability']
 						)
 					);
+
+
+					$newSetWeight = array(
+						'client_id' 	=> (int) $client['ID'],
+						'day_id' 		=> (int) $dayId
+					);
+
+					for ($setCount=1; $setCount<=3; $setCount++)
+					{
+						for($setField=1; $setField<=4; $setField++)
+						{
+							$repKey = "set{$setCount}_rep_{$setField}";
+							$weightKey = "set{$setCount}_weight_{$setField}";
+
+							if (isset($client[$repKey])) {
+								$newSetWeight[$repKey] = floatval($client[$repKey]);
+							}
+
+							if (isset($client[$weightKey])) {
+								$newSetWeight[$weightKey] = floatval($client[$weightKey]);
+							}
+						}
+					}
+
+					$wpdb->insert('workout_day_client_sets_tbl', $newSetWeight);
 				}
 			}
 		}
@@ -558,12 +584,12 @@ function workOutGet($workoutId)
 				$userQuery = "SELECT * FROM wp_users WHERE ID=".$c['workout_clientID'] . " LIMIT 1";
 				$userResult = $wpdb->get_results($userQuery, ARRAY_A);
 
-				if(count($userResult) >= 1) {
+				if(count($userResult) >= 1)
+				{
 					$client = $userResult[0];
 					$client['day_availability'] = $c['workout_day_availability'];
 
 					$logsQuery = "SELECT * FROM workout_client_exercises_logs WHERE client_id=" . (int) $c['workout_clientID'] . " AND day_id=" . (int) $d['wday_ID'] . " AND workout_id=" . $workout['workout_ID'];
-
 					$logs = $wpdb->get_results($logsQuery, ARRAY_A);
 
 					foreach ($logs as $k => $log)
@@ -577,7 +603,16 @@ function workOutGet($workoutId)
 						}
 					}
 
+					/* get workout_day_client_sets_tbl */
+					$setsQuery = "SELECT * FROM workout_day_client_sets_tbl WHERE day_id=".$d['wday_ID'] . " AND client_id=" . $client['ID'] . " LIMIT 1";
+					$set = $wpdb->get_results($setsQuery, ARRAY_A);
+					
 					$client['logs'] = $logs;
+
+					if (count($set) >= 1) {
+						$client['set'] = $set[0];
+					}
+
 					$userClients[] = $client;
 				}
 			}

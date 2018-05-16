@@ -775,22 +775,21 @@
 																		<th>Weight</th>
 																	</tr>
 																	<tr>
-																		<td><input class="set-val" type="text" value=""></td>
-																		<td><input class="set-val" type="text" value=""></td>
+																		<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set1_rep_1"></td>
+																		<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set1_weight_1"></td>
 																	</tr>
 																	<tr>
-																		<td><input class="set-val" type="text" value=""></td>
-																		<td><input class="set-val" type="text" value=""></td>
+																		<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set1_rep_2"></td>
+																		<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set1_weight_2"></td>
 																	</tr>
 																	<tr>
-																		<td><input class="set-val" type="text" value=""></td>
-																		<td><input class="set-val" type="text" value=""></td>
+																		<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set1_rep_3"></td>
+																		<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set1_weight_3"></td>
 																	</tr>
 																	<tr>
-																		<td><input class="set-val" type="text" value=""></td>
-																		<td><input class="set-val" type="text" value=""></td>
+																		<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set1_rep_4"></td>
+																		<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set1_weight_4"></td>
 																	</tr>
-
 																</table>
 															</div>
 														</div>
@@ -803,27 +802,26 @@
 																		<th>Weight</th>
 																	</tr>
 																	<tr>
-																		<td><input class="set-val" type="text" value=""></td>
-																		<td><input class="set-val" type="text" value=""></td>
+																		<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set2_rep_1"></td>
+																		<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set2_weight_1"></td>
 																	</tr>
 																	<tr>
-																		<td><input class="set-val" type="text" value=""></td>
-																		<td><input class="set-val" type="text" value=""></td>
+																		<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set2_rep_2"></td>
+																		<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set2_weight_2"></td>
 																	</tr>
 																	<tr>
-																		<td><input class="set-val" type="text" value=""></td>
-																		<td><input class="set-val" type="text" value=""></td>
+																		<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set2_rep_3"></td>
+																		<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set2_weight_3"></td>
 																	</tr>
 																	<tr>
-																		<td><input class="set-val" type="text" value=""></td>
-																		<td><input class="set-val" type="text" value=""></td>
+																		<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set2_rep_4"></td>
+																		<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set2_weight_4"></td>
 																	</tr>
-
 																</table>
 															</div>
 														</div>
 														<div class="col-lg-4 col-md-4">
-															<p>SET 3</p>
+															<p>SET 2</p>
 															<div class="assign-sets-wrapper">
 																<table class="last-sets" style="width: 100% !important;">
 																	<tr>
@@ -831,22 +829,21 @@
 																		<th>Weight</th>
 																	</tr>
 																	<tr>
-																		<td><input class="set-val" type="text" value=""></td>
-																		<td><input class="set-val" type="text" value=""></td>
+																		<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set3_rep_1"></td>
+																		<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set3_weight_1"></td>
 																	</tr>
 																	<tr>
-																		<td><input class="set-val" type="text" value=""></td>
-																		<td><input class="set-val" type="text" value=""></td>
+																		<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set3_rep_2"></td>
+																		<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set3_weight_2"></td>
 																	</tr>
 																	<tr>
-																		<td><input class="set-val" type="text" value=""></td>
-																		<td><input class="set-val" type="text" value=""></td>
+																		<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set3_rep_3"></td>
+																		<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set3_weight_3"></td>
 																	</tr>
 																	<tr>
-																		<td><input class="set-val" type="text" value=""></td>
-																		<td><input class="set-val" type="text" value=""></td>
+																		<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set3_rep_4"></td>
+																		<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set3_weight_4"></td>
 																	</tr>
-
 																</table>
 															</div>
 														</div>
