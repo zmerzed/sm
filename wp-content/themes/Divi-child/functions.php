@@ -606,7 +606,7 @@ function workOutGet($workoutId)
 					/* get workout_day_client_sets_tbl */
 					$setsQuery = "SELECT * FROM workout_day_client_sets_tbl WHERE day_id=".$d['wday_ID'] . " AND client_id=" . $client['ID'] . " LIMIT 1";
 					$set = $wpdb->get_results($setsQuery, ARRAY_A);
-					
+
 					$client['logs'] = $logs;
 
 					if (count($set) >= 1) {

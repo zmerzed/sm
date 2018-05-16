@@ -1,3 +1,10 @@
+<?php
+
+	if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['updateWorkoutForm'])) {
+		workOutUpdate($_POST);
+	}
+?>
+
 <?php $workout = workOutGet($_GET['workout']); ?>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script>
@@ -281,7 +288,7 @@
 
 <div class="main-content padding20 matchHeight" ng-app="app" ng-controller="Controller" ng-cloak>
 
-	<form id="idForm" action="/trainer/?data=workouts" method="POST">
+	<form id="idForm" action="?data=add-workouts&workout=<?php echo $workout['workout_ID']; ?>&r=<?php echo rand(5, 15);?>" method="POST">
 
 		<div class="container trainer-header-section">
 			<div class="row">

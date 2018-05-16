@@ -5,10 +5,6 @@
 	if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['workoutForm'])) {
 		workOutAdd(array_merge($_POST, ['workout_trainer_ID' => $current_user->ID]));
 	}
-
-	if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['updateWorkoutForm'])) {
-		workOutUpdate($_POST);
-	}
 ?>
 
 <div class="main-content matchHeight">
