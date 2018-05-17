@@ -25,7 +25,6 @@
 
 		function init()
 		{
-			console.log('hhhhhhhhhhhhhhhhhhhh');
 
 			for(var i in $scope.workout.days)
 			{
@@ -104,7 +103,7 @@
 							for(var o in sq.options.set_options)
 							{
 								var set = sq.options.set_options[o];
-								//console.log('xxxxxxxxxxx-----' + set);
+
 								if(exercise.exer_sets == set)
 								{
 									exercise.selectedSQ.selectedSet = set;
@@ -153,8 +152,6 @@
 				}
 			}
 
-			console.log($scope.workout);
-			console.log($scope.exerciseSQoptions);
 			optimizeDays();
 			selectDay($scope.workout.days[0]);
 		}
@@ -174,9 +171,6 @@
 
 		$scope.onLeaveDay = function()
 		{
-			console.log('your leaving on the current form')
-			console.log($scope.workout.selectedDay);
-//
 			for (var i in $scope.workout.days)
 			{
 				var day = $scope.workout.days[i];
@@ -191,8 +185,6 @@
 
 						if ($scope.workout.selectedDay.selectedClient && client.ID == $scope.workout.selectedDay.selectedClient.id)
 						{
-							console.log('selected client');
-							console.log($scope.workout.selectedDay.selectedClient);
 							$scope.workout.days[i].clients[x] = $scope.workout.selectedDay.selectedClient;
 							break;
 						}
@@ -205,8 +197,6 @@
 
 		$scope.isActive = function(day)
 		{
-			console.log('check active')
-			console.log(day);
 			if ($scope.workout.selectedDay.wday_order == day.wday_order) {
 				return true;
 			}
@@ -238,7 +228,6 @@
 
 		$scope.$watch('selectedClient', function(val)
 		{
-			console.log(val);
 			var found = false;
 			for(var i in $scope.clients)
 			{
@@ -280,7 +269,6 @@
 
 		$("#idForm").submit(function (e) {
 			//e.preventDefault();
-			console.log($scope.workout);
 
 			for(var i in $scope.workout.days) {
 				var day = $scope.workout.days[i];
@@ -306,8 +294,6 @@
 		{
 			$scope.workout.selectedDay = angular.copy(day);
 
-			console.log('default selected day.....');
-			console.log($scope.workout.selectedDay);
 			if ($scope.workout.selectedDay.clients)
 			{
 				$scope.workout.selectedDay.selectedClient = day.clients[0];
@@ -800,7 +786,7 @@
 														</li>
 													</ul>
 												</div>
-												<div class="col-lg-4 col-md-4 assign-workout">
+												<div class="col-lg-4 col-md-4 assign-workout" ng-if="workout.selectedDay.selectedClient.logs && workout.selectedDay.selectedClient.logs.length > 0">
 													<p>Completed Sets</p>
 
 													<div class="container">
