@@ -34,6 +34,10 @@
 
 			var countDays = $scope.workout.days.length;
 			$scope.workout.selectedDay = $scope.workout.days[countDays - 1];
+
+			var countDays = $scope.workout.days.length;
+
+			selectDay($scope.workout.days[countDays - 1])
 		};
 
 		$scope.newExercise = function() {
@@ -56,6 +60,7 @@
 
 				if (day.order == $scope.workout.selectedDay.order)
 				{
+					console.log('mmmmmmmmmmmmmmmmmmmmmmmm');
 					$scope.workout.days[i] = angular.copy($scope.workout.selectedDay);
 
 					for (var x in $scope.workout.days[i].clients)

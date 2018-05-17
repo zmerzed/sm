@@ -160,6 +160,9 @@
 		{
 			$scope.workout.days.push({exercises:[generateNewExercise()], clients:[]});
 			optimizeDays();
+			
+			var countDays = $scope.workout.days.length;
+			selectDay($scope.workout.days[countDays - 1])
 		};
 
 		$scope.onSelectDay = function(day)
