@@ -5,6 +5,11 @@
 	if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['workoutForm'])) {
 		workOutAdd(array_merge($_POST, ['workout_trainer_ID' => $current_user->ID]));
 	}
+
+	if (isset($_GET['delete'])) {
+		workOutDelete($_GET['delete']);
+		wp_redirect('/trainer/?data=workouts', 302);
+	}
 ?>
 
 <div class="main-content matchHeight">
@@ -24,7 +29,7 @@
 					<span><a href="#"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/members-icon.png'; ?>"></a></span>
 					<span><a href="#"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/record-icon.png'; ?>"></a></span>
 					<span><a href="<?php echo $url ?>"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/edit-icon.png'; ?>"></a></span>
-					<span><a href="#"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/delete-icon.png'; ?>"></a></span>
+					<span><a href="/trainer/?data=workouts&delete=<?php echo $workout->workout_ID; ?>"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/delete-icon.png'; ?>"></a></span>
 				</div>
 			</div>
 		</li>

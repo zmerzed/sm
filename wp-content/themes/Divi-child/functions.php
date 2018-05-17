@@ -627,6 +627,50 @@ function workOutGet($workoutId)
 	return null;
 }
 
+function workOutDelete($workoutId)
+{
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+
+	global $wpdb;
+	$querystr = "SELECT * FROM workout_tbl WHERE workout_ID=".$workoutId." LIMIT 1";
+	$result = $wpdb->get_results($querystr, ARRAY_A);
+
+	if(count($result) >= 1)
+	{
+		$workout = $result[0];
+
+		$querystr = "SELECT * FROM workout_days_tbl WHERE wday_workout_ID=".$workout['workout_ID'];
+		$days = $wpdb->get_results($querystr, ARRAY_A);
+
+		foreach($days as $key => $d)
+		{
+			/* days table name workout_days_tbl with primary key > wday_ID */
+
+			/* delete workout_exercises_tbl target exer_day_ID */
+			$wpdb->delete('workout_exercises_tbl', array('exer_day_ID' => (int) $d['wday_ID']));
+
+			/* delete workout_day_client_sets_tbl target day_id */
+			$wpdb->delete('workout_day_client_sets_tbl', array('day_id' => (int) $d['wday_ID']));
+
+			/* delete workout_day_clients_tbl target workout_client_dayID*/
+			$wpdb->delete('workout_day_clients_tbl', array('workout_client_dayID' => (int) $d['wday_ID']));
+
+			/* delete workout_client_exercises_logs target day_id */
+			$wpdb->delete('workout_client_exercises_logs', array('day_id' => (int) $d['wday_ID']));
+		}
+
+		/* delete workout_days_tbl target wday_ID */
+		$wpdb->delete('workout_days_tbl', array('wday_workout_ID' => (int) $workout['workout_ID']));
+
+		/* delete workout */
+		$wpdb->delete('workout_tbl', array('workout_ID' => (int) $workout['workout_ID']));
+
+		return $workout;
+	}
+
+	return null;
+}
+
 function workOutExerciseOptions()
 {
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
