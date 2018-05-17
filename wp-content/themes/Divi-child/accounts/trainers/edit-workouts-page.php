@@ -160,7 +160,7 @@
 		{
 			$scope.workout.days.push({exercises:[generateNewExercise()], clients:[]});
 			optimizeDays();
-			
+
 			var countDays = $scope.workout.days.length;
 			selectDay($scope.workout.days[countDays - 1])
 		};
@@ -273,6 +273,7 @@
 		$("#idForm").submit(function (e) {
 			//e.preventDefault();
 
+			delete $scope.workout.selectedDay;
 			for(var i in $scope.workout.days) {
 				var day = $scope.workout.days[i];
 				for(var e in day.exercises)
@@ -763,6 +764,7 @@
 												<div class="col-lg-4 col-md-4 assign-workout">
 													<p>Client Focus: <span>Fat Loss</span></p>
 													<select ng-model="workout.selectedDay.selectedClient.day_availability">
+														<option value="" selected disabled hidden>Availability</option>
 														<option value="1">Monday</option>
 														<option value="2">Tuesday</option>
 														<option value="3">Wednesday</option>

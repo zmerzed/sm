@@ -546,11 +546,10 @@ function workOutGetClients()
 	return $outputList;
 }
 
-
 function workOutUserList($userId)
 {
 	global $wpdb;
-	$querystr = "SELECT * FROM workout_tbl WHERE workout_trainer_ID =".$userId;
+	$querystr = "SELECT * FROM workout_tbl WHERE workout_trainer_ID =".$userId." ORDER by workout_ID desc";
 	$workouts = $wpdb->get_results($querystr, OBJECT);
 	return $workouts;
 }
