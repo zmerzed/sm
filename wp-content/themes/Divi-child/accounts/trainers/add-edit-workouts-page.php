@@ -49,6 +49,31 @@
 			selectDay(day);
 		};
 
+		$scope.onCopy = function()
+		{
+			var newCopy = angular.copy($scope.workout.selectedDay);
+			console.log('new copy');
+			console.log(newCopy);
+			newCopy.name = newCopy.name + ' Copy';
+
+			$scope.workout.days.push(newCopy);
+			var countDays = $scope.workout.days.length;
+			optimizeDays();
+			selectDay($scope.workout.days[countDays - 1])
+		};
+
+		$scope.onDelete = function(day)
+		{
+			if ($scope.workout.days.length > 1)
+			{
+				var idx = $scope.workout.days.indexOf(day);
+				$scope.workout.days.splice(idx, 1);
+				var countDays = $scope.workout.days.length;
+				optimizeDays();
+				selectDay($scope.workout.days[countDays - 1])
+			}
+		};
+
 		$scope.onLeaveDay = function()
 		{
 			console.log('your leaving on the current form')
@@ -134,14 +159,25 @@
 
 		});
 
-		$scope.remove = function(exercise)
+		$scope.onCopyExercise = function(exercise)
 		{
-			var idx = $scope.workout.selectedDay.exercises.indexOf(exercise);
-
-			$scope.workout.selectedDay.exercises.splice(idx,1);
 			console.log(exercise);
-			console.log(idx);
+			var newExercise = angular.copy(exercise);
 
+			$scope.workout.selectedDay.exercises.push(newExercise);
+		};
+
+		$scope.onRemoveExercise = function(exercise)
+		{
+
+			if ($scope.workout.selectedDay.exercises.length > 1)
+			{
+				var idx = $scope.workout.selectedDay.exercises.indexOf(exercise);
+				$scope.workout.selectedDay.exercises.splice(idx,1);
+				console.log(exercise);
+				console.log(idx);
+			}
+			
 		};
 
 		function generateNewExercise()
@@ -159,6 +195,19 @@
 			}
 		}
 
+		function optimizeDays()
+		{
+			var count = 1;
+
+			for(var i in $scope.workout.days)
+			{
+				var day = $scope.workout.days[i];
+
+				$scope.workout.days[i].order = count;
+				count++;
+			}
+
+		}
 		$("#idForm").submit(function (e) {
 			//e.preventDefault();
 
@@ -238,8 +287,8 @@
 								</div>
 								<div class="col-lg-6 col-md-6">
 									<ul class="workout-btn-actions">
-										<li><a href="#">Duplicate</a></li>
-										<li><a href="javascript:void(0)">Delete</a></li>
+										<li><a href="javascript:void(0)" ng-click="onCopy()">Duplicate</a></li>
+										<li><a href="javascript:void(0)" ng-click="onDelete(selectedDay)">Delete</a></li>
 									</ul>
 								</div>
 							</div>
@@ -300,10 +349,10 @@
 										</select>
 									</td>
 									<td>
-								<span class="exercise-btn-action"><a href="#">Duplicate</a><span>
+								<span class="exercise-btn-action"><a href="javascript:void(0)" ng-click="onCopyExercise(exercise)">Duplicate</a><span>
 									</td>
 									<td>
-								<span class="exercise-btn-action"><a href="javascript:void(0)" ng-click="remove(exercise)">Delete</a><span>
+								<span class="exercise-btn-action"><a href="javascript:void(0)" ng-click="onRemoveExercise(exercise)">Delete</a><span>
 									</td>
 								</table>
 							</li>
