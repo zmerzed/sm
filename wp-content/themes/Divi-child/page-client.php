@@ -45,6 +45,10 @@ if( is_user_logged_in() ){
 						case 'logs':
 							echo 'Logs';
 							break;
+							
+						case 'workout':
+							echo 'Start Workout';
+							break;
 
 						default:
 							echo 'dashboard';
@@ -138,6 +142,10 @@ if( is_user_logged_in() ){
 						
 						case 'logs':
 							get_template_part( 'accounts/clients/logs', 'page' );
+							break;
+							
+						case 'workout':
+							get_template_part( 'accounts/clients/workout', 'page' );
 							break;
 
 						default:
