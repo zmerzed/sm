@@ -1,8 +1,26 @@
-<div class="main-content matchHeight start-workout">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script>
+
+	var workout = <?php echo json_encode(workOutGet($_GET['workout'])) ?>;
+	var app = angular.module('app', []);
+
+	app.controller('Controller', function($scope)
+	{
+		init();
+
+		function init()
+		{
+			console.log('||-------------------------------------------------||');
+			console.log(workout);
+		}
+	});
+
+</script>
+<div class="main-content matchHeight start-workout" ng-app="app" ng-controller="Controller">
 	<div class="container-title">
-        <h3>Start Workout</h3>
-    </div>
-	
+		<h3>Start Workout</h3>
+	</div>
+
 	<ul class="workout-lists">
 		<li>
 			<div class="workout-wrapper">
@@ -31,7 +49,7 @@
 										<input type="radio" value="1" name="goal-status" />
 										<span class="checkmark"></span>
 										<span>Enter the number <br>of reps completed</span>
-									</label>					
+									</label>
 									<input type="text" />
 								</div>
 							</div>
@@ -42,7 +60,7 @@
 									<label class="jradio goal-met">
 										<input checked="checked"  type="radio" value="2" name="goal-status" />
 										<span class="checkmark"></span>
-										<span>Goal <br>Met!</span>								
+										<span>Goal <br>Met!</span>
 									</label>
 									<button>Next Set</button>
 								</div>
@@ -58,7 +76,7 @@
 							<h5>Set 2 Up Next</h5>
 							<div class="col-lg-12 col-md-12 col-sm-12 goal-set">
 								<label><span>Goal:</span> 10 Reps</label>
-							</div>							
+							</div>
 						</div>
 					</div>
 					<div class="workout-control">
@@ -68,5 +86,5 @@
 				</div>
 			</div>
 		</li>
-	</ul>	
+	</ul>
 </div>

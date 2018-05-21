@@ -87,6 +87,14 @@ function test2()
 	print_r($get_user_ids);
 }
 
+function helperGetCurrentDate()
+{
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+
+	return Carbon\Carbon::now();
+
+}
+
 function workOutAdd($data)
 {
 	global $wpdb;
@@ -94,7 +102,8 @@ function workOutAdd($data)
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
 	$workout = json_decode(preg_replace('/\\\"/',"\"", $data['workoutForm']), true);
-	//dd($workout);
+	$weekDays = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
+
 	$wpdb->insert('workout_tbl',
 		array(
 			'workout_name' => $workout['name'],
@@ -116,7 +125,8 @@ function workOutAdd($data)
 				array(
 					'wday_workout_ID' => $workOutId,
 					'wday_name' => $d['name'],
-					'wday_order' => (int) $d['order']
+					'wday_order' => (int) $d['order'],
+					'wday_created_at' => date("Y-m-d H:i:s")
 				)
 			);
 
@@ -185,15 +195,22 @@ function workOutAdd($data)
 
 				foreach($d['clients'] as $client)
 				{
-					$wpdb->insert('workout_day_clients_tbl',
-						array(
-							'workout_client_dayID' => (int) $dayId,
-							'workout_client_workout_ID' => (int) $workOutId,
-							'workout_clientID' => (int) $client['ID'],
-							'workout_day_availability' => (int) $client['day_availability']
-						)
-					);
 
+					if ((int) $client['day_availability'] > 0)
+					{
+						$dNumber = ((int) $client['day_availability']) - 1;
+						$scheduleDate = new \Carbon\Carbon($weekDays[$dNumber]);
+						$wpdb->insert('workout_day_clients_tbl',
+							array(
+								'workout_client_dayID' => (int) $dayId,
+								'workout_client_workout_ID' => (int) $workOutId,
+								'workout_clientID' => (int) $client['ID'],
+								'workout_day_availability' => (int) $client['day_availability'],
+								'workout_client_schedule' => $scheduleDate->format('Y-m-d h:i:s')
+							)
+						);
+
+					}
 
 					$newSetWeight = array(
 						'client_id' 	=> (int) $client['ID'],
@@ -548,10 +565,72 @@ function workOutGetClients()
 
 function workOutUserList($userId)
 {
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+
 	global $wpdb;
 	$querystr = "SELECT * FROM workout_tbl WHERE workout_trainer_ID =".$userId." ORDER by workout_ID desc";
 	$workouts = $wpdb->get_results($querystr, OBJECT);
+	//dd($workouts);
 	return $workouts;
+}
+
+function workoutGetClientWorkouts($clientId)
+{
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+
+	global $wpdb;
+	$todayQuery = "SELECT DISTINCT(workout_client_workout_ID), workout_client_dayID FROM workout_day_clients_tbl WHERE DATE(`workout_client_schedule`) = CURDATE() AND workout_clientID={$clientId}";
+	$todayClientWorkouts = $wpdb->get_results($todayQuery, OBJECT);
+	$upcomingWorkouts = [];
+
+	foreach ($todayClientWorkouts as $k => $w)
+	{
+		$workoutQuery = "SELECT * FROM workout_tbl WHERE workout_ID=".$w->workout_client_workout_ID." LIMIT 1";
+		$result = $wpdb->get_results($workoutQuery, OBJECT);
+
+		if (count($result) > 0)
+		{
+			$todayClientWorkouts[$k]->workout = $result[0];
+		}
+
+		$dayQuery = "SELECT * FROM workout_days_tbl WHERE wday_ID=".$w->workout_client_dayID." LIMIT 1";
+		$result = $wpdb->get_results($dayQuery, OBJECT);
+
+		if (count($result) > 0)
+		{
+			$todayClientWorkouts[$k]->day = $result[0];
+		}
+	}
+
+	$nextQuery = "SELECT DISTINCT(workout_client_workout_ID), workout_client_dayID FROM workout_day_clients_tbl WHERE DATE(`workout_client_schedule`) > CURDATE() AND workout_clientID={$clientId}";
+	$nextClientWorkouts = $wpdb->get_results($nextQuery, OBJECT);
+
+	foreach ($nextClientWorkouts as $k => $w)
+	{
+		$workoutQuery = "SELECT * FROM workout_tbl WHERE workout_ID=".$w->workout_client_workout_ID." LIMIT 1";
+		$result = $wpdb->get_results($workoutQuery, OBJECT);
+
+		if (count($result) > 0)
+		{
+			$nextClientWorkouts[$k]->workout = $result[0];
+		}
+
+		$dayQuery = "SELECT * FROM workout_days_tbl WHERE wday_ID=".$w->workout_client_dayID." LIMIT 1";
+		$result = $wpdb->get_results($dayQuery, OBJECT);
+
+		if (count($result) > 0)
+		{
+			$nextClientWorkouts[$k]->day = $result[0];
+		}
+	}
+
+	$output = [
+		'todayWorkouts' => $todayClientWorkouts,
+		'upcomingWorkouts' => $nextClientWorkouts
+	];
+
+//	dd($output);
+	return $output;
 }
 
 function workOutGet($workoutId)

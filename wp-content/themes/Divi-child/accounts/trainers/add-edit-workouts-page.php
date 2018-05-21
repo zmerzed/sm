@@ -73,7 +73,7 @@
 				selectDay($scope.workout.days[countDays - 1])
 			}
 		};
-
+		
 		$scope.onLeaveDay = function()
 		{
 			console.log('your leaving on the current form')
@@ -177,7 +177,7 @@
 				console.log(exercise);
 				console.log(idx);
 			}
-			
+
 		};
 
 		function generateNewExercise()
