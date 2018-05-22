@@ -320,6 +320,26 @@
 				count++;
 			}
 		}
+
+		function optimizeDays()
+		{
+			var count = 1;
+
+			for(var i in $scope.workout.days)
+			{
+				var day = $scope.workout.days[i];
+
+				if(day.isDelete)
+				{
+					continue;
+				}
+
+				$scope.workout.days[i].wday_order = count;
+				count++;
+			}
+
+		}
+
 	});
 </script>
 

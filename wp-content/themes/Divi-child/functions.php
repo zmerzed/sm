@@ -379,6 +379,10 @@ function workOutUpdate($data)
 								{
 									$exercise['exer_sq'] = $ex['selectedSQ']['name'];
 
+									if (isset($ex['selectedSQ']['selectedSet']))  {
+										$exercise['exer_sets'] = $ex['selectedSQ']['selectedSet'];
+									}
+
 									if (isset($ex['selectedSQ']['selectedRep']))  {
 										$exercise['exer_rep'] = $ex['selectedSQ']['selectedRep'];
 									}
@@ -704,6 +708,47 @@ function workOutGet($workoutId)
 	}
 
 	return null;
+}
+
+function workoutClientWorkoutWithDay($workoutId, $dayId)
+{
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+
+	global $wpdb;
+	$querystr = "SELECT * FROM workout_day_clients_tbl WHERE workout_client_dayID={$workoutId} AND workout_client_workout_ID={$dayId} LIMIT 1";
+	$result = $wpdb->get_results($querystr, OBJECT);
+	//dd($result);
+	if (count($result) >= 1)
+	{
+		$clientWorkout = $result[0];
+
+		$queryWorkout = "SELECT * FROM workout_tbl WHERE workout_ID={$clientWorkout->workout_client_workout_ID} LIMIT 1";
+		$workout = $wpdb->get_results($queryWorkout, OBJECT);
+
+		if (count($workout) >= 1)
+		{
+			$clientWorkout->workout = $workout[0];
+		}
+
+		$queryDay = "SELECT * FROM workout_days_tbl WHERE wday_ID={$clientWorkout->workout_client_dayID} LIMIT 1";
+		$day = $wpdb->get_results($queryDay, OBJECT);
+
+		if (count($workout) >= 1)
+		{
+			$clientWorkout->day = $day[0];
+		}
+
+		$queryExercises =  "SELECT * FROM workout_exercises_tbl WHERE exer_workout_ID={$clientWorkout->workout_client_workout_ID}";
+		$exercises = $wpdb->get_results($queryExercises, OBJECT);
+
+		if (count($exercises) >= 1)
+		{
+			$clientWorkout->exercises = $exercises;
+		}
+
+	}
+
+	return $clientWorkout;
 }
 
 function workOutDelete($workoutId)

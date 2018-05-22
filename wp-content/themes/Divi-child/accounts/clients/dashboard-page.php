@@ -17,7 +17,7 @@
 				<label><?php echo $workout->workout->workout_name . "-" . $workout->day->wday_name ?></label>
 				<div class="workout-controls">
 					<span><a href="#"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/workout-note.png'; ?>"></a></span>
-					<span><a href="<?php echo home_url(); ?>/client/?data=workout"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/workout-play.png'; ?>"></a></span>
+					<span><a href="<?php echo home_url(); ?>/client/?data=workout&dayId=<?php echo $workout->workout_client_dayID?>&workoutId=<?php echo $workout->	workout_client_workout_ID?>"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/workout-play.png'; ?>"></a></span>
 				</div>
 			</div>
 		</li>

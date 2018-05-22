@@ -145,6 +145,7 @@ if( is_user_logged_in() ){
 								break;
 
 							case 'workout':
+								
 								get_template_part( 'accounts/clients/workout', 'page' );
 								break;
 

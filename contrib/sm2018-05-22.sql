@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2018 at 08:13 AM
+-- Generation Time: May 22, 2018 at 11:50 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -33,6 +33,20 @@ CREATE TABLE `workout_client_exercises_logs` (
   `day_id` int(11) NOT NULL,
   `client_id` int(11) NOT NULL,
   `workout_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `workout_client_set_logs`
+--
+
+CREATE TABLE `workout_client_set_logs` (
+  `id` int(11) NOT NULL,
+  `exercise_id` int(11) NOT NULL,
+  `reps` varchar(255) NOT NULL,
+  `isMet` tinyint(1) NOT NULL,
+  `isDone` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -154,7 +168,8 @@ CREATE TABLE `workout_exercises_tbl` (
 INSERT INTO `workout_exercises_tbl` (`exer_ID`, `exer_day_ID`, `exer_workout_ID`, `exer_body_part`, `exer_type`, `exer_exercise_1`, `exer_exercise_2`, `exer_sq`, `exer_sets`, `exer_rep`, `exer_tempo`, `exer_rest`, `exer_impl1`) VALUES
 (5, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (12, 9, 4, 'Abs/Hip Flexors', NULL, NULL, NULL, 'ES', NULL, '20 sec', NULL, NULL, NULL),
-(13, 10, 5, 'Abs/Hip Flexors', NULL, NULL, NULL, 'H', NULL, '7', NULL, NULL, NULL);
+(13, 10, 5, 'Abs/Hip Flexors', NULL, NULL, NULL, 'H', '5', '7', NULL, '45 sec', NULL),
+(14, 10, 5, 'Back', 'Bent-Over Row - Elbows Out', NULL, NULL, 'ES', '7', '30 sec', 'maximal', '45 sec', NULL);
 
 -- --------------------------------------------------------
 
@@ -840,9 +855,9 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (328, 'category_children', 'a:0:{}', 'yes'),
 (855, 'limit_login_retries', 'a:1:{s:3:\"::1\";i:1;}', 'no'),
 (599, 'illegal_names', 'a:19:{i:0;s:3:\"www\";i:1;s:3:\"web\";i:2;s:4:\"root\";i:3;s:5:\"admin\";i:4;s:4:\"main\";i:5;s:6:\"invite\";i:6;s:13:\"administrator\";i:7;s:6:\"groups\";i:8;s:7:\"members\";i:9;s:6:\"forums\";i:10;s:5:\"blogs\";i:11;s:8:\"activity\";i:12;s:7:\"profile\";i:13;s:7:\"friends\";i:14;s:6:\"search\";i:15;s:8:\"settings\";i:16;s:13:\"notifications\";i:17;s:8:\"register\";i:18;s:8:\"activate\";}', 'no'),
-(1447, '_site_transient_timeout_et_core_version', '1526969701', 'no'),
-(1555, '_site_transient_timeout_et_core_path', '1526969701', 'no'),
-(1556, '_site_transient_et_core_path', 'C:/Users/remz/Desktop/sm/wp-content/plugins/divi-builder/core', 'no'),
+(1447, '_site_transient_timeout_et_core_version', '1527056115', 'no'),
+(1563, '_site_transient_timeout_et_core_path', '1527056115', 'no'),
+(1564, '_site_transient_et_core_path', 'C:/Users/remz/Desktop/sm/wp-content/plugins/divi-builder/core', 'no'),
 (1448, '_site_transient_et_core_version', '3.0.101', 'no');
 
 -- --------------------------------------------------------
@@ -1661,6 +1676,12 @@ ALTER TABLE `workout_client_exercises_logs`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `workout_client_set_logs`
+--
+ALTER TABLE `workout_client_set_logs`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `workout_days_tbl`
 --
 ALTER TABLE `workout_days_tbl`
@@ -1964,6 +1985,11 @@ ALTER TABLE `wp_ws_ls_data_user_stats`
 ALTER TABLE `workout_client_exercises_logs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `workout_client_set_logs`
+--
+ALTER TABLE `workout_client_set_logs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `workout_days_tbl`
 --
 ALTER TABLE `workout_days_tbl`
@@ -1982,7 +2008,7 @@ ALTER TABLE `workout_day_client_sets_tbl`
 -- AUTO_INCREMENT for table `workout_exercises_tbl`
 --
 ALTER TABLE `workout_exercises_tbl`
-  MODIFY `exer_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `exer_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `workout_exercise_options_tbl`
 --
@@ -2082,7 +2108,7 @@ ALTER TABLE `wp_links`
 -- AUTO_INCREMENT for table `wp_options`
 --
 ALTER TABLE `wp_options`
-  MODIFY `option_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1563;
+  MODIFY `option_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1565;
 --
 -- AUTO_INCREMENT for table `wp_postmeta`
 --
