@@ -1,6 +1,7 @@
 <?php
 	$current_user = wp_get_current_user();
 	$clientWorkouts = workoutGetClientWorkouts($current_user->ID);
+
 ?>
 <div class="main-content matchHeight">
 

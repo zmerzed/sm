@@ -2,10 +2,13 @@
 <script>
 
 	var clientWorkout = <?php echo json_encode(workoutClientWorkoutWithDay($_GET['dayId'], $_GET['workoutId'])) ?>;
+	var rootUrl = '<?php echo get_site_url(); ?>';
+	var currentUserId = '<?php echo wp_get_current_user()->ID ?>';
 	var app = angular.module('app', []);
 
-	app.controller('Controller', function($scope)
+	app.controller('Controller', function($scope, $http)
 	{
+		var urlApiClient = rootUrl + '/wp-json/v1/client';
 		$scope.clientWorkout = {};
 
 		init();
@@ -15,7 +18,10 @@
 			console.log('||-------------------------------------------------||');
 			console.log(clientWorkout);
 			$scope.clientWorkout = clientWorkout;
+
 			sequenceExercises();
+
+			console.log('||-------------------------------------------------||');
 		}
 
 
@@ -47,10 +53,9 @@
 			}
 		}
 
-
 		$scope.checkNotCurrent = function(set)
 		{
-			if (set.order != $scope.currentExercise.currentSet.order)
+			if (set.seq != $scope.currentExercise.currentSet.seq)
 			{
 				return true;
 			}
@@ -63,53 +68,66 @@
 			console.log('---- the current set is-----');
 			console.log($scope.currentExercise);
 
-			var hasFoundDone = false;
-
-			if ($scope.currentExercise.currentSet)
+			$http.post(urlApiClient+'/process', $scope.currentExercise).then(function()
 			{
-				var currentOrder = $scope.currentExercise.currentSet.order;
-				var nextOrder = currentOrder + 1;
+				var hasFoundDone = false;
 
-				if (nextOrder >= 2) {
-					$scope.currentExercise.isShowTime = true;
-				}
-
-				$scope.currentExercise.currentSet.isDone = true;
-				for (var i in $scope.currentExercise.sets)
+				if ($scope.currentExercise.currentSet)
 				{
-					var set = $scope.currentExercise.sets[i];
+					var currentOrder = $scope.currentExercise.currentSet.seq;
+					var nextOrder = currentOrder + 1;
 
-					if (nextOrder == set.order)
+					if (nextOrder >= 2) {
+						$scope.currentExercise.isShowTime = true;
+					}
+
+					$scope.currentExercise.currentSet.isDone = true;
+					for (var i in $scope.currentExercise.sets)
 					{
-						hasFoundDone = true;
-						$scope.currentExercise.currentSet = set;
-						break;
+						var set = $scope.currentExercise.sets[i];
+
+						if (nextOrder == set.seq)
+						{
+							hasFoundDone = true;
+							$scope.currentExercise.currentSet = set;
+							break;
+						}
 					}
 				}
-			}
 
-			if (!hasFoundDone) {
-				$scope.currentExercise.isDone = true;
-				console.log('THE END');
-				console.log($scope.clientWorkout);
-				sequenceExercises();
-			}
+				if (!hasFoundDone) {
+					$scope.currentExercise.isDone = true;
+					console.log('THE END');
+					console.log($scope.clientWorkout);
+					sequenceExercises();
+				}
+			});
 		};
 
 		$scope.$watch('currentExercise', function(val)
 		{
-			console.log('watching exercise');
-			console.log(val);
-			$scope.currentExercise.sets = [];
 
-			for (var i=1; i<=$scope.currentExercise.exer_sets; i++)
+			if (val)
 			{
-				var nSet = {order:i, isMet:1, isDone:false, reps:''};
-				$scope.currentExercise.sets.push(nSet);
-			}
+				$scope.currentExercise.user_id = currentUserId;
+				$scope.currentExercise.sets = [];
 
-			console.log($scope.clientWorkout.sets);
-			sequenceSets();
+				/* checking client exercise logs */
+				var params = '?exerciseId='+$scope.currentExercise.exer_ID+'&user_id='+currentUserId;
+
+				$http.get(urlApiClient+'/get'+params).then(function(res)
+				{
+					console.log(res);
+
+					for (var i=1; i<=$scope.currentExercise.exer_sets; i++)
+					{
+						var nSet = {seq:i, isMet:1, isDone:false, reps:''};
+						$scope.currentExercise.sets.push(nSet);
+					}
+
+					sequenceSets();
+				});
+			}
 		});
 	});
 
@@ -134,7 +152,7 @@
 					</div>
 					<div class="exercise-set-item">
 						<div class="exercise-set-goal">
-							<h5>Set {{ currentExercise.currentSet.order }} </h5>
+							<h5>Set {{ currentExercise.currentSet.seq }} </h5>
 							<div class="col-lg-12 col-md-12 col-sm-12 goal-set">
 								<label><span>Goal:</span> {{ currentExercise.exer_rep }} Reps</label>
 							</div>
@@ -170,7 +188,7 @@
 					</div>
 					<div class="exercise-set-item" ng-repeat="set in currentExercise.sets" ng-if="checkNotCurrent(set)">
 						<div class="exercise-set-goal">
-							<h5>Set {{ set.order }} {{set.isDone ? "previous set" : "up next"}}</h5>
+							<h5>Set {{ set.seq }} {{set.isDone ? "previous set" : "up next"}}</h5>
 							<div class="col-lg-12 col-md-12 col-sm-12 goal-set">
 								<label><span>Goal:</span> {{ currentExercise.exer_rep }} Reps</label>
 							</div>
