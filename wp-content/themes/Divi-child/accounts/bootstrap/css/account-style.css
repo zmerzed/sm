@@ -1238,47 +1238,79 @@ ul.workout-exercise-lists li.workout-exercise-item{
 /*****************/
 /*Start Workout*/
 /*****************/
+button[disabled="disabled"]{
+	background-color:#acacac;
+}
 .workout-control label,
 .exercise-set-item h5,
 .exercise-details,
 .start-workout h4{text-transform:uppercase;}
-.start-workout.main-content{
+/* .start-workout.main-content{
 	background:transparent;
 	padding:0;
-}
+} */
 .start-workout h4{
 	color:#fff;	
 	font-weight:bold;
 }
 .exercise-details span{
 	color:#ae1e22;
+	padding-left:5px;
 }
 .exercise-details{
-	margin-bottom:1em;
+	padding-top:8px;
+	display:inline-block;
+	text-align:center;
+	/* margin-bottom:1em; */
 	color:#fff;
 	font-weight:bold;
 }
 .ed-item{
 	display:inline-block;
 	font-size:18px;
+	margin-right:2em;
 }
-.start-workout  ul.workout-lists li .workout-wrapper{
+.start-workout{
+	background-color:#d5d5d5;
+	margin-top:0;
+	border-radius:15px;
+	padding:30px 40px;
+}
+.start-workout  ul.workout-lists{
+	margin-top:0;
+}
+.start-workout  ul.workout-lists li .workout-wrapper {background-color:transparent;}
+.start-workout  ul.workout-lists li .workout-wrapper .exercise-area{
+	background-color:#303030;
 	padding:1em 0;
-	border-radius:1em;
+	border-radius:2em;
 }
+.exercise-set-goal h5 span{color:#ae1f23}
 .exercise-set-goal h5{
-	border-bottom:2px solid #ae1f23;
+	border-bottom:2px solid #303030;
 	width:100%;
-	max-width:300px;
+	/* max-width:300px; */
 	margin:0 auto 10px;
-	text-align:center;
+	text-align:left;
 	font-weight:bold;
 	font-size:24px;
 }
+.start-workout .col-lg-12,
+.start-workout .col-lg-11,
+.start-workout .col-lg-10,
+.start-workout .col-lg-9,
+.start-workout .col-lg-8,
+.start-workout .col-lg-7,
+.start-workout .col-lg-6,
+.start-workout .col-lg-5,
+.start-workout .col-lg-4,
+.start-workout .col-lg-3,
+.start-workout .col-lg-2,
+.start-workout .col-lg-1,
 .exercise-set-goal > div{float:left;}
 .workout-control,
 .exercise-set-goal{
-	border-radius:0.5em;
+	border-radius:1em;
 	background-color:#d5d5d5;
 	padding:15px;
 	margin-bottom:1em;
@@ -1288,18 +1320,32 @@ ul.workout-lists li .exercise-set-item label{
 	color:#303030;
 	font-size:11px;
 }
+ul.workout-lists li .exercise-set-item .goal-set label span small{font-weight:700;}
+ul.workout-lists li .exercise-set-item .goal-set label span{
+	display:block;
+	line-height:normal;
+	font-size:36px;
+}
 ul.workout-lists li .exercise-set-item .goal-set label{
-	font-size:32px;
+	font-size:22px;
+	line-height:22px;
 	font-weight:800;
 }
 .goal-set{text-align:center;}
 .rep-radio{padding-top:10px;}
 .rep-radio label{float:left;}
 .rep-radio div{margin:0 auto;max-width:300px;}
-.rep-radio input[type="text"]{
+.rep-navigation{
+	margin-top:10px;
+	text-align:center;
+	width:100%;
+}
+.rep-navigation input[type="text"]{
 	width:40px;
 	text-align:center;
-	margin-left:10px;
+	margin-left:5px;
+	border-radius:10px;
+	border:0;
 }
 .goal-met{margin-right:10px;}
 .goal-met span{font-weight:900}
@@ -1312,19 +1358,47 @@ ul.workout-lists li .exercise-set-item .goal-set label{
 	font-size:24px;
 	font-weight:700;
 }
-.rest-timer{
-	font-size:100px;
-	font-weight:700;
-	line-height:normal;
-	width:100%;
-	text-align:center;
+.rest-timer{	
 	color:#ae1f23;
+	display:inline-block;
 }
-.exercise-set-item{padding:0 15px}
-.start-workout .workout-wrapper h4{text-align:center;}
+/* .exercise-set-item{padding:0 15px} */
+.start-workout ul.workout-lists li label small{display:inline-block;font-size:11px;line-height:12px}
+.start-workout ul.workout-lists li .exercise-label label{line-height:20px;font-size:20px;}
+.start-workout ul.workout-lists li label{line-height:normal;}
+.start-workout .exercise-label{margin-bottom:1em;}
+.start-workout .exercise-set-area{padding:0 15px;}
+.start-workout .workout-wrapper h4{
+	text-align: center;
+    display: inline-block;
+    margin: 0 auto 2em;
+    padding: 0 1em;
+    color: #303030;
+    border-bottom: 2px solid #ae1f23;
+    text-align: center;
+}
 .start-workout .workout-control label{font-size:28px;font-weight:800;color:#303030;}
 .workout-control .workout-timer{float:right;}
 .workout-control{padding:5px;margin-top:4em;}
+ul.workout-lists li .exercise-set-item .rep-navigation label{
+	font-size:18px;
+	margin:0 10px;
+	font-weight:800;
+}
+.rep-navigation button{
+	font-size:14px;
+	padding:5px 10px;
+}
+.btn-arrow.btn-arr-next{
+	margin-left:8px;
+	background:url(../../images/next-arrow.png) center center no-repeat;
+}
+.btn-arrow.btn-arr-back{
+	margin-right:8px;
+	background:url(../../images/back-arrow.png) center center no-repeat;
+}
+.btn-arrow{height:9px;width:9px;display:inline-block;}
+.img-responsive{display:inline-block;max-width:100%;}
 
 /*Radio Buttons*/
 .checkmark,.jradio input:checked~.checkmark,.jradio:hover input~.checkmark{background-color:#303030;}.jradio{display:block;position:relative;padding-left:35px;margin-bottom:12px;cursor:pointer;font-size:22px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.jradio input{position:absolute;opacity:0}.checkmark{position:absolute;top:0;left:0;height:25px;width:25px;border-radius:50%;border:3px solid #ae1f23}.checkmark:after{content:"";position:absolute;display:none}.jradio input:checked~span{color:#ae1f23}.jradio input:checked~.checkmark:after{display:block}.jradio .checkmark:after{top:3px;left:3px;width:12px;height:12px;border-radius:50%;background:#fff}
