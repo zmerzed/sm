@@ -690,20 +690,19 @@ function workOutGet($workoutId)
 					$client = $userResult[0];
 					$client['day_availability'] = $c['workout_day_availability'];
 
-					$logs = [];
-//					$logsQuery = "SELECT * FROM workout_client_exercises_logs WHERE client_id=" . (int) $c['workout_clientID'] . " AND day_id=" . (int) $d['wday_ID'] . " AND workout_id=" . $workout['workout_ID'];
-//					$logs = $wpdb->get_results($logsQuery, ARRAY_A);
-//
-//					foreach ($logs as $k => $log)
-//					{
-//						$exercisesLogQuery = "SELECT * FROM workout_exercises_tbl WHERE exer_ID=".$log['exercise_id'] . " LIMIT 1";
-//						$exerciseResult = $wpdb->get_results($exercisesLogQuery, ARRAY_A);
-//
-//						if(count($exerciseResult) >= 1)
-//						{
-//							$logs[$k]['exercise'] =  $exerciseResult[0];
-//						}
-//					}
+					$logsQuery = "SELECT * FROM workout_client_exercises_logs WHERE client_id=" . (int) $c['workout_clientID'] . " AND day_id=" . (int) $d['wday_ID'] . " AND workout_id=" . $workout['workout_ID'];
+					$logs = $wpdb->get_results($logsQuery, ARRAY_A);
+
+					foreach ($logs as $k => $log)
+					{
+						$exercisesLogQuery = "SELECT * FROM workout_exercises_tbl WHERE exer_ID=".$log['exercise_id'] . " LIMIT 1";
+						$exerciseResult = $wpdb->get_results($exercisesLogQuery, ARRAY_A);
+
+						if(count($exerciseResult) >= 1)
+						{
+							$logs[$k]['exercise'] =  $exerciseResult[0];
+						}
+					}
 
 					/* get workout_day_client_sets_tbl */
 					$setsQuery = "SELECT * FROM workout_day_client_sets_tbl WHERE day_id=".$d['wday_ID'] . " AND client_id=" . $client['ID'] . " LIMIT 1";
@@ -869,6 +868,7 @@ function wpc_register_wp_api_endpoints() {
 function workoutClientExerciseLogs() {
 
 	global $wpdb;
+
 	$data = $_REQUEST;
 	$exerciseId = (int) $data['exerciseId'];
 	$userId = (int) $data['user_id'];
@@ -914,7 +914,9 @@ function workoutCreateClientSetLog()
 		$wpdb->insert('workout_client_exercises_logs',
 			array(
 				'exercise_id' => (int) $data['exer_ID'],
-				'client_id'   => $userId
+				'client_id'   => $userId,
+				'day_id' => (int) $data['exer_day_ID'],
+				'workout_id' => (int) $data['exer_workout_ID']
 			)
 		);
 

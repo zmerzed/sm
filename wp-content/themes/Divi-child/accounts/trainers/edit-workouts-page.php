@@ -152,6 +152,7 @@
 				}
 			}
 
+			console.log($scope.workout);
 			optimizeDays();
 			selectDay($scope.workout.days[0]);
 		}
