@@ -15,6 +15,13 @@
   <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
 
   <script type="text/javascript">
+	$(document).ready(function(){
+		if($("#myModal").length != 0){
+			$("#myModal").on('hidden.bs.modal', function (e) {
+				$("#myModal iframe").attr("src", "");
+			});
+		}		
+	});
 
   jQuery('#table-sorter').DataTable({
     "lengthMenu": [[8, 16, 24, -1], [8, 16, 24, "All"]]
