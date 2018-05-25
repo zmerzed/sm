@@ -760,8 +760,7 @@ function workoutClientWorkoutWithDay($workoutId, $dayId)
 		$queryExercises =  "SELECT * FROM workout_exercises_tbl WHERE exer_workout_ID={$clientWorkout->workout_client_workout_ID}";
 		$exercises = $wpdb->get_results($queryExercises, OBJECT);
 
-		if (count($exercises) >= 1)
-		{
+		if (count($exercises) >= 1) {
 			$clientWorkout->exercises = $exercises;
 		}
 

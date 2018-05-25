@@ -25,6 +25,79 @@
 		}
 
 
+		var Clock =
+		{
+			totalSeconds: 0,
+			start: function ()
+			{
+
+				$("#idNextSet").attr("disabled", "disabled").button('refresh');
+				$("#idBackSet").attr("disabled", "disabled").button('refresh');
+				function pad(val) { return val > 9 ? val : "0" + val; }
+
+				var self = this;
+				self.totalSeconds = 5;
+				try {
+
+					console.log($scope.currentExercise.exer_rest);
+
+					if ($scope.currentExercise.exer_rest.indexOf('sec') > 0) {
+						self.totalSeconds = $scope.currentExercise.exer_rest.replace(/[^\d.-]/g, '');
+					} else {
+						var mins = $scope.currentExercise.exer_rest.replace(/[^\d.-]/g, '');
+						self.totalSeconds = parseInt(mins) * 60;
+					}
+				} catch (err) {
+					self.totalSeconds = 5;
+				}
+
+				//self.totalSeconds = 5;
+
+				this.interval = setInterval(function ()
+				{
+					self.totalSeconds -= 1;
+
+					if(self.totalSeconds == 0)
+					{
+						Clock.stop();
+					}
+
+					$("#min").text(pad(Math.floor(self.totalSeconds / 60 % 60)));
+					$("#sec").text(pad(parseInt(self.totalSeconds % 60)));
+
+				}, 1000);
+			},
+
+			reset: function () {
+				Clock.totalSeconds = null;
+				clearInterval(this.interval);
+				$("#min").text("00");
+				$("#sec").text("00");
+			},
+			pause: function () {
+				clearInterval(this.interval);
+				delete this.interval;
+			},
+
+			stop: function () {
+				$("#idNextSet").removeAttr("disabled").button('refresh');
+				$("#idBackSet").removeAttr("disabled").button('refresh');
+				clearInterval(this.interval);
+				delete this.interval;
+				this.totalSeconds = 0;
+				runNext();
+			},
+
+			resume: function () {
+				if (!this.interval) this.start();
+			},
+
+			restart: function () {
+				this.reset();
+				Clock.start();
+			}
+		};
+
 		function sequenceExercises()
 		{
 			for (var i in $scope.clientWorkout.exercises)
@@ -53,21 +126,8 @@
 			}
 		}
 
-		$scope.checkNotCurrent = function(set)
+		function runNext()
 		{
-			if (set.seq != $scope.currentExercise.currentSet.seq)
-			{
-				return true;
-			}
-
-			return false;
-		};
-
-		$scope.onNextSet = function()
-		{
-			console.log('---- the current set is-----');
-			console.log($scope.currentExercise);
-
 			$http.post(urlApiClient+'/process', $scope.currentExercise).then(function()
 			{
 				var hasFoundDone = false;
@@ -76,10 +136,6 @@
 				{
 					var currentOrder = $scope.currentExercise.currentSet.seq;
 					var nextOrder = currentOrder + 1;
-
-					if (nextOrder >= 2) {
-						$scope.currentExercise.isShowTime = true;
-					}
 
 					$scope.currentExercise.currentSet.isDone = true;
 					for (var i in $scope.currentExercise.sets)
@@ -102,6 +158,46 @@
 					sequenceExercises();
 				}
 			});
+		}
+
+		$scope.checkNotCurrent = function(set)
+		{
+			if (set.seq != $scope.currentExercise.currentSet.seq)
+			{
+				return true;
+			}
+
+			return false;
+		};
+
+		$scope.onNextSet = function()
+		{
+			Clock.start();
+		};
+
+		$scope.onBackSet = function()
+		{
+			console.log('onBackSet');
+			if ($scope.currentExercise.currentSet)
+			{
+				var currentOrder = $scope.currentExercise.currentSet.seq;
+				var prevOrder = currentOrder - 1;
+
+				if (prevOrder > 0)
+				{
+					for (var i in $scope.currentExercise.sets)
+					{
+						var set = $scope.currentExercise.sets[i];
+
+						if (prevOrder == set.seq)
+						{
+							$scope.currentExercise.currentSet = set;
+							break;
+						}
+					}
+				}
+			}
+
 		};
 
 		$scope.$watch('currentExercise', function(val)
@@ -129,6 +225,7 @@
 				});
 			}
 		});
+
 	});
 
 </script>
@@ -137,120 +234,82 @@
 	<ul class="workout-lists">
 		<li>
 			<div class="workout-wrapper">
-					<div class="text-center">
+				<div class="text-center">
 					<h4>{{ clientWorkout.workout.workout_name }} - {{ clientWorkout.day.wday_name }}</h4>
-					</div>
-					<div class="exercise-area">
-						<div class="col-lg-12 col-md-12">
-							<div class="exercise-label">
-								<!-- <span><img src="<?php echo get_stylesheet_directory_uri(); ?>/accounts/images/workout.png"></span> -->
-								<div class="col-lg-4 col-md-4 col-sm-12">
-									<label>{{ currentExercise.exer_body_part }} <br> <small>{{ currentExercise.exer_type }}</small></label>
-								</div>
-								<div class="col-lg-8 col-md-8 col-sm-12 exercise-details">
-									<div class="ed-item">Sets: <span>{{ currentExercise.exer_sets }}</span></div>
-									<!-- <div class="ed-item">Reps: <span>{{ currentExercise.exer_rep }}</span></div> -->
-									<div class="ed-item">Tempo: <span>{{ currentExercise.exer_tempo }}</span></div>
-								</div>
-							</div>
-						</div>
-						<div class="exercise-set-area">
+				</div>
+				<div class="exercise-area">
+					<div class="col-lg-12 col-md-12">
+						<div class="exercise-label">
 							<div class="col-lg-4 col-md-4 col-sm-12">
-								<a href="javascript:void(0);" onclick="modalClick('YyvSfVjQeL0');"><img class="img-responsive" src="<?php echo get_stylesheet_directory_uri(); ?>/accounts/images/video-sample.jpg" /></a>
+								<label>{{ currentExercise.exer_body_part }} <br> <small>{{ currentExercise.exer_type }}</small></label>
 							</div>
-							<div class="col-lg-8 col-md-8 col-sm-12">
-								<div class="exercise-set-item">
-									<div class="exercise-set-goal">
-										<h5>
-											<div ng-hide="currentExercise.isShowTime"><span>Start:</span> Set {{ currentExercise.currentSet.seq }}</div>
-											<div class="exercise-set-rest" ng-show="currentExercise.isShowTime">
-												Rest:
-												<div class="rest-timer ng-binding">{{ currentExercise.exer_rest }}</div>
-											</div>
-										</h5>
-										<div class="col-lg-6 col-md-6 col-sm-12 goal-set">
+							<div class="col-lg-8 col-md-8 col-sm-12 exercise-details">
+								<div class="ed-item">Sets: <span>{{ currentExercise.exer_sets }}</span></div>
+								<div class="ed-item">Tempo: <span>{{ currentExercise.exer_tempo }}</span></div>
+							</div>
+						</div>
+					</div>
+					<div class="exercise-set-area">
+						<div class="col-lg-4 col-md-4 col-sm-12">
+							<a href="javascript:void(0);" onclick="modalClick('YyvSfVjQeL0');"><img class="img-responsive" src="<?php echo get_stylesheet_directory_uri(); ?>/accounts/images/video-sample.jpg" /></a>
+						</div>
+						<div class="col-lg-8 col-md-8 col-sm-12">
+							<div class="exercise-set-item">
+								<div class="exercise-set-goal">
+									<h5>
+										<div><span>Start:</span> Set {{ currentExercise.currentSet.seq }}</div>
+										<div class="exercise-set-rest">
+											Rest:
+											<div class="rest-timer ng-binding"><span id="min">00</span>:<span id="sec">00</span></div>
+										</div>
+									</h5>
+									<div class="col-lg-6 col-md-6 col-sm-12 goal-set">
+										<label>
+											Reps
+											<span>{{ currentExercise.exer_rep }}</span>
+										</label>
+									</div>
+									<div class="col-lg-6 col-md-6 col-sm-12 goal-set">
+										<label>
+											Weight
+											<span>50<small>lbs</small></span>
+										</label>
+									</div>
+									<div class="rep-navigation">
+										<div>
+											<button ng-click="onBackSet();" id="idBackSet"><span class="btn-arrow btn-arr-back"></span>Back</button>
 											<label>
-												Reps
-												<span>{{ currentExercise.exer_rep }}</span>
-											</label>
-										</div>
-										<div class="col-lg-6 col-md-6 col-sm-12 goal-set">
-											<label>
-												Weight
-												<span>50<small>lbs</small></span>
-											</label>
-										</div>
-										<div class="rep-navigation">
-											<div>												
-												<button disabled="disabled"><span class="btn-arrow btn-arr-back"></span>Back</button>
-												<label>
-													Reps Complete:
-													<input type="text" placeholder="{{ currentExercise.exer_rep }}" value="{{ currentExercise.exer_rep }}" ng-model="currentExercise.currentSet.reps"/>
-												</label>
-												<button ng-click="onNextSet();">Next Set <span class="btn-arrow btn-arr-next"></span></button>
-											</div>
-										</div>
-										<!-- <div class="col-lg-6 col-md-6 col-sm-6 rep-radio">
-											<div>
-												<label>Not able to complete all reps?</label>
-												<br>
-												<label class="jradio">
-													<input ng-checked="currentExercise.currentSet.isMet == 0" type="radio" value="0" ng-model="currentExercise.currentSet.isMet"/>
-													<span class="checkmark"></span>
-													<span>Enter the number <br>of reps completed</span>
-												</label>
+												Reps Complete:
 												<input type="text" ng-model="currentExercise.currentSet.reps"/>
-											</div>
+											</label>
+											<button ng-click="onNextSet();" id="idNextSet">Next Set <span class="btn-arrow btn-arr-next"></span></button>
 										</div>
-										<div class="col-lg-6 col-md-6 col-sm-6 rep-radio">
-											<div>
-												<label>Completed all reps? Click next set!</label>
-												<br>
-												<label class="jradio goal-met">
-													<input ng-checked="currentExercise.currentSet.isMet == 1" type="radio" value="1" ng-model="currentExercise.currentSet.isMet" />
-													<span class="checkmark"></span>
-													<span>Goal <br>Met!</span>
-												</label>
-												<button ng-click="onNextSet();">Next Set</button>
-											</div>
-										</div> -->
-									</div>						
+									</div>
 								</div>
 							</div>
 						</div>
-						<!-- <div class="exercise-set-item" ng-repeat="set in currentExercise.sets" ng-if="checkNotCurrent(set)">
-							<div class="exercise-set-goal">
-								<h5>Set {{ set.seq }} {{set.isDone ? "previous set" : "up next"}}</h5>
-								<div class="col-lg-12 col-md-12 col-sm-12 goal-set">
-									<label><span>Goal:</span> {{ currentExercise.exer_rep }} Reps</label>
-								</div>
-							</div>
-						</div> -->
-						<!-- <div class="workout-control">
-							<a href="#"><span><a href="<?php echo home_url(); ?>/client/?data=workout"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/workout-play.png'; ?>"></a></span></a> <label>Workout Started</label>
-							<label class="workout-timer">0:14</label>
-						</div> -->
 					</div>
+				</div>
 			</div>
 		</li>
 	</ul>
 </div>
 <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            </div>
-            <div class="modal-body">
-                <iframe width="100%" height="300" frameborder="0" allowfullscreen=""></iframe>
-            </div>
-        </div>
-    </div>
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			</div>
+			<div class="modal-body">
+				<iframe width="100%" height="300" frameborder="0" allowfullscreen=""></iframe>
+			</div>
+		</div>
+	</div>
 </div>
 <script>
 	function modalClick(a){
 		var src = a;
-        $('#myModal').modal('show');
-        $('#myModal iframe').attr('src', 'https://www.youtube.com/embed/'+a+'?rel=0&autoplay=1');
+		$('#myModal').modal('show');
+		$('#myModal iframe').attr('src', 'https://www.youtube.com/embed/'+a+'?rel=0&autoplay=1');
 	}
 </script>
