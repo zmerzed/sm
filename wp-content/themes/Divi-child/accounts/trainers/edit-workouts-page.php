@@ -227,6 +227,7 @@
 
 		$scope.selectClient = function(client)
 		{
+			console.log('jjjjjjjjjjjjjjjjjjjjj');
 			$scope.workout.selectedDay.selectedClient = client;
 		};
 
@@ -301,7 +302,7 @@
 
 			if ($scope.workout.selectedDay.clients)
 			{
-				$scope.workout.selectedDay.selectedClient = day.clients[0];
+				$scope.workout.selectedDay.selectedClient = $scope.workout.selectedDay.clients[0];
 			}
 		}
 

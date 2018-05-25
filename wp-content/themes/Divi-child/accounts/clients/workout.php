@@ -79,9 +79,24 @@
 				delete this.interval;
 			},
 
-			stop: function () {
+			stop: function ()
+			{
+				function pad(val) {
+
+					if (val > 9) {
+						val = "0";
+					}
+
+					if(isNaN(val)) {
+						val = "0";
+					}
+					return val > 9 ? val : "0" + val;
+					//return val;
+				}
 				$("#idNextSet").removeAttr("disabled").button('refresh');
 				$("#idBackSet").removeAttr("disabled").button('refresh');
+				$("#min").text(pad(Math.floor(self.totalSeconds / 60 % 60)));
+				$("#sec").text(pad(parseInt(self.totalSeconds % 60)));
 				clearInterval(this.interval);
 				delete this.interval;
 				this.totalSeconds = 0;
@@ -120,6 +135,8 @@
 
 				if (!set.isDone)
 				{
+					set.reps = angular.copy($scope.currentExercise.exer_rep)
+						//currentExercise.currentSet.reps
 					$scope.currentExercise.currentSet = set;
 					break;
 				}
@@ -145,6 +162,7 @@
 						if (nextOrder == set.seq)
 						{
 							hasFoundDone = true;
+							set.reps = angular.copy($scope.currentExercise.exer_rep)
 							$scope.currentExercise.currentSet = set;
 							break;
 						}
@@ -168,6 +186,11 @@
 			}
 
 			return false;
+		};
+
+		$scope.onSkip = function()
+		{
+			Clock.stop();
 		};
 
 		$scope.onNextSet = function()
@@ -261,6 +284,7 @@
 										<div class="exercise-set-rest">
 											Rest:
 											<div class="rest-timer ng-binding"><span id="min">00</span>:<span id="sec">00</span></div>
+											<button ng-click="onSkip()">Skip</button>
 										</div>
 									</h5>
 									<div class="col-lg-6 col-md-6 col-sm-12 goal-set">
