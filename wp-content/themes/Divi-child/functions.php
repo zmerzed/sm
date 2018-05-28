@@ -701,6 +701,13 @@ function workOutGet($workoutId)
 						if(count($exerciseResult) >= 1)
 						{
 							$logs[$k]['exercise'] =  $exerciseResult[0];
+
+							// get set logs
+
+							$setLogsQuery = "SELECT * FROM workout_client_set_logs WHERE exercise_log_id=".$log['id'];
+							$setLogsResult = $wpdb->get_results($setLogsQuery, ARRAY_A);
+
+							$logs[$k]['exercise']['setLogs'] = $setLogsResult;
 						}
 					}
 

@@ -18,9 +18,10 @@
 
 		$scope.clients = clients;
 		$scope.workout = workout;
+		$scope.workoutMaxSet = 0;
 		$scope.exerciseOptions = exerciseOptions;
 		$scope.exerciseSQoptions = exerciseSQoptions;
-
+		
 		init();
 
 		function init()
@@ -155,6 +156,9 @@
 			console.log($scope.workout);
 			optimizeDays();
 			selectDay($scope.workout.days[0]);
+
+			/* get the largest set in a selected day */
+			findTheLargestSet();
 		}
 
 		$scope.newWorkOutDay = function ()
@@ -168,6 +172,8 @@
 
 		$scope.onSelectDay = function(day)
 		{
+			console.log('xxxxxxxxxxxxxxxx');
+			console.log(day);
 			//$scope.workout.selectedDay = day;
 			optimizeSelectedDay();
 			selectDay(day);
@@ -260,6 +266,11 @@
 
 		});
 
+		$scope.$watch('workout.selectedDay.exercises', function(){
+			console.log('/* get the largest set in a selected day */');
+			findTheLargestSet();
+		}, true);
+
 		$scope.removeDay = function(day)
 		{
 			day.isDelete = true;
@@ -290,7 +301,38 @@
 			return true;
 
 		});
+		
+		function findTheLargestSet()
+		{
+			/* get the max set */
+			$scope.workoutMaxSet = 0;
 
+			for (var i in $scope.workout.selectedDay.exercises)
+			{
+				var exercise = angular.copy($scope.workout.selectedDay.exercises[i]);
+				var noSet = 0;
+
+				if (exercise.exer_sets) {
+					noSet = parseInt(angular.copy(exercise.exer_sets));
+				}
+
+				if (exercise.selectedSQ && exercise.selectedSQ.selectedSet) {
+					noSet = exercise.selectedSQ.selectedSet;
+				}
+
+				if (typeof $scope.workoutMaxSet == 'undefined') {
+					$scope.workoutMaxSet = 0;
+
+					if(noSet >= $scope.workoutMaxSet) {
+						$scope.workoutMaxSet = noSet;
+					}
+
+				} else if(noSet >= $scope.workoutMaxSet) {
+					$scope.workoutMaxSet = noSet;
+				}
+			}
+		}
+		
 		function generateNewExercise()
 		{
 			return {exerciseOptions: angular.copy($scope.exerciseOptions), exerciseSQoptions: angular.copy($scope.exerciseSQoptions)};
@@ -342,6 +384,16 @@
 
 		}
 
+	});
+
+	app.filter("range", function() {
+		return function(input, total) {
+			total = parseInt(total);
+			for (var i = 0; i < total; i++) {
+				input.push(i);
+			}
+			return input;
+		};
 	});
 </script>
 
@@ -794,53 +846,13 @@
 														</li>
 													</ul>
 												</div>
-												<div class="col-lg-4 col-md-4 assign-workout" ng-if="workout.selectedDay.selectedClient.logs && workout.selectedDay.selectedClient.logs.length > 0">
-													<p>Completed Sets</p>
 
-													<div class="container">
-														<div class="row">
-															<div class="col-lg-6 col-md-6">
-																<div class="last-completed-sets">
-																	<table class="last-sets" style="width: 100% !important;">
-																		<tr>
-																			<th>Sets</th>
-																			<th>Reps</th>
-																			<th>Weight</th>
-																		</tr>
-																		<tr>
-																			<td><input class="set-prev-val" type="text" value="3"></td>
-																			<td><input class="set-prev-val" type="text" value="10"></td>
-																			<td><input class="set-prev-val" type="text" value="75LBS"></td>
-																		</tr>
-																		<tr>
-																			<td><input class="set-prev-val" type="text" value="2"></td>
-																			<td><input class="set-prev-val" type="text" value="8"></td>
-																			<td><input class="set-prev-val" type="text" value="115LBS"></td>
-																		</tr>
-																		<tr>
-																			<td><input class="set-prev-val" type="text" value="4"></td>
-																			<td><input class="set-prev-val" type="text" value="12"></td>
-																			<td><input class="set-prev-val" type="text" value="95LBS"></td>
-																		</tr>
-																		<tr>
-																			<td><input class="set-prev-val" type="text" value="3"></td>
-																			<td><input class="set-prev-val" type="text" value="9"></td>
-																			<td><input class="set-prev-val" type="text" value="210LBS"></td>
-																		</tr>
-
-																	</table>
-																</div>
-															</div>
-														</div>
-													</div>
-
-												</div>
 												<div class="col-lg-4 col-md-4 assign-workout">
 
 													<div class="container">
 														<div class="row">
-															<div class="col-lg-4 col-md-4">
-																<p>SET 1</p>
+															<div class="col-lg-4 col-md-4" ng-repeat="numSet in []|range:workoutMaxSet">
+																<p>SET {{ numSet + 1}}</p>
 																<div class="assign-sets-wrapper">
 																	<table class="last-sets" style="width: 100% !important;">
 																		<tr>
@@ -862,60 +874,6 @@
 																		<tr>
 																			<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set1_rep_4"></td>
 																			<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set1_weight_4"></td>
-																		</tr>
-																	</table>
-																</div>
-															</div>
-															<div class="col-lg-4 col-md-4">
-																<p>SET 2</p>
-																<div class="assign-sets-wrapper">
-																	<table class="last-sets" style="width: 100% !important;">
-																		<tr>
-																			<th>Reps</th>
-																			<th>Weight</th>
-																		</tr>
-																		<tr>
-																			<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set2_rep_1"></td>
-																			<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set2_weight_1"></td>
-																		</tr>
-																		<tr>
-																			<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set2_rep_2"></td>
-																			<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set2_weight_2"></td>
-																		</tr>
-																		<tr>
-																			<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set2_rep_3"></td>
-																			<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set2_weight_3"></td>
-																		</tr>
-																		<tr>
-																			<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set2_rep_4"></td>
-																			<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set2_weight_4"></td>
-																		</tr>
-																	</table>
-																</div>
-															</div>
-															<div class="col-lg-4 col-md-4">
-																<p>SET 2</p>
-																<div class="assign-sets-wrapper">
-																	<table class="last-sets" style="width: 100% !important;">
-																		<tr>
-																			<th>Reps</th>
-																			<th>Weight</th>
-																		</tr>
-																		<tr>
-																			<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set3_rep_1"></td>
-																			<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set3_weight_1"></td>
-																		</tr>
-																		<tr>
-																			<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set3_rep_2"></td>
-																			<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set3_weight_2"></td>
-																		</tr>
-																		<tr>
-																			<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set3_rep_3"></td>
-																			<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set3_weight_3"></td>
-																		</tr>
-																		<tr>
-																			<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set3_rep_4"></td>
-																			<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set3_weight_4"></td>
 																		</tr>
 																	</table>
 																</div>
