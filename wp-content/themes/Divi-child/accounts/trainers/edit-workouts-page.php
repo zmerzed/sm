@@ -847,11 +847,11 @@
 													</ul>
 												</div>
 
-												<div class="col-lg-4 col-md-4 assign-workout">
+												<div class="col-lg-8 col-md-8 assign-workout">
 
 													<div class="container">
 														<div class="row">
-															<div class="col-lg-4 col-md-4" ng-repeat="numSet in []|range:workoutMaxSet">
+															<div class="col-lg-3 col-md-3" ng-repeat="numSet in []|range:workoutMaxSet">
 																<p>SET {{ numSet + 1}}</p>
 																<div class="assign-sets-wrapper">
 																	<table class="last-sets" style="width: 100% !important;">
