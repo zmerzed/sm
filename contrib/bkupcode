@@ -1,0 +1,20 @@
+<div class="col-lg-8 col-md-8 assign-workout">
+													<div class="container">
+														<div class="row">
+															<div class="col-lg-3 col-md-3" ng-repeat="numSet in []|range:workoutMaxSet">
+																<p>SET {{ numSet + 1}}</p>
+																<div class="assign-sets-wrapper">
+																	<table class="last-sets" style="width: 100% !important;">
+																		<tr>
+																			<th>Reps</th>
+																			<th>Weight</th>
+																		</tr>
+																		<tr ng-repeat="log in workout.selectedDay.selectedClient.logs">
+																			<td><input class="set-val" type="text" ng-model="log.exercise.setLogs[numSet].reps"></td>
+																			<td><input class="set-val" type="text" ></td>
+																		</tr>
+																	</table>
+																</div>
+															</div>
+														</div>
+													</div>

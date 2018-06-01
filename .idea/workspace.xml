@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5e412890-ab99-4512-85c6-c60ef310a911" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/clients/workout.php" afterPath="$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/clients/workout.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/add-edit-workouts-page.php" afterPath="$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/add-edit-workouts-page.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/edit-workouts-page.php" afterPath="$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/edit-workouts-page.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/Divi-child/functions.php" afterPath="$PROJECT_DIR$/wp-content/themes/Divi-child/functions.php" />
     </list>
     <ignored path="sm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,24 +40,19 @@
       <file leaf-file-name="workouts-page.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/workouts-page.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="workout.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/clients/workout.php">
+      <file leaf-file-name="add-edit-workouts-page.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/add-edit-workouts-page.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="92" column="20" selection-start-line="92" selection-start-column="20" selection-end-line="92" selection-end-column="20" />
-              <folding>
-                <element signature="e#2816#3025#0#HTML" expanded="false" />
-                <element signature="e#3055#3356#0#HTML" expanded="false" />
-                <element signature="e#3381#4203#0#HTML" expanded="false" />
-                <element signature="e#4248#4355#0#HTML" expanded="false" />
-              </folding>
+            <state relative-caret-position="323">
+              <caret line="244" column="0" selection-start-line="244" selection-start-column="0" selection-end-line="297" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -64,79 +60,123 @@
       <file leaf-file-name="functions.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="303" column="17" selection-start-line="303" selection-start-column="17" selection-end-line="303" selection-end-column="17" />
+            <state relative-caret-position="2770">
+              <caret line="735" column="8" selection-start-line="735" selection-start-column="8" selection-end-line="735" selection-end-column="8" />
               <folding>
                 <element signature="n#sm_login_redirect#0;n#!!top" expanded="false" />
-                <element signature="e#6694#15455#0#PHP" expanded="false" />
+                <element signature="e#3298#4139#0#PHP" expanded="false" />
+                <element signature="e#4146#4767#0#PHP" expanded="false" />
+                <element signature="n#workOutUpdate#0;n#!!top" expanded="false" />
+                <element signature="e#7059#15820#0#PHP" expanded="false" />
                 <element signature="n#workOutGetClients#0;n#!!top" expanded="false" />
                 <element signature="n#workOutUserList#0;n#!!top" expanded="false" />
+                <element signature="n#workoutGetClientWorkouts#0;n#!!top" expanded="false" />
+                <element signature="n#workoutClientWorkoutWithDay#0;n#!!top" expanded="false" />
                 <element signature="n#workOutDelete#0;n#!!top" expanded="false" />
                 <element signature="n#workOutExerciseOptions#0;n#!!top" expanded="false" />
                 <element signature="n#workOutExerciseStrengthQualitiesOptions#0;n#!!top" expanded="false" />
-                <marker date="1527230412150" expanded="true" signature="1778:1792" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
-                <marker date="1527230412150" expanded="true" signature="1778:1803" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
-                <marker date="1527230412150" expanded="true" signature="1955:2110" placeholder="SELECT u.ID $" />
-                <marker date="1527230412150" expanded="true" signature="7544:7701" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-                <marker date="1527230412150" expanded="true" signature="9095:9222" placeholder="SELECT * FRO... workout_exercises_tbl" />
-                <marker date="1527230412150" expanded="true" signature="9095:9246" placeholder="SELECT * FRO... workout_exercises_tbl" />
-                <marker date="1527230412150" expanded="true" signature="15528:15550" placeholder="SELECT * FRO... wp_users" />
-                <marker date="1527230412150" expanded="true" signature="15890:15942" placeholder="SELECT * FRO... workout_tbl" />
-                <marker date="1527230412150" expanded="true" signature="15890:15978" placeholder="SELECT * FRO... workout_tbl" />
-                <marker date="1527230412150" expanded="true" signature="15890:15979" placeholder="SELECT * FRO... workout_tbl" />
-                <marker date="1527230412150" expanded="true" signature="16218:16225" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-                <marker date="1527230412150" expanded="true" signature="16218:16383" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-                <marker date="1527230412150" expanded="true" signature="16554:16597" placeholder="SELECT * FRO... workout_tbl" />
-                <marker date="1527230412150" expanded="true" signature="16554:16638" placeholder="SELECT * FRO... workout_tbl" />
-                <marker date="1527230412150" expanded="true" signature="16798:16879" placeholder="SELECT * FRO... workout_days_tbl" />
-                <marker date="1527230412150" expanded="true" signature="17034:17199" placeholder="SELECT DISTI... workout_day_clients_tbl" />
-                <marker date="1527230412150" expanded="true" signature="17342:17426" placeholder="SELECT * FRO... workout_tbl" />
-                <marker date="1527230412150" expanded="true" signature="17585:17666" placeholder="SELECT * FRO... workout_days_tbl" />
-                <marker date="1527230412150" expanded="true" signature="18076:18119" placeholder="SELECT * FRO... workout_tbl" />
-                <marker date="1527230412150" expanded="true" signature="18076:18141" placeholder="SELECT * FRO... workout_tbl" />
-                <marker date="1527230412150" expanded="true" signature="18076:18142" placeholder="SELECT * FRO... workout_tbl" />
-                <marker date="1527230412150" expanded="true" signature="18264:18317" placeholder="SELECT * FRO... workout_days_tbl" />
-                <marker date="1527230412150" expanded="true" signature="18264:18341" placeholder="SELECT * FRO... workout_days_tbl" />
-                <marker date="1527230412150" expanded="true" signature="18451:18505" placeholder="SELECT * FRO... workout_exercises_tbl" />
-                <marker date="1527230412150" expanded="true" signature="18605:18670" placeholder="SELECT * FRO... workout_exercises_tbl" />
-                <marker date="1527230412150" expanded="true" signature="18819:18851" placeholder="SELECT * FRO... wp_users" />
-                <marker date="1527230412150" expanded="true" signature="18819:18887" placeholder="SELECT * FRO... wp_users" />
-                <marker date="1527230412150" expanded="true" signature="19106:19166" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-                <marker date="1527230412150" expanded="true" signature="19106:19178" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-                <marker date="1527230412150" expanded="true" signature="19106:19214" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-                <marker date="1527230412150" expanded="true" signature="19106:19257" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-                <marker date="1527230412150" expanded="true" signature="19106:19283" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-                <marker date="1527230412150" expanded="true" signature="19106:19337" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-                <marker date="1527230412150" expanded="true" signature="19410:19460" placeholder="SELECT * FRO... workout_exercises_tbl" />
-                <marker date="1527230412150" expanded="true" signature="19410:19493" placeholder="SELECT * FRO... workout_exercises_tbl" />
-                <marker date="1527230412150" expanded="true" signature="19410:19494" placeholder="SELECT * FRO... workout_exercises_tbl" />
-                <marker date="1527230412150" expanded="true" signature="19746:19834" placeholder="SELECT * FRO... workout_day_client_sets_tbl" />
-                <marker date="1527230412150" expanded="true" signature="19746:19864" placeholder="SELECT * FRO... workout_day_client_sets_tbl" />
-                <marker date="1527230412150" expanded="true" signature="20376:20441" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-                <marker date="1527230412150" expanded="true" signature="20376:20484" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-                <marker date="1527230412150" expanded="true" signature="20376:20492" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-                <marker date="1527230412150" expanded="true" signature="20376:20500" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-                <marker date="1527230412150" expanded="true" signature="20649:20692" placeholder="SELECT * FRO... workout_tbl" />
-                <marker date="1527230412150" expanded="true" signature="20649:20734" placeholder="SELECT * FRO... workout_tbl" />
-                <marker date="1527230412150" expanded="true" signature="20649:20743" placeholder="SELECT * FRO... workout_tbl" />
-                <marker date="1527230412150" expanded="true" signature="20897:20988" placeholder="SELECT * FRO... workout_days_tbl" />
-                <marker date="1527230412150" expanded="true" signature="21133:21191" placeholder="SELECT * FRO... workout_exercises_tbl" />
-                <marker date="1527230412150" expanded="true" signature="21133:21234" placeholder="SELECT * FRO... workout_exercises_tbl" />
-                <marker date="1527230412150" expanded="true" signature="21542:21607" placeholder="SELECT * FRO... workout_tbl" />
-                <marker date="1527230412150" expanded="true" signature="21731:21784" placeholder="SELECT * FRO... workout_days_tbl" />
-                <marker date="1527230412150" expanded="true" signature="23007:23049" placeholder="SELECT * FRO... workout_exercise_options_tbl" />
-                <marker date="1527230412150" expanded="true" signature="23400:23453" placeholder="SELECT * FRO... workout_exercise_strength_qualities_tbl" />
-                <marker date="1527230412150" expanded="true" signature="23836:23858" placeholder="..." />
-                <marker date="1527230412150" expanded="true" signature="24234:24296" placeholder="SELECT * FRO... workout_tbl" />
-                <marker date="1527230412150" expanded="true" signature="24234:24313" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-                <marker date="1527230412150" expanded="true" signature="24234:24320" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-                <marker date="1527230412150" expanded="true" signature="24234:24324" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-                <marker date="1527230412150" expanded="true" signature="24463:24558" placeholder="SELECT * FRO... workout_client_set_logs" />
-                <marker date="1527230412150" expanded="true" signature="25022:25084" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-                <marker date="1527230412150" expanded="true" signature="25663:25717" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-                <marker date="1527230412150" expanded="true" signature="25663:25747" placeholder="SELECT * FRO... workout_client_set_logs" />
-                <marker date="1527230412150" expanded="true" signature="25663:25772" placeholder="SELECT * FRO... workout_client_set_logs" />
+                <element signature="n#workoutClientExerciseLogs#0;n#!!top" expanded="false" />
+                <element signature="n#workoutCreateClientSetLog#0;n#!!top" expanded="false" />
+                <marker date="1527819333012" expanded="true" signature="1778:1792" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
+                <marker date="1527819333012" expanded="true" signature="1778:1803" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
+                <marker date="1527819333012" expanded="true" signature="1955:2110" placeholder="SELECT u.ID $" />
+                <marker date="1527819333012" expanded="true" signature="5567:5602" placeholder="SELECT * FRO... workout_exercises_tbl" />
+                <marker date="1527819333012" expanded="true" signature="5567:5614" placeholder="SELECT * FRO... workout_exercises_tbl" />
+                <marker date="1527819333012" expanded="true" signature="5567:5628" placeholder="SELECT * FRO... workout_exercises_tbl" />
+                <marker date="1527819333012" expanded="true" signature="5567:5637" placeholder="SELECT * FRO... workout_exercises_tbl" />
+                <marker date="1527819333012" expanded="true" signature="7909:8066" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+                <marker date="1527819333012" expanded="true" signature="9460:9587" placeholder="SELECT * FRO... workout_exercises_tbl" />
+                <marker date="1527819333012" expanded="true" signature="9460:9611" placeholder="SELECT * FRO... workout_exercises_tbl" />
+                <marker date="1527819333012" expanded="true" signature="15893:15915" placeholder="SELECT * FRO... wp_users" />
+                <marker date="1527819333012" expanded="true" signature="16255:16307" placeholder="SELECT * FRO... workout_tbl" />
+                <marker date="1527819333012" expanded="true" signature="16255:16343" placeholder="SELECT * FRO... workout_tbl" />
+                <marker date="1527819333012" expanded="true" signature="16255:16344" placeholder="SELECT * FRO... workout_tbl" />
+                <marker date="1527819333012" expanded="true" signature="16583:16590" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+                <marker date="1527819333012" expanded="true" signature="16583:16748" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+                <marker date="1527819333012" expanded="true" signature="16919:16962" placeholder="SELECT * FRO... workout_tbl" />
+                <marker date="1527819333012" expanded="true" signature="16919:17003" placeholder="SELECT * FRO... workout_tbl" />
+                <marker date="1527819333012" expanded="true" signature="17163:17244" placeholder="SELECT * FRO... workout_days_tbl" />
+                <marker date="1527819333012" expanded="true" signature="17399:17564" placeholder="SELECT DISTI... workout_day_clients_tbl" />
+                <marker date="1527819333012" expanded="true" signature="17707:17791" placeholder="SELECT * FRO... workout_tbl" />
+                <marker date="1527819333012" expanded="true" signature="17950:18031" placeholder="SELECT * FRO... workout_days_tbl" />
+                <marker date="1527819333012" expanded="true" signature="18459:18502" placeholder="SELECT * FRO... workout_tbl" />
+                <marker date="1527819333012" expanded="true" signature="18459:18524" placeholder="SELECT * FRO... workout_tbl" />
+                <marker date="1527819333012" expanded="true" signature="18459:18525" placeholder="SELECT * FRO... workout_tbl" />
+                <marker date="1527819333012" expanded="true" signature="18670:18723" placeholder="SELECT * FRO... workout_days_tbl" />
+                <marker date="1527819333012" expanded="true" signature="18670:18747" placeholder="SELECT * FRO... workout_days_tbl" />
+                <marker date="1527819333012" expanded="true" signature="18885:18939" placeholder="SELECT * FRO... workout_exercises_tbl" />
+                <marker date="1527819333012" expanded="true" signature="19094:19159" placeholder="SELECT * FRO... workout_exercises_tbl" />
+                <marker date="1527819333012" expanded="true" signature="19338:19370" placeholder="SELECT * FRO... wp_users" />
+                <marker date="1527819333012" expanded="true" signature="19338:19406" placeholder="SELECT * FRO... wp_users" />
+                <marker date="1527819333012" expanded="true" signature="19700:19766" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+                <marker date="1527819333012" expanded="true" signature="19700:19776" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+                <marker date="1527819333012" expanded="true" signature="19700:19789" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+                <marker date="1527819333012" expanded="true" signature="19700:19810" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+                <marker date="1527819333012" expanded="true" signature="19700:19833" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+                <marker date="1527819333012" expanded="true" signature="19700:19845" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+                <marker date="1527819333012" expanded="true" signature="19980:20054" placeholder="SELECT * FRO... workout_client_exercise_assignment_sets" />
+                <marker date="1527819333012" expanded="true" signature="19980:20080" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+                <marker date="1527819333012" expanded="true" signature="20619:20684" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+                <marker date="1527819333012" expanded="true" signature="20619:20727" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+                <marker date="1527819333012" expanded="true" signature="20619:20735" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+                <marker date="1527819333012" expanded="true" signature="20619:20743" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+                <marker date="1527819333012" expanded="true" signature="20892:20935" placeholder="SELECT * FRO... workout_tbl" />
+                <marker date="1527819333012" expanded="true" signature="20892:20977" placeholder="SELECT * FRO... workout_tbl" />
+                <marker date="1527819333012" expanded="true" signature="20892:20986" placeholder="SELECT * FRO... workout_tbl" />
+                <marker date="1527819333012" expanded="true" signature="21140:21231" placeholder="SELECT * FRO... workout_days_tbl" />
+                <marker date="1527819333012" expanded="true" signature="21376:21434" placeholder="SELECT * FRO... workout_exercises_tbl" />
+                <marker date="1527819333012" expanded="true" signature="21376:21477" placeholder="SELECT * FRO... workout_exercises_tbl" />
+                <marker date="1527819333012" expanded="true" signature="21785:21850" placeholder="SELECT * FRO... workout_tbl" />
+                <marker date="1527819333012" expanded="true" signature="21974:22027" placeholder="SELECT * FRO... workout_days_tbl" />
+                <marker date="1527819333012" expanded="true" signature="23102:23144" placeholder="SELECT * FRO... workout_exercise_options_tbl" />
+                <marker date="1527819333012" expanded="true" signature="23495:23548" placeholder="SELECT * FRO... workout_exercise_strength_qualities_tbl" />
+                <marker date="1527819333012" expanded="true" signature="23931:23953" placeholder="..." />
+                <marker date="1527819333012" expanded="true" signature="24439:24501" placeholder="SELECT * FRO... workout_tbl" />
+                <marker date="1527819333012" expanded="true" signature="24439:24518" placeholder="SELECT * FRO... workout_client_exercises_logs" />
+                <marker date="1527819333012" expanded="true" signature="24439:24525" placeholder="SELECT * FRO... workout_client_exercises_logs" />
+                <marker date="1527819333012" expanded="true" signature="24439:24529" placeholder="SELECT * FRO... workout_client_exercises_logs" />
+                <marker date="1527819333012" expanded="true" signature="24668:24763" placeholder="SELECT * FRO... workout_client_set_logs" />
+                <marker date="1527819333012" expanded="true" signature="25227:25289" placeholder="SELECT * FRO... workout_client_exercises_logs" />
+                <marker date="1527819333012" expanded="true" signature="25868:25922" placeholder="SELECT * FRO... workout_client_exercises_logs" />
+                <marker date="1527819333012" expanded="true" signature="25868:25952" placeholder="SELECT * FRO... workout_client_set_logs" />
+                <marker date="1527819333012" expanded="true" signature="25868:25977" placeholder="SELECT * FRO... workout_client_set_logs" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit-workouts-page.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/edit-workouts-page.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="305">
+              <caret line="538" column="84" selection-start-line="538" selection-start-column="84" selection-end-line="538" selection-end-column="84" />
+              <folding>
+                <element signature="e#3924#4123#0#HTML" expanded="false" />
+                <element signature="e#4253#4858#0#HTML" expanded="false" />
+                <element signature="e#4897#5008#0#HTML" expanded="false" />
+                <element signature="e#5056#5215#0#HTML" expanded="false" />
+                <element signature="e#5508#5622#0#HTML" expanded="false" />
+                <element signature="e#5675#6106#0#HTML" expanded="false" />
+                <element signature="e#6489#6537#0#HTML" expanded="false" />
+                <element signature="e#6739#7110#0#HTML" expanded="false" />
+                <element signature="e#7149#7840#0#HTML" expanded="false" />
+                <element signature="e#7883#8025#0#HTML" expanded="false" />
+                <element signature="e#8055#8308#0#HTML" expanded="false" />
+                <element signature="e#8658#9735#0#HTML" expanded="false" />
+                <element signature="e#9765#9985#0#HTML" expanded="false" />
+                <element signature="n#li#3;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="false" />
+                <marker date="1527840961235" expanded="true" signature="10887:10902" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="workout.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/clients/workout.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="50" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -151,15 +191,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit-workouts-page.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/edit-workouts-page.php">
+      <file leaf-file-name="sm2018-05_08.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/contrib/sm2018-05_08.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="304" column="12" selection-start-line="304" selection-start-column="12" selection-end-line="304" selection-end-column="12" />
-              <folding>
-                <element signature="e#4090#4695#0#HTML" expanded="false" />
-                <marker date="1527239776089" expanded="true" signature="8127:8142" placeholder="..." />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -208,13 +245,14 @@
         <option value="$PROJECT_DIR$/contrib/scripts/db.php" />
         <option value="$PROJECT_DIR$/contrib/scripts/uploadExercises.php" />
         <option value="$PROJECT_DIR$/contrib/scripts/uploadStrengthQuality.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/add-edit-workouts-page.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/workouts-page.php" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/wp-content/themes/Divi-child/page-client.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/clients/dashboard-page.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/Divi-child/functions.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/clients/workout.php" />
+        <option value="$PROJECT_DIR$/contrib/bkupcode" />
+        <option value="$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/add-edit-workouts-page.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/Divi-child/functions.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/edit-workouts-page.php" />
       </list>
     </option>
@@ -223,6 +261,9 @@
   <component name="JsBuildToolPackageJson" detection-done="true" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
+  </component>
+  <component name="PhpServers">
+    <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
@@ -256,6 +297,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -271,20 +313,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sm" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sm" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-includes" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -398,10 +426,53 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sm" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wp-content" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Divi-child" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="accounts" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="clients" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sm" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contrib" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -450,6 +521,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="5e412890-ab99-4512-85c6-c60ef310a911" name="Default" comment="" />
@@ -482,23 +556,29 @@
       <workItem from="1527143879356" duration="4477000" />
       <workItem from="1527206128842" duration="606000" />
       <workItem from="1527225923779" duration="12061000" />
+      <workItem from="1527286379245" duration="649000" />
+      <workItem from="1527476797660" duration="11615000" />
+      <workItem from="1527545179665" duration="26749000" />
+      <workItem from="1527721891688" duration="8040000" />
+      <workItem from="1527752899872" duration="7930000" />
+      <workItem from="1527805520910" duration="22822000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="205118000" />
+    <option name="totallyTimeSpent" value="282923000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1663113" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.07089552" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1969697" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09317443" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -507,36 +587,29 @@
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13424948" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12784399" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="9" />
+      <option name="time" value="14" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/contrib/structure.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="58" column="26" selection-start-line="58" selection-start-column="10" selection-end-line="58" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/page-trainer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="53" column="28" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/workouts-page.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -551,74 +624,82 @@
           <caret line="156" column="2" selection-start-line="156" selection-start-column="2" selection-end-line="156" selection-end-column="2" />
           <folding>
             <element signature="n#sm_login_redirect#0;n#!!top" expanded="false" />
-            <element signature="e#6694#15455#0#PHP" expanded="false" />
+            <element signature="e#3298#4139#0#PHP" expanded="false" />
+            <element signature="e#4146#4767#0#PHP" expanded="false" />
+            <element signature="n#workOutUpdate#0;n#!!top" expanded="false" />
+            <element signature="e#7059#15820#0#PHP" expanded="false" />
             <element signature="n#workOutGetClients#0;n#!!top" expanded="false" />
             <element signature="n#workOutUserList#0;n#!!top" expanded="false" />
+            <element signature="n#workoutGetClientWorkouts#0;n#!!top" expanded="false" />
+            <element signature="n#workoutClientWorkoutWithDay#0;n#!!top" expanded="false" />
             <element signature="n#workOutDelete#0;n#!!top" expanded="false" />
             <element signature="n#workOutExerciseOptions#0;n#!!top" expanded="false" />
             <element signature="n#workOutExerciseStrengthQualitiesOptions#0;n#!!top" expanded="false" />
-            <marker date="1527230412150" expanded="true" signature="1778:1792" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
-            <marker date="1527230412150" expanded="true" signature="1778:1803" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
-            <marker date="1527230412150" expanded="true" signature="1955:2110" placeholder="SELECT u.ID $" />
-            <marker date="1527230412150" expanded="true" signature="7544:7701" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="9095:9222" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="9095:9246" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="15528:15550" placeholder="SELECT * FRO... wp_users" />
-            <marker date="1527230412150" expanded="true" signature="15890:15942" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="15890:15978" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="15890:15979" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="16218:16225" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="16218:16383" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="16554:16597" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="16554:16638" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="16798:16879" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1527230412150" expanded="true" signature="17034:17199" placeholder="SELECT DISTI... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="17342:17426" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="17585:17666" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18076:18119" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18076:18141" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18076:18142" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18264:18317" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18264:18341" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18451:18505" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18605:18670" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18819:18851" placeholder="SELECT * FRO... wp_users" />
-            <marker date="1527230412150" expanded="true" signature="18819:18887" placeholder="SELECT * FRO... wp_users" />
-            <marker date="1527230412150" expanded="true" signature="19106:19166" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="19106:19178" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="19106:19214" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="19106:19257" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="19106:19283" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="19106:19337" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="19410:19460" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="19410:19493" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="19410:19494" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="19746:19834" placeholder="SELECT * FRO... workout_day_client_sets_tbl" />
-            <marker date="1527230412150" expanded="true" signature="19746:19864" placeholder="SELECT * FRO... workout_day_client_sets_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20376:20441" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20376:20484" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20376:20492" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20376:20500" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20649:20692" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20649:20734" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20649:20743" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20897:20988" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1527230412150" expanded="true" signature="21133:21191" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="21133:21234" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="21542:21607" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="21731:21784" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1527230412150" expanded="true" signature="23007:23049" placeholder="SELECT * FRO... workout_exercise_options_tbl" />
-            <marker date="1527230412150" expanded="true" signature="23400:23453" placeholder="SELECT * FRO... workout_exercise_strength_qualities_tbl" />
-            <marker date="1527230412150" expanded="true" signature="23836:23858" placeholder="..." />
-            <marker date="1527230412150" expanded="true" signature="24234:24296" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="24234:24313" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="24234:24320" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="24234:24324" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="24463:24558" placeholder="SELECT * FRO... workout_client_set_logs" />
-            <marker date="1527230412150" expanded="true" signature="25022:25084" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="25663:25717" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="25663:25747" placeholder="SELECT * FRO... workout_client_set_logs" />
-            <marker date="1527230412150" expanded="true" signature="25663:25772" placeholder="SELECT * FRO... workout_client_set_logs" />
+            <element signature="n#workoutClientExerciseLogs#0;n#!!top" expanded="false" />
+            <element signature="n#workoutCreateClientSetLog#0;n#!!top" expanded="false" />
+            <marker date="1527819333012" expanded="true" signature="1778:1792" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
+            <marker date="1527819333012" expanded="true" signature="1778:1803" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
+            <marker date="1527819333012" expanded="true" signature="1955:2110" placeholder="SELECT u.ID $" />
+            <marker date="1527819333012" expanded="true" signature="5567:5602" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="5567:5614" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="5567:5628" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="5567:5637" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="7909:8066" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="9460:9587" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="9460:9611" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="15893:15915" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1527819333012" expanded="true" signature="16255:16307" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="16255:16343" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="16255:16344" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="16583:16590" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="16583:16748" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="16919:16962" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="16919:17003" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="17163:17244" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1527819333012" expanded="true" signature="17399:17564" placeholder="SELECT DISTI... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="17707:17791" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="17950:18031" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1527819333012" expanded="true" signature="18459:18502" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="18459:18524" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="18459:18525" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="18670:18723" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1527819333012" expanded="true" signature="18670:18747" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1527819333012" expanded="true" signature="18885:18939" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="19094:19159" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="19338:19370" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1527819333012" expanded="true" signature="19338:19406" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1527819333012" expanded="true" signature="19700:19766" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="19700:19776" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="19700:19789" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="19700:19810" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="19700:19833" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="19700:19845" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="19980:20054" placeholder="SELECT * FRO... workout_client_exercise_assignment_sets" />
+            <marker date="1527819333012" expanded="true" signature="19980:20080" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="20619:20684" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="20619:20727" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="20619:20735" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="20619:20743" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="20892:20935" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="20892:20977" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="20892:20986" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="21140:21231" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1527819333012" expanded="true" signature="21376:21434" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="21376:21477" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="21785:21850" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="21974:22027" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1527819333012" expanded="true" signature="23102:23144" placeholder="SELECT * FRO... workout_exercise_options_tbl" />
+            <marker date="1527819333012" expanded="true" signature="23495:23548" placeholder="SELECT * FRO... workout_exercise_strength_qualities_tbl" />
+            <marker date="1527819333012" expanded="true" signature="23931:23953" placeholder="..." />
+            <marker date="1527819333012" expanded="true" signature="24439:24501" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="24439:24518" placeholder="SELECT * FRO... workout_client_exercises_logs" />
+            <marker date="1527819333012" expanded="true" signature="24439:24525" placeholder="SELECT * FRO... workout_client_exercises_logs" />
+            <marker date="1527819333012" expanded="true" signature="24439:24529" placeholder="SELECT * FRO... workout_client_exercises_logs" />
+            <marker date="1527819333012" expanded="true" signature="24668:24763" placeholder="SELECT * FRO... workout_client_set_logs" />
+            <marker date="1527819333012" expanded="true" signature="25227:25289" placeholder="SELECT * FRO... workout_client_exercises_logs" />
+            <marker date="1527819333012" expanded="true" signature="25868:25922" placeholder="SELECT * FRO... workout_client_exercises_logs" />
+            <marker date="1527819333012" expanded="true" signature="25868:25952" placeholder="SELECT * FRO... workout_client_set_logs" />
+            <marker date="1527819333012" expanded="true" signature="25868:25977" placeholder="SELECT * FRO... workout_client_set_logs" />
           </folding>
         </state>
       </provider>
@@ -628,8 +709,21 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#4090#4695#0#HTML" expanded="false" />
-            <marker date="1527239776089" expanded="true" signature="8127:8142" placeholder="..." />
+            <element signature="e#3924#4123#0#HTML" expanded="false" />
+            <element signature="e#4253#4858#0#HTML" expanded="false" />
+            <element signature="e#4897#5008#0#HTML" expanded="false" />
+            <element signature="e#5056#5215#0#HTML" expanded="false" />
+            <element signature="e#5508#5622#0#HTML" expanded="false" />
+            <element signature="e#5675#6106#0#HTML" expanded="false" />
+            <element signature="e#6489#6537#0#HTML" expanded="false" />
+            <element signature="e#6739#7110#0#HTML" expanded="false" />
+            <element signature="e#7149#7840#0#HTML" expanded="false" />
+            <element signature="e#7883#8025#0#HTML" expanded="false" />
+            <element signature="e#8055#8308#0#HTML" expanded="false" />
+            <element signature="e#8658#9735#0#HTML" expanded="false" />
+            <element signature="e#9765#9985#0#HTML" expanded="false" />
+            <element signature="n#li#3;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="false" />
+            <marker date="1527840961235" expanded="true" signature="10887:10902" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -677,74 +771,82 @@
           <caret line="156" column="2" selection-start-line="156" selection-start-column="2" selection-end-line="156" selection-end-column="2" />
           <folding>
             <element signature="n#sm_login_redirect#0;n#!!top" expanded="false" />
-            <element signature="e#6694#15455#0#PHP" expanded="false" />
+            <element signature="e#3298#4139#0#PHP" expanded="false" />
+            <element signature="e#4146#4767#0#PHP" expanded="false" />
+            <element signature="n#workOutUpdate#0;n#!!top" expanded="false" />
+            <element signature="e#7059#15820#0#PHP" expanded="false" />
             <element signature="n#workOutGetClients#0;n#!!top" expanded="false" />
             <element signature="n#workOutUserList#0;n#!!top" expanded="false" />
+            <element signature="n#workoutGetClientWorkouts#0;n#!!top" expanded="false" />
+            <element signature="n#workoutClientWorkoutWithDay#0;n#!!top" expanded="false" />
             <element signature="n#workOutDelete#0;n#!!top" expanded="false" />
             <element signature="n#workOutExerciseOptions#0;n#!!top" expanded="false" />
             <element signature="n#workOutExerciseStrengthQualitiesOptions#0;n#!!top" expanded="false" />
-            <marker date="1527230412150" expanded="true" signature="1778:1792" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
-            <marker date="1527230412150" expanded="true" signature="1778:1803" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
-            <marker date="1527230412150" expanded="true" signature="1955:2110" placeholder="SELECT u.ID $" />
-            <marker date="1527230412150" expanded="true" signature="7544:7701" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="9095:9222" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="9095:9246" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="15528:15550" placeholder="SELECT * FRO... wp_users" />
-            <marker date="1527230412150" expanded="true" signature="15890:15942" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="15890:15978" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="15890:15979" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="16218:16225" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="16218:16383" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="16554:16597" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="16554:16638" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="16798:16879" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1527230412150" expanded="true" signature="17034:17199" placeholder="SELECT DISTI... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="17342:17426" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="17585:17666" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18076:18119" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18076:18141" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18076:18142" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18264:18317" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18264:18341" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18451:18505" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18605:18670" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18819:18851" placeholder="SELECT * FRO... wp_users" />
-            <marker date="1527230412150" expanded="true" signature="18819:18887" placeholder="SELECT * FRO... wp_users" />
-            <marker date="1527230412150" expanded="true" signature="19106:19166" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="19106:19178" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="19106:19214" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="19106:19257" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="19106:19283" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="19106:19337" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="19410:19460" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="19410:19493" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="19410:19494" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="19746:19834" placeholder="SELECT * FRO... workout_day_client_sets_tbl" />
-            <marker date="1527230412150" expanded="true" signature="19746:19864" placeholder="SELECT * FRO... workout_day_client_sets_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20376:20441" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20376:20484" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20376:20492" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20376:20500" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20649:20692" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20649:20734" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20649:20743" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20897:20988" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1527230412150" expanded="true" signature="21133:21191" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="21133:21234" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="21542:21607" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="21731:21784" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1527230412150" expanded="true" signature="23007:23049" placeholder="SELECT * FRO... workout_exercise_options_tbl" />
-            <marker date="1527230412150" expanded="true" signature="23400:23453" placeholder="SELECT * FRO... workout_exercise_strength_qualities_tbl" />
-            <marker date="1527230412150" expanded="true" signature="23836:23858" placeholder="..." />
-            <marker date="1527230412150" expanded="true" signature="24234:24296" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="24234:24313" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="24234:24320" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="24234:24324" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="24463:24558" placeholder="SELECT * FRO... workout_client_set_logs" />
-            <marker date="1527230412150" expanded="true" signature="25022:25084" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="25663:25717" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="25663:25747" placeholder="SELECT * FRO... workout_client_set_logs" />
-            <marker date="1527230412150" expanded="true" signature="25663:25772" placeholder="SELECT * FRO... workout_client_set_logs" />
+            <element signature="n#workoutClientExerciseLogs#0;n#!!top" expanded="false" />
+            <element signature="n#workoutCreateClientSetLog#0;n#!!top" expanded="false" />
+            <marker date="1527819333012" expanded="true" signature="1778:1792" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
+            <marker date="1527819333012" expanded="true" signature="1778:1803" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
+            <marker date="1527819333012" expanded="true" signature="1955:2110" placeholder="SELECT u.ID $" />
+            <marker date="1527819333012" expanded="true" signature="5567:5602" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="5567:5614" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="5567:5628" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="5567:5637" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="7909:8066" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="9460:9587" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="9460:9611" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="15893:15915" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1527819333012" expanded="true" signature="16255:16307" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="16255:16343" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="16255:16344" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="16583:16590" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="16583:16748" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="16919:16962" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="16919:17003" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="17163:17244" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1527819333012" expanded="true" signature="17399:17564" placeholder="SELECT DISTI... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="17707:17791" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="17950:18031" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1527819333012" expanded="true" signature="18459:18502" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="18459:18524" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="18459:18525" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="18670:18723" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1527819333012" expanded="true" signature="18670:18747" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1527819333012" expanded="true" signature="18885:18939" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="19094:19159" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="19338:19370" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1527819333012" expanded="true" signature="19338:19406" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1527819333012" expanded="true" signature="19700:19766" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="19700:19776" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="19700:19789" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="19700:19810" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="19700:19833" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="19700:19845" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="19980:20054" placeholder="SELECT * FRO... workout_client_exercise_assignment_sets" />
+            <marker date="1527819333012" expanded="true" signature="19980:20080" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="20619:20684" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="20619:20727" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="20619:20735" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="20619:20743" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="20892:20935" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="20892:20977" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="20892:20986" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="21140:21231" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1527819333012" expanded="true" signature="21376:21434" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="21376:21477" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="21785:21850" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="21974:22027" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1527819333012" expanded="true" signature="23102:23144" placeholder="SELECT * FRO... workout_exercise_options_tbl" />
+            <marker date="1527819333012" expanded="true" signature="23495:23548" placeholder="SELECT * FRO... workout_exercise_strength_qualities_tbl" />
+            <marker date="1527819333012" expanded="true" signature="23931:23953" placeholder="..." />
+            <marker date="1527819333012" expanded="true" signature="24439:24501" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="24439:24518" placeholder="SELECT * FRO... workout_client_exercises_logs" />
+            <marker date="1527819333012" expanded="true" signature="24439:24525" placeholder="SELECT * FRO... workout_client_exercises_logs" />
+            <marker date="1527819333012" expanded="true" signature="24439:24529" placeholder="SELECT * FRO... workout_client_exercises_logs" />
+            <marker date="1527819333012" expanded="true" signature="24668:24763" placeholder="SELECT * FRO... workout_client_set_logs" />
+            <marker date="1527819333012" expanded="true" signature="25227:25289" placeholder="SELECT * FRO... workout_client_exercises_logs" />
+            <marker date="1527819333012" expanded="true" signature="25868:25922" placeholder="SELECT * FRO... workout_client_exercises_logs" />
+            <marker date="1527819333012" expanded="true" signature="25868:25952" placeholder="SELECT * FRO... workout_client_set_logs" />
+            <marker date="1527819333012" expanded="true" signature="25868:25977" placeholder="SELECT * FRO... workout_client_set_logs" />
           </folding>
         </state>
       </provider>
@@ -754,8 +856,21 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#4090#4695#0#HTML" expanded="false" />
-            <marker date="1527239776089" expanded="true" signature="8127:8142" placeholder="..." />
+            <element signature="e#3924#4123#0#HTML" expanded="false" />
+            <element signature="e#4253#4858#0#HTML" expanded="false" />
+            <element signature="e#4897#5008#0#HTML" expanded="false" />
+            <element signature="e#5056#5215#0#HTML" expanded="false" />
+            <element signature="e#5508#5622#0#HTML" expanded="false" />
+            <element signature="e#5675#6106#0#HTML" expanded="false" />
+            <element signature="e#6489#6537#0#HTML" expanded="false" />
+            <element signature="e#6739#7110#0#HTML" expanded="false" />
+            <element signature="e#7149#7840#0#HTML" expanded="false" />
+            <element signature="e#7883#8025#0#HTML" expanded="false" />
+            <element signature="e#8055#8308#0#HTML" expanded="false" />
+            <element signature="e#8658#9735#0#HTML" expanded="false" />
+            <element signature="e#9765#9985#0#HTML" expanded="false" />
+            <element signature="n#li#3;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="false" />
+            <marker date="1527840961235" expanded="true" signature="10887:10902" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -803,74 +918,82 @@
           <caret line="96" column="19" selection-start-line="96" selection-start-column="9" selection-end-line="96" selection-end-column="19" />
           <folding>
             <element signature="n#sm_login_redirect#0;n#!!top" expanded="false" />
-            <element signature="e#6694#15455#0#PHP" expanded="false" />
+            <element signature="e#3298#4139#0#PHP" expanded="false" />
+            <element signature="e#4146#4767#0#PHP" expanded="false" />
+            <element signature="n#workOutUpdate#0;n#!!top" expanded="false" />
+            <element signature="e#7059#15820#0#PHP" expanded="false" />
             <element signature="n#workOutGetClients#0;n#!!top" expanded="false" />
             <element signature="n#workOutUserList#0;n#!!top" expanded="false" />
+            <element signature="n#workoutGetClientWorkouts#0;n#!!top" expanded="false" />
+            <element signature="n#workoutClientWorkoutWithDay#0;n#!!top" expanded="false" />
             <element signature="n#workOutDelete#0;n#!!top" expanded="false" />
             <element signature="n#workOutExerciseOptions#0;n#!!top" expanded="false" />
             <element signature="n#workOutExerciseStrengthQualitiesOptions#0;n#!!top" expanded="false" />
-            <marker date="1527230412150" expanded="true" signature="1778:1792" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
-            <marker date="1527230412150" expanded="true" signature="1778:1803" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
-            <marker date="1527230412150" expanded="true" signature="1955:2110" placeholder="SELECT u.ID $" />
-            <marker date="1527230412150" expanded="true" signature="7544:7701" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="9095:9222" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="9095:9246" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="15528:15550" placeholder="SELECT * FRO... wp_users" />
-            <marker date="1527230412150" expanded="true" signature="15890:15942" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="15890:15978" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="15890:15979" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="16218:16225" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="16218:16383" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="16554:16597" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="16554:16638" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="16798:16879" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1527230412150" expanded="true" signature="17034:17199" placeholder="SELECT DISTI... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="17342:17426" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="17585:17666" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18076:18119" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18076:18141" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18076:18142" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18264:18317" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18264:18341" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18451:18505" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18605:18670" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18819:18851" placeholder="SELECT * FRO... wp_users" />
-            <marker date="1527230412150" expanded="true" signature="18819:18887" placeholder="SELECT * FRO... wp_users" />
-            <marker date="1527230412150" expanded="true" signature="19106:19166" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="19106:19178" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="19106:19214" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="19106:19257" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="19106:19283" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="19106:19337" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="19410:19460" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="19410:19493" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="19410:19494" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="19746:19834" placeholder="SELECT * FRO... workout_day_client_sets_tbl" />
-            <marker date="1527230412150" expanded="true" signature="19746:19864" placeholder="SELECT * FRO... workout_day_client_sets_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20376:20441" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20376:20484" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20376:20492" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20376:20500" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20649:20692" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20649:20734" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20649:20743" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20897:20988" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1527230412150" expanded="true" signature="21133:21191" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="21133:21234" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="21542:21607" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="21731:21784" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1527230412150" expanded="true" signature="23007:23049" placeholder="SELECT * FRO... workout_exercise_options_tbl" />
-            <marker date="1527230412150" expanded="true" signature="23400:23453" placeholder="SELECT * FRO... workout_exercise_strength_qualities_tbl" />
-            <marker date="1527230412150" expanded="true" signature="23836:23858" placeholder="..." />
-            <marker date="1527230412150" expanded="true" signature="24234:24296" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="24234:24313" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="24234:24320" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="24234:24324" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="24463:24558" placeholder="SELECT * FRO... workout_client_set_logs" />
-            <marker date="1527230412150" expanded="true" signature="25022:25084" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="25663:25717" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="25663:25747" placeholder="SELECT * FRO... workout_client_set_logs" />
-            <marker date="1527230412150" expanded="true" signature="25663:25772" placeholder="SELECT * FRO... workout_client_set_logs" />
+            <element signature="n#workoutClientExerciseLogs#0;n#!!top" expanded="false" />
+            <element signature="n#workoutCreateClientSetLog#0;n#!!top" expanded="false" />
+            <marker date="1527819333012" expanded="true" signature="1778:1792" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
+            <marker date="1527819333012" expanded="true" signature="1778:1803" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
+            <marker date="1527819333012" expanded="true" signature="1955:2110" placeholder="SELECT u.ID $" />
+            <marker date="1527819333012" expanded="true" signature="5567:5602" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="5567:5614" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="5567:5628" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="5567:5637" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="7909:8066" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="9460:9587" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="9460:9611" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="15893:15915" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1527819333012" expanded="true" signature="16255:16307" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="16255:16343" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="16255:16344" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="16583:16590" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="16583:16748" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="16919:16962" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="16919:17003" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="17163:17244" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1527819333012" expanded="true" signature="17399:17564" placeholder="SELECT DISTI... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="17707:17791" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="17950:18031" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1527819333012" expanded="true" signature="18459:18502" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="18459:18524" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="18459:18525" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="18670:18723" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1527819333012" expanded="true" signature="18670:18747" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1527819333012" expanded="true" signature="18885:18939" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="19094:19159" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="19338:19370" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1527819333012" expanded="true" signature="19338:19406" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1527819333012" expanded="true" signature="19700:19766" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="19700:19776" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="19700:19789" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="19700:19810" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="19700:19833" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="19700:19845" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="19980:20054" placeholder="SELECT * FRO... workout_client_exercise_assignment_sets" />
+            <marker date="1527819333012" expanded="true" signature="19980:20080" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="20619:20684" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="20619:20727" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="20619:20735" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="20619:20743" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="20892:20935" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="20892:20977" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="20892:20986" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="21140:21231" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1527819333012" expanded="true" signature="21376:21434" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="21376:21477" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="21785:21850" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="21974:22027" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1527819333012" expanded="true" signature="23102:23144" placeholder="SELECT * FRO... workout_exercise_options_tbl" />
+            <marker date="1527819333012" expanded="true" signature="23495:23548" placeholder="SELECT * FRO... workout_exercise_strength_qualities_tbl" />
+            <marker date="1527819333012" expanded="true" signature="23931:23953" placeholder="..." />
+            <marker date="1527819333012" expanded="true" signature="24439:24501" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="24439:24518" placeholder="SELECT * FRO... workout_client_exercises_logs" />
+            <marker date="1527819333012" expanded="true" signature="24439:24525" placeholder="SELECT * FRO... workout_client_exercises_logs" />
+            <marker date="1527819333012" expanded="true" signature="24439:24529" placeholder="SELECT * FRO... workout_client_exercises_logs" />
+            <marker date="1527819333012" expanded="true" signature="24668:24763" placeholder="SELECT * FRO... workout_client_set_logs" />
+            <marker date="1527819333012" expanded="true" signature="25227:25289" placeholder="SELECT * FRO... workout_client_exercises_logs" />
+            <marker date="1527819333012" expanded="true" signature="25868:25922" placeholder="SELECT * FRO... workout_client_exercises_logs" />
+            <marker date="1527819333012" expanded="true" signature="25868:25952" placeholder="SELECT * FRO... workout_client_set_logs" />
+            <marker date="1527819333012" expanded="true" signature="25868:25977" placeholder="SELECT * FRO... workout_client_set_logs" />
           </folding>
         </state>
       </provider>
@@ -924,74 +1047,82 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#sm_login_redirect#0;n#!!top" expanded="false" />
-            <element signature="e#6694#15455#0#PHP" expanded="false" />
+            <element signature="e#3298#4139#0#PHP" expanded="false" />
+            <element signature="e#4146#4767#0#PHP" expanded="false" />
+            <element signature="n#workOutUpdate#0;n#!!top" expanded="false" />
+            <element signature="e#7059#15820#0#PHP" expanded="false" />
             <element signature="n#workOutGetClients#0;n#!!top" expanded="false" />
             <element signature="n#workOutUserList#0;n#!!top" expanded="false" />
+            <element signature="n#workoutGetClientWorkouts#0;n#!!top" expanded="false" />
+            <element signature="n#workoutClientWorkoutWithDay#0;n#!!top" expanded="false" />
             <element signature="n#workOutDelete#0;n#!!top" expanded="false" />
             <element signature="n#workOutExerciseOptions#0;n#!!top" expanded="false" />
             <element signature="n#workOutExerciseStrengthQualitiesOptions#0;n#!!top" expanded="false" />
-            <marker date="1527230412150" expanded="true" signature="1778:1792" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
-            <marker date="1527230412150" expanded="true" signature="1778:1803" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
-            <marker date="1527230412150" expanded="true" signature="1955:2110" placeholder="SELECT u.ID $" />
-            <marker date="1527230412150" expanded="true" signature="7544:7701" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="9095:9222" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="9095:9246" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="15528:15550" placeholder="SELECT * FRO... wp_users" />
-            <marker date="1527230412150" expanded="true" signature="15890:15942" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="15890:15978" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="15890:15979" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="16218:16225" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="16218:16383" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="16554:16597" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="16554:16638" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="16798:16879" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1527230412150" expanded="true" signature="17034:17199" placeholder="SELECT DISTI... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="17342:17426" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="17585:17666" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18076:18119" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18076:18141" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18076:18142" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18264:18317" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18264:18341" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18451:18505" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18605:18670" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18819:18851" placeholder="SELECT * FRO... wp_users" />
-            <marker date="1527230412150" expanded="true" signature="18819:18887" placeholder="SELECT * FRO... wp_users" />
-            <marker date="1527230412150" expanded="true" signature="19106:19166" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="19106:19178" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="19106:19214" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="19106:19257" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="19106:19283" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="19106:19337" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="19410:19460" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="19410:19493" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="19410:19494" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="19746:19834" placeholder="SELECT * FRO... workout_day_client_sets_tbl" />
-            <marker date="1527230412150" expanded="true" signature="19746:19864" placeholder="SELECT * FRO... workout_day_client_sets_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20376:20441" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20376:20484" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20376:20492" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20376:20500" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20649:20692" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20649:20734" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20649:20743" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20897:20988" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1527230412150" expanded="true" signature="21133:21191" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="21133:21234" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="21542:21607" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="21731:21784" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1527230412150" expanded="true" signature="23007:23049" placeholder="SELECT * FRO... workout_exercise_options_tbl" />
-            <marker date="1527230412150" expanded="true" signature="23400:23453" placeholder="SELECT * FRO... workout_exercise_strength_qualities_tbl" />
-            <marker date="1527230412150" expanded="true" signature="23836:23858" placeholder="..." />
-            <marker date="1527230412150" expanded="true" signature="24234:24296" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="24234:24313" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="24234:24320" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="24234:24324" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="24463:24558" placeholder="SELECT * FRO... workout_client_set_logs" />
-            <marker date="1527230412150" expanded="true" signature="25022:25084" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="25663:25717" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="25663:25747" placeholder="SELECT * FRO... workout_client_set_logs" />
-            <marker date="1527230412150" expanded="true" signature="25663:25772" placeholder="SELECT * FRO... workout_client_set_logs" />
+            <element signature="n#workoutClientExerciseLogs#0;n#!!top" expanded="false" />
+            <element signature="n#workoutCreateClientSetLog#0;n#!!top" expanded="false" />
+            <marker date="1527819333012" expanded="true" signature="1778:1792" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
+            <marker date="1527819333012" expanded="true" signature="1778:1803" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
+            <marker date="1527819333012" expanded="true" signature="1955:2110" placeholder="SELECT u.ID $" />
+            <marker date="1527819333012" expanded="true" signature="5567:5602" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="5567:5614" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="5567:5628" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="5567:5637" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="7909:8066" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="9460:9587" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="9460:9611" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="15893:15915" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1527819333012" expanded="true" signature="16255:16307" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="16255:16343" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="16255:16344" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="16583:16590" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="16583:16748" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="16919:16962" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="16919:17003" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="17163:17244" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1527819333012" expanded="true" signature="17399:17564" placeholder="SELECT DISTI... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="17707:17791" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="17950:18031" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1527819333012" expanded="true" signature="18459:18502" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="18459:18524" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="18459:18525" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="18670:18723" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1527819333012" expanded="true" signature="18670:18747" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1527819333012" expanded="true" signature="18885:18939" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="19094:19159" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="19338:19370" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1527819333012" expanded="true" signature="19338:19406" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1527819333012" expanded="true" signature="19700:19766" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="19700:19776" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="19700:19789" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="19700:19810" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="19700:19833" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="19700:19845" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="19980:20054" placeholder="SELECT * FRO... workout_client_exercise_assignment_sets" />
+            <marker date="1527819333012" expanded="true" signature="19980:20080" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="20619:20684" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="20619:20727" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="20619:20735" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="20619:20743" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="20892:20935" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="20892:20977" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="20892:20986" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="21140:21231" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1527819333012" expanded="true" signature="21376:21434" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="21376:21477" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="21785:21850" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="21974:22027" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1527819333012" expanded="true" signature="23102:23144" placeholder="SELECT * FRO... workout_exercise_options_tbl" />
+            <marker date="1527819333012" expanded="true" signature="23495:23548" placeholder="SELECT * FRO... workout_exercise_strength_qualities_tbl" />
+            <marker date="1527819333012" expanded="true" signature="23931:23953" placeholder="..." />
+            <marker date="1527819333012" expanded="true" signature="24439:24501" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="24439:24518" placeholder="SELECT * FRO... workout_client_exercises_logs" />
+            <marker date="1527819333012" expanded="true" signature="24439:24525" placeholder="SELECT * FRO... workout_client_exercises_logs" />
+            <marker date="1527819333012" expanded="true" signature="24439:24529" placeholder="SELECT * FRO... workout_client_exercises_logs" />
+            <marker date="1527819333012" expanded="true" signature="24668:24763" placeholder="SELECT * FRO... workout_client_set_logs" />
+            <marker date="1527819333012" expanded="true" signature="25227:25289" placeholder="SELECT * FRO... workout_client_exercises_logs" />
+            <marker date="1527819333012" expanded="true" signature="25868:25922" placeholder="SELECT * FRO... workout_client_exercises_logs" />
+            <marker date="1527819333012" expanded="true" signature="25868:25952" placeholder="SELECT * FRO... workout_client_set_logs" />
+            <marker date="1527819333012" expanded="true" signature="25868:25977" placeholder="SELECT * FRO... workout_client_set_logs" />
           </folding>
         </state>
       </provider>
@@ -1053,24 +1184,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-includes/user.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1506998688000" expanded="true" signature="11425:11459" placeholder="SELECT COUNT... ${$wpdb-&gt;posts}" />
-            <marker date="1506998688000" expanded="true" signature="12872:12977" placeholder="SELECT post_... ${$wpdb-&gt;posts}" />
-            <marker date="1506998688000" expanded="true" signature="27558:27710" placeholder="SELECT ${{$s... " />
-            <marker date="1506998688000" expanded="true" signature="28314:28451" placeholder="SELECT meta_... $" />
-            <marker date="1506998688000" expanded="true" signature="55410:55491" placeholder="SELECT ID FR... ${$wpdb-&gt;users}" />
-            <marker date="1506998688000" expanded="true" signature="55887:55968" placeholder="SELECT ID FR... ${$wpdb-&gt;users}" />
-            <marker date="1506998688000" expanded="true" signature="76892:76962" placeholder="SELECT ID, u... ${$wpdb-&gt;users}" />
-            <marker date="1506998688000" expanded="true" signature="86952:87063" placeholder="SELECT user_... ${$wpdb-&gt;usermeta}" />
-            <marker date="1506998688000" expanded="true" signature="89826:89883" placeholder="SELECT user_... $" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/contrib/scripts/db.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
@@ -1121,13 +1234,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/add-edit-workouts-page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="663" column="56" selection-start-line="663" selection-start-column="56" selection-end-line="663" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/page-gym.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1139,7 +1245,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1147,6 +1252,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="430">
           <caret line="147" column="32" selection-start-line="147" selection-start-column="32" selection-end-line="147" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contrib/bkupcode">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="58" selection-start-line="19" selection-start-column="58" selection-end-line="19" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/workouts-page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/clients/workout.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="50" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1158,6 +1286,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/contrib/sm2018-05_08.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/user.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1506998688000" expanded="true" signature="11425:11459" placeholder="SELECT COUNT... ${$wpdb-&gt;posts}" />
+            <marker date="1506998688000" expanded="true" signature="12872:12977" placeholder="SELECT post_... ${$wpdb-&gt;posts}" />
+            <marker date="1506998688000" expanded="true" signature="27558:27710" placeholder="SELECT ${{$s... " />
+            <marker date="1506998688000" expanded="true" signature="28314:28451" placeholder="SELECT meta_... $" />
+            <marker date="1506998688000" expanded="true" signature="55410:55491" placeholder="SELECT ID FR... ${$wpdb-&gt;users}" />
+            <marker date="1506998688000" expanded="true" signature="55887:55968" placeholder="SELECT ID FR... ${$wpdb-&gt;users}" />
+            <marker date="1506998688000" expanded="true" signature="76892:76962" placeholder="SELECT ID, u... ${$wpdb-&gt;users}" />
+            <marker date="1506998688000" expanded="true" signature="86952:87063" placeholder="SELECT user_... ${$wpdb-&gt;usermeta}" />
+            <marker date="1506998688000" expanded="true" signature="89826:89883" placeholder="SELECT user_... $" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/clients/dashboard-page.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -1166,112 +1320,120 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/clients/workout.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="92" column="20" selection-start-line="92" selection-start-column="20" selection-end-line="92" selection-end-column="20" />
-          <folding>
-            <element signature="e#2816#3025#0#HTML" expanded="false" />
-            <element signature="e#3055#3356#0#HTML" expanded="false" />
-            <element signature="e#3381#4203#0#HTML" expanded="false" />
-            <element signature="e#4248#4355#0#HTML" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="303" column="17" selection-start-line="303" selection-start-column="17" selection-end-line="303" selection-end-column="17" />
+        <state relative-caret-position="2770">
+          <caret line="735" column="8" selection-start-line="735" selection-start-column="8" selection-end-line="735" selection-end-column="8" />
           <folding>
             <element signature="n#sm_login_redirect#0;n#!!top" expanded="false" />
-            <element signature="e#6694#15455#0#PHP" expanded="false" />
+            <element signature="e#3298#4139#0#PHP" expanded="false" />
+            <element signature="e#4146#4767#0#PHP" expanded="false" />
+            <element signature="n#workOutUpdate#0;n#!!top" expanded="false" />
+            <element signature="e#7059#15820#0#PHP" expanded="false" />
             <element signature="n#workOutGetClients#0;n#!!top" expanded="false" />
             <element signature="n#workOutUserList#0;n#!!top" expanded="false" />
+            <element signature="n#workoutGetClientWorkouts#0;n#!!top" expanded="false" />
+            <element signature="n#workoutClientWorkoutWithDay#0;n#!!top" expanded="false" />
             <element signature="n#workOutDelete#0;n#!!top" expanded="false" />
             <element signature="n#workOutExerciseOptions#0;n#!!top" expanded="false" />
             <element signature="n#workOutExerciseStrengthQualitiesOptions#0;n#!!top" expanded="false" />
-            <marker date="1527230412150" expanded="true" signature="1778:1792" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
-            <marker date="1527230412150" expanded="true" signature="1778:1803" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
-            <marker date="1527230412150" expanded="true" signature="1955:2110" placeholder="SELECT u.ID $" />
-            <marker date="1527230412150" expanded="true" signature="7544:7701" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="9095:9222" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="9095:9246" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="15528:15550" placeholder="SELECT * FRO... wp_users" />
-            <marker date="1527230412150" expanded="true" signature="15890:15942" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="15890:15978" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="15890:15979" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="16218:16225" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="16218:16383" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="16554:16597" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="16554:16638" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="16798:16879" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1527230412150" expanded="true" signature="17034:17199" placeholder="SELECT DISTI... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="17342:17426" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="17585:17666" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18076:18119" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18076:18141" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18076:18142" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18264:18317" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18264:18341" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18451:18505" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18605:18670" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="18819:18851" placeholder="SELECT * FRO... wp_users" />
-            <marker date="1527230412150" expanded="true" signature="18819:18887" placeholder="SELECT * FRO... wp_users" />
-            <marker date="1527230412150" expanded="true" signature="19106:19166" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="19106:19178" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="19106:19214" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="19106:19257" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="19106:19283" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="19106:19337" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="19410:19460" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="19410:19493" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="19410:19494" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="19746:19834" placeholder="SELECT * FRO... workout_day_client_sets_tbl" />
-            <marker date="1527230412150" expanded="true" signature="19746:19864" placeholder="SELECT * FRO... workout_day_client_sets_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20376:20441" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20376:20484" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20376:20492" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20376:20500" placeholder="SELECT * FRO... workout_day_clients_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20649:20692" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20649:20734" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20649:20743" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="20897:20988" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1527230412150" expanded="true" signature="21133:21191" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="21133:21234" placeholder="SELECT * FRO... workout_exercises_tbl" />
-            <marker date="1527230412150" expanded="true" signature="21542:21607" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="21731:21784" placeholder="SELECT * FRO... workout_days_tbl" />
-            <marker date="1527230412150" expanded="true" signature="23007:23049" placeholder="SELECT * FRO... workout_exercise_options_tbl" />
-            <marker date="1527230412150" expanded="true" signature="23400:23453" placeholder="SELECT * FRO... workout_exercise_strength_qualities_tbl" />
-            <marker date="1527230412150" expanded="true" signature="23836:23858" placeholder="..." />
-            <marker date="1527230412150" expanded="true" signature="24234:24296" placeholder="SELECT * FRO... workout_tbl" />
-            <marker date="1527230412150" expanded="true" signature="24234:24313" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="24234:24320" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="24234:24324" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="24463:24558" placeholder="SELECT * FRO... workout_client_set_logs" />
-            <marker date="1527230412150" expanded="true" signature="25022:25084" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="25663:25717" placeholder="SELECT * FRO... workout_client_exercises_logs" />
-            <marker date="1527230412150" expanded="true" signature="25663:25747" placeholder="SELECT * FRO... workout_client_set_logs" />
-            <marker date="1527230412150" expanded="true" signature="25663:25772" placeholder="SELECT * FRO... workout_client_set_logs" />
+            <element signature="n#workoutClientExerciseLogs#0;n#!!top" expanded="false" />
+            <element signature="n#workoutCreateClientSetLog#0;n#!!top" expanded="false" />
+            <marker date="1527819333012" expanded="true" signature="1778:1792" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
+            <marker date="1527819333012" expanded="true" signature="1778:1803" placeholder="SELECT ${$wp... ${$wpdb-&gt;posts}" />
+            <marker date="1527819333012" expanded="true" signature="1955:2110" placeholder="SELECT u.ID $" />
+            <marker date="1527819333012" expanded="true" signature="5567:5602" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="5567:5614" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="5567:5628" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="5567:5637" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="7909:8066" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="9460:9587" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="9460:9611" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="15893:15915" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1527819333012" expanded="true" signature="16255:16307" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="16255:16343" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="16255:16344" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="16583:16590" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="16583:16748" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="16919:16962" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="16919:17003" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="17163:17244" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1527819333012" expanded="true" signature="17399:17564" placeholder="SELECT DISTI... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="17707:17791" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="17950:18031" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1527819333012" expanded="true" signature="18459:18502" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="18459:18524" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="18459:18525" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="18670:18723" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1527819333012" expanded="true" signature="18670:18747" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1527819333012" expanded="true" signature="18885:18939" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="19094:19159" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="19338:19370" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1527819333012" expanded="true" signature="19338:19406" placeholder="SELECT * FRO... wp_users" />
+            <marker date="1527819333012" expanded="true" signature="19700:19766" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="19700:19776" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="19700:19789" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="19700:19810" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="19700:19833" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="19700:19845" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="19980:20054" placeholder="SELECT * FRO... workout_client_exercise_assignment_sets" />
+            <marker date="1527819333012" expanded="true" signature="19980:20080" placeholder="SELECT * FRO... workout_client_exercise_assignments" />
+            <marker date="1527819333012" expanded="true" signature="20619:20684" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="20619:20727" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="20619:20735" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="20619:20743" placeholder="SELECT * FRO... workout_day_clients_tbl" />
+            <marker date="1527819333012" expanded="true" signature="20892:20935" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="20892:20977" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="20892:20986" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="21140:21231" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1527819333012" expanded="true" signature="21376:21434" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="21376:21477" placeholder="SELECT * FRO... workout_exercises_tbl" />
+            <marker date="1527819333012" expanded="true" signature="21785:21850" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="21974:22027" placeholder="SELECT * FRO... workout_days_tbl" />
+            <marker date="1527819333012" expanded="true" signature="23102:23144" placeholder="SELECT * FRO... workout_exercise_options_tbl" />
+            <marker date="1527819333012" expanded="true" signature="23495:23548" placeholder="SELECT * FRO... workout_exercise_strength_qualities_tbl" />
+            <marker date="1527819333012" expanded="true" signature="23931:23953" placeholder="..." />
+            <marker date="1527819333012" expanded="true" signature="24439:24501" placeholder="SELECT * FRO... workout_tbl" />
+            <marker date="1527819333012" expanded="true" signature="24439:24518" placeholder="SELECT * FRO... workout_client_exercises_logs" />
+            <marker date="1527819333012" expanded="true" signature="24439:24525" placeholder="SELECT * FRO... workout_client_exercises_logs" />
+            <marker date="1527819333012" expanded="true" signature="24439:24529" placeholder="SELECT * FRO... workout_client_exercises_logs" />
+            <marker date="1527819333012" expanded="true" signature="24668:24763" placeholder="SELECT * FRO... workout_client_set_logs" />
+            <marker date="1527819333012" expanded="true" signature="25227:25289" placeholder="SELECT * FRO... workout_client_exercises_logs" />
+            <marker date="1527819333012" expanded="true" signature="25868:25922" placeholder="SELECT * FRO... workout_client_exercises_logs" />
+            <marker date="1527819333012" expanded="true" signature="25868:25952" placeholder="SELECT * FRO... workout_client_set_logs" />
+            <marker date="1527819333012" expanded="true" signature="25868:25977" placeholder="SELECT * FRO... workout_client_set_logs" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/workouts-page.php">
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/add-edit-workouts-page.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state relative-caret-position="323">
+          <caret line="244" column="0" selection-start-line="244" selection-start-column="0" selection-end-line="297" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/Divi-child/accounts/trainers/edit-workouts-page.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="304" column="12" selection-start-line="304" selection-start-column="12" selection-end-line="304" selection-end-column="12" />
+        <state relative-caret-position="305">
+          <caret line="538" column="84" selection-start-line="538" selection-start-column="84" selection-end-line="538" selection-end-column="84" />
           <folding>
-            <element signature="e#4090#4695#0#HTML" expanded="false" />
-            <marker date="1527239776089" expanded="true" signature="8127:8142" placeholder="..." />
+            <element signature="e#3924#4123#0#HTML" expanded="false" />
+            <element signature="e#4253#4858#0#HTML" expanded="false" />
+            <element signature="e#4897#5008#0#HTML" expanded="false" />
+            <element signature="e#5056#5215#0#HTML" expanded="false" />
+            <element signature="e#5508#5622#0#HTML" expanded="false" />
+            <element signature="e#5675#6106#0#HTML" expanded="false" />
+            <element signature="e#6489#6537#0#HTML" expanded="false" />
+            <element signature="e#6739#7110#0#HTML" expanded="false" />
+            <element signature="e#7149#7840#0#HTML" expanded="false" />
+            <element signature="e#7883#8025#0#HTML" expanded="false" />
+            <element signature="e#8055#8308#0#HTML" expanded="false" />
+            <element signature="e#8658#9735#0#HTML" expanded="false" />
+            <element signature="e#9765#9985#0#HTML" expanded="false" />
+            <element signature="n#li#3;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="false" />
+            <marker date="1527840961235" expanded="true" signature="10887:10902" placeholder="..." />
           </folding>
         </state>
       </provider>
