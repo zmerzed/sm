@@ -21,14 +21,14 @@
 
 ?>
 
-<div class="main-content matchHeight">
+<div class="main-content matchHeight logs-page">
 	<table id="table-sorter-logs" class="table table-striped table-bordered" style="width:100%">
 	    <thead>
 	        <tr>
+				<th>Activity</th>
+				<th>User</th>
 				<th>Date</th>
-	            <th>Activity</th>
-	            <th>User</th>
-	            
+				<th>Time</th> 
 	        </tr>
 	    </thead>
 	    <tbody>
@@ -37,9 +37,12 @@
 				$newDate = date_create($act_info->created_at);
 			?>
 				<tr>
-					<td><?php echo date_format($newDate, "F d, Y - g:i a"); ?></td>	
 					<td><?php echo $act_info->log_description; ?></td>
-					<td><?php echo $user_info->first_name . ' ' . $user_info->last_name; ?></td>									
+					<td><?php echo $user_info->first_name . ' ' . $user_info->last_name; ?></td>	
+					<td><?php echo date_format($newDate, "F d, Y"); ?></td>	
+					<td><?php echo date_format($newDate, "g:i a"); ?></td>	
+					
+													
 				</tr>
 			<?php endforeach; ?>
 	       <!--  <tr>
@@ -50,19 +53,19 @@
 	        </tr> -->
 	    </tbody>
 	</table>
-	<div class="col-lg-6 col-md-6 col-sm-12">
+	<div class="col-lg-6 col-md-6 col-sm-12 logs-paginate-info">
 		<?php
 			$last_res = $this_page_first_result + $this_page_last_result;
 			if($last_res != $this_page_first_result+1){
-				echo 'Showing '. ($this_page_first_result+1) . ' to '. $last_res .' of '. $number_of_results. ' entries';
+				echo 'Showing <b>'. ($this_page_first_result+1) . ' to '. $last_res .'</b> of '. $number_of_results. ' entries';
 			}else{
-				echo 'Showing '. ($this_page_first_result+1) . ' of '. $number_of_results. ' entries';
+				echo 'Showing <b>'. ($this_page_first_result+1) . '</b> of '. $number_of_results. ' entries';
 			}						
 		?>
 	</div>
 	<div class="col-lg-6 col-md-6 col-sm-12">
-		<ul>		
-		<li><a href="<?php echo ($page_ <= 1) ? 'javascript:void(0);' : home_url().'/trainer/?data=logs&page_=' . ($page_-1); ?>"><</a></li>	
+		<ul class="custom-paginate">		
+		<li><a href="<?php echo ($page_ <= 1) ? 'javascript:void(0);' : home_url().'/trainer/?data=logs&page_=' . ($page_-1); ?>">Prev</a></li>	
 		<?php 
 			for($page__=1;$page__<=$number_of_pages;$page__++){
 				
@@ -82,7 +85,7 @@
 				}								
 			}
 		?>
-		<li><a href="<?php echo ($page_ < $number_of_pages) ? home_url().'/trainer/?data=logs&page_=' . ($page_+1) :  'javascript:void(0);'; ?>">></a></li>
+		<li><a href="<?php echo ($page_ < $number_of_pages) ? home_url().'/trainer/?data=logs&page_=' . ($page_+1) :  'javascript:void(0);'; ?>">Next</a></li>
 		</ul>		
 	</div>	
 </div>

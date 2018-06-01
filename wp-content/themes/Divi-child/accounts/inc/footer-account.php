@@ -26,7 +26,11 @@
     "lengthMenu": [[8, 16, 24, -1], [8, 16, 24, "All"]]
   });
 
-  jQuery('#table-sorter-logs').DataTable();
+  jQuery('#table-sorter-logs').DataTable({
+	"paging": false,
+	"info": false,
+	"order": []
+  });
   
   jQuery('.matchHeight').matchHeight();
   jQuery('.trainer-schedule-wrapper').matchHeight();
