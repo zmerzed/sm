@@ -139,7 +139,8 @@ function workOutAdd($data)
 				{
 					$exercise = [
 						'exer_day_ID' => $dayId,
-						'exer_workout_ID' => $workOutId
+						'exer_workout_ID' => $workOutId,
+						'hash'	=> $ex['hash']
 					];
 
 					if (isset($ex['selectedPart']))
@@ -167,7 +168,6 @@ function workOutAdd($data)
 						}
 					}
 
-
 					if (isset($ex['selectedSQ']))
 					{
 						$exercise['exer_sq'] = $ex['selectedSQ']['name'];
@@ -194,6 +194,7 @@ function workOutAdd($data)
 				}
 			}
 
+			/* inserting clients */
 			if($d['clients'])
 			{
 
@@ -214,31 +215,41 @@ function workOutAdd($data)
 							)
 						);
 
-					}
-
-					$newSetWeight = array(
-						'client_id' 	=> (int) $client['ID'],
-						'day_id' 		=> (int) $dayId
-					);
-
-					for ($setCount=1; $setCount<=3; $setCount++)
-					{
-						for($setField=1; $setField<=4; $setField++)
+						foreach ($client['exercises'] as $ex)
 						{
-							$repKey = "set{$setCount}_rep_{$setField}";
-							$weightKey = "set{$setCount}_weight_{$setField}";
+							$exQuery = "SELECT * FROM workout_exercises_tbl WHERE hash='{$ex['hash']}' LIMIT 1";
+							$exerciseResult = $wpdb->get_results($exQuery, OBJECT);
 
-							if (isset($client[$repKey])) {
-								$newSetWeight[$repKey] = floatval($client[$repKey]);
-							}
+							if (count($exerciseResult) > 0)
+							{
+								$m = $exerciseResult[0];
+			
+								$wpdb->insert('workout_client_exercise_assignments',
+									array(
+										'exercise_id' => (int) $m->exer_ID,
+										'client_id' => (int) $client['ID']
+									)
+								);
 
-							if (isset($client[$weightKey])) {
-								$newSetWeight[$weightKey] = floatval($client[$weightKey]);
+								$assignmentId = $wpdb->insert_id;
+
+								if (isset($ex['assignment_sets']))
+								{
+									foreach ($ex['assignment_sets'] as $key => $set)
+									{
+										$wpdb->insert('workout_client_exercise_assignment_sets',
+											array(
+												'assignment_id' => (int) $assignmentId,
+												'reps' => $set['reps'],
+												'weight' => $set['weight'],
+												'seq' => $key + 1
+											)
+										);
+									}
+								}
 							}
 						}
 					}
-
-					$wpdb->insert('workout_day_client_sets_tbl', $newSetWeight);
 				}
 			}
 		}
@@ -661,20 +672,26 @@ function workOutGet($workoutId)
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
 	global $wpdb;
+	
+	// get workout
 	$querystr = "SELECT * FROM workout_tbl WHERE workout_ID=".$workoutId." LIMIT 1";
 	$result = $wpdb->get_results($querystr, ARRAY_A);
 
-	if(count($result) >= 1) {
+	if(count($result) >= 1)
+	{
 		$workout = $result[0];
 
+		// get workout days
 		$querystr = "SELECT * FROM workout_days_tbl WHERE wday_workout_ID=".$workout['workout_ID'];
 		$days = $wpdb->get_results($querystr, ARRAY_A);
 
 		foreach($days as $key => $d)
 		{
+			// get workout exercises
 			$exercisesQuery = "SELECT * FROM workout_exercises_tbl WHERE exer_day_ID=".$d['wday_ID'];
 			$exercises = $wpdb->get_results($exercisesQuery, ARRAY_A);
-
+		//	dd($exercises);
+			// get workout assigned clients
 			$clientsQuery = "SELECT * FROM workout_day_clients_tbl WHERE workout_client_dayID=".$d['wday_ID'];
 			$clients = $wpdb->get_results($clientsQuery, ARRAY_A);
 
@@ -682,6 +699,7 @@ function workOutGet($workoutId)
 
 			foreach($clients as $c)
 			{
+				// get clients from users
 				$userQuery = "SELECT * FROM wp_users WHERE ID=".$c['workout_clientID'] . " LIMIT 1";
 				$userResult = $wpdb->get_results($userQuery, ARRAY_A);
 
@@ -689,36 +707,21 @@ function workOutGet($workoutId)
 				{
 					$client = $userResult[0];
 					$client['day_availability'] = $c['workout_day_availability'];
+					$client['exercises'] = [];
 
-					$logsQuery = "SELECT * FROM workout_client_exercises_logs WHERE client_id=" . (int) $c['workout_clientID'] . " AND day_id=" . (int) $d['wday_ID'] . " AND workout_id=" . $workout['workout_ID'];
-					$logs = $wpdb->get_results($logsQuery, ARRAY_A);
-
-					foreach ($logs as $k => $log)
+					foreach ($exercises as $ex)
 					{
-						$exercisesLogQuery = "SELECT * FROM workout_exercises_tbl WHERE exer_ID=".$log['exercise_id'] . " LIMIT 1";
-						$exerciseResult = $wpdb->get_results($exercisesLogQuery, ARRAY_A);
+						$assignQuery = "SELECT * FROM workout_client_exercise_assignments WHERE client_id=" . (int) $client['ID'] . " AND exercise_id=". (int) $ex['exer_ID'] . " LIMIT 1";
+						$assignResult = $wpdb->get_results($assignQuery, ARRAY_A);
 
-						if(count($exerciseResult) >= 1)
-						{
-							$logs[$k]['exercise'] =  $exerciseResult[0];
+						if (count($assignResult) > 0) {
 
-							// get set logs
+							$assignSetsQuery = "SELECT * FROM workout_client_exercise_assignment_sets WHERE assignment_id=" . $assignResult[0]['id'];
+							$assignSetsResult = $wpdb->get_results($assignSetsQuery, ARRAY_A);
 
-							$setLogsQuery = "SELECT * FROM workout_client_set_logs WHERE exercise_log_id=".$log['id'];
-							$setLogsResult = $wpdb->get_results($setLogsQuery, ARRAY_A);
-
-							$logs[$k]['exercise']['setLogs'] = $setLogsResult;
+							$ex['assignment_sets'] = $assignSetsResult;
+							$client['exercises'][] = $ex;
 						}
-					}
-
-					/* get workout_day_client_sets_tbl */
-					$setsQuery = "SELECT * FROM workout_day_client_sets_tbl WHERE day_id=".$d['wday_ID'] . " AND client_id=" . $client['ID'] . " LIMIT 1";
-					$set = $wpdb->get_results($setsQuery, ARRAY_A);
-
-					$client['logs'] = $logs;
-
-					if (count($set) >= 1) {
-						$client['set'] = $set[0];
 					}
 
 					$userClients[] = $client;
@@ -730,6 +733,7 @@ function workOutGet($workoutId)
 		}
 
 		$workout['days'] = $days;
+		
 		return $workout;
 	}
 
@@ -798,9 +802,6 @@ function workOutDelete($workoutId)
 			/* delete workout_exercises_tbl target exer_day_ID */
 			$wpdb->delete('workout_exercises_tbl', array('exer_day_ID' => (int) $d['wday_ID']));
 
-			/* delete workout_day_client_sets_tbl target day_id */
-			$wpdb->delete('workout_day_client_sets_tbl', array('day_id' => (int) $d['wday_ID']));
-
 			/* delete workout_day_clients_tbl target workout_client_dayID*/
 			$wpdb->delete('workout_day_clients_tbl', array('workout_client_dayID' => (int) $d['wday_ID']));
 
@@ -868,6 +869,11 @@ function wpc_register_wp_api_endpoints() {
 	register_rest_route( 'v1', 'client/process', array(
 		'methods' => 'POST',
 		'callback' => 'workoutCreateClientSetLog',
+	));
+
+	register_rest_route( 'v1', 'hash', array(
+		'methods' => 'GET',
+		'callback' => 'workoutGenerateHash',
 	));
 }
 
@@ -963,4 +969,10 @@ function workoutCreateClientSetLog()
 			)
 		);
 	}
+}
+
+function workoutGenerateHash()
+{
+	$m=microtime(true);
+	return ['hash' => sprintf("%8x%05x",floor($m),($m-floor($m))*1000000)];
 }

@@ -329,24 +329,39 @@
 		}
 
 		$("#idForm").submit(function (e) {
-			e.preventDefault();
+
+			//e.preventDefault();
 
 			delete $scope.workout.selectedDay;
 
-			for(var i in $scope.workout.days) {
+			for(var i in $scope.workout.days)
+			{
 				var day = $scope.workout.days[i];
 
 				delete day.selectedClient;
 				for(var e in day.exercises)
 				{
 					var ex = day.exercises[e];
-					//delete ex.selectedPart;
 					delete ex.exerciseOptions;
 					delete ex.exerciseSQoptions;
 				}
+
+				for (var x in day.clients)
+				{
+					var client  = day.clients[x];
+
+					for (var m in client.exercises)
+					{
+						var clientExercise = client.exercises[m];
+						delete clientExercise.exerciseOptions;
+						delete clientExercise.exerciseSQoptions;
+						delete clientExercise.selectedPart;
+						delete clientExercise.selectedSQ;
+					}
+				}
 			}
 
-			console.log(JSON.stringify($scope.workout));
+			console.log($scope.workout);
 			$('#idWorkoutForm').val(JSON.stringify($scope.workout));
 			return true;
 

@@ -13,8 +13,10 @@
 	var exerciseOptions = <?php echo json_encode(workOutExerciseOptions()) ?>;
 	var exerciseSQoptions = <?php echo json_encode(workOutExerciseStrengthQualitiesOptions()) ?>;
 	var app = angular.module('app', []);
+	var rootUrl = '<?php echo get_site_url(); ?>';
+	var urlApiClient = rootUrl + '/wp-json/v1';
 
-	app.controller('Controller', function($scope) {
+	app.controller('Controller', function($scope, $http) {
 
 		$scope.clients = clients;
 		$scope.workout = workout;
@@ -172,9 +174,6 @@
 
 		$scope.onSelectDay = function(day)
 		{
-			console.log('xxxxxxxxxxxxxxxx');
-			console.log(day);
-			//$scope.workout.selectedDay = day;
 			optimizeSelectedDay();
 			selectDay(day);
 		};
@@ -226,15 +225,23 @@
 
 		$scope.newExercise = function()
 		{
-			var newEx = generateNewExercise();
-			$scope.workout.selectedDay.exercises.push(newEx);
-			optimizeSelectedDay();
+
+			$http.get(urlApiClient + '/hash').then(function(res) {
+
+				var newEx = generateNewExercise(res.data.hash);
+
+				$scope.workout.selectedDay.exercises.push(newEx);
+				optimizeSelectedDay();
+
+			});
+
 		};
 
 		$scope.selectClient = function(client)
 		{
-			console.log('jjjjjjjjjjjjjjjjjjjjj');
 			$scope.workout.selectedDay.selectedClient = client;
+			optimizeClientExercises();
+			findTheLargestSet();
 		};
 
 		$scope.$watch('selectedClient', function(val)
@@ -266,10 +273,17 @@
 
 		});
 
-		$scope.$watch('workout.selectedDay.exercises', function(){
+		$scope.$watch(function() {
 			console.log('/* get the largest set in a selected day */');
-			findTheLargestSet();
-		}, true);
+			return $scope.workout.selectedDay.exercises;
+		}, function(newValue, oldValue){
+
+			if (!angular.equals(oldValue, newValue)) {
+				console.log('--------------------------');
+				optimizeClientExercises();
+				findTheLargestSet();
+			}
+		},true);
 
 		$scope.removeDay = function(day)
 		{
@@ -281,6 +295,8 @@
 		{
 			exercise.isDelete = true;
 			optimizeSelectedDay();
+			optimizeClientExercises();
+			findTheLargestSet();
 		};
 
 		$("#idForm").submit(function (e) {
@@ -333,9 +349,9 @@
 			}
 		}
 		
-		function generateNewExercise()
+		function generateNewExercise(hash)
 		{
-			return {exerciseOptions: angular.copy($scope.exerciseOptions), exerciseSQoptions: angular.copy($scope.exerciseSQoptions)};
+			return {hash:hash, exerciseOptions: angular.copy($scope.exerciseOptions), exerciseSQoptions: angular.copy($scope.exerciseSQoptions)};
 		}
 
 		function selectDay(day)
@@ -345,6 +361,8 @@
 			if ($scope.workout.selectedDay.clients)
 			{
 				$scope.workout.selectedDay.selectedClient = $scope.workout.selectedDay.clients[0];
+				optimizeClientExercises();
+				findTheLargestSet();
 			}
 		}
 
@@ -360,9 +378,68 @@
 					continue;
 				}
 
-				$scope.workout.selectedDay.exercises[i]['order'] = count;
+				$scope.workout.selectedDay.exercises[i]['seq'] = count;
 				count++;
 			}
+		}
+
+		function optimizeClientExercises()
+		{
+
+			for (var i in $scope.workout.selectedDay.clients)
+			{
+				var client = $scope.workout.selectedDay.clients[i];
+				var mExercises = [];
+
+				for (var x in $scope.workout.selectedDay.exercises)
+				{
+					var isExFound = false;
+					var ex = $scope.workout.selectedDay.exercises[x];
+
+					if (ex.isDelete) {
+						continue;
+					}
+
+					for (var z in client.exercises)
+					{
+						var cEx = client.exercises[z];
+
+						if (ex.hash == cEx.hash)
+						{
+
+							var nEx = angular.copy(ex);
+							isExFound = true;
+
+							if (ex.selectedPart)
+							{
+								nEx.exer_body_part = ex.selectedPart.part;
+
+								if (ex.selectedPart.selectedType)
+								{
+									nEx.exer_type = ex.selectedPart.selectedType.type;
+								}
+							}
+
+							nEx.assignment_sets = angular.copy(cEx.assignment_sets);
+							mExercises.push(nEx);
+						}
+					}
+
+					if (!isExFound)
+					{
+						mExercises.push(ex);
+					}
+				}
+
+				client.exercises = mExercises;
+			}
+
+			if($scope.$root.$$phase != '$apply' &&
+				$scope.$root.$$phase != '$digest'
+			) {
+				$scope.$apply();
+			}
+
 		}
 
 		function optimizeDays()
@@ -459,7 +536,7 @@
 						<ul class="workout-exercise-lists">
 							<li class="workout-exercise-item" ng-repeat="exercise in workout.selectedDay.exercises track by $index" ng-if="!exercise.isDelete">
 								<table class="workout-exercise-options">
-									<td><span class="exercise-number"><label>{{$index + 1}}</label></span></td>
+									<td><span class="exercise-number"><label>{{ seq }}</label></span></td>
 									<td>
 										<select ng-model="exercise.selectedPart" ng-options="opt.part for opt in exercise.exerciseOptions">
 											<option value="{{exercise.exer_body_part}}">{{exercise.exer_body_part}}</option>
@@ -514,7 +591,7 @@
 								<span class="exercise-btn-action"><a href="#">Duplicate</a><span>
 									</td>
 									<td>
-								<span class="exercise-btn-action"><a href="javascript:void(0)" ng-click="remove(exercise)">Delete</a><span>
+								<span class="exercise-btn-action"><a href="javascript:void(0)" ng-click="removeExercise(exercise)">Delete</a><span>
 									</td>
 								</table>
 							</li>
@@ -829,17 +906,17 @@
 														<option value="7">Sunday</option>
 													</select>
 													<ul class="workout-exercise-lists">
-														<li class="workout-exercise-item" ng-repeat="log in workout.selectedDay.selectedClient.logs">
+														<li class="workout-exercise-item" ng-repeat="ex in workout.selectedDay.selectedClient.exercises track by $index">
 															<table class="workout-exercise-options">
-																<td><span class="exercise-number"><label>1</label></span></td>
+																<td><span class="exercise-number"><label>{{ $index + 1 }}</label></span></td>
 																<td>
 																	<select>
-																		<option>{{ log.exercise.exer_body_part }}</option>
+																		<option>{{ ex.exer_body_part }}</option>
 																	</select>
 																</td>
 																<td>
 																	<select>
-																		<option>{{ log.exercise.exer_impl1 }}</option>
+																		<option>{{ ex.exer_type }}</option>
 																	</select>
 																</td>
 															</table>
@@ -847,8 +924,7 @@
 													</ul>
 												</div>
 
-												<div class="col-lg-8 col-md-8 assign-workout">
-
+												<div class="col-lg-8 col-md-8 assign-workout" ng-class="{'more-sets': workoutMaxSet > 4}">
 													<div class="container">
 														<div class="row">
 															<div class="col-lg-3 col-md-3" ng-repeat="numSet in []|range:workoutMaxSet">
@@ -859,28 +935,15 @@
 																			<th>Reps</th>
 																			<th>Weight</th>
 																		</tr>
-																		<tr>
-																			<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set1_rep_1"></td>
-																			<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set1_weight_1"></td>
-																		</tr>
-																		<tr>
-																			<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set1_rep_2"></td>
-																			<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set1_weight_2"></td>
-																		</tr>
-																		<tr>
-																			<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set1_rep_3"></td>
-																			<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set1_weight_3"></td>
-																		</tr>
-																		<tr>
-																			<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set1_rep_4"></td>
-																			<td><input class="set-val" type="text" ng-model="workout.selectedDay.selectedClient.set.set1_weight_4"></td>
+																		<tr ng-repeat="ex in workout.selectedDay.selectedClient.exercises">
+																			<td><input class="set-val" type="text" ng-model="ex.assignment_sets[numSet].reps"></td>
+																			<td><input class="set-val" type="text" ></td>
 																		</tr>
 																	</table>
 																</div>
 															</div>
 														</div>
 													</div>
-
 												</div>
 											</div>
 										</div>
