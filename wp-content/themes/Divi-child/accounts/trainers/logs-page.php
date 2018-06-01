@@ -3,10 +3,22 @@
 	$activity_query = 'SELECT * FROM workout_activity_logs WHERE user_id = "'.get_current_user_id().'" ORDER BY id DESC';
 	$get_activity = $wpdb->get_results($activity_query);
 	
+	$results_per_page = 10;
+	$number_of_results = count($get_activity);	
+	$number_of_pages = ceil($number_of_results / $results_per_page);
+	$cur_page_ = 1;
 	
-	/* echo "<pre>";
-	print_r($get_activity);
-	echo "</pre>"; */
+	if(!isset($_GET['page_'])){
+		$page_ = 1;
+	}else{
+		$page_ = $_GET['page_'];
+	}
+	
+	$this_page_first_result = ($page_ - 1)*$results_per_page;	
+	$activity_query_2 = 'SELECT * FROM workout_activity_logs WHERE user_id = "'.get_current_user_id().'" ORDER BY id DESC LIMIT ' . $this_page_first_result . ',' . $results_per_page;
+	$get_activity_2 = $wpdb->get_results($activity_query_2);
+	$this_page_last_result = count($get_activity_2);		
+
 ?>
 
 <div class="main-content matchHeight">
@@ -20,7 +32,7 @@
 	        </tr>
 	    </thead>
 	    <tbody>
-			<?php foreach($get_activity as $act_info):
+			<?php foreach($get_activity_2 as $act_info):
 				$user_info = get_userdata($act_info->user_id);
 				$newDate = date_create($act_info->created_at);
 			?>
@@ -38,4 +50,39 @@
 	        </tr> -->
 	    </tbody>
 	</table>
+	<div class="col-lg-6 col-md-6 col-sm-12">
+		<?php
+			$last_res = $this_page_first_result + $this_page_last_result;
+			if($last_res != $this_page_first_result+1){
+				echo 'Showing '. ($this_page_first_result+1) . ' to '. $last_res .' of '. $number_of_results. ' entries';
+			}else{
+				echo 'Showing '. ($this_page_first_result+1) . ' of '. $number_of_results. ' entries';
+			}						
+		?>
+	</div>
+	<div class="col-lg-6 col-md-6 col-sm-12">
+		<ul>		
+		<li><a href="<?php echo ($page_ <= 1) ? 'javascript:void(0);' : home_url().'/trainer/?data=logs&page_=' . ($page_-1); ?>"><</a></li>	
+		<?php 
+			for($page__=1;$page__<=$number_of_pages;$page__++){
+				
+				if(isset($_GET['page_'])){
+					$a_page = $_GET['page_'];
+					if($a_page == $page__){
+						echo '<li class="current-page-link"><a href="javascrip:void(0);">'. $page__ .'</a></li>';
+					}else{
+						echo '<li><a href="'.home_url().'/trainer/?data=logs&page_='. $page__ .'">'. $page__ .'</a></li>';
+					}
+				}else{
+					if($cur_page_ == $page__){
+						echo '<li class="current-page-link"><a href="javascrip:void(0);">'. $page__ .'</a></li>';
+					}else{
+						echo '<li><a href="'.home_url().'/trainer/?data=logs&page_='. $page__ .'">'. $page__ .'</a></li>';
+					}
+				}								
+			}
+		?>
+		<li><a href="<?php echo ($page_ < $number_of_pages) ? home_url().'/trainer/?data=logs&page_=' . ($page_+1) :  'javascript:void(0);'; ?>">></a></li>
+		</ul>		
+	</div>	
 </div>
