@@ -362,6 +362,7 @@
 			{
 				$scope.workout.selectedDay.selectedClient = $scope.workout.selectedDay.clients[0];
 				optimizeClientExercises();
+				optimizeSelectedDay();
 				findTheLargestSet();
 			}
 		}
@@ -536,7 +537,7 @@
 						<ul class="workout-exercise-lists">
 							<li class="workout-exercise-item" ng-repeat="exercise in workout.selectedDay.exercises track by $index" ng-if="!exercise.isDelete">
 								<table class="workout-exercise-options">
-									<td><span class="exercise-number"><label>{{ seq }}</label></span></td>
+									<td><span class="exercise-number"><label>{{ exercise.seq }}</label></span></td>
 									<td>
 										<select ng-model="exercise.selectedPart" ng-options="opt.part for opt in exercise.exerciseOptions">
 											<option value="{{exercise.exer_body_part}}">{{exercise.exer_body_part}}</option>
