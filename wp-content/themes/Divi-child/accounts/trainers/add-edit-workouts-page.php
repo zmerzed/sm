@@ -1,4 +1,6 @@
 <?php workOutExerciseOptions(); ?>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>	
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script>
 	var clients = <?php echo json_encode(workOutGetClients()) ?>;
@@ -426,7 +428,7 @@
 							<span class="workout-day-name">
 								<label>Day Name: </label>
 								<input type="text" ng-model="workout.selectedDay.name">
-								<a ng-click="testWorkout()">test</a>
+								<!-- <a ng-click="testWorkout()">test</a> -->
 							</span>
 								</div>
 								<div class="col-lg-6 col-md-6">
@@ -798,9 +800,31 @@
 								<div class="tab-content">
 									<div class="tab-pane fade show active" id="lorem" role="tabpanel">
 										<div class="container">
-											<div class="row">
-												<div class="col-lg-4 col-md-4 assign-workout">
-													<p>Client Focus: <span>Fat Loss</span></p>
+											<div class="row">						
+												<div class="col-lg-12 col-md-12">
+													<p class="assign-focus">Client Focus: <span>Fat Loss</span></p>
+												</div>
+												<div class="col-lg-2 col-md-2 assign-workout select-date-workout">
+													<input type="text" class="datepicker" />
+													<script type="text/javascript">
+														$( function() {
+															$( ".datepicker" ).datepicker({
+																onClose: function(dateText, inst){
+																	var date = $(this).datepicker('getDate'),
+																	dotw = date.getDay(),
+																	date_ = 0;
+																	
+																	if(dotw == 0){
+																		date_ = 7;
+																	}else{
+																		date_ = dotw;
+																	}
+																	
+																	$(this).closest('.assign-workout').find('select').val(date_);
+																}
+															});
+														});
+													</script>
 													<select ng-model="workout.selectedDay.selectedClient.day_availability">
 														<option value="" selected disabled hidden>Availability</option>
 														<option value="1">Monday</option>
@@ -810,7 +834,9 @@
 														<option value="5">Friday</option>
 														<option value="6">Saturday</option>
 														<option value="7">Sunday</option>
-													</select>
+													</select>													
+												</div>
+												<div class="col-lg-4 col-md-4">
 													<ul class="workout-exercise-lists">
 														<li class="workout-exercise-item" ng-repeat="exer in workout.selectedDay.selectedClient.exercises track by $index">
 															<table class="workout-exercise-options">
@@ -829,12 +855,12 @@
 														</li>
 													</ul>
 												</div>
-												<div class="col-lg-8 col-md-8 assign-workout" ng-class="{'more-sets': workoutMaxSet > 4}"
+												<div class="col-lg-6 col-md-6 assign-workout assign-workout-sets" ng-class="{'more-sets': workoutMaxSet > 3}"
 													 ng-repeat="client in workout.selectedDay.clients"
 													 ng-show="client.ID == workout.selectedDay.selectedClient.ID">
 													<div class="container">
 														<div class="row">
-															<div class="col-lg-3 col-md-3" ng-repeat="numSet in []|range:workoutMaxSet">
+															<div class="col-lg-4 col-md-4" ng-repeat="numSet in []|range:workoutMaxSet">
 																<p>SET {{ numSet + 1 }}</p>
 																<div class="assign-sets-wrapper">
 																	<table class="last-sets" style="width: 100% !important;">

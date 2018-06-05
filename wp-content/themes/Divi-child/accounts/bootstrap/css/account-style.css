@@ -1402,6 +1402,15 @@ ul.workout-lists li .exercise-set-item .rep-navigation label{
 /*Assing to Clients*/
 .assign-workout.more-sets  .row{flex-wrap:nowrap;}
 .assign-workout.more-sets .container{overflow-x:scroll;}
+.assign-client-to-workout ul.workout-exercise-lists li.workout-exercise-item{
+	margin-bottom:0;
+	padding-top:0;
+}
+.assign-client-to-workout .assign-sets-wrapper .set-val{margin-bottom:10px;}
+.assign-client-to-workout .assign-focus,
+.assign-client-to-workout .assign-workout-sets p{margin-bottom:5px;}
+.assign-client-to-workout .workout-exercise-lists{margin-top:40px;}
+.assign-client-to-workout .select-date-workout input.datepicker{max-width:100%;}
 /*Logs Page*/
 .custom-paginate li{
 	line-height:20px;

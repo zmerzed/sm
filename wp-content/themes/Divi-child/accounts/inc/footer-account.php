@@ -1,7 +1,12 @@
 <!-- Optional JavaScript -->
-  
-  <script src='<?php echo get_stylesheet_directory_uri() .'/accounts/assets/js/moment.min.js';?>'></script>
+<?php
+$data_ = "";
+if(isset($_GET['data'])){
+	$data_ = $_GET['data'];
+}
 
+if($data_ != "add-workouts"): ?>
+  <script src='<?php echo get_stylesheet_directory_uri() .'/accounts/assets/js/moment.min.js';?>'></script>
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/accounts/assets/js/jquery-3.2.1.slim.min.js"></script>
   <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/accounts/assets/js/popper.min.js"></script>
@@ -11,7 +16,7 @@
   <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/accounts/assets/js/dataTables.bootstrap.min.js"></script>
 
   <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() .'/accounts/assets/js/fullcalendar.min.js';?>"></script>
-  <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/accounts/assets/js/jquery.canvasjs.min.js"></script>
+  <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/accounts/assets/js/jquery.canvasjs.min.js"></script>  
 
   <script type="text/javascript">
 	$(document).ready(function(){
@@ -47,25 +52,20 @@
       }
     ]
   });
-
+  
   // Assign active class in the navigation
   var sPageURL = window.location.search.substring(1);
   var sURLVariables = sPageURL.split('&');
-
-  for (var i = 0; i < sURLVariables.length; i++)
-  {
+  for (var i = 0; i < sURLVariables.length; i++){
       var sParameterName = sURLVariables[i].split('=');
-
       jQuery('.main-navigation ul li a').each(function () {
         if( jQuery(this).attr('menu-item') === sParameterName[1] ){
           jQuery(this).addClass('active');
         }
       });
   }
-
   
   jQuery(document).ready(function () {
-
       jQuery(".chartContainer").CanvasJSChart({
         title: {
           text: ""
@@ -97,14 +97,9 @@
           ]
         }
         ]
-      });
-
-      
-      
+      });   
   });
-
   </script>
-
+<?php endif; ?>
   </body>
-
 </html>
