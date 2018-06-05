@@ -125,8 +125,7 @@ function workOutAdd($data)
 				array(
 					'wday_workout_ID' => $workOutId,
 					'wday_name' => $d['name'],
-					'wday_order' => (int) $d['order'],
-					'wday_created_at' => date("Y-m-d H:i:s")
+					'wday_order' => (int) $d['order']
 				)
 			);
 
@@ -223,7 +222,7 @@ function workOutAdd($data)
 							if (count($exerciseResult) > 0)
 							{
 								$m = $exerciseResult[0];
-			
+
 								$wpdb->insert('workout_client_exercise_assignments',
 									array(
 										'exercise_id' => (int) $m->exer_ID,
@@ -261,10 +260,10 @@ function workOutUpdate($data)
 {
 	global $wpdb;
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+
 	$workout = json_decode(preg_replace('/\\\"/',"\"", $data['updateWorkoutForm']), true);
-	//dd($workout);
+	$mWorkoutId = (int) $workout['workout_ID'];
 	$weekDays = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
-	//dd($workout);
 
 	$wpdb->update(
 		'workout_tbl',
@@ -281,9 +280,39 @@ function workOutUpdate($data)
 		foreach($workout['days'] as $d)
 		{
 
-			if (isset($d['wday_ID']) && $d['isDelete']) {
+			if (isset($d['wday_ID']) && $d['isDelete'])
+			{
 
 				/* delete exercises and clients */
+
+
+				// delete day exercises relates to workout
+				$mDayId = (int) $d['wday_ID'];
+
+				$dayExercisesQuery = "SELECT * FROM workout_exercises_tbl WHERE exer_day_ID={$mDayId} AND exer_workout_ID={$mWorkoutId}";
+				$dayExercises = $wpdb->get_results($dayExercisesQuery, ARRAY_A);
+
+
+				foreach ($dayExercises as $ex)
+				{
+					// delete workout_client_exercise_assignments relates to exercise
+					$assignmentQuery = "SELECT * FROM workout_client_exercise_assignments WHERE exercise_id={$ex['exer_ID']}";
+					$assignments = $wpdb->get_results($assignmentQuery, ARRAY_A);
+
+					// delete workout_client_exercise_assignment_sets > which is sets relates to exercise assignment
+					foreach ($assignments as $assign)
+					{
+						$wpdb->delete(
+							'workout_client_exercise_assignment_sets',
+							array( 'assignment_id' => $assign['id'] )
+						);
+					}
+
+					$wpdb->delete(
+						'workout_client_exercise_assignments',
+						array('exercise_id' => $ex['exer_ID'])
+					);
+				}
 
 				$wpdb->delete(
 					'workout_day_clients_tbl',
@@ -300,8 +329,10 @@ function workOutUpdate($data)
 					array( 'wday_ID' => $d['wday_ID'] )
 				);
 
-			} else if (isset($d['wday_ID'])) {
-
+			}
+			// existing day
+			else if (isset($d['wday_ID']))
+			{
 				$wpdb->update(
 					'workout_days_tbl',
 					array(
@@ -311,47 +342,7 @@ function workOutUpdate($data)
 					array( 'wday_ID' => $d['wday_ID'] )
 				);
 
-				if (isset($d['clients']))
-				{
-
-					foreach($d['clients'] as $client)
-					{
-						$dNumber = ((int) $client['day_availability']) - 1;
-						$scheduleDate = new \Carbon\Carbon($weekDays[$dNumber]);
-						$clientQuery = "SELECT * FROM workout_day_clients_tbl WHERE workout_client_dayID={$d['wday_ID']} AND workout_client_workout_ID={$workout['workout_ID']} AND workout_clientID={$client['ID']}";
-						$result = $wpdb->get_results($clientQuery, OBJECT);
-
-						if(count($result) <= 0)
-						{
-							// insert the new client id
-							$wpdb->insert('workout_day_clients_tbl',
-								array(
-									'workout_client_dayID' => (int) $d['wday_ID'],
-									'workout_client_workout_ID' => (int) $workout['workout_ID'],
-									'workout_clientID' => (int) $client['ID'],
-									'workout_day_availability' => (int) $client['day_availability'],
-									'workout_client_schedule' => $scheduleDate->format('Y-m-d h:i:s')
-								)
-							);
-						} else {
-							$wpdb->update(
-								'workout_day_clients_tbl',
-								array(
-									//'workout_client_dayID' => (int) $d['wday_ID'],
-									//'workout_client_workout_ID' => (int) $workout['workout_ID'],
-									//'workout_clientID' => (int) $client['ID'],
-									'workout_day_availability' => (int) $client['day_availability'],
-									'workout_client_schedule' => $scheduleDate->format('Y-m-d h:i:s')
-								),
-								array( 'workout_clientID' => $client['ID'],
-									'workout_client_dayID' => (int) $d['wday_ID'],
-									'workout_client_workout_ID' => (int) $workout['workout_ID'],
-									)
-							);
-						}
-					}
-				}
-
+				// for exercises
 				if ($d['exercises'])
 				{
 
@@ -363,62 +354,83 @@ function workOutUpdate($data)
 						if (isset($ex['exer_ID']))
 						{
 
-							$exerciseQuery = "SELECT * FROM workout_exercises_tbl WHERE exer_day_ID={$d['wday_ID']} AND exer_workout_ID={$workout['workout_ID']} AND exer_ID={$ex['exer_ID']} LIMIT 1";
+							$exerciseQuery = "SELECT * FROM workout_exercises_tbl WHERE exer_ID={$ex['exer_ID']} LIMIT 1";
 							$result = $wpdb->get_results($exerciseQuery, ARRAY_A);
-
 
 							if(count($result) > 0)
 							{
+
 								$exercise = $result[0];
 
-								if (isset($ex['selectedPart']))
+								// delete exercise
+								if (isset($ex['isDelete']))
 								{
-									$exercise['exer_body_part'] = $ex['selectedPart']['part'];
 
-									if (isset($ex['selectedPart']['selectedType']))
+									$wpdb->delete(
+										'workout_exercises_tbl',
+										array('exer_ID' => $ex['exer_ID'])
+									);
+
+									// delete client assignments exercise
+									// delete assignment sets
+
+								} else {
+
+									// update part
+
+									if (isset($ex['selectedPart']))
 									{
-										$exercise['exer_type'] = $ex['selectedPart']['selectedType']['type'];
 
-										if (isset($ex['selectedPart']['selectedType']['selectedExercise1']))
-										{
-											$exercise['exer_exercise_1'] = $ex['selectedPart']['selectedType']['selectedExercise1'];
-										}
+										$exercise['exer_body_part'] = $ex['selectedPart']['part'];
 
-										if (isset($ex['selectedPart']['selectedType']['selectedExercise2']))
+										if (isset($ex['selectedPart']['selectedType']))
 										{
-											$exercise['exer_exercise_2'] = $ex['selectedPart']['selectedType']['selectedExercise2'];
-										}
+											$exercise['exer_type'] = $ex['selectedPart']['selectedType']['type'];
 
-										if (isset($ex['selectedPart']['selectedType']['selectedImplementation1']))
-										{
-											$exercise['exer_impl1'] = $ex['selectedPart']['selectedType']['selectedImplementation1'];
+											if (isset($ex['selectedPart']['selectedType']['selectedExercise1']))
+											{
+												$exercise['exer_exercise_1'] = $ex['selectedPart']['selectedType']['selectedExercise1'];
+											}
+
+											if (isset($ex['selectedPart']['selectedType']['selectedExercise2']))
+											{
+												$exercise['exer_exercise_2'] = $ex['selectedPart']['selectedType']['selectedExercise2'];
+											}
+
+											if (isset($ex['selectedPart']['selectedType']['selectedImplementation1']))
+											{
+												$exercise['exer_impl1'] = $ex['selectedPart']['selectedType']['selectedImplementation1'];
+											}
 										}
 									}
+
+									// update sq
+									if (isset($ex['selectedSQ']))
+									{
+										$exercise['exer_sq'] = $ex['selectedSQ']['name'];
+
+										if (isset($ex['selectedSQ']['selectedSet']))  {
+											$exercise['exer_sets'] = $ex['selectedSQ']['selectedSet'];
+										}
+
+										if (isset($ex['selectedSQ']['selectedRep']))  {
+											$exercise['exer_rep'] = $ex['selectedSQ']['selectedRep'];
+										}
+
+										if (isset($ex['selectedSQ']['selectedTempo']))  {
+											$exercise['exer_tempo'] = $ex['selectedSQ']['selectedTempo'];
+										}
+
+										if (isset($ex['selectedSQ']['selectedRest']))  {
+											$exercise['exer_rest'] = $ex['selectedSQ']['selectedRest'];
+										}
+									}
+
+									$exercise['hash'] = $ex['hash'];
+
+									$wpdb->update('workout_exercises_tbl', $exercise, array('exer_ID' => (int) $ex['exer_ID']));
+
 								}
-
-
-								if (isset($ex['selectedSQ']))
-								{
-									$exercise['exer_sq'] = $ex['selectedSQ']['name'];
-
-									if (isset($ex['selectedSQ']['selectedSet']))  {
-										$exercise['exer_sets'] = $ex['selectedSQ']['selectedSet'];
-									}
-
-									if (isset($ex['selectedSQ']['selectedRep']))  {
-										$exercise['exer_rep'] = $ex['selectedSQ']['selectedRep'];
-									}
-
-									if (isset($ex['selectedSQ']['selectedTempo']))  {
-										$exercise['exer_tempo'] = $ex['selectedSQ']['selectedTempo'];
-									}
-
-									if (isset($ex['selectedSQ']['selectedRest']))  {
-										$exercise['exer_rest'] = $ex['selectedSQ']['selectedRest'];
-									}
-								}
-
-								$wpdb->update('workout_exercises_tbl', $exercise, array('exer_ID' => $ex['exer_ID']));
 
 							}
 
@@ -482,7 +494,49 @@ function workOutUpdate($data)
 					}
 				}
 
-			} else { /* insert if there is no existing day */
+				if (isset($d['clients']))
+				{
+
+					foreach($d['clients'] as $client)
+					{
+						$dNumber = ((int) $client['day_availability']) - 1;
+						$scheduleDate = new \Carbon\Carbon($weekDays[$dNumber]);
+						$clientQuery = "SELECT * FROM workout_day_clients_tbl WHERE workout_client_dayID={$d['wday_ID']} AND workout_client_workout_ID={$workout['workout_ID']} AND workout_clientID={$client['ID']}";
+						$result = $wpdb->get_results($clientQuery, OBJECT);
+
+						// if theres no client
+						if(count($result) <= 0)
+						{
+							// insert the new client id
+							$wpdb->insert('workout_day_clients_tbl',
+								array(
+									'workout_client_dayID' => (int) $d['wday_ID'],
+									'workout_client_workout_ID' => (int) $workout['workout_ID'],
+									'workout_clientID' => (int) $client['ID'],
+									'workout_day_availability' => (int) $client['day_availability'],
+									'workout_client_schedule' => $scheduleDate->format('Y-m-d h:i:s')
+								)
+							);
+						} else {
+							$wpdb->update(
+								'workout_day_clients_tbl',
+								array(
+									//'workout_client_dayID' => (int) $d['wday_ID'],
+									//'workout_client_workout_ID' => (int) $workout['workout_ID'],
+									//'workout_clientID' => (int) $client['ID'],
+									'workout_day_availability' => (int) $client['day_availability'],
+									'workout_client_schedule' => $scheduleDate->format('Y-m-d h:i:s')
+								),
+								array( 'workout_clientID' => $client['ID'],
+									'workout_client_dayID' => (int) $d['wday_ID'],
+									'workout_client_workout_ID' => (int) $workout['workout_ID'],
+								)
+							);
+						}
+					}
+				}
+			}
+			else { /* insert if there is no existing day */
 
 				$wpdb->insert('workout_days_tbl',
 					array(
@@ -491,40 +545,19 @@ function workOutUpdate($data)
 						'wday_order' => (int) $d['wday_order']
 					)
 				);
+
 				$dayId = $wpdb->insert_id;
-
-				if (isset($d['clients']))
-				{
-
-					foreach($d['clients'] as $client)
-					{
-						$dNumber = ((int) $client['day_availability']) - 1;
-						$scheduleDate = new \Carbon\Carbon($weekDays[$dNumber]);
-						// insert the new client id
-						$wpdb->insert('workout_day_clients_tbl',
-							array(
-								'workout_client_dayID' => $dayId,
-								'workout_client_workout_ID' => (int) $workout['workout_ID'],
-								'workout_clientID' => (int) $client['ID'],
-								'workout_day_availability' => (int) $client['day_availability'],
-								'workout_client_schedule' => $scheduleDate->format('Y-m-d h:i:s')
-							)
-						);
-					}
-
-				}
 
 				if ($d['exercises'])
 				{
-
+				//	dd($d['exercises']);
 					foreach($d['exercises'] as $ex)
 					{
 
-						// check if the exercise exist
-
 						$exercise = [
 							'exer_day_ID' => $dayId,
-							'exer_workout_ID' => $workout['workout_ID']
+							'exer_workout_ID' => (int) $workout['workout_ID'],
+							'hash' => $ex['hash']
 						];
 
 						if (isset($ex['selectedPart']))
@@ -573,6 +606,26 @@ function workOutUpdate($data)
 						$wpdb->insert('workout_exercises_tbl', $exercise);
 
 					}
+				}
+
+				if (isset($d['clients']))
+				{
+					foreach($d['clients'] as $client)
+					{
+						$dNumber = ((int) $client['day_availability']) - 1;
+						$scheduleDate = new \Carbon\Carbon($weekDays[$dNumber]);
+						// insert the new client id
+						$wpdb->insert('workout_day_clients_tbl',
+							array(
+								'workout_client_dayID' => $dayId,
+								'workout_client_workout_ID' => (int) $workout['workout_ID'],
+								'workout_clientID' => (int) $client['ID'],
+								'workout_day_availability' => (int) $client['day_availability'],
+								'workout_client_schedule' => $scheduleDate->format('Y-m-d h:i:s')
+							)
+						);
+					}
+
 				}
 			}
 		}
@@ -677,6 +730,7 @@ function workOutGet($workoutId)
 	$querystr = "SELECT * FROM workout_tbl WHERE workout_ID=".$workoutId." LIMIT 1";
 	$result = $wpdb->get_results($querystr, ARRAY_A);
 
+	$days = [];
 	if(count($result) >= 1)
 	{
 		$workout = $result[0];

@@ -156,20 +156,33 @@
 			}
 
 			console.log($scope.workout);
-			optimizeDays();
-			selectDay($scope.workout.days[0]);
 
-			/* get the largest set in a selected day */
-			findTheLargestSet();
+			if ($scope.workout.days.length > 0)
+			{
+				optimizeDays();
+				selectDay($scope.workout.days[0]);
+
+				/* get the largest set in a selected day */
+				findTheLargestSet();
+			}
+
 		}
 
 		$scope.newWorkOutDay = function ()
 		{
-			$scope.workout.days.push({exercises:[generateNewExercise()], clients:[]});
-			optimizeDays();
 
-			var countDays = $scope.workout.days.length;
-			selectDay($scope.workout.days[countDays - 1])
+			$http.get(urlApiClient + '/hash').then(function(res)
+			{
+
+				var newEx = generateNewExercise(res.data.hash);
+
+				$scope.workout.days.push({exercises:[newEx], clients:[]});
+
+				optimizeDays();
+				var countDays = $scope.workout.days.length;
+				selectDay($scope.workout.days[countDays - 1])
+			});
+
 		};
 
 		$scope.onSelectDay = function(day)
@@ -302,16 +315,46 @@
 		$("#idForm").submit(function (e) {
 			//e.preventDefault();
 
+//			delete $scope.workout.selectedDay;
+//			for(var i in $scope.workout.days) {
+//				var day = $scope.workout.days[i];
+//				for(var e in day.exercises)
+//				{
+//					var ex = day.exercises[e];
+//					delete ex.exerciseOptions;
+//					delete ex.exerciseSQoptions;
+//				}
+//			}
+
 			delete $scope.workout.selectedDay;
-			for(var i in $scope.workout.days) {
+
+			for(var i in $scope.workout.days)
+			{
 				var day = $scope.workout.days[i];
+
+				delete day.selectedClient;
 				for(var e in day.exercises)
 				{
 					var ex = day.exercises[e];
 					delete ex.exerciseOptions;
 					delete ex.exerciseSQoptions;
 				}
+
+				for (var x in day.clients)
+				{
+					var client  = day.clients[x];
+
+					for (var m in client.exercises)
+					{
+						var clientExercise = client.exercises[m];
+						delete clientExercise.exerciseOptions;
+						delete clientExercise.exerciseSQoptions;
+						delete clientExercise.selectedPart;
+						delete clientExercise.selectedSQ;
+					}
+				}
 			}
+
 
 			$('#idWorkoutForm').val(JSON.stringify($scope.workout));
 			return true;
