@@ -740,7 +740,7 @@ function workOutUpdate($data)
 		}
 	}
 
-
+return $workout['workout_ID'];
 }
 
 function workOutGetClients()
