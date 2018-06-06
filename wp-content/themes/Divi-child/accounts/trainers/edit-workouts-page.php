@@ -471,6 +471,7 @@
 
 							nEx.assignment_sets = angular.copy(cEx.assignment_sets);
 							mExercises.push(nEx);
+							break;
 						}
 					}
 

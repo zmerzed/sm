@@ -490,6 +490,7 @@ function workOutUpdate($data)
 								}
 							}
 
+							$exercise['hash'] = $ex['hash'];
 							$wpdb->insert('workout_exercises_tbl', $exercise);
 						}
 
