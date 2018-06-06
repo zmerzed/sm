@@ -265,6 +265,9 @@ function workOutUpdate($data)
 	$mWorkoutId = (int) $workout['workout_ID'];
 	$weekDays = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
 
+	//dd($workout);
+
+	//dd(array_column($workout['days'][0]['clients'][0]['exercises'], 'hash'));
 	$wpdb->update(
 		'workout_tbl',
 		array(
@@ -348,7 +351,6 @@ function workOutUpdate($data)
 
 					foreach($d['exercises'] as $ex)
 					{
-
 						// check if the exercise exist
 
 						if (isset($ex['exer_ID']))
@@ -521,9 +523,6 @@ function workOutUpdate($data)
 							$wpdb->update(
 								'workout_day_clients_tbl',
 								array(
-									//'workout_client_dayID' => (int) $d['wday_ID'],
-									//'workout_client_workout_ID' => (int) $workout['workout_ID'],
-									//'workout_clientID' => (int) $client['ID'],
 									'workout_day_availability' => (int) $client['day_availability'],
 									'workout_client_schedule' => $scheduleDate->format('Y-m-d h:i:s')
 								),
@@ -532,6 +531,63 @@ function workOutUpdate($data)
 									'workout_client_workout_ID' => (int) $workout['workout_ID'],
 								)
 							);
+						}
+
+						// insert assignment exercises and sets
+
+						if (isset($client['exercises']))
+						{
+
+							$exHashes = implode("','", array_column($client['exercises'], 'hash'));
+							$clientExercisesQuery = "SELECT * FROM workout_exercises_tbl WHERE hash in ('{$exHashes}')";
+						//	dd($clientExercisesQuery);
+							$clientExercisesResult = $wpdb->get_results($clientExercisesQuery, ARRAY_A);
+							//dd($clientExercisesResult);
+							$exIds = implode(",", array_column($clientExercisesResult, 'exer_ID'));
+							$clientAssignmentsQuery = "SELECT * FROM workout_client_exercise_assignments WHERE exercise_id in ({$exIds}) AND client_id=".(int) $client['ID'];
+
+							$clientAssignmentsResult = $wpdb->get_results($clientAssignmentsQuery, ARRAY_A);
+							$assignmentIds = implode(",", array_column($clientAssignmentsResult, 'id'));
+
+							$wpdb->query( "DELETE FROM `workout_client_exercise_assignment_sets` WHERE `assignment_id` IN ({$assignmentIds})");
+							$wpdb->query( "DELETE FROM `workout_client_exercise_assignments` WHERE `exercise_id` IN ({$exIds}) AND client_id=".(int) $client['ID']);
+
+							foreach ($client['exercises'] as $ex)
+							{
+								$exQuery = "SELECT * FROM workout_exercises_tbl WHERE hash='{$ex['hash']}' LIMIT 1";
+								$exerciseResult = $wpdb->get_results($exQuery, OBJECT);
+
+								if (count($exerciseResult) > 0)
+								{
+
+									$m = $exerciseResult[0];
+
+									$wpdb->insert('workout_client_exercise_assignments',
+										array(
+											'exercise_id' => (int) $m->exer_ID,
+											'client_id' => (int) $client['ID']
+										)
+									);
+
+									$assignmentId = $wpdb->insert_id;
+
+									if (isset($ex['assignment_sets']))
+									{
+										//dd($assignmentId);
+										foreach ($ex['assignment_sets'] as $key => $set)
+										{
+											$wpdb->insert('workout_client_exercise_assignment_sets',
+												array(
+													'assignment_id' => (int) $assignmentId,
+													'reps' => $set['reps'],
+													'weight' => $set['weight'],
+													'seq' => $key + 1
+												)
+											);
+										}
+									}
+								}
+							}
 						}
 					}
 				}
@@ -550,7 +606,6 @@ function workOutUpdate($data)
 
 				if ($d['exercises'])
 				{
-				//	dd($d['exercises']);
 					foreach($d['exercises'] as $ex)
 					{
 
@@ -590,6 +645,10 @@ function workOutUpdate($data)
 						{
 							$exercise['exer_sq'] = $ex['selectedSQ']['name'];
 
+							if (isset($ex['selectedSQ']['selectedSet']))  {
+								$exercise['exer_sets'] = $ex['selectedSQ']['selectedSet'];
+							}
+
 							if (isset($ex['selectedSQ']['selectedRep']))  {
 								$exercise['exer_rep'] = $ex['selectedSQ']['selectedRep'];
 							}
@@ -624,8 +683,58 @@ function workOutUpdate($data)
 								'workout_client_schedule' => $scheduleDate->format('Y-m-d h:i:s')
 							)
 						);
-					}
 
+
+						if (isset($client['exercises']))
+						{
+
+							foreach ($client['exercises'] as $ex)
+							{
+								$exQuery = "SELECT * FROM workout_exercises_tbl WHERE hash='{$ex['hash']}' LIMIT 1";
+								$exerciseResult = $wpdb->get_results($exQuery, OBJECT);
+
+								if (count($exerciseResult) > 0)
+								{
+
+									$m = $exerciseResult[0];
+
+									$wpdb->insert('workout_client_exercise_assignments',
+										array(
+											'exercise_id' => (int) $m->exer_ID,
+											'client_id' => (int) $client['ID']
+										)
+									);
+
+//									dd(
+//										array(
+//											'exercise_id' => (int) $m->exer_ID,
+//											'client_id' => (int) $client['ID']
+//										)
+//									);
+
+
+									$assignmentId = $wpdb->insert_id;
+									//dd($assignmentId);
+									if (isset($ex['assignment_sets']))
+									{
+
+										foreach ($ex['assignment_sets'] as $key => $set)
+										{
+											$wpdb->insert('workout_client_exercise_assignment_sets',
+												array(
+													'assignment_id' => (int) $assignmentId,
+													'reps' => $set['reps'],
+													'weight' => $set['weight'],
+													'seq' => $key + 1
+												)
+											);
+										}
+									}
+								}
+							}
+						}
+
+					}
 				}
 			}
 		}
@@ -767,7 +876,7 @@ function workOutGet($workoutId)
 					{
 						$assignQuery = "SELECT * FROM workout_client_exercise_assignments WHERE client_id=" . (int) $client['ID'] . " AND exercise_id=". (int) $ex['exer_ID'] . " LIMIT 1";
 						$assignResult = $wpdb->get_results($assignQuery, ARRAY_A);
-
+						$ex['query'] = $assignQuery;
 						if (count($assignResult) > 0) {
 
 							$assignSetsQuery = "SELECT * FROM workout_client_exercise_assignment_sets WHERE assignment_id=" . $assignResult[0]['id'];

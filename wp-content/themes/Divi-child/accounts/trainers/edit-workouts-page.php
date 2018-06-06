@@ -255,8 +255,8 @@
 		$scope.selectClient = function(client)
 		{
 			$scope.workout.selectedDay.selectedClient = client;
+			console.log($scope.workout.selectedDay.selectedClient);
 			optimizeClientExercises();
-			findTheLargestSet();
 		};
 
 		$scope.$watch('selectedClient', function(val)
@@ -370,9 +370,10 @@
 
 			for (var i in $scope.workout.selectedDay.exercises)
 			{
+				console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxx');
 				var exercise = angular.copy($scope.workout.selectedDay.exercises[i]);
 				var noSet = 0;
-
+				console.log(exercise);
 				if (exercise.exer_sets) {
 					noSet = parseInt(angular.copy(exercise.exer_sets));
 				}
@@ -408,8 +409,9 @@
 				$scope.workout.selectedDay.selectedClient = $scope.workout.selectedDay.clients[0];
 				optimizeClientExercises();
 				optimizeSelectedDay();
-				findTheLargestSet();
+
 			}
+			findTheLargestSet();
 		}
 
 		function optimizeSelectedDay()
@@ -479,6 +481,8 @@
 
 				client.exercises = mExercises;
 			}
+
+			findTheLargestSet();
 
 			if($scope.$root.$$phase != '$apply' &&
 				$scope.$root.$$phase != '$digest'
@@ -1006,7 +1010,7 @@
 																		</tr>
 																		<tr ng-repeat="ex in workout.selectedDay.selectedClient.exercises">
 																			<td><input class="set-val" type="text" ng-model="ex.assignment_sets[numSet].reps"></td>
-																			<td><input class="set-val" type="text" ></td>
+																			<td><input class="set-val" type="text" ng-model="ex.assignment_sets[numSet].weight"></td>
 																		</tr>
 																	</table>
 																</div>
