@@ -904,7 +904,7 @@ function workOutGet($workoutId)
 	return null;
 }
 
-function workoutClientWorkoutWithDay($workoutId, $dayId)
+function workoutClientWorkoutWithDay($workoutId, $dayId, $clientId)
 {
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
@@ -933,9 +933,25 @@ function workoutClientWorkoutWithDay($workoutId, $dayId)
 		}
 
 		$queryExercises =  "SELECT * FROM workout_exercises_tbl WHERE exer_workout_ID={$clientWorkout->workout_client_workout_ID}";
-		$exercises = $wpdb->get_results($queryExercises, OBJECT);
+		$exercises = $wpdb->get_results($queryExercises, ARRAY_A);
 
 		if (count($exercises) >= 1) {
+
+			foreach ($exercises as $k => $ex)
+			{
+				$assignQuery = "SELECT * FROM workout_client_exercise_assignments WHERE client_id=" . (int) $clientId . " AND exercise_id=". (int) $ex['exer_ID'] . " LIMIT 1";
+				$assignResult = $wpdb->get_results($assignQuery, ARRAY_A);
+
+				if (count($assignResult) > 0) {
+
+					$assignSetsQuery = "SELECT * FROM workout_client_exercise_assignment_sets WHERE assignment_id=" . $assignResult[0]['id'];
+					$assignSetsResult = $wpdb->get_results($assignSetsQuery, ARRAY_A);
+
+					$exercises[$k]['sets'] = $assignSetsResult;
+					$exercises[$k]['setss'] = $assignSetsResult;
+				}
+			}
+
 			$clientWorkout->exercises = $exercises;
 		}
 

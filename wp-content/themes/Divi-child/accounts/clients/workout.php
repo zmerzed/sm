@@ -1,7 +1,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script>
 
-	var clientWorkout = <?php echo json_encode(workoutClientWorkoutWithDay($_GET['dayId'], $_GET['workoutId'])) ?>;
+	var clientWorkout = <?php echo json_encode(workoutClientWorkoutWithDay($_GET['dayId'], $_GET['workoutId'], wp_get_current_user()->ID)); ?>;
 	var rootUrl = '<?php echo get_site_url(); ?>';
 	var currentUserId = '<?php echo wp_get_current_user()->ID ?>';
 	var app = angular.module('app', []);
@@ -129,10 +129,11 @@
 
 		function sequenceSets()
 		{
+			console.log('llllllllllllllllllllllllllllllll');
 			for (var i in $scope.currentExercise.sets)
 			{
 				var set = $scope.currentExercise.sets[i];
-
+				console.log(set);
 				if (!set.isDone)
 				{
 					set.reps = angular.copy($scope.currentExercise.exer_rep)
@@ -148,12 +149,14 @@
 			$http.post(urlApiClient+'/process', $scope.currentExercise).then(function()
 			{
 				var hasFoundDone = false;
-
+				console.log('xxxxxxxxxxxxxxx');
+				console.log($scope.currentExercise);
 				if ($scope.currentExercise.currentSet)
 				{
-					var currentOrder = $scope.currentExercise.currentSet.seq;
+					var currentOrder = parseInt($scope.currentExercise.currentSet.seq);
 					var nextOrder = currentOrder + 1;
-
+					
+					console.log(nextOrder);
 					$scope.currentExercise.currentSet.isDone = true;
 					for (var i in $scope.currentExercise.sets)
 					{
@@ -162,7 +165,6 @@
 						if (nextOrder == set.seq)
 						{
 							hasFoundDone = true;
-							set.reps = angular.copy($scope.currentExercise.exer_rep)
 							$scope.currentExercise.currentSet = set;
 							break;
 						}
@@ -228,8 +230,8 @@
 
 			if (val)
 			{
+
 				$scope.currentExercise.user_id = currentUserId;
-				$scope.currentExercise.sets = [];
 
 				/* checking client exercise logs */
 				var params = '?exerciseId='+$scope.currentExercise.exer_ID+'&user_id='+currentUserId;
@@ -237,13 +239,6 @@
 				$http.get(urlApiClient+'/get'+params).then(function(res)
 				{
 					console.log(res);
-
-					for (var i=1; i<=$scope.currentExercise.exer_sets; i++)
-					{
-						var nSet = {seq:i, isMet:1, isDone:false, reps:''};
-						$scope.currentExercise.sets.push(nSet);
-					}
-
 					sequenceSets();
 				});
 			}
@@ -290,13 +285,13 @@
 									<div class="col-lg-6 col-md-6 col-sm-12 goal-set">
 										<label>
 											Reps
-											<span>{{ currentExercise.exer_rep }}</span>
+											<span>{{ currentExercise.currentSet.reps }}</span>
 										</label>
 									</div>
 									<div class="col-lg-6 col-md-6 col-sm-12 goal-set">
 										<label>
 											Weight
-											<span>50<small>lbs</small></span>
+											<span>{{ currentExercise.currentSet.weight }}</span>
 										</label>
 									</div>
 									<div class="rep-navigation">
