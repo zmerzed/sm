@@ -146,38 +146,41 @@
 
 		function runNext()
 		{
-			$http.post(urlApiClient+'/process', $scope.currentExercise).then(function()
-			{
-				var hasFoundDone = false;
-				console.log('xxxxxxxxxxxxxxx');
-				console.log($scope.currentExercise);
-				if ($scope.currentExercise.currentSet)
-				{
-					var currentOrder = parseInt($scope.currentExercise.currentSet.seq);
-					var nextOrder = currentOrder + 1;
-					
-					console.log(nextOrder);
-					$scope.currentExercise.currentSet.isDone = true;
-					for (var i in $scope.currentExercise.sets)
-					{
-						var set = $scope.currentExercise.sets[i];
 
-						if (nextOrder == set.seq)
-						{
-							hasFoundDone = true;
-							$scope.currentExercise.currentSet = set;
-							break;
-						}
+			var hasFoundDone = false;
+
+			if ($scope.currentExercise.currentSet)
+			{
+				var currentOrder = parseInt($scope.currentExercise.currentSet.seq);
+				var nextOrder = currentOrder + 1;
+
+				$scope.currentExercise.currentSet.isDone = true;
+				for (var i in $scope.currentExercise.sets)
+				{
+					var set = $scope.currentExercise.sets[i];
+
+					if (nextOrder == set.seq)
+					{
+						hasFoundDone = true;
+						$scope.currentExercise.currentSet = set;
+						break;
 					}
 				}
+			}
 
-				if (!hasFoundDone) {
+			if (!hasFoundDone)
+			{
+
+				console.log('THE END');
+				console.log($scope.clientWorkout);
+
+				$http.post(urlApiClient+'/process', $scope.currentExercise).then(function()
+				{
 					$scope.currentExercise.isDone = true;
-					console.log('THE END');
-					console.log($scope.clientWorkout);
 					sequenceExercises();
-				}
-			});
+				});
+
+			}
 		}
 
 		$scope.checkNotCurrent = function(set)

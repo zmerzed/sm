@@ -1048,7 +1048,7 @@ function wpc_register_wp_api_endpoints() {
 
 	register_rest_route( 'v1', 'client/process', array(
 		'methods' => 'POST',
-		'callback' => 'workoutCreateClientSetLog',
+		'callback' => 'workoutCreateClientExerciseLog',
 	));
 
 	register_rest_route( 'v1', 'hash', array(
@@ -1082,6 +1082,85 @@ function workoutClientExerciseLogs() {
 	return [];
 }
 
+function workoutCreateClientExerciseLog()
+{
+
+	global $wpdb;
+
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+	$data = json_decode( file_get_contents('php://input') , true);
+	//dd($data);
+	$exerciseId = (int) $data['exer_ID'];
+	$userId = (int) $data['user_id'];
+
+	/* check if it has already client exercise */
+
+	$queryExercise = "SELECT * FROM workout_client_exercises_logs WHERE exercise_id={$exerciseId}";
+	$result = $wpdb->get_results($queryExercise, ARRAY_A);
+
+	if (count($result) > 0) // it has already exercise log
+	{
+		$exerciseLogId = $result[0]['id'];
+
+	} else {
+
+		$wpdb->insert('workout_client_exercises_logs',
+			array(
+				'exercise_id' => (int) $data['exer_ID'],
+				'client_id'   => $userId,
+				'day_id' => (int) $data['exer_day_ID'],
+				'workout_id' => (int) $data['exer_workout_ID']
+			)
+		);
+
+		$exerciseLogId = $wpdb->insert_id;
+	}
+
+
+	if (isset($data['sets']))
+	{
+		foreach ($data['sets'] as $set)
+		{
+			$seq = (int) $set['seq'];
+
+			/* check if the set is exists in workout_client_set_logs */
+			$querySet = "SELECT * FROM workout_client_set_logs WHERE client_id={$userId} AND exercise_log_id={$exerciseLogId} AND seq={$seq}";
+			$result = $wpdb->get_results($querySet, ARRAY_A);
+
+			if (count($result) > 0)
+			{
+				$currentSet = $result[0];
+				// update the set
+				$wpdb->update(
+					'workout_client_set_logs',
+					array(
+						'reps' 		  => $set['reps'],
+						//'isMet' 	  => (int) $set['isMet'] ? true : false,
+						//'isDone'      => $set['isMet'],
+					),
+					array('id' => $currentSet['id'])
+				);
+
+			} else {
+				// log insert exercise log into workout_client_exercises_logs
+
+				/* insert set logs */
+				$wpdb->insert('workout_client_set_logs',
+					array(
+						'exercise_log_id' => $exerciseLogId,
+						'reps' 		  => $set['reps'],
+					//	'isMet' 	  => (int) $set['isMet'] ? true : false,
+						//'isDone'      => $set['isMet'],
+						'seq'		  => (int) $set['seq'],
+						'client_id'   => $userId
+					)
+				);
+			}
+		}
+	}
+
+}
+
 function workoutCreateClientSetLog()
 {
 
@@ -1089,6 +1168,7 @@ function workoutCreateClientSetLog()
 
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 	$data = json_decode( file_get_contents('php://input') , true);
+	dd($data);
 	$exerciseId = (int) $data['exer_ID'];
 	$userId = (int) $data['user_id'];
 
