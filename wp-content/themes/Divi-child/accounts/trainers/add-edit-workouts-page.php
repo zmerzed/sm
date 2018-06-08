@@ -6,6 +6,7 @@
 	var clients = <?php echo json_encode(workOutGetClients()) ?>;
 	var exerciseOptions = <?php echo json_encode(workOutExerciseOptions()) ?>;
 	var exerciseSQoptions = <?php echo json_encode(workOutExerciseStrengthQualitiesOptions()) ?>;
+	var currentUserId = '<?php echo wp_get_current_user()->ID ?>';
 	var rootUrl = '<?php echo get_site_url(); ?>';
 	var urlApiClient = rootUrl + '/wp-json/v1';
 	var app = angular.module('app', []);
@@ -364,6 +365,7 @@
 			}
 
 			console.log($scope.workout);
+			$scope.workout.user_id = currentUserId;
 			$('#idWorkoutForm').val(JSON.stringify($scope.workout));
 			return true;
 

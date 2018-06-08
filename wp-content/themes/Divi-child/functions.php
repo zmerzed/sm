@@ -103,11 +103,13 @@ function workOutAdd($data)
 
 	$workout = json_decode(preg_replace('/\\\"/',"\"", $data['workoutForm']), true);
 	$weekDays = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
+	//dd($workout);
 
 	$wpdb->insert('workout_tbl',
 		array(
 			'workout_name' => $workout['name'],
-			'workout_trainer_ID' => $data['workout_trainer_ID']
+			'workout_trainer_ID' => $data['workout_trainer_ID'],
+			'workout_created_by' => (int) $workout['user_id']
 		),
 		array(
 			'%s',
