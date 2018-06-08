@@ -762,6 +762,27 @@ function workOutGetClients()
 	return $outputList;
 }
 
+function workoutGetTrainerExercises($userId)
+{
+	global $wpdb;
+	$workOutQuery = "SELECT * FROM workout_tbl WHERE workout_trainer_ID=".(int) $userId;
+	$result = $wpdb->get_results($workOutQuery, ARRAY_A);
+
+	if (count($result) > 0)
+	{
+		$workouts = $result;
+		$workoutIds = implode(",", array_column($workouts, 'workout_ID'));
+		
+		$exercisesQuery = "SELECT * FROM workout_exercises_tbl WHERE exer_workout_ID IN ({$workoutIds})";
+		$exercises = $wpdb->get_results($exercisesQuery, ARRAY_A);
+
+		return $exercises;
+	}
+
+	return [];
+
+}
+
 function workOutUserList($userId)
 {
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
@@ -771,7 +792,8 @@ function workOutUserList($userId)
 	$workouts = $wpdb->get_results($querystr, OBJECT);
 	//dd($workouts);
 	return $workouts;
-}
+}$querystr = "SELECT * FROM workout_tbl WHERE workout_ID=".$workoutId." LIMIT 1";
+$result = $wpdb->get_results($querystr, ARRAY_A);
 
 function workoutGetClientWorkouts($clientId)
 {
