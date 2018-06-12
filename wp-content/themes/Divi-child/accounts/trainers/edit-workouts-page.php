@@ -295,7 +295,13 @@
 				}
 			}
 			
-			// match $scope.workout.selectedDay.clients to $scope.clients;
+			
+			/* console.log('===========xxxxxxxxxxBEFORExxxxxxxxxxx=========');
+			console.log($scope.workout.selectedDay.clients);
+			console.log($scope.clients);
+			console.log('===========xxxxxxxxxxBEFORExxxxxxxxxxx========='); */
+			
+			// match $scope.workout.selectedDay.clients to $scope.clients;			
 			optimizeSelectedClients();
 		});
 
@@ -378,21 +384,28 @@
 		function optimizeSelectedClients()
 		{	
 			$scope.clients = angular.copy($scope.clientsBackup);
-			
-			var sclength = $scope.clients.length,
-			listToDelete = [];			
+			var listToDelete = [];			
 			
 			for (var i = 0; i < $scope.workout.selectedDay.clients.length; i++) {
 				listToDelete.push($scope.workout.selectedDay.clients[i].ID);
-			}		
+			}
+			
+			var lengthToDelete = listToDelete.length;
 			
 			for(var i = 0; i < $scope.clients.length; i++) {
 				var obj = $scope.clients[i];
 
 				if(listToDelete.indexOf(obj.ID) !== -1) {
-					$scope.clients.splice(i, sclength);
+					$scope.clients.splice(i, lengthToDelete);
 				}
 			}
+			
+			
+			/* console.log('===========xxxxxxxxxxAFTERxxxxxxxxxxx=========');
+			console.log($scope.workout.selectedDay.clients);
+			console.log($scope.clients);
+			console.log('===========xxxxxxxxxxAFTERxxxxxxxxxxx========='); */
+			
 		}
 		
 		function findTheLargestSet()
@@ -438,7 +451,7 @@
 
 			if ($scope.workout.selectedDay.clients)
 			{
-				$scope.workout.selectedDay.selectedClient = $scope.workout.selectedDay.clients[0];			
+				$scope.workout.selectedDay.selectedClient = $scope.workout.selectedDay.clients[0];
 				
 				optimizeSelectedClients();				
 				optimizeClientExercises();
