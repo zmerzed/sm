@@ -22,6 +22,7 @@
 	app.controller('Controller', function($scope, $http) {
 
 		$scope.clients = clients;
+		$scope.clientsBackup = angular.copy(clients);
 		$scope.workout = workout;
 		$scope.workoutMaxSet = 0;
 		$scope.exerciseOptions = exerciseOptions;
@@ -183,8 +184,14 @@
 
 				optimizeDays();
 				var countDays = $scope.workout.days.length;
+				
+				$scope.selectedClient = "Add Client";
+				$scope.clients = angular.copy($scope.clientsBackup);
+				
 				selectDay($scope.workout.days[countDays - 1])
 			});
+			
+			
 
 		};
 
@@ -281,12 +288,15 @@
 
 					if(!found) {
 						$scope.workout.selectedDay.clients.push(client);
+						$scope.selectClient(client);
 					}
 
 					break;
 				}
 			}
-
+			
+			// match $scope.workout.selectedDay.clients to $scope.clients;
+			optimizeSelectedClients();
 		});
 
 		$scope.$watch(function() {
@@ -298,6 +308,7 @@
 				console.log('--------------------------');
 				optimizeClientExercises();
 				findTheLargestSet();
+				
 			}
 		},true);
 
@@ -364,6 +375,26 @@
 
 		});
 		
+		function optimizeSelectedClients()
+		{	
+			$scope.clients = angular.copy($scope.clientsBackup);
+			
+			var sclength = $scope.clients.length,
+			listToDelete = [];			
+			
+			for (var i = 0; i < $scope.workout.selectedDay.clients.length; i++) {
+				listToDelete.push($scope.workout.selectedDay.clients[i].ID);
+			}		
+			
+			for(var i = 0; i < $scope.clients.length; i++) {
+				var obj = $scope.clients[i];
+
+				if(listToDelete.indexOf(obj.ID) !== -1) {
+					$scope.clients.splice(i, sclength);
+				}
+			}
+		}
+		
 		function findTheLargestSet()
 		{
 			/* get the max set */
@@ -403,11 +434,13 @@
 
 		function selectDay(day)
 		{
-			$scope.workout.selectedDay = angular.copy(day);
+			$scope.workout.selectedDay = angular.copy(day);			
 
 			if ($scope.workout.selectedDay.clients)
 			{
-				$scope.workout.selectedDay.selectedClient = $scope.workout.selectedDay.clients[0];
+				$scope.workout.selectedDay.selectedClient = $scope.workout.selectedDay.clients[0];			
+				
+				optimizeSelectedClients();				
 				optimizeClientExercises();
 				optimizeSelectedDay();
 
