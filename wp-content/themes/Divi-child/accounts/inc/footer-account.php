@@ -5,7 +5,7 @@ if(isset($_GET['data'])){
 	$data_ = $_GET['data'];
 }
 
-if($data_ != "add-workouts"): ?>
+if($data_ != "add-workouts" && $data_ != "workouts"): ?>
   <script src='<?php echo get_stylesheet_directory_uri() .'/accounts/assets/js/moment.min.js';?>'></script>
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/accounts/assets/js/jquery-3.2.1.slim.min.js"></script>

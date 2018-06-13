@@ -783,6 +783,18 @@ function workoutGetTrainerExercises($userId)
 
 }
 
+function workoutClientsList($workout_ID)
+{
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+	global $wpdb;
+	
+	$querystr = 'SELECT * FROM `workout_day_clients_tbl` WHERE workout_client_workout_ID = '.$workout_ID.' GROUP BY workout_clientID';
+	$workout_clients = $wpdb->get_results($querystr, OBJECT);
+	//dd($workout_clients);
+	return $workout_clients;
+	
+}
+
 function workOutUserList($userId)
 {
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';

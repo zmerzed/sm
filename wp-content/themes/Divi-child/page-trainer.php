@@ -150,6 +150,10 @@ if( is_user_logged_in() ){
 							get_template_part( 'accounts/trainers/logs', 'page' );
 							break;
 
+						case 'workout':
+							get_template_part( 'accounts/trainers/workout', 'page' );
+							break;
+							
 						case 'workouts':
 							get_template_part( 'accounts/trainers/workouts', 'page' );
 							break;
