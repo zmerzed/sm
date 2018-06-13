@@ -14,6 +14,7 @@
 	app.controller('Controller', function($scope, $http) {
 
 		$scope.clients = clients;
+		$scope.clientsBackUp = angular.copy(clients);
 		$scope.workoutMaxSet = 0;
 		$scope.exerciseOptions = exerciseOptions;
 		$scope.exerciseSQoptions = exerciseSQoptions;
@@ -45,6 +46,8 @@
 
 				var countDays = $scope.workout.days.length;
 				$scope.workout.selectedDay = $scope.workout.days[countDays - 1];
+				
+				$scope.selectedClient = "Add Client";
 
 				selectDay($scope.workout.days[countDays - 1])
 
@@ -193,12 +196,14 @@
 
 						if (!found) {
 							$scope.workout.selectedDay.clients.push(client);
+							$scope.selectClient(client);
 						}
 
 						break;
 					}
 				}
 				optimizeClientExercises();
+				optimizeSelectedClients();
 			}
 
 		});
@@ -213,6 +218,27 @@
 			}
 
 		}, true);
+		
+		function optimizeSelectedClients()
+		{
+			$scope.clients = angular.copy($scope.clientsBackUp);
+			
+			var listToDelete = [];			
+			
+			for (var i = 0; i < $scope.workout.selectedDay.clients.length; i++) {
+				listToDelete.push($scope.workout.selectedDay.clients[i].ID);
+			}
+			
+			var lengthToDelete = listToDelete.length;			
+			
+			for(var i = 0; i < $scope.clients.length; i++) {
+				var obj = $scope.clients[i];
+
+				if(listToDelete.indexOf(obj.ID) !== -1) {
+					$scope.clients.splice(i, lengthToDelete);
+				}
+			}
+		}
 
 		function generateNewExercise(hash)
 		{
@@ -228,6 +254,7 @@
 		{
 			$scope.workout.selectedDay = angular.copy(day);
 			//$scope.workout.selectedDay = day;
+			optimizeSelectedClients();
 
 		}
 
