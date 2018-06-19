@@ -505,7 +505,9 @@ function workOutUpdate($data)
 					foreach($d['clients'] as $client)
 					{
 						$dNumber = ((int) $client['day_availability']) - 1;
-						$scheduleDate = new \Carbon\Carbon($weekDays[$dNumber]);
+					//	$scheduleDate = new \Carbon\Carbon($weekDays[$dNumber]);
+
+						$scheduleDate = new \Carbon\Carbon($client['date_availability']);
 						$clientQuery = "SELECT * FROM workout_day_clients_tbl WHERE workout_client_dayID={$d['wday_ID']} AND workout_client_workout_ID={$workout['workout_ID']} AND workout_clientID={$client['ID']}";
 						$result = $wpdb->get_results($clientQuery, OBJECT);
 
@@ -519,7 +521,7 @@ function workOutUpdate($data)
 									'workout_client_workout_ID' => (int) $workout['workout_ID'],
 									'workout_clientID' => (int) $client['ID'],
 									'workout_day_availability' => (int) $client['day_availability'],
-									'workout_client_schedule' => $scheduleDate->format('Y-m-d h:i:s')
+									'workout_client_schedule' => $scheduleDate->format('Y-m-d')
 								)
 							);
 						} else {
@@ -527,7 +529,7 @@ function workOutUpdate($data)
 								'workout_day_clients_tbl',
 								array(
 									'workout_day_availability' => (int) $client['day_availability'],
-									'workout_client_schedule' => $scheduleDate->format('Y-m-d h:i:s')
+									'workout_client_schedule' => $scheduleDate->format('Y-m-d')
 								),
 								array( 'workout_clientID' => $client['ID'],
 									'workout_client_dayID' => (int) $d['wday_ID'],
@@ -675,7 +677,8 @@ function workOutUpdate($data)
 					foreach($d['clients'] as $client)
 					{
 						$dNumber = ((int) $client['day_availability']) - 1;
-						$scheduleDate = new \Carbon\Carbon($weekDays[$dNumber]);
+					//	$scheduleDate = new \Carbon\Carbon($weekDays[$dNumber]);
+						$scheduleDate = new \Carbon\Carbon($client['date_availability']);
 						// insert the new client id
 						$wpdb->insert('workout_day_clients_tbl',
 							array(
@@ -804,8 +807,9 @@ function workOutUserList($userId)
 	$workouts = $wpdb->get_results($querystr, OBJECT);
 	//dd($workouts);
 	return $workouts;
-}$querystr = "SELECT * FROM workout_tbl WHERE workout_ID=".$workoutId." LIMIT 1";
-$result = $wpdb->get_results($querystr, ARRAY_A);
+}
+//$querystr = "SELECT * FROM workout_tbl WHERE workout_ID=".$workoutId." LIMIT 1";
+//$result = $wpdb->get_results($querystr, ARRAY_A);
 
 function workoutGetClientWorkouts($clientId)
 {
@@ -890,7 +894,7 @@ function workOutGet($workoutId)
 			// get workout exercises
 			$exercisesQuery = "SELECT * FROM workout_exercises_tbl WHERE exer_day_ID=".$d['wday_ID'];
 			$exercises = $wpdb->get_results($exercisesQuery, ARRAY_A);
-		//	dd($exercises);
+
 			// get workout assigned clients
 			$clientsQuery = "SELECT * FROM workout_day_clients_tbl WHERE workout_client_dayID=".$d['wday_ID'];
 			$clients = $wpdb->get_results($clientsQuery, ARRAY_A);
@@ -907,6 +911,7 @@ function workOutGet($workoutId)
 				{
 					$client = $userResult[0];
 					$client['day_availability'] = $c['workout_day_availability'];
+					$client['date_availability'] = explode(" ", $c['workout_client_schedule'])[0];
 					$client['exercises'] = [];
 
 					foreach ($exercises as $ex)
