@@ -18,6 +18,7 @@
 		$scope.workoutMaxSet = 0;
 		$scope.exerciseOptions = exerciseOptions;
 		$scope.exerciseSQoptions = exerciseSQoptions;
+		$scope.clientExerciseSets = [];
 
 		init();
 
@@ -336,13 +337,16 @@
 			{
 				var exercise = angular.copy($scope.workout.selectedDay.exercises[i]);
 				var noSet = 0;
+				$scope.clientExerciseSets[i] = 0;
 
 				if (exercise.exer_sets) {
 					noSet = parseInt(angular.copy(exercise.exer_sets));
+					$scope.clientExerciseSets[i] = parseInt(angular.copy(exercise.exer_sets));
 				}
 
 				if (exercise.selectedSQ && exercise.selectedSQ.selectedSet) {
 					noSet = exercise.selectedSQ.selectedSet;
+					$scope.clientExerciseSets[i] = exercise.selectedSQ.selectedSet;
 				}
 
 				if (typeof $scope.workoutMaxSet == 'undefined') {
@@ -898,8 +902,8 @@
 																			<th>Weight</th>
 																		</tr>
 																		<tr ng-repeat="exer in workout.selectedDay.selectedClient.exercises track by $index">
-																			<td><input class="set-val" type="text" ng-model="exer.assignment_sets[numSet].reps"></td>
-																			<td><input class="set-val" type="text" ng-model="exer.assignment_sets[numSet].weight"></td>
+																			<td><input ng-disabled="clientExerciseSets[$index] <=  numSet" class="set-val" type="text" ng-model="exer.assignment_sets[numSet].reps"></td>
+																			<td><input ng-disabled="clientExerciseSets[$index] <=  numSet" class="set-val" type="text" ng-model="exer.assignment_sets[numSet].weight"></td>
 																		</tr>
 																	</table>
 																</div>

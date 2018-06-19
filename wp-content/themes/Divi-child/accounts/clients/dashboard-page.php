@@ -30,18 +30,23 @@
 	</div>
 
 	<ul class="workout-lists">
-		<?php foreach ($clientWorkouts['upcomingWorkouts'] as $workout) { ?>
+		<?php foreach ($clientWorkouts['upcomingWorkouts'] as $workout) {
+			if($workout->workout):
+		?>
 			<li>
 				<div class="workout-wrapper">
-					<span><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/workout.png'; ?>"></span>
+					<span><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/workout.png'; ?>"></span>					
 					<label><?php echo $workout->workout->workout_name . "-" . $workout->day->wday_name ?></label>
 					<div class="workout-controls">
 						<span><a href="#"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/workout-note.png'; ?>"></a></span>
-						<span><a href="<?php echo home_url(); ?>/client/?data=workout"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/workout-play.png'; ?>"></a></span>
+						<!--span><a href="<?php echo home_url(); ?>/client/?data=workout"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/workout-play.png'; ?>"></a></span-->
 					</div>
 				</div>
 			</li>
-		<?php } ?>
+		<?php
+			endif;
+		}
+		?>
 	</ul>
 	<div class="recent-activity">
 		<div class="row">

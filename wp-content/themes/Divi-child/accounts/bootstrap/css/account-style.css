@@ -1410,7 +1410,7 @@ ul.workout-lists li .exercise-set-item .rep-navigation label{
 .assign-client-to-workout .assign-focus,
 .assign-client-to-workout .assign-workout-sets p{margin-bottom:5px;}
 .assign-client-to-workout .workout-exercise-lists{margin-top:40px;}
-.assign-client-to-workout .select-date-workout input.datepicker{max-width:100%;}
+.assign-client-to-workout .select-date-workout input{max-width:100%;}
 /*Logs Page*/
 .custom-paginate li{
 	line-height:20px;

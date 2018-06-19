@@ -10,13 +10,6 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-<script type="text/javascript">
-	$(function () {
-		$("#date").datepicker({
-			dateFormat: 'yy-mm-dd'
-		});
-	});
-</script>
 <script>
 	var clients = <?php echo json_encode(workOutGetClients()) ?>;
 	var workout = <?php echo json_encode(workOutGet($_GET['workout'])) ?>;
@@ -34,6 +27,7 @@
 		$scope.workoutMaxSet = 0;
 		$scope.exerciseOptions = exerciseOptions;
 		$scope.exerciseSQoptions = exerciseSQoptions;
+		$scope.clientExerciseSets = [];
 		
 		init();
 
@@ -425,13 +419,16 @@
 				console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxx');
 				var exercise = angular.copy($scope.workout.selectedDay.exercises[i]);
 				var noSet = 0;
+				$scope.clientExerciseSets[i] = 0;
 				console.log(exercise);
 				if (exercise.exer_sets) {
 					noSet = parseInt(angular.copy(exercise.exer_sets));
+					$scope.clientExerciseSets[i] = parseInt(angular.copy(exercise.exer_sets));
 				}
 
 				if (exercise.selectedSQ && exercise.selectedSQ.selectedSet) {
 					noSet = exercise.selectedSQ.selectedSet;
+					$scope.clientExerciseSets[i] = exercise.selectedSQ.selectedSet;
 				}
 
 				if (typeof $scope.workoutMaxSet == 'undefined') {
@@ -582,7 +579,9 @@
 		return {
 			restrict: "A",
 			link: function (scope, el, attr) {
+				var dateToday = new Date();
 				el.datepicker({
+					minDate: dateToday,
 					dateFormat: 'yy-mm-dd'
 				});
 			}
@@ -1046,9 +1045,9 @@
 																			<th>Reps</th>
 																			<th>Weight</th>
 																		</tr>
-																		<tr ng-repeat="ex in workout.selectedDay.selectedClient.exercises">
-																			<td><input class="set-val" type="text" ng-model="ex.assignment_sets[numSet].reps"></td>
-																			<td><input class="set-val" type="text" ng-model="ex.assignment_sets[numSet].weight"></td>
+																		<tr ng-repeat="ex in workout.selectedDay.selectedClient.exercises track by $index">
+																			<td><input ng-disabled="clientExerciseSets[$index] <=  numSet" class="set-val" type="text" ng-model="ex.assignment_sets[numSet].reps"></td>
+																			<td><input ng-disabled="clientExerciseSets[$index] <=  numSet" class="set-val" type="text" ng-model="ex.assignment_sets[numSet].weight"></td>
 																		</tr>
 																	</table>
 																</div>
