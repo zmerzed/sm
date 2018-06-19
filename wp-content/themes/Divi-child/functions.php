@@ -947,7 +947,7 @@ function workoutClientWorkoutWithDay($workoutId, $dayId, $clientId)
 	global $wpdb;
 	$querystr = "SELECT * FROM workout_day_clients_tbl WHERE workout_client_dayID={$workoutId} AND workout_client_workout_ID={$dayId} LIMIT 1";
 	$result = $wpdb->get_results($querystr, OBJECT);
-	//dd($result);
+
 	if (count($result) >= 1)
 	{
 		$clientWorkout = $result[0];
@@ -968,9 +968,10 @@ function workoutClientWorkoutWithDay($workoutId, $dayId, $clientId)
 			$clientWorkout->day = $day[0];
 		}
 
-		$queryExercises =  "SELECT * FROM workout_exercises_tbl WHERE exer_workout_ID={$clientWorkout->workout_client_workout_ID}";
+		$clientWorkout->exercises = [];
+		$queryExercises =  "SELECT * FROM workout_exercises_tbl WHERE exer_workout_ID={$clientWorkout->workout_client_workout_ID} AND exer_day_ID={$workoutId}";
 		$exercises = $wpdb->get_results($queryExercises, ARRAY_A);
-
+		//dd($queryExercises);
 		if (count($exercises) >= 1) {
 
 			foreach ($exercises as $k => $ex)
