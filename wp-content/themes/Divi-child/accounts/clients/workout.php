@@ -101,7 +101,6 @@
 				clearInterval(this.interval);
 				delete this.interval;
 				this.totalSeconds = 0;
-
 			},
 
 			resume: function () {
@@ -182,10 +181,9 @@
 				});
 			}
 
-			$scope.$apply(function () {
-				$scope.message = "Timeout called!";
-			});
-
+			if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
+				$scope.$apply();
+			}
 			console.log($scope.currentExercise.currentSet);
 		}
 
@@ -202,6 +200,7 @@
 		$scope.onSkip = function()
 		{
 			Clock.stop();
+			runNext();
 		};
 
 		$scope.onNextSet = function()
@@ -232,6 +231,9 @@
 				}
 			}
 
+			if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
+				$scope.$apply();
+			}
 		};
 
 		$scope.$watch('currentExercise', function(val)
