@@ -31,6 +31,7 @@
 			start: function ()
 			{
 
+				console.log($scope.currentExercise.currentSet);
 				$("#idNextSet").attr("disabled", "disabled").button('refresh');
 				$("#idBackSet").attr("disabled", "disabled").button('refresh');
 				function pad(val) { return val > 9 ? val : "0" + val; }
@@ -51,7 +52,6 @@
 					self.totalSeconds = 5;
 				}
 
-				//self.totalSeconds = 5;
 
 				this.interval = setInterval(function ()
 				{
@@ -59,6 +59,7 @@
 
 					if(self.totalSeconds == 0)
 					{
+						runNext();
 						Clock.stop();
 					}
 
@@ -100,7 +101,7 @@
 				clearInterval(this.interval);
 				delete this.interval;
 				this.totalSeconds = 0;
-				runNext();
+
 			},
 
 			resume: function () {
@@ -179,8 +180,13 @@
 					$scope.currentExercise.isDone = true;
 					sequenceExercises();
 				});
-
 			}
+
+			$scope.$apply(function () {
+				$scope.message = "Timeout called!";
+			});
+
+			console.log($scope.currentExercise.currentSet);
 		}
 
 		$scope.checkNotCurrent = function(set)
