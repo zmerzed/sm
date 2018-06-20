@@ -103,7 +103,7 @@ function workOutAdd($data)
 
 	$workout = json_decode(preg_replace('/\\\"/',"\"", $data['workoutForm']), true);
 	$weekDays = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
-	//dd($workout);
+//	dd($workout);
 
 	$wpdb->insert('workout_tbl',
 		array(
@@ -202,10 +202,13 @@ function workOutAdd($data)
 				foreach($d['clients'] as $client)
 				{
 
-					if ((int) $client['day_availability'] > 0)
+					if ((int) $client['date_availability'] > 0)
 					{
 						$dNumber = ((int) $client['day_availability']) - 1;
-						$scheduleDate = new \Carbon\Carbon($weekDays[$dNumber]);
+						//$scheduleDate = new \Carbon\Carbon($weekDays[$dNumber]);
+
+						$scheduleDate = new \Carbon\Carbon($client['date_availability']);
+						//dd($scheduleDate);
 						$wpdb->insert('workout_day_clients_tbl',
 							array(
 								'workout_client_dayID' => (int) $dayId,
@@ -267,9 +270,6 @@ function workOutUpdate($data)
 	$mWorkoutId = (int) $workout['workout_ID'];
 	$weekDays = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
 
-	//dd($workout);
-
-	//dd(array_column($workout['days'][0]['clients'][0]['exercises'], 'hash'));
 	$wpdb->update(
 		'workout_tbl',
 		array(

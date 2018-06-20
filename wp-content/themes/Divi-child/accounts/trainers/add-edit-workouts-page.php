@@ -412,6 +412,20 @@
 			return input;
 		};
 	});
+
+	app.directive("datepicker", function () {
+		return {
+			restrict: "A",
+			link: function (scope, el, attr) {
+				var dateToday = new Date();
+				el.datepicker({
+					minDate: dateToday,
+					dateFormat: 'yy-mm-dd'
+				});
+			}
+		};
+	});
+
 </script>
 
 <div class="main-content padding20 matchHeight" ng-app="app" ng-controller="Controller" ng-cloak>
@@ -838,36 +852,7 @@
 													<p class="assign-focus">Client Focus: <span>Fat Loss</span></p>
 												</div>
 												<div class="col-lg-2 col-md-2 assign-workout select-date-workout">
-													<input type="text" class="datepicker" />
-													<script type="text/javascript">
-														$( function() {
-															$( ".datepicker" ).datepicker({
-																onClose: function(dateText, inst){
-																	var date = $(this).datepicker('getDate'),
-																	dotw = date.getDay(),
-																	date_ = 0;
-																	
-																	if(dotw == 0){
-																		date_ = 7;
-																	}else{
-																		date_ = dotw;
-																	}
-																	
-																	$(this).closest('.assign-workout').find('select').val(date_);
-																}
-															});
-														});
-													</script>
-													<select ng-model="workout.selectedDay.selectedClient.day_availability">
-														<option value="" selected disabled hidden>Availability</option>
-														<option value="1">Monday</option>
-														<option value="2">Tuesday</option>
-														<option value="3">Wednesday</option>
-														<option value="4">Thursday</option>
-														<option value="5">Friday</option>
-														<option value="6">Saturday</option>
-														<option value="7">Sunday</option>
-													</select>													
+													<input type="text" datepicker ng-model="workout.selectedDay.selectedClient.date_availability"/>
 												</div>
 												<div class="col-lg-4 col-md-4">
 													<ul class="workout-exercise-lists">
