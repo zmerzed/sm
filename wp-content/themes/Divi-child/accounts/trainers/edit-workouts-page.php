@@ -1042,11 +1042,9 @@
 																<div class="assign-sets-wrapper">
 																	<table class="last-sets" style="width: 100% !important;">
 																		<tr>
-																			<th>Reps</th>
 																			<th>Weight</th>
 																		</tr>
 																		<tr ng-repeat="ex in workout.selectedDay.selectedClient.exercises track by $index">
-																			<td><input ng-disabled="clientExerciseSets[$index] <=  numSet" class="set-val" type="text" ng-model="ex.assignment_sets[numSet].reps"></td>
 																			<td><input ng-disabled="clientExerciseSets[$index] <=  numSet" class="set-val" type="text" ng-model="ex.assignment_sets[numSet].weight"></td>
 																		</tr>
 																	</table>

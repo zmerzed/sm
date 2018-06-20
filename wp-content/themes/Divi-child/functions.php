@@ -102,7 +102,7 @@ function workOutAdd($data)
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
 	$workout = json_decode(preg_replace('/\\\"/',"\"", $data['workoutForm']), true);
-	$weekDays = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
+
 //	dd($workout);
 
 	$wpdb->insert('workout_tbl',
@@ -204,11 +204,9 @@ function workOutAdd($data)
 
 					if ((int) $client['date_availability'] > 0)
 					{
-						$dNumber = ((int) $client['day_availability']) - 1;
-						//$scheduleDate = new \Carbon\Carbon($weekDays[$dNumber]);
 
 						$scheduleDate = new \Carbon\Carbon($client['date_availability']);
-						//dd($scheduleDate);
+
 						$wpdb->insert('workout_day_clients_tbl',
 							array(
 								'workout_client_dayID' => (int) $dayId,
@@ -244,7 +242,6 @@ function workOutAdd($data)
 										$wpdb->insert('workout_client_exercise_assignment_sets',
 											array(
 												'assignment_id' => (int) $assignmentId,
-												'reps' => $set['reps'],
 												'weight' => $set['weight'],
 												'seq' => $key + 1
 											)
@@ -584,7 +581,6 @@ function workOutUpdate($data)
 											$wpdb->insert('workout_client_exercise_assignment_sets',
 												array(
 													'assignment_id' => (int) $assignmentId,
-													'reps' => $set['reps'],
 													'weight' => $set['weight'],
 													'seq' => $key + 1
 												)
@@ -729,7 +725,6 @@ function workOutUpdate($data)
 											$wpdb->insert('workout_client_exercise_assignment_sets',
 												array(
 													'assignment_id' => (int) $assignmentId,
-													'reps' => $set['reps'],
 													'weight' => $set['weight'],
 													'seq' => $key + 1
 												)
@@ -1176,7 +1171,7 @@ function workoutCreateClientExerciseLog()
 				$wpdb->update(
 					'workout_client_set_logs',
 					array(
-						'reps' 		  => $set['reps'],
+					//	'reps' 		  => $set['reps'],
 						//'isMet' 	  => (int) $set['isMet'] ? true : false,
 						//'isDone'      => $set['isMet'],
 					),
@@ -1190,7 +1185,7 @@ function workoutCreateClientExerciseLog()
 				$wpdb->insert('workout_client_set_logs',
 					array(
 						'exercise_log_id' => $exerciseLogId,
-						'reps' 		  => $set['reps'],
+						//'reps' 		  => $set['reps'],
 					//	'isMet' 	  => (int) $set['isMet'] ? true : false,
 						//'isDone'      => $set['isMet'],
 						'seq'		  => (int) $set['seq'],

@@ -288,7 +288,7 @@
 									<div class="col-lg-6 col-md-6 col-sm-12 goal-set">
 										<label>
 											Reps
-											<span>{{ currentExercise.currentSet.reps }}</span>
+											<span>{{ currentExercise.exer_rep }}</span>
 										</label>
 									</div>
 									<div class="col-lg-6 col-md-6 col-sm-12 goal-set">
