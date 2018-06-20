@@ -1238,6 +1238,7 @@ ul.workout-exercise-lists li.workout-exercise-item{
 /*****************/
 /*Start Workout*/
 /*****************/
+.start-workout .exercise-set-rest button{font-size:14px;position:relative;top:-5px;}
 button[disabled="disabled"]{
 	background-color:#acacac;
 }
