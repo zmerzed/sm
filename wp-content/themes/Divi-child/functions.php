@@ -71,8 +71,8 @@ add_role(
     __( 'Gym' ),
     array(
         'edit_users'   => true,
-        'create_users'   => true,
-        'read'         => true
+        'create_users'   => true ,
+		'read'         => true		
     )
 );
 add_role(
@@ -111,7 +111,7 @@ function getTrainersOfGym($user) {
 }
 
 /*Assign a Trainer to a Gym*/
-function assignTrainersToGym($trainer, $gym) { 
+function assignTrainerToGym($trainer, $gym) { 
   if ( ! in_array('gym', $gym->roles, true) ) {
      return false;
   }
@@ -121,7 +121,9 @@ function assignTrainersToGym($trainer, $gym) {
   }
  
   $trainers = get_user_meta($gym->ID, 'trainers_of_gym', true);
-  is_empty($trainers) and $trainers = array();
+  if(empty($trainers)){
+	  $trainers = array();
+  }
   
   $trainers[] = $trainer->ID;
   $update = update_user_meta($gym->ID, 'trainers_of_gym', $trainers);
