@@ -65,6 +65,70 @@ function sm_login_redirect( $redirect_to, $request, $user ) {
 
 add_filter( 'login_redirect', 'sm_login_redirect', 10, 3 );
 
+/*ADD NEW ROLES*/
+add_role(
+    'gym',
+    __( 'Gym' ),
+    array(
+        'edit_users'   => true,
+        'create_users'   => true,
+        'read'         => true
+    )
+);
+add_role(
+    'trainer',
+    __( 'Trainer' ),
+    array(
+		'edit_users'   => true,
+		'create_users'   => true,
+        'read'         => true
+    )
+);
+add_role(
+    'client',
+    __( 'Client' ),
+    array(
+        'read'         => true
+    )
+);
+
+/*Return array of trainers*/
+function getTrainersOfGym($user) {  
+  if ( ! in_array('gym', $user->roles, true) ) {
+    return array();
+  }
+  $meta = get_user_meta($user->ID, 'trainers_of_gym', true);
+  if (empty($meta)) {
+    return array();
+  }
+
+  $query = new WP_User_Query(array(
+    'role'    => 'trainer',
+    'include' => (array) $meta
+  ));
+
+  return $query->results;
+}
+
+/*Assign a Trainer to a Gym*/
+function assignTrainersToGym($trainer, $gym) { 
+  if ( ! in_array('gym', $gym->roles, true) ) {
+     return false;
+  }
+  
+  if ( ! in_array('trainer', $trainer->roles, true) ) {
+     return false;
+  }
+ 
+  $trainers = get_user_meta($gym->ID, 'trainers_of_gym', true);
+  is_empty($trainers) and $trainers = array();
+  
+  $trainers[] = $trainer->ID;
+  $update = update_user_meta($gym->ID, 'trainers_of_gym', $trainers);
+
+  return (int) $update > 0;
+}
+
 
 function test()
 {
