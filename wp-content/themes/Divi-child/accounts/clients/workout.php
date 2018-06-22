@@ -316,6 +316,7 @@
 			console.log('pointers');
 			console.log($scope.pointers);
 			$scope.currentExercise = $scope.clientWorkout.exercises[$scope.pointers.exercise];
+			$scope.currentExercise.user_id = currentUserId;
 			$scope.currentExercise.currentSet = $scope.currentExercise.sets[$scope.pointers.set];
 			$scope.currentExercise.currentSet.reps = angular.copy($scope.currentExercise.exer_rep);
 		}, true);

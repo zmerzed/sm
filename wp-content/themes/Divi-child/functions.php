@@ -854,7 +854,7 @@ function workoutClientsList($workout_ID)
 	
 	$querystr = 'SELECT * FROM `workout_day_clients_tbl` WHERE workout_client_workout_ID = '.$workout_ID.' GROUP BY workout_clientID';
 	$workout_clients = $wpdb->get_results($querystr, OBJECT);
-	//dd($workout_clients);
+
 	return $workout_clients;
 	
 }
@@ -877,7 +877,7 @@ function workoutGetClientWorkouts($clientId)
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
 	global $wpdb;
-	$todayQuery = "SELECT DISTINCT(workout_client_workout_ID), workout_client_dayID FROM workout_day_clients_tbl WHERE DATE(`workout_client_schedule`) = CURDATE() AND workout_clientID={$clientId}";
+	$todayQuery = "SELECT DISTINCT(workout_client_workout_ID), workout_client_dayID, workout_isDone FROM workout_day_clients_tbl WHERE DATE(`workout_client_schedule`) = CURDATE() AND workout_clientID={$clientId}";
 	$todayClientWorkouts = $wpdb->get_results($todayQuery, OBJECT);
 	$upcomingWorkouts = [];
 
@@ -1219,7 +1219,6 @@ function workoutCreateClientExerciseLog()
 		$exerciseLogId = $wpdb->insert_id;
 	}
 
-
 	if (isset($data['sets']))
 	{
 		foreach ($data['sets'] as $set)
@@ -1262,6 +1261,17 @@ function workoutCreateClientExerciseLog()
 		}
 	}
 
+	// update the workout_day_clients_tbl table for flagging isDone
+
+	$wpdb->update(
+		'workout_day_clients_tbl',
+		array('workout_isDone' => TRUE),
+		array(
+			'workout_client_dayID' => (int) $data['exer_day_ID'],
+			'workout_client_workout_ID' => (int) $data['exer_workout_ID'],
+			'workout_clientID' => $userId
+		)
+	);
 }
 
 function workoutCreateClientSetLog()

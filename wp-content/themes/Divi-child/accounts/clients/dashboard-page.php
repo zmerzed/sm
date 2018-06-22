@@ -11,10 +11,14 @@
 
 	<ul class="workout-lists">
 		<?php foreach ($clientWorkouts['todayWorkouts'] as $workout) { ?>
+
 		<li>
 			<h4 class="workout-date"><?php echo helperGetCurrentDate()->format('l, Y-m-d'); ?> </h4>
 			<div class="workout-wrapper">
 				<span><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/workout.png'; ?>"></span>
+				<?php if ((int) $workout->workout_isDone) { ?>
+					<span style="color:white">Completed</span>
+				<?php } ?>
 				<label><?php echo $workout->workout->workout_name . "-" . $workout->day->wday_name ?></label>
 				<div class="workout-controls">
 					<span><a href="#"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/workout-note.png'; ?>"></a></span>
