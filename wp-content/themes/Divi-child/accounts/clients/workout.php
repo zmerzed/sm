@@ -10,7 +10,10 @@
 	{
 		var urlApiClient = rootUrl + '/wp-json/v1/client';
 		$scope.clientWorkout = {};
-
+		$scope.pointers = {
+			exercise: 0,
+			set: 0
+		};
 		init();
 
 		function init()
@@ -19,8 +22,21 @@
 			console.log(clientWorkout);
 			$scope.clientWorkout = clientWorkout;
 
-			sequenceExercises();
 
+			if ($scope.clientWorkout.exercises.length > 0) {
+
+				/* set the current exercise during initialize */
+				$scope.currentExercise = $scope.clientWorkout.exercises[$scope.pointers.exercise];
+
+				/* set the current set during initialize */
+
+				if ($scope.currentExercise.sets.length > 0) {
+					$scope.currentExercise.currentSet = $scope.currentExercise.sets[0];
+					$scope.currentExercise.currentSet.reps = angular.copy($scope.currentExercise.exer_rep);
+				}
+			}
+
+			console.log($scope.currentExercise);
 			console.log('||-------------------------------------------------||');
 		}
 
@@ -129,15 +145,12 @@
 
 		function sequenceSets()
 		{
-			console.log('llllllllllllllllllllllllllllllll');
 			for (var i in $scope.currentExercise.sets)
 			{
 				var set = $scope.currentExercise.sets[i];
 				console.log(set);
 				if (!set.isDone)
 				{
-					set.reps = angular.copy($scope.currentExercise.exer_rep)
-						//currentExercise.currentSet.reps
 					$scope.currentExercise.currentSet = set;
 					break;
 				}
@@ -147,44 +160,70 @@
 		function runNext()
 		{
 
-			var hasFoundDone = false;
+//			var hasFoundDone = false;
+//
+//			if ($scope.currentExercise.currentSet)
+//			{
+//				var currentOrder = parseInt($scope.currentExercise.currentSet.seq);
+//				var nextOrder = currentOrder + 1;
+//
+//				$scope.currentExercise.currentSet.isDone = true;
+//				for (var i in $scope.currentExercise.sets)
+//				{
+//					var set = $scope.currentExercise.sets[i];
+//
+//					if (nextOrder == set.seq)
+//					{
+//						hasFoundDone = true;
+//						$scope.currentExercise.currentSet = set;
+//						break;
+//					}
+//				}
+//			}
+//
+//			if (!hasFoundDone)
+//			{
+//				console.log('THE END');
+//				console.log($scope.clientWorkout);
+//
+//				$http.post(urlApiClient+'/process', $scope.currentExercise).then(function()
+//				{
+//					$scope.currentExercise.isDone = true;
+//					sequenceExercises();
+//				});
+//			}
 
-			if ($scope.currentExercise.currentSet)
+			console.log('run next................');
+
+			if ($scope.pointers.set >= (parseInt($scope.currentExercise.exer_sets) - 1))
 			{
-				var currentOrder = parseInt($scope.currentExercise.currentSet.seq);
-				var nextOrder = currentOrder + 1;
+				// increase exercise pointer
 
-				$scope.currentExercise.currentSet.isDone = true;
-				for (var i in $scope.currentExercise.sets)
-				{
-					var set = $scope.currentExercise.sets[i];
+				if ($scope.pointers.exercise >= ($scope.clientWorkout.exercises.length - 1)) {
 
-					if (nextOrder == set.seq)
-					{
-						hasFoundDone = true;
-						$scope.currentExercise.currentSet = set;
-						break;
-					}
+					alert('Workout Done!');
+					$scope.pointers.exercise = 0;
+					$scope.pointers.set = 0;
+					$http.post(urlApiClient+'/process', $scope.currentExercise).then(function() {
+						//$scope.currentExercise.isDone = true;
+						window.location = rootUrl + '/client';
+					});
+				} else {
+					$http.post(urlApiClient+'/process', $scope.currentExercise).then(function() {
+						//$scope.currentExercise.isDone = true;
+					});
+					$scope.pointers.exercise++;
+					$scope.pointers.set = 0;
 				}
+			} else {
+				$scope.pointers.set++;
 			}
 
-			if (!hasFoundDone)
-			{
-
-				console.log('THE END');
-				console.log($scope.clientWorkout);
-
-				$http.post(urlApiClient+'/process', $scope.currentExercise).then(function()
-				{
-					$scope.currentExercise.isDone = true;
-					sequenceExercises();
-				});
-			}
 
 			if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
 				$scope.$apply();
 			}
-			console.log($scope.currentExercise.currentSet);
+
 		}
 
 		$scope.checkNotCurrent = function(set)
@@ -210,50 +249,76 @@
 
 		$scope.onBackSet = function()
 		{
-			console.log('onBackSet');
-			if ($scope.currentExercise.currentSet)
+//			console.log('onBackSet');
+//			if ($scope.currentExercise.currentSet)
+//			{
+//				var currentOrder = $scope.currentExercise.currentSet.seq;
+//				var prevOrder = currentOrder - 1;
+//
+//				if (prevOrder > 0)
+//				{
+//					for (var i in $scope.currentExercise.sets)
+//					{
+//						var set = $scope.currentExercise.sets[i];
+//
+//						if (prevOrder == set.seq)
+//						{
+//							$scope.currentExercise.currentSet = set;
+//							break;
+//						}
+//					}
+//				}
+//			}
+//
+//			if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
+//				$scope.$apply();
+//			}
+
+			console.log('run backset................');
+
+			if ($scope.pointers.set > 0)
 			{
-				var currentOrder = $scope.currentExercise.currentSet.seq;
-				var prevOrder = currentOrder - 1;
+				// increase exercise pointer
+				$scope.pointers.set--;
 
-				if (prevOrder > 0)
-				{
-					for (var i in $scope.currentExercise.sets)
-					{
-						var set = $scope.currentExercise.sets[i];
-
-						if (prevOrder == set.seq)
-						{
-							$scope.currentExercise.currentSet = set;
-							break;
-						}
-					}
+			} else {
+				if ($scope.pointers.exercise > 0) {
+					$scope.pointers.exercise--;
+					$scope.pointers.set = 0;
 				}
 			}
+
 
 			if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
 				$scope.$apply();
 			}
 		};
 
-		$scope.$watch('currentExercise', function(val)
-		{
+//		$scope.$watch('currentExercise', function(val)
+//		{
+//
+//			if (val)
+//			{
+//				$scope.currentExercise.user_id = currentUserId;
+//
+//				/* checking client exercise logs */
+//				var params = '?exerciseId='+$scope.currentExercise.exer_ID+'&user_id='+currentUserId;
+//
+//				$http.get(urlApiClient+'/get'+params).then(function(res)
+//				{
+//					console.log(res);
+//					sequenceSets();
+//				});
+//			}
+//		});
 
-			if (val)
-			{
-
-				$scope.currentExercise.user_id = currentUserId;
-
-				/* checking client exercise logs */
-				var params = '?exerciseId='+$scope.currentExercise.exer_ID+'&user_id='+currentUserId;
-
-				$http.get(urlApiClient+'/get'+params).then(function(res)
-				{
-					console.log(res);
-					sequenceSets();
-				});
-			}
-		});
+		$scope.$watch('pointers', function() {
+			console.log('pointers');
+			console.log($scope.pointers);
+			$scope.currentExercise = $scope.clientWorkout.exercises[$scope.pointers.exercise];
+			$scope.currentExercise.currentSet = $scope.currentExercise.sets[$scope.pointers.set];
+			$scope.currentExercise.currentSet.reps = angular.copy($scope.currentExercise.exer_rep);
+		}, true);
 
 	});
 
