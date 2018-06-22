@@ -1,4 +1,10 @@
-<div class="main-content matchHeight">
+<div class="main-content matchHeight gym-trainer-page">
+	<?php if($_GET['add']):
+		get_template_part( 'accounts/gym/add-trainers', 'page' );
+	else: ?>
+	<div class="trainer-add-workout">
+		<a href="<?php echo home_url(); ?>/gym/?data=trainers&add=1">+ Add Trainer</a>
+	</div>
 	<table id="table-sorter-logs" class="table table-striped table-bordered" style="width:100%">
 	    <thead>
 	        <tr>
@@ -54,4 +60,5 @@
 	        </tr>
 	    </tbody>
 	</table>
+	<?php endif; ?>
 </div>

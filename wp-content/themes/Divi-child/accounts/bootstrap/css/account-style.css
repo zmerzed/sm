@@ -1207,6 +1207,7 @@ ul.workout-exercise-lists li.workout-exercise-item{
 	display:block;
 	clear:both;
 }
+.gym-page .gym-trainer-page .trainer-add-workout{margin-bottom:25px;}
 .gym-page .workout-tab-pane-wrapper{padding-bottom:20px;}
 .gym-page #message-nav-tab .nav-item.active{background-color:#6db6e5;border-color:#6db6e5;}
 .gym-page .trainer-additional-box-info a,
