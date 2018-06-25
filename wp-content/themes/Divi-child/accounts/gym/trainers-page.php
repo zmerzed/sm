@@ -23,7 +23,7 @@
 	            <td>4 Days Ago</td>
 	            <td>4 Clients</td>
 	        </tr> -->
-		<?php $trainers = get_user_meta(6, 'trainers_of_gym', true);
+		<?php $trainers = get_user_meta(wp_get_current_user()->ID, 'trainers_of_gym', true);
 			foreach($trainers as $trainer):
 				$user_info = get_user_by('id', $trainer);
 				$user_ava = get_avatar( $user_info->ID );
@@ -34,7 +34,7 @@
 					<?php echo $user_ava; ?>			
 				</td>
 	            <td><?php echo $user_info->first_name . ' ' . $user_info->last_name;  ?></td>
-	            <td>-:-- am</td>
+	            <td>-:-- --</td>
 	            <td>-- Days Ago</td>
 	            <td>-- Clients</td>
 	        </tr>

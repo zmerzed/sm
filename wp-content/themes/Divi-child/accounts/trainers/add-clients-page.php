@@ -56,15 +56,15 @@
    
             $new_user_id = wp_create_user( $username, $password, $email );
 			$user_id_role = new WP_User($new_user_id);
-			$user_id_role->set_role('trainer');
+			$user_id_role->set_role('client');
 			
 			update_user_meta($user_id_role->ID, 'first_name', $fname);
 			update_user_meta($user_id_role->ID, 'last_name', $lname);
 			
-			assignTrainerToGym($user_id_role, wp_get_current_user());
+			assignClientToTrainer($user_id_role, wp_get_current_user());
             $success = 1;   
 			
-            header( 'Location:' . get_bloginfo('url') . '/gym/?data=trainers' );  
+            header( 'Location:' . get_bloginfo('url') . '/trainer/?data=clients' );  
    
         }   
     }
@@ -112,7 +112,6 @@
 		</div>          
 		<br><br>
   
-        <input type="submit" id="submitbtn" name="submit" value="Add Trainer" /> 
-		<a href="<?php echo home_url().'/gym/?data=trainers'; ?>">See all Trainers</a>
-  
+        <input type="submit" id="submitbtn" name="submit" value="Add Client" />  
+		<a href="<?php echo home_url().'/trainer/?data=clients'; ?>">See all Clients</a>
 </form> 

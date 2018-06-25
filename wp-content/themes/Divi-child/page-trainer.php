@@ -81,7 +81,7 @@ if( is_user_logged_in() ){
 	</div>
 </div>
 
-<div class="main-section">
+<div class="main-section trainers-dashboard">
 	<div class="container">
 		<div class="row">
 

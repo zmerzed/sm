@@ -81,7 +81,7 @@ function wpcodex_set_capabilities() {
 		$role->remove_cap( $removeCap );
 	}
 }
-//add_action( 'init', 'wpcodex_set_capabilities' );
+add_action( 'init', 'wpcodex_set_capabilities' );
 
 add_role(
     'gym',
@@ -94,9 +94,7 @@ add_role(
     'trainer',
     __( 'Trainer' ),
     array(
-		'edit_users'   => true,
-		'create_users'   => true,
-        'read'         => true
+		'create_users'   => true
     )
 );
 add_role(
@@ -107,6 +105,23 @@ add_role(
     )
 );
 
+/*Return array of Clients*/
+function getClientsOfTrainer($user) {  
+  if ( ! in_array('trainer', $user->roles, true) ) {
+    return array();
+  }
+  $meta = get_user_meta($user->ID, 'clients_of_trainer', true);
+  if (empty($meta)) {
+    return array();
+  }
+
+  $query = new WP_User_Query(array(
+    'role'    => 'client',
+    'include' => (array) $meta
+  ));
+
+  return $query->results;
+}
 /*Return array of trainers*/
 function getTrainersOfGym($user) {  
   if ( ! in_array('gym', $user->roles, true) ) {
@@ -123,6 +138,27 @@ function getTrainersOfGym($user) {
   ));
 
   return $query->results;
+}
+
+/*Assign a Client to a Trainer*/
+function assignClientToTrainer($client, $trainer) { 
+  if ( ! in_array('trainer', $trainer->roles, true) ) {
+     return false;
+  }
+  
+  if ( ! in_array('client', $client->roles, true) ) {
+     return false;
+  }
+ 
+  $clients = get_user_meta($trainer->ID, 'clients_of_trainer', true);
+  if(empty($clients)){
+	  $clients = array();
+  }
+  
+  $clients[] = $client->ID;
+  $update = update_user_meta($trainer->ID, 'clients_of_trainer', $clients);
+
+  return (int) $update > 0;
 }
 
 /*Assign a Trainer to a Gym*/
