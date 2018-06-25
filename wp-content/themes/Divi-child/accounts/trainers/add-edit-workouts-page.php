@@ -171,6 +171,11 @@
 			return false;
 		};
 
+		$scope.onChangeDayName = function()
+		{
+			$scope.onLeaveDay();
+		};
+
 		$scope.$watch('selectedClient', function(val)
 		{
 			console.log(val);
@@ -474,7 +479,7 @@
 								<div class="col-lg-6 col-md-6">
 							<span class="workout-day-name">
 								<label>Day Name: </label>
-								<input type="text" ng-model="workout.selectedDay.name">
+								<input type="text" ng-model="workout.selectedDay.name" ng-change="onChangeDayName()">
 								<!-- <a ng-click="testWorkout()">test</a> -->
 							</span>
 								</div>

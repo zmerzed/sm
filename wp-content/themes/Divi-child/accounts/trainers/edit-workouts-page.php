@@ -196,6 +196,11 @@
 
 		};
 
+		$scope.onChangeDayName = function()
+		{
+			$scope.onLeaveDay();
+		};
+
 		$scope.onSelectDay = function(day)
 		{
 			optimizeSelectedDay();
@@ -417,7 +422,6 @@
 
 			for (var i in $scope.workout.selectedDay.exercises)
 			{
-				console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxx');
 				var exercise = angular.copy($scope.workout.selectedDay.exercises[i]);
 				var noSet = 0;
 				$scope.clientExerciseSets[i] = 0;
@@ -638,7 +642,7 @@
 								<div class="col-lg-6 col-md-6">
 							<span class="workout-day-name">
 								<label>Day Name: </label>
-								<input type="text" ng-model="workout.selectedDay.wday_name">
+								<input type="text" ng-model="workout.selectedDay.wday_name" ng-change="onChangeDayName();">
 							</span>
 								</div>
 								<div class="col-lg-6 col-md-6">
