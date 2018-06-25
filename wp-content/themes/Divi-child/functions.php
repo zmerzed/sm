@@ -65,14 +65,29 @@ function sm_login_redirect( $redirect_to, $request, $user ) {
 
 add_filter( 'login_redirect', 'sm_login_redirect', 10, 3 );
 
+
 /*ADD NEW ROLES*/
+function wpcodex_set_capabilities() {
+    $role = get_role( 'trainer' );
+	
+	$caps = array('create_users');
+	$removeCaps = array('edit_posts', 'edit_users', 'list_users', 'remove_users', 'delete_users');
+    
+	foreach($caps as $cap){
+		$role->add_cap( $cap );
+	}
+	
+	foreach($removeCaps as $removeCap){
+		$role->remove_cap( $removeCap );
+	}
+}
+//add_action( 'init', 'wpcodex_set_capabilities' );
+
 add_role(
     'gym',
     __( 'Gym' ),
     array(
-        'edit_users'   => true,
-        'create_users'   => true ,
-		'read'         => true		
+		'create_users'   => true,
     )
 );
 add_role(

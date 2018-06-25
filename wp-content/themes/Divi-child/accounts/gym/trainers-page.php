@@ -16,48 +16,31 @@
 	        </tr>
 	    </thead>
 	    <tbody>
-	        <tr>
+	        <!-- <tr>
 	            <td><img src="/wp-content/uploads/2018/03/gary-muscleton.png"></td>
 	            <td>Trainer Name #1</td>
 	            <td>9:30 am</td>
 	            <td>4 Days Ago</td>
 	            <td>4 Clients</td>
+	        </tr> -->
+		<?php $trainers = get_user_meta(6, 'trainers_of_gym', true);
+			foreach($trainers as $trainer):
+				$user_info = get_user_by('id', $trainer);
+				$user_ava = get_avatar( $user_info->ID );
+				if($user_info):
+		?>
+			<tr>
+	            <td>
+					<?php echo $user_ava; ?>			
+				</td>
+	            <td><?php echo $user_info->first_name . ' ' . $user_info->last_name;  ?></td>
+	            <td>-:-- am</td>
+	            <td>-- Days Ago</td>
+	            <td>-- Clients</td>
 	        </tr>
-	        <tr>
-	            <td><img src="/wp-content/uploads/2018/03/larry-muscleton.png"></td>
-	            <td>Trainer Name #1</td>
-	            <td>2:45s</td>
-	            <td>4 Days Ago</td>
-	           <td>4 Clients</td>
-	        </tr>
-	        <tr>
-	            <td><img src="/wp-content/uploads/2018/03/gary-muscleton.png"></td>
-	            <td>Trainer Name #1</td>
-	            <td>Tuesday<br>8:45 am</td>
-	            <td>4 Days Ago</td>
-	            <td>4 Clients</td>
-	        </tr>
-	        <tr>
-	            <td><img src="/wp-content/uploads/2018/03/larry-muscleton.png"></td>
-	            <td>Trainer Name #1</td>
-	            <td>March 26th<br>9:45 am</td>
-	            <td>4 Days Ago</td>
-	            <td>4 Clients</td>
-	        </tr>
-	        <tr>
-	            <td><img src="/wp-content/uploads/2018/03/gary-muscleton.png"></td>
-	            <td>Trainer Name #1</td>
-	            <td>8:15 am</td>
-	            <td>4 Days Ago</td>
-	            <td>5 Clients</td>
-	        </tr>
-	        <tr>
-	            <td><img src="/wp-content/uploads/2018/03/larry-muscleton.png"></td>
-	            <td>Trainer Name #1</td>
-	            <td>Tomorrow<br>8:30 am</td>
-	            <td>4 Days Ago</td>
-	            <td>4 Clients</td>
-	        </tr>
+		<?php
+			endif;
+			endforeach; ?>			
 	    </tbody>
 	</table>
 	<?php endif; ?>
