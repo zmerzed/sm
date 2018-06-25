@@ -28,7 +28,7 @@
 		$scope.exerciseOptions = exerciseOptions;
 		$scope.exerciseSQoptions = exerciseSQoptions;
 		$scope.clientExerciseSets = [];
-		
+
 		init();
 
 		function init()
@@ -185,14 +185,14 @@
 
 				optimizeDays();
 				var countDays = $scope.workout.days.length;
-				
+
 				$scope.selectedClient = "Add Client";
 				$scope.clients = angular.copy($scope.clientsBackup);
-				
+
 				selectDay($scope.workout.days[countDays - 1])
 			});
-			
-			
+
+
 
 		};
 
@@ -295,15 +295,16 @@
 					break;
 				}
 			}
-			
-			
+
+
 			/* console.log('===========xxxxxxxxxxBEFORExxxxxxxxxxx=========');
 			console.log($scope.workout.selectedDay.clients);
 			console.log($scope.clients);
 			console.log('===========xxxxxxxxxxBEFORExxxxxxxxxxx========='); */
-			
-			// match $scope.workout.selectedDay.clients to $scope.clients;			
+
+			// match $scope.workout.selectedDay.clients to $scope.clients;
 			optimizeSelectedClients();
+			optimizeClientExercises();
 		});
 
 		$scope.$watch(function() {
@@ -315,7 +316,7 @@
 				console.log('--------------------------');
 				optimizeClientExercises();
 				findTheLargestSet();
-				
+
 			}
 		},true);
 
@@ -381,18 +382,18 @@
 			return true;
 
 		});
-		
+
 		function optimizeSelectedClients()
-		{	
+		{
 			$scope.clients = angular.copy($scope.clientsBackup);
-			var listToDelete = [];			
-			
+			var listToDelete = [];
+
 			for (var i = 0; i < $scope.workout.selectedDay.clients.length; i++) {
 				listToDelete.push($scope.workout.selectedDay.clients[i].ID);
 			}
-			
+
 			var lengthToDelete = listToDelete.length;
-			
+
 			for(var i = 0; i < $scope.clients.length; i++) {
 				var obj = $scope.clients[i];
 
@@ -400,15 +401,15 @@
 					$scope.clients.splice(i, lengthToDelete);
 				}
 			}
-			
-			
+
+
 			/* console.log('===========xxxxxxxxxxAFTERxxxxxxxxxxx=========');
 			console.log($scope.workout.selectedDay.clients);
 			console.log($scope.clients);
 			console.log('===========xxxxxxxxxxAFTERxxxxxxxxxxx========='); */
-			
+
 		}
-		
+
 		function findTheLargestSet()
 		{
 			/* get the max set */
@@ -443,7 +444,7 @@
 				}
 			}
 		}
-		
+
 		function generateNewExercise(hash)
 		{
 			return {hash:hash, exerciseOptions: angular.copy($scope.exerciseOptions), exerciseSQoptions: angular.copy($scope.exerciseSQoptions)};
@@ -451,13 +452,13 @@
 
 		function selectDay(day)
 		{
-			$scope.workout.selectedDay = angular.copy(day);			
+			$scope.workout.selectedDay = angular.copy(day);
 
 			if ($scope.workout.selectedDay.clients)
 			{
 				$scope.workout.selectedDay.selectedClient = $scope.workout.selectedDay.clients[0];
-				
-				optimizeSelectedClients();				
+
+				optimizeSelectedClients();
 				optimizeClientExercises();
 				optimizeSelectedDay();
 
@@ -1015,7 +1016,7 @@
 												<div class="col-lg-2 col-md-2 assign-workout select-date-workout">
 													<input type="text" datepicker ng-model="workout.selectedDay.selectedClient.date_availability"/>
 												</div>
-												<div class="col-lg-4 col-md-4">	
+												<div class="col-lg-4 col-md-4">
 													<ul class="workout-exercise-lists">
 														<li class="workout-exercise-item" ng-repeat="ex in workout.selectedDay.selectedClient.exercises track by $index">
 															<table class="workout-exercise-options">
