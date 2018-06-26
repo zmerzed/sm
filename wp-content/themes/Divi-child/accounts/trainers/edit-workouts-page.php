@@ -191,9 +191,6 @@
 
 				selectDay($scope.workout.days[countDays - 1])
 			});
-
-
-
 		};
 
 		$scope.onChangeDayName = function()
@@ -321,14 +318,44 @@
 				console.log('--------------------------');
 				optimizeClientExercises();
 				findTheLargestSet();
-
 			}
 		},true);
 
 		$scope.removeDay = function(day)
 		{
 			day.isDelete = true;
+
+			console.log('uuuuuuuuuuuuuuuuu');
+			console.log($scope.workout.days);
+
+			delete day.selectedClient;
+			delete day.exercises;
+			delete day.clients;
+
 			optimizeDays();
+			$scope.onLeaveDay();
+
+			if($scope.$root.$$phase != '$apply' &&
+				$scope.$root.$$phase != '$digest'
+			) {
+				$scope.$apply();
+			}
+
+			setTimeout(function() {
+
+				console.log('xxxxxxxxxxxxxxxxxxxxxxxx');
+
+				for (var i=$scope.workout.days.length - 1; i>=0; --i)
+				{
+					var day = $scope.workout.days[i];
+
+					if (!day.isDelete) {
+						selectDay(day);
+						break;
+					}
+				}
+
+			}, 200)
 		};
 
 		$scope.removeExercise = function(exercise)
@@ -425,7 +452,7 @@
 				var exercise = angular.copy($scope.workout.selectedDay.exercises[i]);
 				var noSet = 0;
 				$scope.clientExerciseSets[i] = 0;
-				console.log(exercise);
+
 				if (exercise.exer_sets) {
 					noSet = parseInt(angular.copy(exercise.exer_sets));
 					$scope.clientExerciseSets[i] = parseInt(angular.copy(exercise.exer_sets));
@@ -551,23 +578,21 @@
 
 		function optimizeDays()
 		{
+
 			var count = 1;
 
 			for(var i in $scope.workout.days)
 			{
-				var day = $scope.workout.days[i];
-
-				if(day.isDelete)
-				{
-					continue;
-				}
-
+//				var day = $scope.workout.days[i];
+//
+//				if (!day.isDelete)
+//				{
+//
+//				}
 				$scope.workout.days[i].wday_order = count;
 				count++;
 			}
-
 		}
-
 	});
 
 	app.filter("range", function() {
@@ -627,7 +652,7 @@
 				   ng-repeat="day in workout.days"
 				   ng-click="onSelectDay(day)"
 				   ng-class="{active: isActive(day)}"
-				   ng-if="!day.isDelete"
+				   ng-show="!day.isDelete"
 				>Day {{day.wday_order}} - {{day.wday_name}}</a>
 			</div>
 		</nav>
@@ -655,7 +680,7 @@
 						</div>
 
 						<ul class="workout-exercise-lists">
-							<li class="workout-exercise-item" ng-repeat="exercise in workout.selectedDay.exercises track by $index" ng-if="!exercise.isDelete">
+							<li class="workout-exercise-item" ng-repeat="exercise in workout.selectedDay.exercises track by $index" ng-show="!exercise.isDelete">
 								<table class="workout-exercise-options">
 									<td><span class="exercise-number"><label>{{ exercise.seq }}</label></span></td>
 									<td>
