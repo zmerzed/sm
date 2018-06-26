@@ -62,13 +62,13 @@
 			update_user_meta($user_id_role->ID, 'last_name', $lname);
 			
 			assignClientToTrainer($user_id_role, wp_get_current_user());
-            $success = 1;   
-			
-            header( 'Location:' . get_bloginfo('url') . '/trainer/?data=clients' );  
-   
+            $success = 1;
+			echo "Successfully added new Client.";
+?>
+		<script>window.location =  "<?php echo home_url() . "/trainer/?data=clients"; ?>";</script>
+<?php
         }   
-    }
-	
+    }	
 ?> 
 
 <ul>

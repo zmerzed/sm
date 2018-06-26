@@ -43,15 +43,15 @@ function sm_login_redirect( $redirect_to, $request, $user ) {
 			// redirect them to the default place
 			return $redirect_to;
 
-		} else if( $member_type == 'client' ){
+		} else if( in_array( 'client', $user->roles ) ){
 
 			return home_url() . '/client';
 
-		} else if( $member_type == 'trainer' ){
+		} else if( in_array( 'trainer', $user->roles ) ){
 
 			return home_url() . '/trainer';
 
-		} else if( $member_type == 'gym' ){
+		} else if( in_array( 'gym', $user->roles ) ){
 
 			return home_url() . '/gym';
 
@@ -69,16 +69,19 @@ add_filter( 'login_redirect', 'sm_login_redirect', 10, 3 );
 /*ADD NEW ROLES*/
 function wpcodex_set_capabilities() {
     $role = get_role( 'trainer' );
+    $role2 = get_role( 'gym' );
 	
 	$caps = array('create_users');
 	$removeCaps = array('edit_posts', 'edit_users', 'list_users', 'remove_users', 'delete_users');
     
 	foreach($caps as $cap){
 		$role->add_cap( $cap );
+		$role2->add_cap( $cap );
 	}
 	
 	foreach($removeCaps as $removeCap){
 		$role->remove_cap( $removeCap );
+		$role2->remove_cap( $removeCap );
 	}
 }
 add_action( 'init', 'wpcodex_set_capabilities' );
@@ -867,11 +870,17 @@ function workOutGetClients()
 	$querystr = "SELECT * FROM wp_users";
 	$users = $wpdb->get_results($querystr, OBJECT);
 	$outputList = [];
+	
+	$listOfClients = getClientsOfTrainer(wp_get_current_user());
 
 	foreach($users as $user) {
-		if(bp_get_member_type($user->ID) == 'client') {
-			$outputList[] = $user;
-		}
+		foreach($listOfClients as $listOfClient){
+			if($listOfClient->ID == $user->ID){
+				if(in_array('client', get_userdata($user->ID)->roles)) {
+					$outputList[] = $user;
+				}
+			}			
+		}		
 	}
 
 	return $outputList;

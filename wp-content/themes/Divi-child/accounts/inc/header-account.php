@@ -1,6 +1,6 @@
 <?php
   global $current_user;
-  $userdata = get_currentuserinfo();
+  $userdata = wp_get_current_user();
 ?>
 <!doctype html>
 <html lang="en">
@@ -14,10 +14,8 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,800,900" rel="stylesheet">
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 
-  <?php
-    global $current_user;
-    $userdata = get_currentuserinfo();	
-	$member_type = bp_get_member_type($userdata->data->ID);
+  <?php	
+	$member_type = bp_get_member_type($userdata->ID);
     $data_request = $_GET['data'];
 
     if( $data_request === 'notes' || $data_request === 'logs' ||  $data_request === null || $data_request === 'exercises' || $data_request === 'clients'){
@@ -30,17 +28,17 @@
   <link href='<?php echo get_stylesheet_directory_uri() .'/accounts/assets/css/fullcalendar.print.min.css'; ?>' rel='stylesheet' media='print' />
   
   <link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri() .'/accounts/bootstrap/css/account-style.css'; ?>">
-  <title>My Account - <?php echo $userdata->data->user_login; ?></title>
+  <title>My Account - <?php echo $userdata->user_login; ?></title>
 
   </head>
 
-  <body class="<?php echo ($member_type == 'gym') ? 'gym-page' : ''; ?>">
+  <body class="<?php echo (in_array( 'gym', $userdata->roles )) ? 'gym-page' : ''; ?>">
 
   <div class="header-section">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 col-md-6">
-			<?php if($member_type == "gym"): ?>
+			<?php if(in_array( 'gym', $userdata->roles )): ?>
 				<a href="#"><img id="logo" src="<?php echo get_stylesheet_directory_uri(); ?>/accounts/images/gym-plus-logo.png"></a>
 			<?php else: ?>
 				<a href="#"><img id="logo" src="<?php echo home_url(); ?>/wp-content/uploads/2018/02/sm-logov2-wht.svg"></a>

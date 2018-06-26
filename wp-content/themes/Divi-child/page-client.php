@@ -4,15 +4,16 @@
 */
 
 global $current_user;
-$userdata = get_currentuserinfo();
+/* $userdata = get_currentuserinfo(); */
+$uinfo = wp_get_current_user();
 
 /** check if the user is logged-in **/
 if( is_user_logged_in() ){
 
-	$member_type = bp_get_member_type($userdata->data->ID);
+	$member_type = bp_get_member_type($uinfo->ID);
 
 	/** check if the user trying to access the page has a "client" member type **/
-	if( $member_type === 'client' ){
+	if( in_array( 'client', $uinfo->roles ) ){
 
 		require_once( get_stylesheet_directory() . '/accounts/inc/header-account.php' );
 		?>
@@ -60,7 +61,7 @@ if( is_user_logged_in() ){
 						</h2>
 					</div>
 					<div class="col-lg-6 col-md-6">
-						<h4>Welcome back, <?php echo $userdata->data->user_login; ?></h4>
+						<h4>Welcome back, <?php echo $uinfo->user_login; ?></h4>
 					</div>
 				</div>
 			</div>

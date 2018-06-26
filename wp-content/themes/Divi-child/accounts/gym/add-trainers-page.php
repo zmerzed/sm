@@ -62,13 +62,13 @@
 			update_user_meta($user_id_role->ID, 'last_name', $lname);
 			
 			assignTrainerToGym($user_id_role, wp_get_current_user());
-            $success = 1;   
-			
-            header( 'Location:' . get_bloginfo('url') . '/gym/?data=trainers' );  
-   
+            $success = 1;
+			echo "Successfully added new Trainer.";
+?>
+		<script>window.location =  "<?php echo home_url() . "/gym/?data=trainers"; ?>";</script>
+<?php	  
         }   
-    }
-	
+    }	
 ?> 
 
 <ul>
