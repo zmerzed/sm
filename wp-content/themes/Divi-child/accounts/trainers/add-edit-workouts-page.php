@@ -120,6 +120,8 @@
 					break;
 				}
 			}
+
+			console.log($scope.workout.days);
 		};
 
 		$scope.onCopyExercise = function(exercise)
@@ -280,9 +282,7 @@
 
 		function optimizeClientExercises()
 		{
-
-			console.log('mmmmmmmmmmmmmmmmmmmm');
-
+			
 			for (var i in $scope.workout.selectedDay.exercises)
 			{
 				var exercise = $scope.workout.selectedDay.exercises[i];
@@ -302,27 +302,25 @@
 			for (var i in $scope.workout.selectedDay.clients)
 			{
 				var client = $scope.workout.selectedDay.clients[i];
+				var mNewExercises = [];
+				for (var m in $scope.workout.selectedDay.exercises)
+				{
+					var exercise = angular.copy($scope.workout.selectedDay.exercises[m]);
 
-//				for (var m in $scope.workout.selectedDay.exercises)
-//				{
-//					var exercise = angular.copy($scope.workout.selectedDay.exercises[m]);
-//
-//					for (var z in client.exercises) {
-//
-//						var zExer = client.exercises[z];
-//
-//						if (zExer.hash == exercise.hash)
-//						{
-//							exercise.assignment_sets = angular.copy(zExer.assignment_sets);
-//							mNewExercises.push(exercise);
-//						}
-//					}
-//
-//					//client.exercises = angular.copy($scope.workout.selectedDay.exercises);
-//				}
-				//client.exercises = angular.copy(mNewExercises);
-				client.exercises = angular.copy($scope.workout.selectedDay.exercises);
-				console.log(client);
+					for (var z in client.exercises) {
+
+						var zExer = client.exercises[z];
+
+						if (zExer.hash == exercise.hash)
+						{
+							exercise.assignment_sets = angular.copy(zExer.assignment_sets);
+
+						}
+					}
+					mNewExercises.push(exercise);
+				}
+
+				client.exercises = angular.copy(mNewExercises);
 			}
 
 			if($scope.$root.$$phase != '$apply' &&
