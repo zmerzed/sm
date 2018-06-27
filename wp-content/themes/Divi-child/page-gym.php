@@ -10,7 +10,7 @@ $uinfo = wp_get_current_user();
 /** check if the user is logged-in **/
 if( is_user_logged_in() ){
 
-	$member_type = bp_get_member_type($uinfo->ID);
+	/* $member_type = bp_get_member_type($uinfo->ID); */
 	
 	/** check if the user trying to access the page has a "client" member type **/
 	if( in_array( 'gym', $uinfo->roles ) ){

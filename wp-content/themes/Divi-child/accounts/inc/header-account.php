@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 
   <?php	
-	$member_type = bp_get_member_type($userdata->ID);
+	/* $member_type = bp_get_member_type($userdata->ID); */
     $data_request = $_GET['data'];
 
     if( $data_request === 'notes' || $data_request === 'logs' ||  $data_request === null || $data_request === 'exercises' || $data_request === 'clients'){

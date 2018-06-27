@@ -36,7 +36,7 @@ function sm_login_redirect( $redirect_to, $request, $user ) {
 	//is there a user to check?
 	if ( isset( $user->roles ) && is_array( $user->roles ) ) {
 		
-		$member_type = bp_get_member_type($user->data->ID);
+		/* $member_type = bp_get_member_type($user->data->ID); */
 
 		//check for admins
 		if ( in_array( 'administrator', $user->roles ) ) {
