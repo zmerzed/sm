@@ -220,10 +220,12 @@ function workOutAdd($data)
 	global $wpdb;
 
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+	
+	$workout = htmlspecialchars_decode($data['workoutForm'], ENT_NOQUOTES);
+	$workout = preg_replace('/\\\"/',"\"", $workout);
 
-	$workout = json_decode(preg_replace('/\\\"/',"\"", $data['workoutForm']), true);
-
-//	dd($workout);
+	$workout = stripslashes($workout);
+	$workout = json_decode($workout, true);
 
 	$wpdb->insert('workout_tbl',
 		array(
