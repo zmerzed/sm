@@ -1,0 +1,3 @@
+[06/28/2018 6:05 AM] - SUCCESS: wp_authenticate action. Handling login for username: client4
+[06/28/2018 6:05 AM] - SUCCESS: SwpmAuth::login()
+[06/28/2018 6:05 AM] - SUCCESS: Authentication request - Username: client4

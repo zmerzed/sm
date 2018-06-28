@@ -1,0 +1,8 @@
+[06/28/2018 4:43 AM] - SUCCESS: Member registration complete email sent to: gymfree@amplus.com. From email address value used: hosting@amplusagency.com
+[06/28/2018 4:55 AM] - SUCCESS: Member registration complete email sent to: trainerfree@amplus.com. From email address value used: hosting@amplusagency.com
+[06/28/2018 4:59 AM] - SUCCESS: Member registration complete email sent to: trainerfree@amplus.com. From email address value used: hosting@amplusagency.com
+[06/28/2018 5:06 AM] - SUCCESS: Member registration complete email sent to: trainerfree@amplus.com. From email address value used: hosting@amplusagency.com
+[06/28/2018 5:08 AM] - SUCCESS: Member registration complete email sent to: trainerfree@amplus.com. From email address value used: hosting@amplusagency.com
+[06/28/2018 5:31 AM] - SUCCESS: Member registration complete email sent to: trainerfree@amplus.com. From email address value used: hosting@amplusagency.com
+[06/28/2018 5:36 AM] - SUCCESS: Member registration complete email sent to: trainerfree@amplus.com. From email address value used: hosting@amplusagency.com
+[06/28/2018 5:59 AM] - SUCCESS: Member registration complete email sent to: trainerfree@amplus.com. From email address value used: hosting@amplusagency.com
