@@ -194,7 +194,7 @@
 //			}
 
 			console.log('run next................');
-
+			//console.log($scope.currentExercise);
 			if ($scope.pointers.set >= (parseInt($scope.currentExercise.exer_sets) - 1))
 			{
 				// increase exercise pointer
@@ -216,6 +216,7 @@
 					$scope.pointers.set = 0;
 				}
 			} else {
+			//	$scope.pointers.exercise++;
 				$scope.pointers.set++;
 			}
 
@@ -315,10 +316,24 @@
 		$scope.$watch('pointers', function() {
 			console.log('pointers');
 			console.log($scope.pointers);
+
 			$scope.currentExercise = $scope.clientWorkout.exercises[$scope.pointers.exercise];
 			$scope.currentExercise.user_id = currentUserId;
-			$scope.currentExercise.currentSet = $scope.currentExercise.sets[$scope.pointers.set];
-			$scope.currentExercise.currentSet.reps = angular.copy($scope.currentExercise.exer_rep);
+
+			console.log($scope.currentExercise.currentSet);
+			if ($scope.currentExercise.sets[$scope.pointers.set]) {
+				$scope.currentExercise.currentSet = $scope.currentExercise.sets[$scope.pointers.set];
+				$scope.currentExercise.currentSet.reps = angular.copy($scope.currentExercise.exer_rep);
+			} else {
+				var newSet = {
+					reps: angular.copy($scope.currentExercise.exer_rep),
+					seq: $scope.pointers.set + 1,
+					weight: ''
+				}
+
+				$scope.currentExercise.currentSet = newSet;
+			}
+
 		}, true);
 
 	});
