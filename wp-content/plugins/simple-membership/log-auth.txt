@@ -42,3 +42,25 @@
 [06/28/2018 6:45 AM] - SUCCESS: wp_authenticate action. User with username: gymfreeis already logged in.
 [06/28/2018 6:45 AM] - SUCCESS: Setting current WP user to: gymfree
 [06/28/2018 6:45 AM] - SUCCESS: Triggering swpm_after_login hook.
+[06/29/2018 5:54 AM] - SUCCESS: wp_authenticate action. Handling login for username: amplusll
+[06/29/2018 5:54 AM] - SUCCESS: SwpmAuth::login()
+[06/29/2018 5:54 AM] - SUCCESS: Authentication request - Username: amplusll
+[06/29/2018 7:04 AM] - SUCCESS: wp_authenticate action. Handling login for username: trainer
+[06/29/2018 7:04 AM] - SUCCESS: SwpmAuth::login()
+[06/29/2018 7:04 AM] - SUCCESS: Authentication request - Username: trainer
+[06/29/2018 7:06 AM] - SUCCESS: Authentication request - Username: trainer
+[06/29/2018 7:07 AM] - SUCCESS: Authentication request - Username: freetrialgym
+[06/29/2018 7:09 AM] - SUCCESS: Authentication request - Username: trainer13
+[06/29/2018 7:10 AM] - SUCCESS: Authentication request - Username: gym
+[06/29/2018 7:10 AM] - SUCCESS: wp_authenticate action. Handling login for username: gym
+[06/29/2018 7:10 AM] - SUCCESS: SwpmAuth::login()
+[06/29/2018 7:10 AM] - SUCCESS: Authentication request - Username: gym
+[06/29/2018 7:10 AM] - SUCCESS: wp_authenticate action. Handling login for username: gym
+[06/29/2018 7:10 AM] - SUCCESS: SwpmAuth::login()
+[06/29/2018 7:10 AM] - SUCCESS: Authentication request - Username: gym
+[06/29/2018 7:11 AM] - SUCCESS: wp_authenticate action. Handling login for username: trainer`
+[06/29/2018 7:11 AM] - SUCCESS: SwpmAuth::login()
+[06/29/2018 7:11 AM] - SUCCESS: Authentication request - Username: trainer`
+[06/29/2018 7:11 AM] - SUCCESS: wp_authenticate action. Handling login for username: trainer
+[06/29/2018 7:11 AM] - SUCCESS: SwpmAuth::login()
+[06/29/2018 7:11 AM] - SUCCESS: Authentication request - Username: trainer
