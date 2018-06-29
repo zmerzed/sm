@@ -236,7 +236,7 @@ function workOutAdd($data)
 	global $wpdb;
 
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
-	
+
 	$workout = htmlspecialchars_decode($data['workoutForm'], ENT_NOQUOTES);
 	$workout = preg_replace('/\\\"/',"\"", $workout);
 
@@ -401,7 +401,12 @@ function workOutUpdate($data)
 	global $wpdb;
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
-	$workout = json_decode(preg_replace('/\\\"/',"\"", $data['updateWorkoutForm']), true);
+	$workout = htmlspecialchars_decode($data['updateWorkoutForm'], ENT_NOQUOTES);
+	$workout = preg_replace('/\\\"/',"\"", $workout);
+
+	$workout = stripslashes($workout);
+	$workout = json_decode($workout, true);
+	
 	$mWorkoutId = (int) $workout['workout_ID'];
 	$weekDays = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
 
