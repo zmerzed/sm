@@ -104,56 +104,60 @@ if( is_user_logged_in() ){
 					<div class="col-lg-10 col-md-10">
 
 						<?php
-						$data_request = $_GET['data'];
-						switch ($data_request) {
-							case 'schedule':
+						if(!checkUserOrParentStatus($uinfo)){
+							echo "Subscription ended, please contact admin.";
+						}else{
+							$data_request = $_GET['data'];
+							switch ($data_request) {
+								case 'schedule':
 
-								$data_request_by = $_GET['by'];
+									$data_request_by = $_GET['by'];
 
-								if( $data_request_by === 'monthly' ){
-									get_template_part( 'accounts/clients/schedule-monthly', 'page' );
-								}else{
-									get_template_part( 'accounts/clients/schedule', 'page' );
-								}
+									if( $data_request_by === 'monthly' ){
+										get_template_part( 'accounts/clients/schedule-monthly', 'page' );
+									}else{
+										get_template_part( 'accounts/clients/schedule', 'page' );
+									}
 
-								break;
+									break;
 
-							case 'profile':
+								case 'profile':
 
-								$data_request_by = $_GET['by'];
+									$data_request_by = $_GET['by'];
 
-								if( $data_request_by === 'personal-info' ){
-									get_template_part( 'accounts/clients/personal-info', 'page' );
-								}
-								elseif( $data_request_by === 'progress-goals' ){
-									get_template_part( 'accounts/clients/progress-goals', 'page' );
-								}else{
-									get_template_part( 'accounts/clients/profile', 'page' );
-								}
+									if( $data_request_by === 'personal-info' ){
+										get_template_part( 'accounts/clients/personal-info', 'page' );
+									}
+									elseif( $data_request_by === 'progress-goals' ){
+										get_template_part( 'accounts/clients/progress-goals', 'page' );
+									}else{
+										get_template_part( 'accounts/clients/profile', 'page' );
+									}
 
-								break;
+									break;
 
-							case 'message':
-								get_template_part( 'accounts/clients/message', 'page' );
-								break;
+								case 'message':
+									get_template_part( 'accounts/clients/message', 'page' );
+									break;
 
-							case 'notes':
-								get_template_part( 'accounts/clients/notes', 'page' );
-								break;
+								case 'notes':
+									get_template_part( 'accounts/clients/notes', 'page' );
+									break;
 
-							case 'logs':
-								get_template_part( 'accounts/clients/logs', 'page' );
-								break;
+								case 'logs':
+									get_template_part( 'accounts/clients/logs', 'page' );
+									break;
 
-							case 'workout':
-								
-								get_template_part( 'accounts/clients/workout', 'page' );
-								break;
+								case 'workout':
+									
+									get_template_part( 'accounts/clients/workout', 'page' );
+									break;
 
-							default:
-								get_template_part( 'accounts/clients/dashboard', 'page' );
-								break;
-						}
+								default:
+									get_template_part( 'accounts/clients/dashboard', 'page' );
+									break;
+							}
+							}
 
 						?>
 

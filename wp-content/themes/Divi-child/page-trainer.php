@@ -119,67 +119,73 @@ if( is_user_logged_in() ){
 
 			<div class="col-lg-10 col-md-10">
 				<?php
-					$data_request = $_GET['data'];
-					switch ($data_request) {
-						case 'schedule':
-
-							$data_request_by = $_GET['by'];
-
-							if( $data_request_by === 'monthly' ){
-								get_template_part( 'accounts/trainers/schedule-monthly', 'page' );
-							}else{
-								get_template_part( 'accounts/trainers/schedule', 'page' );
-							}
-							
-							break;
-
-						case 'profile':
-
-							get_template_part( 'accounts/trainers/profile', 'page' );
-
-							break;
+										
+					if(!checkUserOrParentStatus($uinfo)){						
+						echo "Subscription ended, please contact admin.";					
+					}else{						
 						
-						case 'message':
-							get_template_part( 'accounts/trainers/message', 'page' );
-							break;
+						$data_request = $_GET['data'];
+						switch ($data_request) {
+							case 'schedule':
 
-						case 'notes':
-							get_template_part( 'accounts/trainers/notes', 'page' );
-							break;
-						
-						case 'logs':
-							get_template_part( 'accounts/trainers/logs', 'page' );
-							break;
+								$data_request_by = $_GET['by'];
 
-						case 'workout':
-							get_template_part( 'accounts/trainers/workout', 'page' );
-							break;
+								if( $data_request_by === 'monthly' ){
+									get_template_part( 'accounts/trainers/schedule-monthly', 'page' );
+								}else{
+									get_template_part( 'accounts/trainers/schedule', 'page' );
+								}
+								
+								break;
+
+							case 'profile':
+
+								get_template_part( 'accounts/trainers/profile', 'page' );
+
+								break;
 							
-						case 'workouts':
-							get_template_part( 'accounts/trainers/workouts', 'page' );
-							break;
+							case 'message':
+								get_template_part( 'accounts/trainers/message', 'page' );
+								break;
 
-						case 'add-workouts':
+							case 'notes':
+								get_template_part( 'accounts/trainers/notes', 'page' );
+								break;
+							
+							case 'logs':
+								get_template_part( 'accounts/trainers/logs', 'page' );
+								break;
 
-							if(isset($_GET['workout'])) {
-								get_template_part( 'accounts/trainers/edit-workouts', 'page' );
-							} else {
-								get_template_part( 'accounts/trainers/add-edit-workouts', 'page' );
-							}
+							case 'workout':
+								get_template_part( 'accounts/trainers/workout', 'page' );
+								break;
+								
+							case 'workouts':
+								get_template_part( 'accounts/trainers/workouts', 'page' );
+								break;
 
-							break;
+							case 'add-workouts':
 
-						case 'exercises':
-							get_template_part( 'accounts/trainers/exercises', 'page' );
-							break;
+								if(isset($_GET['workout'])) {
+									get_template_part( 'accounts/trainers/edit-workouts', 'page' );
+								} else {
+									get_template_part( 'accounts/trainers/add-edit-workouts', 'page' );
+								}
 
-						case 'clients':
-							get_template_part( 'accounts/trainers/clients', 'page' );
-							break;
+								break;
 
-						default:
-							get_template_part( 'accounts/trainers/dashboard', 'page' );
-							break;
+							case 'exercises':
+								get_template_part( 'accounts/trainers/exercises', 'page' );
+								break;
+
+							case 'clients':
+								get_template_part( 'accounts/trainers/clients', 'page' );
+								break;
+
+							default:
+								get_template_part( 'accounts/trainers/dashboard', 'page' );
+								break;
+						}
 					}
 
 				?>

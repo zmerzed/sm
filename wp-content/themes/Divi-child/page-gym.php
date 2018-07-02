@@ -112,63 +112,67 @@ if( is_user_logged_in() ){
 				</div>
 			</div>
 
-			<div class="col-lg-10 col-md-10">
+			<div class="col-lg-10 col-md-10">				
 				<?php
-					$data_request = $_GET['data'];
-					switch ($data_request) {
-						case 'schedule':
+					if(!checkUserOrParentStatus($uinfo)){
+						echo "Subscription ended, please contact admin.";
+					}else{
+						$data_request = $_GET['data'];
+						switch ($data_request) {
+							case 'schedule':
 
-							$data_request_by = $_GET['by'];
+								$data_request_by = $_GET['by'];
 
-							if( $data_request_by === 'monthly' ){
-								get_template_part( 'accounts/gym/schedule-monthly', 'page' );
-							}else{
-								get_template_part( 'accounts/gym/schedule', 'page' );
-							}
+								if( $data_request_by === 'monthly' ){
+									get_template_part( 'accounts/gym/schedule-monthly', 'page' );
+								}else{
+									get_template_part( 'accounts/gym/schedule', 'page' );
+								}
+								
+								break;
+
+							case 'profile':
+
+								get_template_part( 'accounts/gym/profile', 'page' );
+
+								break;
 							
-							break;
+							case 'message':
+								get_template_part( 'accounts/gym/message', 'page' );
+								break;
 
-						case 'profile':
-
-							get_template_part( 'accounts/gym/profile', 'page' );
-
-							break;
-						
-						case 'message':
-							get_template_part( 'accounts/gym/message', 'page' );
-							break;
-
-						case 'notes':
-							get_template_part( 'accounts/gym/notes', 'page' );
-							break;
-						
-						case 'logs':
-							get_template_part( 'accounts/gym/logs', 'page' );
-							break;
-
-						case 'workouts':
-							get_template_part( 'accounts/gym/workouts', 'page' );
-							break;
-
-						case 'add-workouts':
-							get_template_part( 'accounts/gym/add-edit-workouts', 'page' );
-							break;
-
-						case 'exercises':
-							get_template_part( 'accounts/gym/exercises', 'page' );
-							break;
-
-						case 'clients':
-							get_template_part( 'accounts/gym/clients', 'page' );
-							break;
+							case 'notes':
+								get_template_part( 'accounts/gym/notes', 'page' );
+								break;
 							
-						case 'trainers':
-							get_template_part( 'accounts/gym/trainers', 'page' );
-							break;
+							case 'logs':
+								get_template_part( 'accounts/gym/logs', 'page' );
+								break;
 
-						default:
-							get_template_part( 'accounts/gym/dashboard', 'page' );
-							break;
+							case 'workouts':
+								get_template_part( 'accounts/gym/workouts', 'page' );
+								break;
+
+							case 'add-workouts':
+								get_template_part( 'accounts/gym/add-edit-workouts', 'page' );
+								break;
+
+							case 'exercises':
+								get_template_part( 'accounts/gym/exercises', 'page' );
+								break;
+
+							case 'clients':
+								get_template_part( 'accounts/gym/clients', 'page' );
+								break;
+								
+							case 'trainers':
+								get_template_part( 'accounts/gym/trainers', 'page' );
+								break;
+
+							default:
+								get_template_part( 'accounts/gym/dashboard', 'page' );
+								break;
+						}
 					}
 
 				?>

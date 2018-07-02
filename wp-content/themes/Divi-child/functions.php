@@ -176,6 +176,7 @@ function assignClientToTrainer($client, $trainer) {
   
   $clients[] = $client->ID;
   $update = update_user_meta($trainer->ID, 'clients_of_trainer', $clients);
+  update_user_meta($client->ID, 'parent_trainer', $trainer->ID);
 
   return (int) $update > 0;
 }
@@ -197,8 +198,62 @@ function assignTrainerToGym($trainer, $gym) {
   
   $trainers[] = $trainer->ID;
   $update = update_user_meta($gym->ID, 'trainers_of_gym', $trainers);
+  update_user_meta($trainer->ID, 'parent_gym', $gym->ID);
 
   return (int) $update > 0;
+}
+
+/*User Trapping*/
+function checkUserOrParentStatus($user){
+	global $wpdb;
+	$query = "";
+	$member = array();
+	
+	if(in_array( 'gym', $user->roles )){
+		$query = "SELECT * FROM wp_swpm_members_tbl WHERE email = '" . $user->user_email . "'";
+	}elseif(in_array( 'trainer', $user->roles )){
+		$parent_id = get_user_meta($user->ID, 'parent_gym', true);
+		
+		if($parent_id != ""){
+			$query = "SELECT * FROM wp_swpm_members_tbl WHERE email = '" . get_user_by('id', $parent_id)->user_email . "'";			
+		}
+	}elseif(in_array( 'client', $user->roles )){
+		$parent_id = get_user_meta($user->ID, 'parent_trainer', true);
+		
+		if($parent_id != ""){
+			$gparent_id = get_user_meta($parent_id, 'parent_gym', true);
+			if($gparent_id != ""){
+				$query = "SELECT * FROM wp_swpm_members_tbl WHERE email = '" . get_user_by('id', $gparent_id)->user_email . "'";
+			}else{
+				$query = "SELECT * FROM wp_swpm_members_tbl WHERE email = '" . get_user_by('id', $parent_id)->user_email . "'";
+			}
+		}
+	}
+	
+	$member = $wpdb->get_results($query, OBJECT);
+	
+	if(!empty($member)){
+		if($member[0]->account_state == "active"){
+			return true;
+		}else{
+			return false;
+		}		
+	}else{
+		return false;
+	}
+}
+
+function test123($user){
+	$parent_id = get_user_meta($user->ID, 'parent_gym', true);
+	
+	echo $parent_id;
+	
+	if(empty($parent_id)){
+		echo "empty";
+	}else{
+		echo "not empty";
+	}
+	
 }
 
 
