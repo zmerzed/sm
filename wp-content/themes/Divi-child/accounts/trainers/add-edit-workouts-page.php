@@ -73,14 +73,11 @@
 		$scope.onCopy = function()
 		{
 			var newCopy = angular.copy($scope.workout.selectedDay);
-			console.log('new copy');
-			console.log(newCopy);
-			newCopy.name = newCopy.name + ' Copy';
-
+			newCopy.name = '';
 			$scope.workout.days.push(newCopy);
 			var countDays = $scope.workout.days.length;
-		//	optimizeDays();
-		//	selectDay($scope.workout.days[countDays - 1])
+			optimizeDays();
+			selectDay($scope.workout.days[countDays - 1])
 		};
 
 		$scope.onDelete = function(day)
@@ -126,9 +123,10 @@
 
 		$scope.onCopyExercise = function(exercise)
 		{
-//			console.log(exercise);
-//			var newExercise = angular.copy(exercise);
-//			$scope.workout.selectedDay.exercises.push(newExercise);
+			console.log(exercise);
+			var newExercise = angular.copy(exercise);
+			$scope.workout.selectedDay.exercises.push(newExercise);
+			optimizeClientExercises();
 		};
 
 		$scope.onRemoveExercise = function(exercise)

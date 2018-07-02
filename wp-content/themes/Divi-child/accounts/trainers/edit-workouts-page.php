@@ -258,7 +258,7 @@
 
 				$scope.workout.selectedDay.exercises.push(newEx);
 				optimizeSelectedDay();
-
+				optimizeDays();
 			});
 
 		};
@@ -364,6 +364,24 @@
 			optimizeSelectedDay();
 			optimizeClientExercises();
 			findTheLargestSet();
+		};
+
+		$scope.onCopy = function()
+		{
+			var newCopy = angular.copy($scope.workout.selectedDay);
+			newCopy.wday_name = '';
+			$scope.workout.days.push(newCopy);
+			var countDays = $scope.workout.days.length;
+			optimizeDays();
+			selectDay($scope.workout.days[countDays - 1])
+		};
+
+		$scope.onCopyExercise = function(exercise)
+		{
+			console.log(exercise);
+			var newExercise = angular.copy(exercise);
+			$scope.workout.selectedDay.exercises.push(newExercise);
+			optimizeClientExercises();
 		};
 
 		$("#idForm").submit(function (e) {
@@ -672,7 +690,7 @@
 								</div>
 								<div class="col-lg-6 col-md-6">
 									<ul class="workout-btn-actions">
-										<li><a href="#">Duplicate</a></li>
+										<li ng-click="onCopy()"><a href="#">Duplicate</a></li>
 										<li ng-click="removeDay(workout.selectedDay)"><a href="javascript:void(0)">Delete</a></li>
 									</ul>
 								</div>

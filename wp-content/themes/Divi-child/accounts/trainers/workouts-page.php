@@ -39,9 +39,9 @@
 					if(!empty($workoutClientListArr)):
 						foreach($workoutClientListArr as $workout_client):
 							$client_info = get_userdata($workout_client->workout_clientID);
-					?>					
+					?>
 						<li><a href="<?php echo home_url(); ?>/trainer/?data=workout&dayId=<?php echo $workout_client->workout_client_dayID; ?>&workoutId=<?php echo $workout->workout_ID; ?>&workout_client_id=<?php echo $workout_client->workout_clientID;  ?>"><img src="<?php echo get_stylesheet_directory_uri() .'/accounts/images/workout-play.png'; ?>" /></a> <span><?php echo $client_info->user_nicename; ?></span></li>
-						
+
 					<?php endforeach;
 						else:
 					?>
