@@ -66,6 +66,22 @@ function sm_login_redirect( $redirect_to, $request, $user ) {
 add_filter( 'login_redirect', 'sm_login_redirect', 10, 3 );
 
 
+/*Simple Membership Plugin Functioins*/
+add_action('swpm_after_login', 'after_login_callback');
+function after_login_callback ()
+{
+	$user_roles = wp_get_current_user()->roles;
+	$role_label = "";
+	if(in_array( 'trainer', $user_roles )){
+		$role_label = "trainer";
+	}elseif(in_array( 'gym', $user_roles )){
+		$role_label = "gym";
+	}
+	
+	wp_redirect(home_url() . '/' . $role_label);
+	exit();  
+}
+
 /*ADD NEW ROLES*/
 function wpcodex_set_capabilities() {
     $role = get_role( 'trainer' );
