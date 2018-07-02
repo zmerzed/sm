@@ -38,3 +38,26 @@ Updated: 2018-02-13 18:31:36
 .home-testimonials .et_pb_testimonial_description_inner{
 	padding: 0px 50px !important;
 }
+
+.swpm-payment-button{text-align:center;}
+.swpm-button-wrapper input[type="submit"]:hover{cursor:pointer;}
+body .swpm-button-wrapper button span{
+	background:none;
+	box-shadow:none;
+	background:transparent!important;
+}
+body .swpm-button-wrapper button,
+.swpm-button-wrapper input[type="submit"]{
+	color: #fff!important;
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif!important;
+	background-image:none!important;
+    background-color: #b92025!important;
+	padding: 10px;
+    text-transform: uppercase;
+    font-weight: 800;
+    border: 0;
+	display:inline-block;
+    box-shadow: none;
+}
