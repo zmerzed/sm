@@ -187,3 +187,6 @@
 [07/03/2018 4:00 AM] - SUCCESS: wp_authenticate action. User with username: gymfreeis already logged in.
 [07/03/2018 4:00 AM] - SUCCESS: Setting current WP user to: gymfree
 [07/03/2018 4:00 AM] - SUCCESS: Triggering swpm_after_login hook.
+[07/03/2018 8:54 AM] - SUCCESS: wp_authenticate action. Handling login for username: amplusll
+[07/03/2018 8:54 AM] - SUCCESS: SwpmAuth::login()
+[07/03/2018 8:54 AM] - SUCCESS: Authentication request - Username: amplusll
