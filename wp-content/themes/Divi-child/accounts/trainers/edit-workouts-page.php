@@ -371,7 +371,7 @@
 			var newCopy = angular.copy($scope.workout.selectedDay);
 
 			delete newCopy.wday_ID;
-			
+
 			$http.get(urlApiClient + '/hash').then(function(res)
 			{
 				console.log(newCopy);
@@ -393,8 +393,15 @@
 		{
 			console.log(exercise);
 			var newExercise = angular.copy(exercise);
-			$scope.workout.selectedDay.exercises.push(newExercise);
-			optimizeClientExercises();
+
+			delete newExercise.exer_ID;
+			$http.get(urlApiClient + '/hash').then(function(res)
+			{
+				newExercise.hash = res.data.hash;
+				$scope.workout.selectedDay.exercises.push(newExercise);
+				optimizeClientExercises();
+			});
+
 		};
 
 		$("#idForm").submit(function (e) {
@@ -765,7 +772,7 @@
 										</select>
 									</td>
 									<td>
-								<span class="exercise-btn-action"><a href="#">Duplicate</a><span>
+								<span class="exercise-btn-action"><a href="#" ng-click="onCopyExercise(exercise)">Duplicate</a><span>
 									</td>
 									<td>
 								<span class="exercise-btn-action"><a href="javascript:void(0)" ng-click="removeExercise(exercise)">Delete</a><span>
