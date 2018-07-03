@@ -216,6 +216,8 @@ function checkUserOrParentStatus($user){
 		
 		if($parent_id != ""){
 			$query = "SELECT * FROM wp_swpm_members_tbl WHERE email = '" . get_user_by('id', $parent_id)->user_email . "'";			
+		}else{
+			$query = "SELECT * FROM wp_swpm_members_tbl WHERE email = '" . $user->user_email . "'";	
 		}
 	}elseif(in_array( 'client', $user->roles )){
 		$parent_id = get_user_meta($user->ID, 'parent_trainer', true);
@@ -241,19 +243,6 @@ function checkUserOrParentStatus($user){
 	}else{
 		return false;
 	}
-}
-
-function test123($user){
-	$parent_id = get_user_meta($user->ID, 'parent_gym', true);
-	
-	echo $parent_id;
-	
-	if(empty($parent_id)){
-		echo "empty";
-	}else{
-		echo "not empty";
-	}
-	
 }
 
 
