@@ -208,16 +208,17 @@ function checkUserOrParentStatus($user){
 	global $wpdb;
 	$query = "";
 	$member = array();
+	$uemail = "";
 	
 	if(in_array( 'gym', $user->roles )){
-		$query = "SELECT * FROM wp_swpm_members_tbl WHERE email = '" . $user->user_email . "'";
+		$uemail = $user->user_email;		
 	}elseif(in_array( 'trainer', $user->roles )){
 		$parent_id = get_user_meta($user->ID, 'parent_gym', true);
 		
 		if($parent_id != ""){
-			$query = "SELECT * FROM wp_swpm_members_tbl WHERE email = '" . get_user_by('id', $parent_id)->user_email . "'";			
+			$uemail = get_user_by('id', $parent_id)->user_email;					
 		}else{
-			$query = "SELECT * FROM wp_swpm_members_tbl WHERE email = '" . $user->user_email . "'";	
+			$uemail = $user->user_email;
 		}
 	}elseif(in_array( 'client', $user->roles )){
 		$parent_id = get_user_meta($user->ID, 'parent_trainer', true);
@@ -225,13 +226,14 @@ function checkUserOrParentStatus($user){
 		if($parent_id != ""){
 			$gparent_id = get_user_meta($parent_id, 'parent_gym', true);
 			if($gparent_id != ""){
-				$query = "SELECT * FROM wp_swpm_members_tbl WHERE email = '" . get_user_by('id', $gparent_id)->user_email . "'";
+				$uemail = get_user_by('id', $gparent_id)->user_email;
 			}else{
-				$query = "SELECT * FROM wp_swpm_members_tbl WHERE email = '" . get_user_by('id', $parent_id)->user_email . "'";
+				$uemail = get_user_by('id', $parent_id)->user_email;
 			}
 		}
 	}
 	
+	$query = "SELECT * FROM wp_swpm_members_tbl WHERE email = '" . $uemail . "'";
 	$member = $wpdb->get_results($query, OBJECT);
 	
 	if(!empty($member)){
