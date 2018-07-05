@@ -600,6 +600,7 @@ table.dataTable thead .sorting_asc:after{
     padding: 15px;
     border-radius: 10px;
     text-align: center;
+	/* margin-bottom:2em; */
 }
 
 .current-goal h3{
@@ -611,6 +612,7 @@ table.dataTable thead .sorting_asc:after{
 	font-weight: bold;
 }
 
+.current-goal table tr td{text-align:left;}
 .current-goal table tr td,
 .current-goal table tr th{
 	font-weight: bold;
@@ -618,6 +620,7 @@ table.dataTable thead .sorting_asc:after{
     font-size: 12px;
 }
 
+.current-goal table input[type="text"],
 .current-goal table tr td span{
     display: block;
     width: 100%;
@@ -625,7 +628,8 @@ table.dataTable thead .sorting_asc:after{
     padding: 5px;
     background-color: #fff;
     margin-bottom: 3px;
-    
+    text-align:center;
+	font-weight:bold;
 }
 
 .current-goal table tr th{
@@ -896,6 +900,7 @@ table.dataTable thead .sorting_asc:after{
 	text-align: right;
 }
 
+.red-btn,
 form input[type="submit"],
 .trainer-add-workout a{
 	display: inline-block;
@@ -906,6 +911,7 @@ form input[type="submit"],
 	padding: 7px 15px 5px;
 	border-radius: 20px;
 	border:0;
+	cursor:pointer;
 }
 
 .trainer-add-workout a:hover,
