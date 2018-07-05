@@ -1,5 +1,5 @@
 <style>
-	@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+/* 	@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
 	@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 	*{
@@ -27,7 +27,7 @@
 		margin: 50px auto;
 		padding: 20px;
 		background-color: #efefef;
-	}
+	} */
 
 	.app{
 		width: 100%;

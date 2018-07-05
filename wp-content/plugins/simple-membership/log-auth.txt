@@ -190,3 +190,21 @@
 [07/03/2018 8:54 AM] - SUCCESS: wp_authenticate action. Handling login for username: amplusll
 [07/03/2018 8:54 AM] - SUCCESS: SwpmAuth::login()
 [07/03/2018 8:54 AM] - SUCCESS: Authentication request - Username: amplusll
+[07/04/2018 10:23 AM] - SUCCESS: wp_authenticate action. Handling login for username: amplusll
+[07/04/2018 10:23 AM] - SUCCESS: SwpmAuth::login()
+[07/04/2018 10:23 AM] - SUCCESS: Authentication request - Username: amplusll
+[07/04/2018 11:32 AM] - SUCCESS: wp_authenticate action. Handling login for username: amplusll
+[07/04/2018 11:33 AM] - SUCCESS: SwpmAuth::login()
+[07/04/2018 11:33 AM] - SUCCESS: Authentication request - Username: amplusll
+[07/05/2018 6:34 AM] - SUCCESS: wp_authenticate action. Handling login for username: amplusll
+[07/05/2018 6:34 AM] - SUCCESS: SwpmAuth::login()
+[07/05/2018 6:34 AM] - SUCCESS: Authentication request - Username: amplusll
+[07/05/2018 6:55 AM] - SUCCESS: wp_authenticate action. Handling login for username: amplusll
+[07/05/2018 6:55 AM] - SUCCESS: SwpmAuth::login()
+[07/05/2018 6:55 AM] - SUCCESS: Authentication request - Username: amplusll
+[07/05/2018 7:50 AM] - SUCCESS: wp_authenticate action. Handling login for username: clientj
+[07/05/2018 7:50 AM] - SUCCESS: SwpmAuth::login()
+[07/05/2018 7:50 AM] - SUCCESS: Authentication request - Username: clientj
+[07/05/2018 7:52 AM] - SUCCESS: wp_authenticate action. Handling login for username: amplusll
+[07/05/2018 7:52 AM] - SUCCESS: SwpmAuth::login()
+[07/05/2018 7:52 AM] - SUCCESS: Authentication request - Username: amplusll
