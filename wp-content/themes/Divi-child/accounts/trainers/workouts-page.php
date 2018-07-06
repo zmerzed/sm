@@ -53,7 +53,7 @@
 		<?php } ?>
 	</ul>
 </div>
-<script src='<?php echo get_stylesheet_directory_uri() .'/accounts/assets/js/jquery-3.3.1.min.js';?>'></script>
+<!-- <script src='<?php echo get_stylesheet_directory_uri() .'/accounts/assets/js/jquery-3.3.1.min.js';?>'></script> -->
 <script>
 	function toggleMembers(a){
 		$('.list-of-clients-in-this-workout').each(function(){

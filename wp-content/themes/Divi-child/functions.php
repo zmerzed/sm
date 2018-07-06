@@ -247,6 +247,33 @@ function checkUserOrParentStatus($user){
 	}
 }
 
+/*GET USER SCHEDULE*/
+function getMonthlySchedule($user)
+{
+	global $wpdb;
+	$woutArray = array();
+	$results_w_day = $wpdb->get_results( "SELECT * FROM workout_day_clients_tbl WHERE workout_clientID = " . $user->ID, OBJECT );	
+	$results_w = $wpdb->get_results( "SELECT * FROM workout_tbl", OBJECT );
+	
+	foreach($results_w_day as $rwd){
+		foreach($results_w as $rw){
+			$wid = $rwd->workout_client_workout_ID;
+			if($wid == $rw->workout_ID){
+				$arrTemp = array();				
+				$dayid = $rwd->workout_client_dayID;
+				$arrTemp['dayid'] = $dayid;
+				$arrTemp['wid'] = $wid;
+				$arrTemp['wsched'] = $rwd->workout_client_schedule;				
+				$rday = $wpdb->get_results( "SELECT * FROM workout_days_tbl WHERE wday_ID = ". $dayid, OBJECT );
+				$arrTemp['wdname'] = $rday[0]->wday_name;
+				$woutArray[] = $arrTemp;
+			}
+		}			
+	}
+	
+	return $woutArray;
+}
+
 
 function test()
 {

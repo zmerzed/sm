@@ -264,7 +264,7 @@ ul.workout-lists li .workout-wrapper{
 .workoutclass{
 	margin: 0 auto;
     text-align: center;
-    background: #b92025;
+    background: #303030;
     border: 0px;
     padding: 5px 0px;
     max-width: 80%;
@@ -273,6 +273,8 @@ ul.workout-lists li .workout-wrapper{
 
 .workoutclass .fc-title{
 	white-space: normal !important;
+	font-weight:bold;
+	text-transform:none;
 }
 
 /*** Status Bar ***/
@@ -848,6 +850,17 @@ table.dataTable thead .sorting_asc:after{
 	padding-top: 15px;
 	text-align: center;
 }
+
+#workoutModal .workout-wrapper a{float:right;}
+#workoutModal .wdname{
+	padding:10px;
+	color:#fff;
+	font-weight:bold;
+}
+.responsive-calendar .day.active.today a,
+.responsive-calendar .day.today a,
+.responsive-calendar .day.active a:hover{background-color:#d0262a}
+.responsive-calendar .day.active a{background-color:#ae1f23;}
 
 
 /*** Trainer Profile ***/
