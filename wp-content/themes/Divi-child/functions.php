@@ -248,13 +248,45 @@ function checkUserOrParentStatus($user){
 }
 
 /*GET USER SCHEDULE*/
+function getDaysOfWeek()
+{	
+	$ddate = date('Y-m-d');	
+	$date = new DateTime($ddate);
+	$week = $date->format("W");
+	$year = $date->format("Y");
+	$tempArr = array();
+	
+	for($day=1; $day<=7; $day++){
+		$tempArr[$day] = date('Y-m-d', strtotime($year."W".$week.$day));		
+	}
+	
+	return $tempArr;	
+}
+
+function getWeeklySchedule($user)
+{
+	global $wpdb;
+	$day1 = getDaysOfWeek()[1];
+	$day7 = getDaysOfWeek()[7];
+	
+	$results_w_day = $wpdb->get_results( "SELECT * FROM workout_day_clients_tbl WHERE workout_clientID = " . $user->ID . " AND workout_client_schedule BETWEEN '". $day1 ."' AND '" . $day7 . "'", OBJECT );
+	$results_w = $wpdb->get_results( "SELECT * FROM workout_tbl", OBJECT );
+		
+	return getWOutArr($results_w_day, $results_w);
+}
 function getMonthlySchedule($user)
 {
 	global $wpdb;
-	$woutArray = array();
 	$results_w_day = $wpdb->get_results( "SELECT * FROM workout_day_clients_tbl WHERE workout_clientID = " . $user->ID, OBJECT );	
 	$results_w = $wpdb->get_results( "SELECT * FROM workout_tbl", OBJECT );
 	
+	return getWOutArr($results_w_day, $results_w);
+}
+
+function getWOutArr($results_w_day, $results_w)
+{
+	global $wpdb;
+	$woutArray = array();
 	foreach($results_w_day as $rwd){
 		foreach($results_w as $rw){
 			$wid = $rwd->workout_client_workout_ID;
@@ -263,15 +295,24 @@ function getMonthlySchedule($user)
 				$dayid = $rwd->workout_client_dayID;
 				$arrTemp['dayid'] = $dayid;
 				$arrTemp['wid'] = $wid;
-				$arrTemp['wsched'] = $rwd->workout_client_schedule;				
+				$arrTemp['wsched'] = date_format(date_create($rwd->workout_client_schedule), 'Y-m-d');				
 				$rday = $wpdb->get_results( "SELECT * FROM workout_days_tbl WHERE wday_ID = ". $dayid, OBJECT );
 				$arrTemp['wdname'] = $rday[0]->wday_name;
 				$woutArray[] = $arrTemp;
 			}
 		}			
 	}
-	
-	return $woutArray;
+	return $woutArray;	
+}
+
+/*Recursive IN_ARRAY function*/
+function in_array_r($needle, $haystack, $strict = false) {
+    foreach ($haystack as $item) {
+        if (($strict ? $item === $needle : $item == $needle) || (is_array($item) && in_array_r($needle, $item, $strict))) {
+            return true;
+        }
+    }
+    return false;
 }
 
 

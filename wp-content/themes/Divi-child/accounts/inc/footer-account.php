@@ -3,24 +3,16 @@
 	$userdata = wp_get_current_user();
 	$woutArray = getMonthlySchedule($userdata);
 	$arrCount = count($woutArray);
-	if(!empty($woutArray)){
-		$tempArr = array();
+	$tempArr = array();
+	
+	if(!empty($woutArray)){		
 		foreach($woutArray as $wa){
 			$tempArr2 = array();
 			$ctrTemp++;
-			/* echo "{";
-			echo "title: '".$wa['wdname']."',";
-			echo "start: '". $wa['wsched'] ."',";
-			echo "url: '". home_url() ."/client/?data=workout&dayId=".$wa['dayid']."&workoutId=".$wa['wid']."',";
-			echo "className: 'workoutclass'";
-			echo "}"; */
 			
 			$daylink = home_url() ."/client/?data=workout&dayId=".$wa['dayid']."&workoutId=".$wa['wid'];
-			$forDate = date_create($wa['wsched']);
-			$forDate = date_format($forDate,"Y-m-d");
-			$tempArr2[] = ['wdname' => $wa['wdname'], 'daylink' => $daylink];
-			
-			$tempArr[$forDate][$ctrTemp] = $tempArr2;
+			$tempArr2[] = ['wdname' => $wa['wdname'], 'daylink' => $daylink];			
+			$tempArr[$wa['wsched']][$ctrTemp] = $tempArr2;
 		}							
 	}
 ?>
@@ -51,7 +43,7 @@
   <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/accounts/assets/js/responsive-calendar.min.js"></script>
   <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/accounts/assets/js/popper.min.js"></script>
   <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/accounts/assets/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/accounts/assets/js/jquery.matchHeight-min.js"></script>  
+  <!-- <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/accounts/assets/js/jquery.matchHeight-min.js"></script>  --> 
   <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/accounts/assets/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/accounts/assets/js/dataTables.bootstrap.min.js"></script>
 
@@ -61,6 +53,7 @@
   <script type="text/javascript">
    var workoutDates = <?php echo json_encode($tempArr); ?>,
    themedir = "<?php echo get_stylesheet_directory_uri(); ?>";
+   dateToday = "<?php echo date('Y-m-d'); ?>";
    function pullWorkout(date){
 		var thisWork = workoutDates[date];
 		$('#workoutModal').modal();
@@ -68,18 +61,14 @@
 		htmlContent = '<ul class="workout-lists trainer-workouts-lists">';	  
 		$.each(thisWork, function(i, v){
 			htmlContent += '<li class="workout-list-item"><div class="workout-wrapper"><span><img src="'+themedir+'/accounts/images/workout.png"></span><span class="wdname">' + v[0]['wdname'] + '</span>';
-			htmlContent += '<a href="'+v[0]['daylink']+'"><img src="'+themedir+'/accounts/images/workout-play.png" /></a></div></li>';
+			if(dateToday == date){
+				htmlContent += '&nbsp;<a href="'+v[0]['daylink']+'"><img src="'+themedir+'/accounts/images/workout-play.png" /></a>';
+			}			
+			htmlContent += '<a href="#"><img src="'+themedir+'/accounts/images/workout-note.png"></a></div></li>';
 		});
 		htmlContent += '</ul>';
 		$('#workoutModal .modal-body').html(htmlContent);
    }
-	$(document).ready(function(){
-		if($("#myModal").length != 0){
-			$("#myModal").on('hidden.bs.modal', function (e) {
-				$("#myModal iframe").attr("src", "");
-			});
-		}		
-	});
 
   jQuery('#table-sorter').DataTable({
     "lengthMenu": [[8, 16, 24, -1], [8, 16, 24, "All"]]
@@ -92,7 +81,7 @@
   });
   
   /* jQuery('.matchHeight').matchHeight(); */
-  jQuery('.trainer-schedule-wrapper').matchHeight();
+  /* jQuery('.trainer-schedule-wrapper').matchHeight(); */
   
   
   // Assign active class in the navigation
@@ -108,7 +97,12 @@
   } 
 
 	jQuery(document).ready(function () {
-		function addLeadingZero(num) {
+		if($("#myModal").length != 0){
+			$("#myModal").on('hidden.bs.modal', function (e) {
+				$("#myModal iframe").attr("src", "");
+			});
+		}
+		function alz(num) {
 			if (num < 10) {
 				return "0" + num;
 			} else {
@@ -118,9 +112,10 @@
 		if($('.responsive-calendar').length != 0){
 			$(".responsive-calendar").responsiveCalendar({
 				onDayClick: function(events) {
-					var key;
-					key = $(this).data('year')+'-'+addLeadingZero( $(this).data('month') )+'-'+addLeadingZero( $(this).data('day'));				
-					pullWorkout(key);
+					var key = $(this).data('year')+'-'+alz( $(this).data('month') )+'-'+alz( $(this).data('day'));										
+					if(events[key]){
+						pullWorkout(key);
+					}
 				},
 				events: {
 				<?php

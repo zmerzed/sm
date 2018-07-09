@@ -232,3 +232,9 @@
 [07/06/2018 7:29 AM] - SUCCESS: wp_authenticate action. Handling login for username: client20
 [07/06/2018 7:29 AM] - SUCCESS: SwpmAuth::login()
 [07/06/2018 7:29 AM] - SUCCESS: Authentication request - Username: client20
+[07/09/2018 2:07 AM] - SUCCESS: wp_authenticate action. Handling login for username: client20
+[07/09/2018 2:07 AM] - SUCCESS: SwpmAuth::login()
+[07/09/2018 2:07 AM] - SUCCESS: Authentication request - Username: client20
+[07/09/2018 3:23 AM] - SUCCESS: wp_authenticate action. Handling login for username: trainer20
+[07/09/2018 3:23 AM] - SUCCESS: SwpmAuth::login()
+[07/09/2018 3:23 AM] - SUCCESS: Authentication request - Username: trainer20
