@@ -1367,7 +1367,7 @@ function smUpload()
 {
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 	var_dump($_FILES);
-	
+
 	//$image = Image::make($_FILES["myFile"]["tmp_name"])->resize(300, 200);
 
 	// open an image file
@@ -1380,7 +1380,7 @@ function smUpload()
 	//$img->insert('public/watermark.png');
 
 // save image in desired format
-	$img->save('bar.jpg');
+	$img->save('wp-content/uploads/files/bar.jpg');
 }
 
 function workoutClientExerciseLogs() {
