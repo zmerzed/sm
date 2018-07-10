@@ -105,6 +105,7 @@ function wpcodex_set_capabilities() {
 	foreach($removeCaps as $removeCap){
 		$role->remove_cap( $removeCap );
 		$role2->remove_cap( $removeCap );
+		$role3->remove_cap( $removeCap );
 	}
 }
 add_action( 'init', 'wpcodex_set_capabilities' );
@@ -287,14 +288,19 @@ function getMonthlySchedule($u)
 	$urole = $u->roles;
 	$uid = $u->ID;
 	$wquery = "SELECT * FROM workout_day_clients_tbl WHERE workout_clientID";
-	$results_w = $wpdb->get_results( "SELECT * FROM workout_tbl", OBJECT );	
+	$results_w = $wpdb->get_results( "SELECT * FROM workout_tbl", OBJECT );
+	
 	
 	if(in_array('client',$urole)){
-		$results_w_day = $wpdb->get_results( $wquery . "=" . $uid, OBJECT );	
-	}elseif(in_array('trainer',$urole)){				
+		$results_w_day = $wpdb->get_results( $wquery . "=" . $uid, OBJECT );		
+	}elseif(in_array('trainer',$urole)){
+		$umeta = get_user_meta($uid,'clients_of_trainer',true);
+		$coft = array();
+		if($umeta)
 		$coft = implode(", ", get_user_meta($uid,'clients_of_trainer',true));
-		$results_w_day = $wpdb->get_results( $wquery . " IN (" . $coft . ")", OBJECT );			
-	}	
+			
+		$results_w_day = $wpdb->get_results( $wquery . " IN (" . $coft . ")", OBJECT );		
+	}
 	
 	return getWOutArr($results_w_day, $results_w);
 }
@@ -310,6 +316,7 @@ function getWOutArr($results_w_day, $results_w)
 				$arrTemp = array();				
 				$dayid = $rwd->workout_client_dayID;
 				$arrTemp['dayid'] = $dayid;
+				$arrTemp['workout_clientid'] = $rwd->workout_clientID;
 				$arrTemp['wid'] = $wid;
 				$arrTemp['wsched'] = date_format(date_create($rwd->workout_client_schedule), 'Y-m-d');				
 				$rday = $wpdb->get_results( "SELECT * FROM workout_days_tbl WHERE wday_ID = ". $dayid, OBJECT );
@@ -319,6 +326,65 @@ function getWOutArr($results_w_day, $results_w)
 		}			
 	}
 	return $woutArray;	
+}
+
+function jabs($u)
+{	
+
+	$woutArray = getMonthlySchedule($u);
+	$ctrTemp = 0;
+	$tempArr = array();
+	$caot = array(); //Client Array of Trainer
+	$urole = ""; 	
+	
+	if(in_array('client', $u->roles)){
+		$urole = "client";
+	}elseif(in_array('trainer',$u->roles)){
+		$urole = "trainer";
+		$caot = get_user_meta($u->ID,'clients_of_trainer', true);
+	}
+	
+	if(!empty($woutArray)){		
+		foreach($woutArray as $wa){
+			$tempArr2 = array();
+			$ctrTemp++;			
+			$daylink = home_url() ."/".$urole."/?data=workout&dayId=".$wa['dayid']."&workoutId=".$wa['wid']."&workout_client_id=".$wa['workout_clientid'];
+			$tempArr2[] = ['wdname' => $wa['wdname'], 'daylink' => $daylink, 'clientid' => $wa['workout_clientid']];			
+			$tempArr[$wa['wsched']][$ctrTemp] = $tempArr2;
+		}							
+	}	
+	
+	echo "<pre>";
+	print_r($tempArr);
+	echo "</pre>";
+}
+
+function getSchedData($u)
+{		
+	$woutArray = getMonthlySchedule($u);
+	$ctrTemp = 0;
+	$tempArr = array();
+	$caot = array(); //Client Array of Trainer
+	$urole = ""; 	
+	
+	if(in_array('client', $u->roles)){
+		$urole = "client";
+	}elseif(in_array('trainer',$u->roles)){
+		$urole = "trainer";
+		$caot = get_user_meta($u->ID,'clients_of_trainer', true);
+	}
+	
+	if(!empty($woutArray)){		
+		foreach($woutArray as $wa){
+			$tempArr2 = array();
+			$ctrTemp++;			
+			$daylink = home_url() ."/".$urole."/?data=workout&dayId=".$wa['dayid']."&workoutId=".$wa['wid']."&workout_client_id=".$wa['workout_clientid'];
+			$tempArr2[] = ['wdname' => $wa['wdname'], 'daylink' => $daylink];			
+			$tempArr[$wa['wsched']][$ctrTemp] = $tempArr2;
+		}							
+	}	
+	
+	return $tempArr;
 }
 
 /*Recursive IN_ARRAY function*/

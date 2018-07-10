@@ -1,22 +1,7 @@
-<?php
-	
-	$ctrTemp = 0;					
-	$userdata = wp_get_current_user();
-	$woutArray = getMonthlySchedule($userdata);
-	$arrCount = count($woutArray);
-	$tempArr = array();	
-	/* $urole = $userdata->roles */
-	
-	if(!empty($woutArray)){		
-		foreach($woutArray as $wa){
-			$tempArr2 = array();
-			$ctrTemp++;
-			
-			$daylink = home_url() ."/client/?data=workout&dayId=".$wa['dayid']."&workoutId=".$wa['wid'];
-			$tempArr2[] = ['wdname' => $wa['wdname'], 'daylink' => $daylink];			
-			$tempArr[$wa['wsched']][$ctrTemp] = $tempArr2;
-		}							
-	}
+<?php					
+	$udata = wp_get_current_user();		
+	$scheData = getSchedData($udata);
+	/* jabs($udata) */
 ?>
 <div class="modal fade" id="workoutModal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
@@ -53,7 +38,7 @@
   <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/accounts/assets/js/jquery.canvasjs.min.js"></script>  
 
   <script type="text/javascript">
-   var workoutDates = <?php echo json_encode($tempArr); ?>,
+   var workoutDates = <?php echo json_encode($scheData); ?>,
    themedir = "<?php echo get_stylesheet_directory_uri(); ?>";
    dateToday = "<?php echo date('Y-m-d'); ?>";
    function pullWorkout(date){
@@ -122,8 +107,8 @@
 				events: {
 				<?php
 					$ctrTemp = 0;
-					$nctr = count($tempArr);
-					foreach($tempArr as $k=>$v):
+					$nctr = count($scheData);
+					foreach($scheData as $k=>$v):
 						$ctrTemp++;					
 						echo '"'.$k.'": {"number": '.count($v).',"badgeClass": "badge-primary", "url": ""}';
 						echo ($ctrTemp == $nctr) ? "" : ","; 
