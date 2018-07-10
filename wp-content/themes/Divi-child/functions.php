@@ -1380,7 +1380,7 @@ function smUpload()
 	//$img->insert('public/watermark.png');
 
 // save image in desired format
-	$img->save('wp-content/uploads/files/bar.jpg');
+	$img->save('wp-content/themes/Divi-child/bar.jpg');
 }
 
 function workoutClientExerciseLogs() {
