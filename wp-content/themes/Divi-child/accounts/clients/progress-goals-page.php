@@ -1,35 +1,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <style>
-    /* 	@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
-        @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-
-        *{
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html{
-            background-color: #fff;
-            font:normal 16px/1.5 sans-serif;
-            color: #333;
-        }
-
-        h3{
-            font: normal 32px/1.5 'Open Sans', sans-serif;
-            color: #2c3e50;
-            margin: 50px 0;
-            text-align: center;
-        }
-
-
-        .container{
-            max-width: 1000px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #efefef;
-        } */
-
     .app{
         width: 100%;
         position: relative;

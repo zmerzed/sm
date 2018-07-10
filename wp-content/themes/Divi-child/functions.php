@@ -86,13 +86,20 @@ function after_login_callback ()
 function wpcodex_set_capabilities() {
     $role = get_role( 'trainer' );
     $role2 = get_role( 'gym' );
+    $role3 = get_role( 'client' );
 	
 	$caps = array('create_users');
+	$caps2 = array('upload_files');
 	$removeCaps = array('edit_posts', 'edit_users', 'list_users', 'remove_users', 'delete_users');
     
 	foreach($caps as $cap){
 		$role->add_cap( $cap );
 		$role2->add_cap( $cap );
+		
+	}
+	
+	foreach($caps2 as $cap){
+		$role3->add_cap( $cap );
 	}
 	
 	foreach($removeCaps as $removeCap){
@@ -274,11 +281,20 @@ function getWeeklySchedule($user)
 		
 	return getWOutArr($results_w_day, $results_w);
 }
-function getMonthlySchedule($user)
+function getMonthlySchedule($u)
 {
 	global $wpdb;
-	$results_w_day = $wpdb->get_results( "SELECT * FROM workout_day_clients_tbl WHERE workout_clientID = " . $user->ID, OBJECT );	
-	$results_w = $wpdb->get_results( "SELECT * FROM workout_tbl", OBJECT );
+	$urole = $u->roles;
+	$uid = $u->ID;
+	$wquery = "SELECT * FROM workout_day_clients_tbl WHERE workout_clientID";
+	$results_w = $wpdb->get_results( "SELECT * FROM workout_tbl", OBJECT );	
+	
+	if(in_array('client',$urole)){
+		$results_w_day = $wpdb->get_results( $wquery . "=" . $uid, OBJECT );	
+	}elseif(in_array('trainer',$urole)){				
+		$coft = implode(", ", get_user_meta($uid,'clients_of_trainer',true));
+		$results_w_day = $wpdb->get_results( $wquery . " IN (" . $coft . ")", OBJECT );			
+	}	
 	
 	return getWOutArr($results_w_day, $results_w);
 }
@@ -1367,20 +1383,79 @@ function smUpload()
 {
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 	var_dump($_FILES);
+	/* $u = wp_get_current_user();
 
-	//$image = Image::make($_FILES["myFile"]["tmp_name"])->resize(300, 200);
+	
+	$upload_file = wp_handle_upload($_FILES["myFile"], array('test_form' => false), date('Y/m'));
+	var_dump($upload_file);
+	
+	$wp_upload_dir = wp_upload_dir();
+	$guid = $wp_upload_dir['baseurl'] . "/" . _wp_relative_upload_path( $upload_file );
+	
+	$attachment = array(
+		'post_mime_type' => $_FILES["myFile"]['type'],
+		'guid' => $guid,
+		'post_title' => 'Uploaded: ' . $upload_file['file'],
+		'post_content' => '',
+		'post_author' => $u->ID,
+		'post_status' => 'inherit',
+		'post_date' => date('Y-m-d H:i:s'),
+		'post_date_gmt' => date('Y-m-d H:i:s')
+	);
+	
+	$attach_id = wp_insert_attachment($attachment, $upload_file['file']);
+	$meta = wp_generate_attachment_metadata($attach_id,$upload_file['file']);
+	wp_update_attachment_metadata($meta);
+	
+	$upload_feedback = false;
+	
+	return $attach_id; */
+	
+	/* $image = New ImageMeta; */	
+	
+	
+	$currentDir = getcwd();
+	$uploadDirectory = "\\uploads2\\";
 
-	// open an image file
-	$img = Image::make($_FILES["myFile"]["tmp_name"]);
+	$errors = []; // Store all foreseen and unforseen errors here
 
-// resize image instance
-	$img->resize(320, 240);
+	$fileExtensions = ['jpeg','jpg','png']; // Get all the file extensions
 
-// insert a watermark
-	//$img->insert('public/watermark.png');
+	$fileName = $_FILES['myFile']['name'];
+	$fileSize = $_FILES['myFile']['size'];
+	$fileTmpName  = $_FILES['myFile']['tmp_name'];
+	$fileType = $_FILES['myFile']['type'];
+	$fileExtension = strtolower(end(explode('.',$fileName)));
 
-// save image in desired format
-	$img->save('wp-content/themes/Divi-child/bar.jpg');
+	$uploadPath = $currentDir . $uploadDirectory . basename($fileName);
+
+	echo $uploadPath;
+	echo "\n";
+	//if (isset($_POST['submit'])) {
+
+		if (! in_array($fileExtension,$fileExtensions)) {
+			$errors[] = "This file extension is not allowed. Please upload a JPEG or PNG file";
+		}
+
+		if ($fileSize > 2000000) {
+			$errors[] = "This file is more than 2MB. Sorry, it has to be less than or equal to 2MB";
+		}
+
+		if (empty($errors)) {
+			$didUpload = move_uploaded_file($fileTmpName, $uploadPath);
+
+			if ($didUpload) {
+				echo "The file " . basename($fileName) . " has been uploaded";
+			} else {
+				echo "An error occurred somewhere. Try again or contact the admin";
+			}
+		} else {
+			foreach ($errors as $error) {
+				echo $error . "These are the errors" . "\n";
+			}
+		}
+//	}
+	
 }
 
 function workoutClientExerciseLogs() {

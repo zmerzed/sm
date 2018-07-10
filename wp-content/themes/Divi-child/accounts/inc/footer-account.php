@@ -1,9 +1,11 @@
 <?php
+	
 	$ctrTemp = 0;					
 	$userdata = wp_get_current_user();
 	$woutArray = getMonthlySchedule($userdata);
 	$arrCount = count($woutArray);
-	$tempArr = array();
+	$tempArr = array();	
+	/* $urole = $userdata->roles */
 	
 	if(!empty($woutArray)){		
 		foreach($woutArray as $wa){

@@ -238,3 +238,30 @@
 [07/09/2018 3:23 AM] - SUCCESS: wp_authenticate action. Handling login for username: trainer20
 [07/09/2018 3:23 AM] - SUCCESS: SwpmAuth::login()
 [07/09/2018 3:23 AM] - SUCCESS: Authentication request - Username: trainer20
+[07/09/2018 10:35 AM] - SUCCESS: wp_authenticate action. Handling login for username: trainer20
+[07/09/2018 10:35 AM] - SUCCESS: SwpmAuth::login()
+[07/09/2018 10:35 AM] - SUCCESS: Authentication request - Username: trainer20
+[07/10/2018 5:33 AM] - SUCCESS: wp_authenticate action. Handling login for username: client20
+[07/10/2018 5:33 AM] - SUCCESS: SwpmAuth::login()
+[07/10/2018 5:33 AM] - SUCCESS: Authentication request - Username: client20
+[07/10/2018 5:49 AM] - SUCCESS: wp_authenticate action. Handling login for username: client20
+[07/10/2018 5:49 AM] - SUCCESS: SwpmAuth::login()
+[07/10/2018 5:49 AM] - SUCCESS: Authentication request - Username: client20
+[07/10/2018 8:00 AM] - SUCCESS: wp_authenticate action. Handling login for username: client20
+[07/10/2018 8:00 AM] - SUCCESS: SwpmAuth::login()
+[07/10/2018 8:00 AM] - SUCCESS: Authentication request - Username: client20
+[07/10/2018 8:00 AM] - SUCCESS: wp_authenticate action. Handling login for username: client20
+[07/10/2018 8:00 AM] - SUCCESS: SwpmAuth::login()
+[07/10/2018 8:00 AM] - SUCCESS: Authentication request - Username: client20
+[07/10/2018 8:13 AM] - SUCCESS: wp_authenticate action. Handling login for username: trainer20
+[07/10/2018 8:13 AM] - SUCCESS: SwpmAuth::login()
+[07/10/2018 8:13 AM] - SUCCESS: Authentication request - Username: trainer20
+[07/10/2018 8:16 AM] - SUCCESS: wp_authenticate action. Handling login for username: client20
+[07/10/2018 8:16 AM] - SUCCESS: SwpmAuth::login()
+[07/10/2018 8:16 AM] - SUCCESS: Authentication request - Username: client20
+[07/10/2018 8:32 AM] - SUCCESS: wp_authenticate action. Handling login for username: amplusll
+[07/10/2018 8:32 AM] - SUCCESS: SwpmAuth::login()
+[07/10/2018 8:32 AM] - SUCCESS: Authentication request - Username: amplusll
+[07/10/2018 8:47 AM] - SUCCESS: wp_authenticate action. Handling login for username: client20
+[07/10/2018 8:47 AM] - SUCCESS: SwpmAuth::login()
+[07/10/2018 8:47 AM] - SUCCESS: Authentication request - Username: client20
