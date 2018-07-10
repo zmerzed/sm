@@ -99,7 +99,7 @@ function wpcodex_set_capabilities() {
 	}
 	
 	foreach($caps2 as $cap){
-		$role3->add_cap( $cap );
+		$role3->remove_cap( $cap );
 	}
 	
 	foreach($removeCaps as $removeCap){
