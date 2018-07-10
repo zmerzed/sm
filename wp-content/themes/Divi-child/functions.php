@@ -1355,6 +1355,32 @@ function wpc_register_wp_api_endpoints() {
 		'methods' => 'GET',
 		'callback' => 'workoutGenerateHash',
 	));
+
+	register_rest_route( 'v1', 'client/upload', array(
+		'methods' => 'POST',
+		'callback' => 'smUpload',
+	));
+}
+
+use Intervention\Image\ImageManagerStatic as Image;
+function smUpload()
+{
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+	var_dump($_FILES);
+	
+	//$image = Image::make($_FILES["myFile"]["tmp_name"])->resize(300, 200);
+
+	// open an image file
+	$img = Image::make($_FILES["myFile"]["tmp_name"]);
+
+// resize image instance
+	$img->resize(320, 240);
+
+// insert a watermark
+	//$img->insert('public/watermark.png');
+
+// save image in desired format
+	$img->save('bar.jpg');
 }
 
 function workoutClientExerciseLogs() {

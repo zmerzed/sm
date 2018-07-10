@@ -1,6 +1,7 @@
 {
   "require": {
     "larapack/dd": "1.*",
-    "nesbot/carbon": "^1.27"
+    "nesbot/carbon": "^1.27",
+    "intervention/image": "^2.4"
   }
 }
