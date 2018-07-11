@@ -345,7 +345,6 @@
 								<a href="#" id="take-photo" title="Take Photo"><i class="material-icons">camera_alt</i></a>
 								<a href="#" id="download-photo" download="selfie.png" title="Save Photo" class="disabled"><i class="material-icons">file_download</i></a>
 							</div>
-F
 							<!-- Hidden canvas element. Used for taking snapshot of video. -->
 							<canvas></canvas>
 						</div>
@@ -368,8 +367,8 @@ F
         delete_photo_btn = document.querySelector('#delete-photo'),
         download_photo_btn = document.querySelector('#download-photo'),
         error_message = document.querySelector('#error-message'),
-		CAMERA_DATA_URL = '';
-
+		CAMERA_DATA_URL = '',
+        USER_ID = '<?php echo get_current_user_id(); ?>';
     // The getUserMedia interface is used for handling camera input.
     // Some browsers need a prefix so here we're covering all the options
     navigator.getMedia = ( navigator.getUserMedia ||
@@ -383,30 +382,7 @@ F
     }
     else{
 
-        // Request the camera.
-        navigator.getMedia(
-            {
-                video: true
-            },
-            // Success Callback
-            function(stream){
 
-                // Create an object URL for the video stream and
-                // set it as src of our HTLM video element.
-                video.src = window.URL.createObjectURL(stream);
-
-                // Play the video element to start the stream.
-                video.play();
-                video.onplay = function() {
-                    showVideo();
-                };
-
-            },
-            // Error Callback
-            function(err){
-                displayErrorMessage("There was an error with accessing the camera stream: " + err.name, err);
-            }
-        );
 
     }
 
@@ -515,6 +491,47 @@ F
         snap.classList.remove("visible");
         error_message.classList.remove("visible");
     }
+	var localStream;
+
+	setTimeout(function(){
+		$('#myModal').on('hidden.bs.modal', function (e) {
+			console.log('close camera...');
+			video.pause();
+			video.src = "";
+			console.log(localStream)
+			localStream.getTracks()[0].stop();
+			console.log("Vid off");
+		});
+
+		$('#myModal').on('show.bs.modal', function (e) {
+			console.log('open camera...');
+			// Request the camera.
+			navigator.getMedia(
+				{
+					video: true
+				},
+				// Success Callback
+				function(stream){
+
+					// Create an object URL for the video stream and
+					// set it as src of our HTLM video element.
+					video.src = window.URL.createObjectURL(stream);
+					localStream = stream;
+					// Play the video element to start the stream.
+					video.play();
+					video.onplay = function() {
+						showVideo();
+					};
+
+				},
+				// Error Callback
+				function(err){
+					displayErrorMessage("There was an error with accessing the camera stream: " + err.name, err);
+				}
+			);
+		});
+
+	}, 500);
 
 </script>
 <script>var ROOTURL = '<?php echo get_site_url(); ?>';</script>

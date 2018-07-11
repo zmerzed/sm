@@ -6,16 +6,16 @@ if ( !defined( 'ABSPATH' ) ) exit;
 // AUTO GENERATED - Do not modify or remove comment markers above or below:
 
 if ( !function_exists( 'chld_thm_cfg_parent_css' ) ):
-    function chld_thm_cfg_parent_css() {
-        wp_enqueue_style( 'chld_thm_cfg_parent', trailingslashit( get_template_directory_uri() ) . 'style.css', array(  ) );
-    }
+	function chld_thm_cfg_parent_css() {
+		wp_enqueue_style( 'chld_thm_cfg_parent', trailingslashit( get_template_directory_uri() ) . 'style.css', array(  ) );
+	}
 endif;
 add_action( 'wp_enqueue_scripts', 'chld_thm_cfg_parent_css', 10 );
 
 
 add_filter('register','no_register_link');
 function no_register_link($url){
-    return '';
+	return '';
 }
 
 add_action('login_enqueue_scripts', 'strength_mextrix_login_scripts', 10);
@@ -35,7 +35,7 @@ function strength_mextrix_login_scripts(){
 function sm_login_redirect( $redirect_to, $request, $user ) {
 	//is there a user to check?
 	if ( isset( $user->roles ) && is_array( $user->roles ) ) {
-		
+
 		/* $member_type = bp_get_member_type($user->data->ID); */
 
 		//check for admins
@@ -77,31 +77,31 @@ function after_login_callback ()
 	}elseif(in_array( 'gym', $user_roles )){
 		$role_label = "gym";
 	}
-	
+
 	wp_redirect(home_url() . '/' . $role_label);
-	exit();  
+	exit();
 }
 
 /*ADD NEW ROLES*/
 function wpcodex_set_capabilities() {
-    $role = get_role( 'trainer' );
-    $role2 = get_role( 'gym' );
-    $role3 = get_role( 'client' );
-	
+	$role = get_role( 'trainer' );
+	$role2 = get_role( 'gym' );
+	$role3 = get_role( 'client' );
+
 	$caps = array('create_users');
 	$caps2 = array('upload_files');
 	$removeCaps = array('edit_posts', 'edit_users', 'list_users', 'remove_users', 'delete_users');
-    
+
 	foreach($caps as $cap){
 		$role->add_cap( $cap );
 		$role2->add_cap( $cap );
-		
+
 	}
-	
+
 	foreach($caps2 as $cap){
 		$role3->remove_cap( $cap );
 	}
-	
+
 	foreach($removeCaps as $removeCap){
 		$role->remove_cap( $removeCap );
 		$role2->remove_cap( $removeCap );
@@ -111,104 +111,104 @@ function wpcodex_set_capabilities() {
 add_action( 'init', 'wpcodex_set_capabilities' );
 
 add_role(
-    'gym',
-    __( 'Gym' ),
-    array(
+	'gym',
+	__( 'Gym' ),
+	array(
 		'create_users'   => true,
-    )
+	)
 );
 add_role(
-    'trainer',
-    __( 'Trainer' ),
-    array(
+	'trainer',
+	__( 'Trainer' ),
+	array(
 		'create_users'   => true
-    )
+	)
 );
 add_role(
-    'client',
-    __( 'Client' ),
-    array(
-        'read'         => true
-    )
+	'client',
+	__( 'Client' ),
+	array(
+		'read'         => true
+	)
 );
 
 /*Return array of Clients*/
-function getClientsOfTrainer($user) {  
-  if ( ! in_array('trainer', $user->roles, true) ) {
-    return array();
-  }
-  $meta = get_user_meta($user->ID, 'clients_of_trainer', true);
-  if (empty($meta)) {
-    return array();
-  }
+function getClientsOfTrainer($user) {
+	if ( ! in_array('trainer', $user->roles, true) ) {
+		return array();
+	}
+	$meta = get_user_meta($user->ID, 'clients_of_trainer', true);
+	if (empty($meta)) {
+		return array();
+	}
 
-  $query = new WP_User_Query(array(
-    'role'    => 'client',
-    'include' => (array) $meta
-  ));
+	$query = new WP_User_Query(array(
+		'role'    => 'client',
+		'include' => (array) $meta
+	));
 
-  return $query->results;
+	return $query->results;
 }
 /*Return array of trainers*/
-function getTrainersOfGym($user) {  
-  if ( ! in_array('gym', $user->roles, true) ) {
-    return array();
-  }
-  $meta = get_user_meta($user->ID, 'trainers_of_gym', true);
-  if (empty($meta)) {
-    return array();
-  }
+function getTrainersOfGym($user) {
+	if ( ! in_array('gym', $user->roles, true) ) {
+		return array();
+	}
+	$meta = get_user_meta($user->ID, 'trainers_of_gym', true);
+	if (empty($meta)) {
+		return array();
+	}
 
-  $query = new WP_User_Query(array(
-    'role'    => 'trainer',
-    'include' => (array) $meta
-  ));
+	$query = new WP_User_Query(array(
+		'role'    => 'trainer',
+		'include' => (array) $meta
+	));
 
-  return $query->results;
+	return $query->results;
 }
 
 /*Assign a Client to a Trainer*/
-function assignClientToTrainer($client, $trainer) { 
-  if ( ! in_array('trainer', $trainer->roles, true) ) {
-     return false;
-  }
-  
-  if ( ! in_array('client', $client->roles, true) ) {
-     return false;
-  }
- 
-  $clients = get_user_meta($trainer->ID, 'clients_of_trainer', true);
-  if(empty($clients)){
-	  $clients = array();
-  }
-  
-  $clients[] = $client->ID;
-  $update = update_user_meta($trainer->ID, 'clients_of_trainer', $clients);
-  update_user_meta($client->ID, 'parent_trainer', $trainer->ID);
+function assignClientToTrainer($client, $trainer) {
+	if ( ! in_array('trainer', $trainer->roles, true) ) {
+		return false;
+	}
 
-  return (int) $update > 0;
+	if ( ! in_array('client', $client->roles, true) ) {
+		return false;
+	}
+
+	$clients = get_user_meta($trainer->ID, 'clients_of_trainer', true);
+	if(empty($clients)){
+		$clients = array();
+	}
+
+	$clients[] = $client->ID;
+	$update = update_user_meta($trainer->ID, 'clients_of_trainer', $clients);
+	update_user_meta($client->ID, 'parent_trainer', $trainer->ID);
+
+	return (int) $update > 0;
 }
 
 /*Assign a Trainer to a Gym*/
-function assignTrainerToGym($trainer, $gym) { 
-  if ( ! in_array('gym', $gym->roles, true) ) {
-     return false;
-  }
-  
-  if ( ! in_array('trainer', $trainer->roles, true) ) {
-     return false;
-  }
- 
-  $trainers = get_user_meta($gym->ID, 'trainers_of_gym', true);
-  if(empty($trainers)){
-	  $trainers = array();
-  }
-  
-  $trainers[] = $trainer->ID;
-  $update = update_user_meta($gym->ID, 'trainers_of_gym', $trainers);
-  update_user_meta($trainer->ID, 'parent_gym', $gym->ID);
+function assignTrainerToGym($trainer, $gym) {
+	if ( ! in_array('gym', $gym->roles, true) ) {
+		return false;
+	}
 
-  return (int) $update > 0;
+	if ( ! in_array('trainer', $trainer->roles, true) ) {
+		return false;
+	}
+
+	$trainers = get_user_meta($gym->ID, 'trainers_of_gym', true);
+	if(empty($trainers)){
+		$trainers = array();
+	}
+
+	$trainers[] = $trainer->ID;
+	$update = update_user_meta($gym->ID, 'trainers_of_gym', $trainers);
+	update_user_meta($trainer->ID, 'parent_gym', $gym->ID);
+
+	return (int) $update > 0;
 }
 
 /*User Trapping*/
@@ -217,20 +217,20 @@ function checkUserOrParentStatus($user){
 	$query = "";
 	$member = array();
 	$uemail = "";
-	
+
 	if(in_array( 'gym', $user->roles )){
-		$uemail = $user->user_email;		
+		$uemail = $user->user_email;
 	}elseif(in_array( 'trainer', $user->roles )){
 		$parent_id = get_user_meta($user->ID, 'parent_gym', true);
-		
+
 		if($parent_id != ""){
-			$uemail = get_user_by('id', $parent_id)->user_email;					
+			$uemail = get_user_by('id', $parent_id)->user_email;
 		}else{
 			$uemail = $user->user_email;
 		}
 	}elseif(in_array( 'client', $user->roles )){
 		$parent_id = get_user_meta($user->ID, 'parent_trainer', true);
-		
+
 		if($parent_id != ""){
 			$gparent_id = get_user_meta($parent_id, 'parent_gym', true);
 			if($gparent_id != ""){
@@ -240,16 +240,16 @@ function checkUserOrParentStatus($user){
 			}
 		}
 	}
-	
+
 	$query = "SELECT * FROM wp_swpm_members_tbl WHERE email = '" . $uemail . "'";
 	$member = $wpdb->get_results($query, OBJECT);
-	
+
 	if(!empty($member)){
 		if($member[0]->account_state == "active"){
 			return true;
 		}else{
 			return false;
-		}		
+		}
 	}else{
 		return false;
 	}
@@ -257,18 +257,18 @@ function checkUserOrParentStatus($user){
 
 /*GET USER SCHEDULE*/
 function getDaysOfWeek()
-{	
-	$ddate = date('Y-m-d');	
+{
+	$ddate = date('Y-m-d');
 	$date = new DateTime($ddate);
 	$week = $date->format("W");
 	$year = $date->format("Y");
 	$tempArr = array();
-	
+
 	for($day=1; $day<=7; $day++){
-		$tempArr[$day] = date('Y-m-d', strtotime($year."W".$week.$day));		
+		$tempArr[$day] = date('Y-m-d', strtotime($year."W".$week.$day));
 	}
-	
-	return $tempArr;	
+
+	return $tempArr;
 }
 
 function getWeeklySchedule($user)
@@ -276,10 +276,10 @@ function getWeeklySchedule($user)
 	global $wpdb;
 	$day1 = getDaysOfWeek()[1];
 	$day7 = getDaysOfWeek()[7];
-	
+
 	$results_w_day = $wpdb->get_results( "SELECT * FROM workout_day_clients_tbl WHERE workout_clientID = " . $user->ID . " AND workout_client_schedule BETWEEN '". $day1 ."' AND '" . $day7 . "'", OBJECT );
 	$results_w = $wpdb->get_results( "SELECT * FROM workout_tbl", OBJECT );
-		
+
 	return getWOutArr($results_w_day, $results_w);
 }
 function getMonthlySchedule($u)
@@ -289,19 +289,19 @@ function getMonthlySchedule($u)
 	$uid = $u->ID;
 	$wquery = "SELECT * FROM workout_day_clients_tbl WHERE workout_clientID";
 	$results_w = $wpdb->get_results( "SELECT * FROM workout_tbl", OBJECT );
-	
-	
+
+
 	if(in_array('client',$urole)){
-		$results_w_day = $wpdb->get_results( $wquery . "=" . $uid, OBJECT );		
+		$results_w_day = $wpdb->get_results( $wquery . "=" . $uid, OBJECT );
 	}elseif(in_array('trainer',$urole)){
 		$umeta = get_user_meta($uid,'clients_of_trainer',true);
 		$coft = array();
 		if($umeta)
-		$coft = implode(", ", get_user_meta($uid,'clients_of_trainer',true));
-			
-		$results_w_day = $wpdb->get_results( $wquery . " IN (" . $coft . ")", OBJECT );		
+			$coft = implode(", ", get_user_meta($uid,'clients_of_trainer',true));
+
+		$results_w_day = $wpdb->get_results( $wquery . " IN (" . $coft . ")", OBJECT );
 	}
-	
+
 	return getWOutArr($results_w_day, $results_w);
 }
 
@@ -313,88 +313,88 @@ function getWOutArr($results_w_day, $results_w)
 		foreach($results_w as $rw){
 			$wid = $rwd->workout_client_workout_ID;
 			if($wid == $rw->workout_ID){
-				$arrTemp = array();				
+				$arrTemp = array();
 				$dayid = $rwd->workout_client_dayID;
 				$arrTemp['dayid'] = $dayid;
 				$arrTemp['workout_clientid'] = $rwd->workout_clientID;
 				$arrTemp['wid'] = $wid;
-				$arrTemp['wsched'] = date_format(date_create($rwd->workout_client_schedule), 'Y-m-d');				
+				$arrTemp['wsched'] = date_format(date_create($rwd->workout_client_schedule), 'Y-m-d');
 				$rday = $wpdb->get_results( "SELECT * FROM workout_days_tbl WHERE wday_ID = ". $dayid, OBJECT );
 				$arrTemp['wdname'] = $rday[0]->wday_name;
 				$woutArray[] = $arrTemp;
 			}
-		}			
+		}
 	}
-	return $woutArray;	
+	return $woutArray;
 }
 
 function jabs($u)
-{	
+{
 
 	$woutArray = getMonthlySchedule($u);
 	$ctrTemp = 0;
 	$tempArr = array();
 	$caot = array(); //Client Array of Trainer
-	$urole = ""; 	
-	
+	$urole = "";
+
 	if(in_array('client', $u->roles)){
 		$urole = "client";
 	}elseif(in_array('trainer',$u->roles)){
 		$urole = "trainer";
 		$caot = get_user_meta($u->ID,'clients_of_trainer', true);
 	}
-	
-	if(!empty($woutArray)){		
+
+	if(!empty($woutArray)){
 		foreach($woutArray as $wa){
 			$tempArr2 = array();
-			$ctrTemp++;			
+			$ctrTemp++;
 			$daylink = home_url() ."/".$urole."/?data=workout&dayId=".$wa['dayid']."&workoutId=".$wa['wid']."&workout_client_id=".$wa['workout_clientid'];
-			$tempArr2[] = ['wdname' => $wa['wdname'], 'daylink' => $daylink, 'clientid' => $wa['workout_clientid']];			
+			$tempArr2[] = ['wdname' => $wa['wdname'], 'daylink' => $daylink, 'clientid' => $wa['workout_clientid']];
 			$tempArr[$wa['wsched']][$ctrTemp] = $tempArr2;
-		}							
-	}	
-	
+		}
+	}
+
 	echo "<pre>";
 	print_r($tempArr);
 	echo "</pre>";
 }
 
 function getSchedData($u)
-{		
+{
 	$woutArray = getMonthlySchedule($u);
 	$ctrTemp = 0;
 	$tempArr = array();
 	$caot = array(); //Client Array of Trainer
-	$urole = ""; 	
-	
+	$urole = "";
+
 	if(in_array('client', $u->roles)){
 		$urole = "client";
 	}elseif(in_array('trainer',$u->roles)){
 		$urole = "trainer";
 		$caot = get_user_meta($u->ID,'clients_of_trainer', true);
 	}
-	
-	if(!empty($woutArray)){		
+
+	if(!empty($woutArray)){
 		foreach($woutArray as $wa){
 			$tempArr2 = array();
-			$ctrTemp++;			
+			$ctrTemp++;
 			$daylink = home_url() ."/".$urole."/?data=workout&dayId=".$wa['dayid']."&workoutId=".$wa['wid']."&workout_client_id=".$wa['workout_clientid'];
-			$tempArr2[] = ['wdname' => $wa['wdname'], 'daylink' => $daylink];			
+			$tempArr2[] = ['wdname' => $wa['wdname'], 'daylink' => $daylink];
 			$tempArr[$wa['wsched']][$ctrTemp] = $tempArr2;
-		}							
-	}	
-	
+		}
+	}
+
 	return $tempArr;
 }
 
 /*Recursive IN_ARRAY function*/
 function in_array_r($needle, $haystack, $strict = false) {
-    foreach ($haystack as $item) {
-        if (($strict ? $item === $needle : $item == $needle) || (is_array($item) && in_array_r($needle, $item, $strict))) {
-            return true;
-        }
-    }
-    return false;
+	foreach ($haystack as $item) {
+		if (($strict ? $item === $needle : $item == $needle) || (is_array($item) && in_array_r($needle, $item, $strict))) {
+			return true;
+		}
+	}
+	return false;
 }
 
 
@@ -602,7 +602,7 @@ function workOutUpdate($data)
 
 	$workout = stripslashes($workout);
 	$workout = json_decode($workout, true);
-	
+
 	$mWorkoutId = (int) $workout['workout_ID'];
 	$weekDays = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
 
@@ -841,7 +841,7 @@ function workOutUpdate($data)
 					foreach($d['clients'] as $client)
 					{
 						$dNumber = ((int) $client['day_availability']) - 1;
-					//	$scheduleDate = new \Carbon\Carbon($weekDays[$dNumber]);
+						//	$scheduleDate = new \Carbon\Carbon($weekDays[$dNumber]);
 
 						$scheduleDate = new \Carbon\Carbon($client['date_availability']);
 						$clientQuery = "SELECT * FROM workout_day_clients_tbl WHERE workout_client_dayID={$d['wday_ID']} AND workout_client_workout_ID={$workout['workout_ID']} AND workout_clientID={$client['ID']}";
@@ -881,7 +881,7 @@ function workOutUpdate($data)
 
 							$exHashes = implode("','", array_column($client['exercises'], 'hash'));
 							$clientExercisesQuery = "SELECT * FROM workout_exercises_tbl WHERE hash in ('{$exHashes}')";
-						//	dd($clientExercisesQuery);
+							//	dd($clientExercisesQuery);
 							$clientExercisesResult = $wpdb->get_results($clientExercisesQuery, ARRAY_A);
 							//dd($clientExercisesResult);
 							$exIds = implode(",", array_column($clientExercisesResult, 'exer_ID'));
@@ -1012,7 +1012,7 @@ function workOutUpdate($data)
 					foreach($d['clients'] as $client)
 					{
 						$dNumber = ((int) $client['day_availability']) - 1;
-					//	$scheduleDate = new \Carbon\Carbon($weekDays[$dNumber]);
+						//	$scheduleDate = new \Carbon\Carbon($weekDays[$dNumber]);
 						$scheduleDate = new \Carbon\Carbon($client['date_availability']);
 						// insert the new client id
 						$wpdb->insert('workout_day_clients_tbl',
@@ -1080,7 +1080,7 @@ function workOutUpdate($data)
 		}
 	}
 
-return $workout['workout_ID'];
+	return $workout['workout_ID'];
 }
 
 function workOutGetClients()
@@ -1089,7 +1089,7 @@ function workOutGetClients()
 	$querystr = "SELECT * FROM wp_users";
 	$users = $wpdb->get_results($querystr, OBJECT);
 	$outputList = [];
-	
+
 	$listOfClients = getClientsOfTrainer(wp_get_current_user());
 
 	foreach($users as $user) {
@@ -1098,8 +1098,8 @@ function workOutGetClients()
 				if(in_array('client', get_userdata($user->ID)->roles)) {
 					$outputList[] = $user;
 				}
-			}			
-		}		
+			}
+		}
 	}
 
 	return $outputList;
@@ -1115,7 +1115,7 @@ function workoutGetTrainerExercises($userId)
 	{
 		$workouts = $result;
 		$workoutIds = implode(",", array_column($workouts, 'workout_ID'));
-		
+
 		$exercisesQuery = "SELECT * FROM workout_exercises_tbl WHERE exer_workout_ID IN ({$workoutIds})";
 		$exercises = $wpdb->get_results($exercisesQuery, ARRAY_A);
 
@@ -1130,12 +1130,12 @@ function workoutClientsList($workout_ID)
 {
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 	global $wpdb;
-	
+
 	$querystr = 'SELECT * FROM `workout_day_clients_tbl` WHERE workout_client_workout_ID = '.$workout_ID.' GROUP BY workout_clientID';
 	$workout_clients = $wpdb->get_results($querystr, OBJECT);
 
 	return $workout_clients;
-	
+
 }
 
 function workOutUserList($userId)
@@ -1215,7 +1215,7 @@ function workOutGet($workoutId)
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
 	global $wpdb;
-	
+
 	// get workout
 	$querystr = "SELECT * FROM workout_tbl WHERE workout_ID=".$workoutId." LIMIT 1";
 	$result = $wpdb->get_results($querystr, ARRAY_A);
@@ -1278,7 +1278,7 @@ function workOutGet($workoutId)
 		}
 
 		$workout['days'] = $days;
-		
+
 		return $workout;
 	}
 
@@ -1444,14 +1444,13 @@ function wpc_register_wp_api_endpoints() {
 	));
 }
 
-use Intervention\Image\ImageManagerStatic as Image;
 function smUpload()
 {
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/wp-customs/User.php';
 	var_dump($_FILES);
 	/* $u = wp_get_current_user();
 
-	
 	$upload_file = wp_handle_upload($_FILES["myFile"], array('test_form' => false), date('Y/m'));
 	var_dump($upload_file);
 	
@@ -1476,52 +1475,19 @@ function smUpload()
 	$upload_feedback = false;
 	
 	return $attach_id; */
-	
-	/* $image = New ImageMeta; */	
-	
-	
-	$currentDir = getcwd();
-	$uploadDirectory = "\\uploads2\\";
 
-	$errors = []; // Store all foreseen and unforseen errors here
+	/* $image = New ImageMeta; */
 
-	$fileExtensions = ['jpeg','jpg','png']; // Get all the file extensions
+	if (isset($_POST['userId']))
+	{
+		$user = User::find($_POST['userId']);
+		
+		if ($user) {
+			$user->uploadFile($_FILES['myFile']);
 
-	$fileName = $_FILES['myFile']['name'];
-	$fileSize = $_FILES['myFile']['size'];
-	$fileTmpName  = $_FILES['myFile']['tmp_name'];
-	$fileType = $_FILES['myFile']['type'];
-	$fileExtension = strtolower(end(explode('.',$fileName)));
-
-	$uploadPath = $currentDir . $uploadDirectory . basename($fileName);
-
-	echo $uploadPath;
-	echo "\n";
-	//if (isset($_POST['submit'])) {
-
-		if (! in_array($fileExtension,$fileExtensions)) {
-			$errors[] = "This file extension is not allowed. Please upload a JPEG or PNG file";
+			print_r($user->getPhotos());
 		}
-
-		if ($fileSize > 2000000) {
-			$errors[] = "This file is more than 2MB. Sorry, it has to be less than or equal to 2MB";
-		}
-
-		if (empty($errors)) {
-			$didUpload = move_uploaded_file($fileTmpName, $uploadPath);
-
-			if ($didUpload) {
-				echo "The file " . basename($fileName) . " has been uploaded";
-			} else {
-				echo "An error occurred somewhere. Try again or contact the admin";
-			}
-		} else {
-			foreach ($errors as $error) {
-				echo $error . "These are the errors" . "\n";
-			}
-		}
-//	}
-	
+	}
 }
 
 function workoutClientExerciseLogs() {
@@ -1600,7 +1566,7 @@ function workoutCreateClientExerciseLog()
 				$wpdb->update(
 					'workout_client_set_logs',
 					array(
-					//	'reps' 		  => $set['reps'],
+						//	'reps' 		  => $set['reps'],
 						//'isMet' 	  => (int) $set['isMet'] ? true : false,
 						//'isDone'      => $set['isMet'],
 					),
@@ -1615,7 +1581,7 @@ function workoutCreateClientExerciseLog()
 					array(
 						'exercise_log_id' => $exerciseLogId,
 						//'reps' 		  => $set['reps'],
-					//	'isMet' 	  => (int) $set['isMet'] ? true : false,
+						//	'isMet' 	  => (int) $set['isMet'] ? true : false,
 						//'isDone'      => $set['isMet'],
 						'seq'		  => (int) $set['seq'],
 						'client_id'   => $userId
